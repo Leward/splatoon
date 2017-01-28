@@ -1,0 +1,19 @@
+@import "variables";
+
+body {
+  padding-top: 10px;
+  font-size: $font-size-m;
+  font-family: 'Libre Baskerville', sans-serif;
+  color: #333;
+  line-height: 20px;
+  background-color: #eee;
+}
+
+
+h1, h2, h3, h4, h5, h6 {
+  margin-top: 10px;
+}
+
+table {
+  width: 100%;
+}

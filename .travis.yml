@@ -1,0 +1,22 @@
+language: java
+services:
+  - docker
+after_success:
+  - pwd
+  - ls -l build/
+  - ls -l build/libs
+  - docker login -u $DOCKER_USER -p $DOCKER_PASSWORD
+  - export REPO=leward/splatoon
+  - export TAG=`if [ "$TRAVIS_BRANCH" == "master" ]; then echo "latest"; else echo $TRAVIS_BRANCH ; fi`
+  - echo $REPO:$TRAVIS_COMMIT
+  - echo $TAG
+  - echo "docker build -t $REPO:$TRAVIS_COMMIT ."
+  - docker build -t $REPO:$TRAVIS_COMMIT .
+  - echo "docker tag $REPO:$TRAVIS_COMMIT $REPO:$TAG"
+  - docker tag $REPO:$TRAVIS_COMMIT $REPO:$TAG
+  - echo "docker tag $REPO:$TRAVIS_COMMIT $REPO:travis-$TRAVIS_BUILD_NUMBER"
+  - docker tag $REPO:$TRAVIS_COMMIT $REPO:travis-$TRAVIS_BUILD_NUMBER
+  - echo "docker push $REPO:$TAG"
+  - docker push $REPO:$TAG
+  - echo "docker push $REPO:travis-$TRAVIS_BUILD_NUMBER"
+  - docker push $REPO:travis-$TRAVIS_BUILD_NUMBER

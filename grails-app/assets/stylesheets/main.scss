@@ -1,0 +1,73 @@
+@import "neat/neat";
+@import "variables";
+@import "general";
+
+.main-nav {
+  & > ul {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    border-radius: 2px;
+    text-align: center;
+    align-items: center;
+    & > li {
+      font-size: $font-size-l;
+      padding: 5px 0;
+    }
+    .logo {
+      width: 250px;
+    }
+  }
+}
+
+.home-page {
+
+}
+
+.panel {
+  background-color: white;
+  border: 2px solid lightgrey;
+  border-radius: 5px;
+  margin: 10px auto;
+
+  & > .panel-header, & > .panel-body.padded {
+    padding: 0 15px;
+  }
+
+  & > .panel-header {
+    background: #f5f5f5;
+    border-bottom: 1px solid #ddd;
+    border-radius: 3px 3px 0 0;
+    padding-top: 10px;
+    padding-bottom: 10px;
+
+    & > * {
+      margin: 0;
+    }
+  }
+  & > .panel-body {
+    background-color: white;
+  }
+}
+
+.toto-list {
+  list-style: non;
+  margin: 0;
+  padding: 0;
+  > li {
+    list-style: none;
+    padding: 15px 10px;
+  }
+  > li + li { border-top: 1px solid #e8e8e8; }
+}
+
+.next-events {
+  .date {
+    font-weight: bold;
+  }
+  .time, .organizer {
+    color: dimgrey;
+  }
+
+}
