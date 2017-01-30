@@ -1,6 +1,6 @@
 <div class="panel next-events">
     <div class="panel-header">
-        <h3>Organisateurs</h3>
+        <h3><g:link controller="tournamentOrganizer" action="index">Organisateurs</g:link></h3>
     </div>
 
     <div class="panel-body">
