@@ -14,6 +14,68 @@ h1, h2, h3, h4, h5, h6 {
   margin-top: 10px;
 }
 
+footer {
+  margin-top: 30px;
+  border-top: 1px solid rgba(0,0,0,0.2);
+  padding-top: 10px;
+}
+
 table {
   width: 100%;
+  border-collapse: collapse;
+  thead {
+    //background-color: #e4b9b9;
+    td, th {
+      text-align: left;
+    }
+  }
+
+  tbody {
+
+  }
+
+  tr {
+    border: 1px solid #ccc;
+    border-left: 0;
+    border-right: 0;
+
+    td,th {
+      padding: 5px;
+    }
+  }
+}
+
+form {
+  div.fieldcontain {
+    margin-top: 10px;
+  }
+
+  .required-indicator {
+    color: #ff5642;
+  }
+}
+
+fieldset {
+  border: 0;
+}
+
+.scaffold-show {
+  background-color: white;
+  border: 2px solid lightgrey;
+  border-radius: 5px;
+
+  h1 {
+    background: #f5f5f5;
+    border-bottom: 1px solid #ddd;
+    border-radius: 3px 3px 0 0;
+    margin: 0;
+    padding: 10px;
+    font-size: $font-size-l;
+  }
+
+  .property-list {
+    .property-label {
+      font-weight: bold;
+    }
+  }
 }
