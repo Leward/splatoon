@@ -16,7 +16,7 @@ class BootStrap {
             log.debug("Development environment detected: boostrapping with some data.")
             // Create some tournament and events for the ESL organization
             def esl = new TournamentOrganizer(name: "ESL France", website: "https://play.eslgaming.com/france/").save()
-            def tournament = new Tournament(name: "Nintendo Europe 2018", organizer: esl)
+            def tournament = new Tournament(name: "Nintendo Europe 2018", organizer: esl).save()
             def firstTournamentDate = LocalDate.of(2018, Month.JUNE, 1)
             10.times {
                 new TournamentEvent(tournament: tournament, date: firstTournamentDate.plusDays(it), startTime: LocalTime.of(17, 00), endTime: LocalTime.of(20, 00)).save()
