@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/Leward/splatoon.svg?branch=master)](https://travis-ci.org/Leward/splatoon)
+
 ## Docker
 
 Build the image:
