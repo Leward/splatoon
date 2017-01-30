@@ -1,6 +1,7 @@
 <input
-        type="date"
+        type="text"
         id="${property}"
         name="${property}"
         value="${value}"
-        ${(required) ? 'required' : ''}>
+        class="timepicker"
+    ${(required) ? 'required' : ''}>

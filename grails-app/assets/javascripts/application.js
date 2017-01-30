@@ -19,3 +19,13 @@ if (typeof jQuery !== 'undefined') {
         });
     })(jQuery);
 }
+
+function configurejQueryPlugins($) {
+    $('.timepicker').timepicker({
+        timeFormat: 'H:i'
+    });
+}
+
+$(document).ready(function () {
+    configurejQueryPlugins(jQuery);
+});
