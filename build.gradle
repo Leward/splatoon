@@ -66,6 +66,10 @@ springBoot {
     executable = true
 }
 
+jar {
+    baseName = "splatoon"
+}
+
 assets {
     minifyJs = true
     minifyCss = true
