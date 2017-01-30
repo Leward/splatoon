@@ -21,3 +21,9 @@ after_success:
   - echo "docker push $REPO:travis-$TRAVIS_BUILD_NUMBER"
   - docker push $REPO:travis-$TRAVIS_BUILD_NUMBER
   - docker run --rm -it -e CATTLE_ACCESS_KEY=$CATTLE_ACCESS_KEY -e CATTLE_SECRET_KEY=$CATTLE_SECRET_KEY -e CATTLE_URL=$CATTLE_URL etlweather/gaucho upgrade $CATTLE_SERVICE_ID --auto_complete
+before_cache:
+ - rm -f $HOME/.gradle/caches/modules-2/modules-2.lock
+cache:
+ directories:
+ - $HOME/.gradle/caches/
+ - $HOME/.gradle/wrapper/
