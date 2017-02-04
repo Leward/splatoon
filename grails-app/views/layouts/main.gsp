@@ -31,6 +31,7 @@
 
 <footer>
     <ul>
+        <li><g:link mapping="admin">Administration</g:link></li>
         <li><g:link mapping="dev">Dev Info</g:link></li>
         <li><g:link mapping="styleguide">Style Guide</g:link></li>
     </ul>
