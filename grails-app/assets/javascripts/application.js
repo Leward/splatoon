@@ -7,7 +7,7 @@
 //
 //= require jquery-2.2.0.min
 //= require jquery.timepicker
-//= require webshim-1.16.0/polyfiller
+//= require polyfiller
 //= require_self
 
 if (typeof jQuery !== 'undefined') {

@@ -1,5 +1,5 @@
-@import "_extends.scss";
-@import "_api-shim.scss";
+@import "extends";
+@import "api-shim";
 
 .ws-important-hide {
 	display: none !important;
