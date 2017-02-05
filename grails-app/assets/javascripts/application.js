@@ -6,8 +6,8 @@
 // to create separate JavaScript files as needed.
 //
 //= require jquery-2.2.0.min
-//= require bootstrap
-//= require_tree .
+//= require jquery.timepicker
+//= require webshim-1.16.0/polyfiller
 //= require_self
 
 if (typeof jQuery !== 'undefined') {
@@ -29,3 +29,7 @@ function configurejQueryPlugins($) {
 $(document).ready(function () {
     configurejQueryPlugins(jQuery);
 });
+
+// Configure polyfills
+webshims.setOptions('forms-ext', {types: 'date'});
+webshims.polyfill('forms forms-ext');
