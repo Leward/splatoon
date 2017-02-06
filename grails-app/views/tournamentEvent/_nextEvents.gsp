@@ -5,8 +5,10 @@
             <li>
 
                 <header class="date">
-                    <g:formatDate format="EEEE dd MMMM yyyy" date="${DateConversions.asDate(event.date)}"
-                                  locale="fr"/>
+                    <g:link controller="tournamentEvent" action="show" id="${event.id}">
+                        <g:formatDate format="EEEE dd MMMM yyyy" date="${DateConversions.asDate(event.date)}"
+                                      locale="fr"/>
+                    </g:link>
                 </header>
 
                 <div class="time">
