@@ -1,4 +1,19 @@
+@import "neat/neat";
+
+$grid-width: 1150px;
+$body-lateral-padding: 20px; // Body here refers to the <main> tag
+$body-width: $grid-width - $body-lateral-padding;
+
 $font-size-m: 16px;
-$font-size-l:20px;
-$font-size-xl:24px;
-$font-size-xxl:30px;
+$font-size-l: 20px;
+$font-size-xl: 24px;
+$font-size-xxl: 30px;
+
+$title-font-size: 28px;
+
+$color-orange: #FF6347;
+$color-orange-lighter: #ffd3c2;
+$color-orange-darker: #cc4f35;
+
+$smaller-than-mobile: new-breakpoint(max-width 500px 12);
+$smaller-than-narrow-screen: new-breakpoint(max-width 960px 12);

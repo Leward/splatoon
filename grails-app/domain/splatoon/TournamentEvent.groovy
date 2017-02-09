@@ -16,12 +16,16 @@ class TournamentEvent {
 
     static constraints = {
         date(nullable: false)
-        startTime(nullable: false, validator: {startTime, tournamentEvent -> startTime.isBefore(tournamentEvent.endTime)})
+        startTime(nullable: false, validator: { startTime, tournamentEvent -> startTime.isBefore(tournamentEvent.endTime) })
         endTime(nullable: false)
     }
 
-    static List<TournamentEvent> findUpcomingEvents() {
-        return findAllByDateGreaterThanEquals(LocalDate.now())
+    static List<TournamentEvent> findUpcomingEvents(Integer limit = -1) {
+        def queryConfig = [:]
+        if (limit > 0) {
+            queryConfig.max = limit
+        }
+        return findAllByDateGreaterThanEquals(LocalDate.now(), queryConfig)
     }
 
 }

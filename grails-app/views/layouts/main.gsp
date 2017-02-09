@@ -15,19 +15,23 @@
 
 <body>
 
-<nav class="main-nav">
-    <ul>
-        <li>
-            <g:link mapping="index">Splatoon</g:link>
-        </li>
-        <li>Inkipedia</li>
-        <li><img src="${assetPath(src: '/splatoon-logo.svg')}" class="logo"></li>
-        <li>Live Matches</li>
-        <li>Ladder / Ranking</li>
-    </ul>
-</nav>
+<header>
+    <nav>
+        <h1>Splat Portail</h1>
+        <ul>
+            <li>
+                <g:link mapping="index">Splatoon</g:link>
+            </li>
+            <li>Inkipedia</li>
+            <li>Live Matches</li>
+            <li>Ladder / Ranking</li>
+        </ul>
+    </nav>
+</header>
 
-<g:layoutBody/>
+<main>
+    <g:layoutBody/>
+</main>
 
 <footer>
     <ul>
