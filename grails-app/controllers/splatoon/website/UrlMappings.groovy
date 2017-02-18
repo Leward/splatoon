@@ -25,6 +25,8 @@ class UrlMappings {
 
         // Admin routes
         name "admin": "/admin"(view: "/admin")
+        name "admin_tournamentOrganizer_list": "/admin/organisateurs" (controller: "tournamentOrganizer", action: "index")
+        name "admin_tournamentOrganizer_add": "/admin/organisateurs/ajouter" (controller: "tournamentOrganizer", action: "create")
 
         "500"(view:'/error')
         "404"(view:'/notFound')

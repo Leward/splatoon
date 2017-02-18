@@ -1,7 +1,7 @@
 @import "variables";
 
 body {
-  font-size: $font-size-m;
+  font-size: $body-font-size;
   color: #444444;
   background-color: white;
   margin: 0;
@@ -121,7 +121,7 @@ fieldset {
 
 .btn {
   border-radius: 5px;
-  padding: 5px;
+  padding: 8px;
   border:1px solid;
   font-size: 1em;
   &.btn-primary {
@@ -135,4 +135,22 @@ fieldset {
 
 .width-80p {
   width: 80%;
+}
+
+.breadcrumb {
+  font-size: 0; // Trick used to remove space between inline-block elements
+  padding: 10px;
+  border-radius: 5px;
+  background-color: #f0f0f0;
+  border: 1px solid #d3d3d3;
+  list-style: none;
+  > li {
+    font-size: $body-font-size;
+    display: inline-block;
+    & + li:before {
+      content: "/";
+      padding: 0 5px;
+    }
+  }
+  margin: 0 0 15px;
 }

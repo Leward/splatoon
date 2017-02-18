@@ -7,9 +7,12 @@
 </head>
 
 <body>
+
 <nav>
-    <ul>
-        <li><g:link class="list" action="index"><g:message code="default.list.label" args="[entityName]"/></g:link></li>
+    <ul class="breadcrumb">
+        <li><g:link mapping="admin">Administration</g:link></li>
+        <li><g:link mapping="admin_tournamentOrganizer_list">Organisateurs de tournois (TO)</g:link></li>
+        <li>Ajouter</li>
     </ul>
 </nav>
 
