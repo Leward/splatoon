@@ -36,6 +36,8 @@ grails:
       securityConfigType: "InterceptUrlMap"
       logout:
         postOnly: false
+      rejectIfNoRule: false
+      fii.rejectPublicInvocations: false
 
 ---
 grails:
