@@ -11,10 +11,14 @@
 <body>
 
 <div>
-    <g:panel title="Inscription">
+    <g:panel title="Inscription réussie">
         <p>
             Votre inscription est confirmée.
             Vous pouvez maintenant vous connecter.
+        </p>
+
+        <p>
+            Bienvenue sur le Splat Portail !
         </p>
     </g:panel>
 </div>

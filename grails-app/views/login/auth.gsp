@@ -14,13 +14,14 @@
 
     <g:panel title="Connexion" class="login">
 
-        <g:if test='${flash.message}'>
-            <div class="alert alert-danger">
-                <p>${flash.message}
-            </div>
-        </g:if>
-
         <div class="width-80p">
+
+            <g:if test='${flash.message}'>
+                <div class="alert alert-danger">
+                    <p>${flash.message}
+                </div>
+            </g:if>
+
             <form action="${postUrl ?: '/login/authenticate'}" method="POST" class="login">
                 <div>
                     <label for="login_username">Nom d'utilisateur :</label>

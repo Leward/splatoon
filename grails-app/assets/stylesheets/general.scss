@@ -112,8 +112,10 @@ fieldset {
 .alert {
   padding: 0 5px;
   &.alert-danger {
-    border:1px solid #ff8b8b;
-    background-color: #ffb7b9;
+    border:1px solid red;
+    border-radius: 10px;
+    color: red;
+    font-weight: bold;
   }
 }
 
