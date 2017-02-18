@@ -21,7 +21,9 @@
             <g:link mapping="index">Splat Portail</g:link>
         </h1>
         <ul>
-            <li>Inkipedia</li>
+            <li>
+                <g:link url="http://fr.splatoonwiki.org/wiki/Accueil">Inkipedia</g:link>
+            </li>
             <li>Live Matches</li>
             <li>Ladder / Ranking</li>
             <li>
