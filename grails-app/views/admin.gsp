@@ -24,5 +24,13 @@
     </ul>
 </g:panel>
 
+<g:panel title="Utilisateurs">
+    <ul>
+        <li><g:link controller="user" action="index">Utilisateurs</g:link></li>
+        <li>Groupes</li>
+        <li>Rôles</li>
+    </ul>
+</g:panel>
+
 </body>
 </html>
