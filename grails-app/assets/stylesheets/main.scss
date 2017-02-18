@@ -1,5 +1,6 @@
 @import "neat/neat";
 @import "variables";
+//@import "reset";
 @import "general";
 
 body {
@@ -126,6 +127,23 @@ body {
   }
 
   > .news {
+    @include span-columns(6);
+    @include media($smaller-than-mobile) {
+      @include span-columns(12)
+    }
+  }
+}
+
+.registration-page {
+  @include outer-container;
+  > .login {
+    @include span-columns(6);
+    @include media($smaller-than-mobile) {
+      @include span-columns(12)
+    }
+  }
+
+  > .register {
     @include span-columns(6);
     @include media($smaller-than-mobile) {
       @include span-columns(12)

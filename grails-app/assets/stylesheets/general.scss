@@ -60,12 +60,27 @@ table {
 }
 
 form {
-  div.fieldcontain {
-    margin-top: 10px;
+  > div, div.fieldcontain {
+    margin-top: 15px;
+    margin-bottom: 15px;
   }
 
   .required-indicator {
     color: #ff5642;
+  }
+
+  label {
+    display: block;
+    margin-bottom: 5px;
+  }
+
+  input[type=text],input[type=password],input[type=email] {
+    width: 100%;
+    background-color: white;
+    border-radius: 5px;
+    border:1px solid darkgray;
+    padding: 10px;
+    font-size: 1em;
   }
 }
 
@@ -92,4 +107,30 @@ fieldset {
       font-weight: bold;
     }
   }
+}
+
+.alert {
+  padding: 0 5px;
+  &.alert-danger {
+    border:1px solid #ff8b8b;
+    background-color: #ffb7b9;
+  }
+}
+
+.btn {
+  border-radius: 5px;
+  padding: 5px;
+  border:1px solid;
+  font-size: 1em;
+  &.btn-primary {
+    background-color: $color-orange;
+    color: white;
+  }
+  &.full-width {
+    width: 100%;
+  }
+}
+
+.width-80p {
+  width: 80%;
 }

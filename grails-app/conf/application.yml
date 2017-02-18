@@ -26,6 +26,19 @@ endpoints:
 
 ---
 grails:
+  plugin:
+    springsecurity:
+      userLookup:
+        userDomainClassName: 'splatoon.User'
+        authorityJoinClassName: 'splatoon.UserRole'
+      authority:
+        className: 'splatoon.Role'
+      securityConfigType: "InterceptUrlMap"
+      logout:
+        postOnly: false
+
+---
+grails:
     mime:
         disable:
             accept:

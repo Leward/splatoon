@@ -25,6 +25,14 @@
             <li>Inkipedia</li>
             <li>Live Matches</li>
             <li>Ladder / Ranking</li>
+            <li>
+                <sec:ifLoggedIn>
+                    <g:link controller="logout" action="index">Déconnexion</g:link>
+                </sec:ifLoggedIn>
+                <sec:ifNotLoggedIn>
+                    <g:link mapping="login">Connexion</g:link>
+                </sec:ifNotLoggedIn>
+            </li>
         </ul>
     </nav>
 </header>

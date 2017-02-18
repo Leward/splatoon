@@ -33,6 +33,7 @@ if (Environment.isDevelopmentMode() && targetDir != null) {
     }
     logger("StackTrace", ERROR, ['FULL_STACKTRACE'], false)
     logger("splatoon", DEBUG, ['STDOUT'])
+    logger("org.springframework.security", DEBUG, ['STDOUT'])
     root(ERROR, ['STDOUT', 'FULL_STACKTRACE'])
 }
 else {
