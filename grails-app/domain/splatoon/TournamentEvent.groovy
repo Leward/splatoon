@@ -37,7 +37,7 @@ class TournamentEvent {
         if (limit > 0) {
             queryConfig.max = limit
         }
-        return findAllByDateGreaterThanEquals(LocalDate.now(), queryConfig)
+        return findAllByDateGreaterThanEquals(LocalDate.now(ZoneId.of("Europe/Paris")), queryConfig)
     }
 
     boolean isLive() {
