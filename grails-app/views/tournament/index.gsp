@@ -1,28 +1,36 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta name="layout" content="main" />
-        <g:set var="entityName" value="${message(code: 'tournament.label', default: 'Tournament')}" />
-        <title><g:message code="default.list.label" args="[entityName]" /></title>
-    </head>
-    <body>
-        <a href="#list-tournament" class="skip" tabindex="-1"><g:message code="default.link.skip.label" default="Skip to content&hellip;"/></a>
-        <div class="nav" role="navigation">
-            <ul>
-                <li><a class="home" href="${createLink(uri: '/')}"><g:message code="default.home.label"/></a></li>
-                <li><g:link class="create" action="create"><g:message code="default.new.label" args="[entityName]" /></g:link></li>
-            </ul>
-        </div>
-        <div id="list-tournament" class="content scaffold-list" role="main">
-            <h1><g:message code="default.list.label" args="[entityName]" /></h1>
-            <g:if test="${flash.message}">
-                <div class="message" role="status">${flash.message}</div>
-            </g:if>
-            <f:table collection="${tournamentList}" />
+<head>
+    <meta name="layout" content="main"/>
+    <g:set var="entityName" value="${message(code: 'tournament.label', default: 'Tournament')}"/>
+    <title><g:message code="default.list.label" args="[entityName]"/></title>
+</head>
 
-            <div class="pagination">
-                <g:paginate total="${tournamentCount ?: 0}" />
-            </div>
-        </div>
-    </body>
+<body>
+
+<nav>
+    <ul class="breadcrumb">
+        <li><g:link mapping="admin">Administration</g:link></li>
+        <li>Tournois</li>
+    </ul>
+</nav>
+
+<g:panel title="Liste des Tournois">
+    <g:if test="${flash.message}">
+        <div class="message" role="status">${flash.message}</div>
+    </g:if>
+
+    <p>
+        <g:link class="btn btn-primary" mapping="admin_tournament_add">
+            Ajouter un tournoi
+        </g:link>
+    </p>
+
+    <f:table collection="${tournamentList}" properties="['id', 'name', 'organizer']"/>
+
+    <div class="pagination">
+        <g:paginate total="${tournamentCount ?: 0}"/>
+    </div>
+</g:panel>
+</body>
 </html>
