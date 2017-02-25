@@ -15,6 +15,7 @@ class UrlMappings {
         name "index": "/"(view:"/index")
 //        name "registration": "/inscription"(controller: "user", action: "register")
         name "registration_success": "/inscription/confirmation"(view: "/user/register_success")
+        name "tournament_event": "/evenement/$id"(controller: "tournamentEvent", action: "details")
 
         // Spring Security routes
         name "login": "/login/auth"(controller: "login", action: "auth")
@@ -31,7 +32,7 @@ class UrlMappings {
         name "admin_tournament_add": "/admin/tournois/ajouter" (controller: "tournament", action: "create")
         name "admin_tournament_show": "/admin/tournois/$id" (controller: "tournament", action: "show")
         name "admin_tournament_show": "/admin/tournois/$id/modifier" (controller: "tournament", action: "edit")
-        name "admin_tournamentEvent_show": "/admin/tournois/evenemtns/$id" (controller: "tournamentEvent", action: "show")
+        name "admin_tournamentEvent_show": "/admin/tournois/evenements/$id" (controller: "tournamentEvent", action: "show")
 
         "500"(view:'/error')
         "404"(view:'/notFound')

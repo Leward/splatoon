@@ -1,13 +1,24 @@
 package splatoon
 
+import java.time.Instant
 import java.time.LocalDate
 import java.time.LocalTime
+import java.time.ZoneId
+import java.time.ZoneOffset
 import java.time.format.DateTimeFormatter
 
 class TournamentEvent {
 
     LocalDate date
+
+    /**
+     * Start time of the Event in Paris timezone
+     */
     LocalTime startTime
+
+    /**
+     * End time of the Event in Paris timezone
+     */
     LocalTime endTime
 
     static belongsTo = [tournament: Tournament]
@@ -27,6 +38,15 @@ class TournamentEvent {
             queryConfig.max = limit
         }
         return findAllByDateGreaterThanEquals(LocalDate.now(), queryConfig)
+    }
+
+    boolean isLive() {
+        def parisTimeZone = ZoneId.of("Europe/Paris");
+        def todaysDate = LocalDate.now(parisTimeZone)
+        def nowTime = LocalTime.now(parisTimeZone)
+        return todaysDate == date &&
+                startTime.isBefore(nowTime) &&
+                endTime.isAfter(nowTime)
     }
 
     @Override

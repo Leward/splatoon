@@ -13,4 +13,14 @@ class TournamentEventController {
         render(view: "showNextEvents", model: [nextEvents: nextEvents])
     }
 
+    // For general public
+    def details(TournamentEvent tournamentEvent) {
+        respond tournamentEvent
+    }
+
+    // For admin
+    def show(TournamentEvent tournamentEvent) {
+        respond tournamentEvent
+    }
+
 }

@@ -2,13 +2,16 @@
 <g:panel title="Événements à venir" class="next-events">
     <ul class="toto-list">
         <g:each in="${nextEvents}" var="event">
-            <li>
+            <li class="event">
 
                 <header class="date">
-                    <g:link controller="tournamentEvent" action="show" id="${event.id}">
+                    <g:link mapping="tournament_event" id="${event.id}">
                         <g:formatDate format="EEEE dd MMMM yyyy" date="${DateConversions.asDate(event.date)}"
                                       locale="fr"/>
                     </g:link>
+                    <g:if test="${event.isLive()}">
+                        <span class="live">Live</span>
+                    </g:if>
                 </header>
 
                 <div class="time">
