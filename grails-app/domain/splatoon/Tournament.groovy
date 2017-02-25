@@ -6,16 +6,16 @@ class Tournament {
 
     String name
     TournamentOrganizer organizer
-//    LocalDate startDate
-//    LocalDate endDate
+    List<TournamentEvent> events // Enforce a List instead of default Set to keep ordering
+
+    static hasMany = [events: TournamentEvent]
 
     static constraints = {
         organizer(nullable: false)
-//        startDate(
-//                nullable: false,
-//                validator: { startDate, tournamentOrganizer -> startDate.isBefore(endDate) }
-//        )
-//        endDate(nullable: false)
+    }
+
+    static mapping = {
+        events sort: 'date', order: 'asc'
     }
 
     @Override

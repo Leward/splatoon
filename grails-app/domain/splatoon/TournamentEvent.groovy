@@ -2,13 +2,15 @@ package splatoon
 
 import java.time.LocalDate
 import java.time.LocalTime
+import java.time.format.DateTimeFormatter
 
 class TournamentEvent {
 
     LocalDate date
     LocalTime startTime
     LocalTime endTime
-    Tournament tournament
+
+    static belongsTo = [tournament: Tournament]
 
     static mapping = {
         sort(date: "asc", startTime: "asc")
@@ -16,7 +18,6 @@ class TournamentEvent {
 
     static constraints = {
         date(nullable: false)
-        startTime(nullable: false, validator: { startTime, tournamentEvent -> startTime.isBefore(tournamentEvent.endTime) })
         endTime(nullable: false)
     }
 
@@ -26,6 +27,11 @@ class TournamentEvent {
             queryConfig.max = limit
         }
         return findAllByDateGreaterThanEquals(LocalDate.now(), queryConfig)
+    }
+
+    @Override
+    String toString() {
+        return date.format(DateTimeFormatter.ofPattern("EEEE dd MMMM yyyy", Locale.FRANCE))
     }
 
 }
