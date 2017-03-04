@@ -3,7 +3,7 @@
 <html>
 <head>
     <meta name="layout" content="main"/>
-    <title><g:message code="default.show.label" args="[entityName]"/></title>
+    <title>${tournamentEvent.tournament.name}</title>
 </head>
 
 <body>
