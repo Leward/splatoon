@@ -1,5 +1,7 @@
 package splatoon.website
 
+import splatoon.TournamentEvent
+
 class SplatoonTagLib {
     static defaultEncodeAs = [taglib:'none']
     //static encodeAsForTags = [tagName: [taglib:'html'], otherTagName: [taglib:'none']]
@@ -24,5 +26,51 @@ class SplatoonTagLib {
         </div>
         """
         out << '</div>'
+    }
+
+    /**
+     * Renders a challonge widget
+     * @attr url challonge url formatted like: http://sogfr.challonge.com/SplatofGods2
+     */
+    def challonge = { attrs, body ->
+        if(attrs.url != null && !attrs.url.isEmpty()) {
+            out << """
+            <iframe src="${attrs.url}/module"
+            width="100%"
+            height="500"
+            frameborder="0"
+            scrolling="auto"
+            allowtransparency="true">
+            </iframe>
+            """
+        }
+    }
+
+    /**
+     * Renders the stream of a {@link splatoon.TournamentEvent}
+     * @attr event tournament event
+     */
+    def stream = { attrs, body ->
+        def event = (TournamentEvent) attrs.event
+        if(event.isTwitchStream()) {
+            out << """
+            <iframe 
+                src="https://player.twitch.tv/?channel=pokemonvgc_eu" 
+                frameborder="0" 
+                allowfullscreen="true" 
+                scrolling="no" 
+                height="378" 
+                width="620"></iframe>
+            """
+        } else if(event.isYoutubeGamingStream()) {
+            out << """
+            <iframe
+            width="1084"
+            height="610"
+            src="https://gaming.youtube.com/embed/${event.extractYoutubeStreamId()}"
+            frameborder="0" allowfullscreen>
+            """
+        }
+
     }
 }

@@ -22,24 +22,17 @@
     </p>
 </g:panel>
 
-<g:panel title="Résultats">
-    <iframe src="http://clubcashalot.challonge.com/cashalotcupcoupedefrance/module"
-            width="100%"
-            height="500"
-            frameborder="0"
-            scrolling="auto"
-            allowtransparency="true">
-    </iframe>
-</g:panel>
+<g:if test="${tournamentEvent.challongeUrl != null}">
+    <g:panel title="Résultats">
+        <g:challonge url="${tournamentEvent.challongeUrl}" />
+    </g:panel>
+</g:if>
 
+<g:if test="${tournamentEvent.streamUrl != null}">
 <g:panel title="Stream">
-    <iframe
-            width="1084"
-            height="610"
-            src="https://gaming.youtube.com/embed/nAgKdmBcpCs"
-            frameborder="0" allowfullscreen>
-    </iframe>
+    <g:stream event="${tournamentEvent}" />
 </g:panel>
+</g:if>
 
 </body>
 </html>
