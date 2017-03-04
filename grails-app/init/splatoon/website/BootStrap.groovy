@@ -22,6 +22,22 @@ class BootStrap {
                 new TournamentEvent(tournament: tournament, date: firstTournamentDate.plusDays(it), startTime: LocalTime.of(17, 00), endTime: LocalTime.of(20, 00)).save()
             }
             new TournamentOrganizer(name: "Splatoon FR", website: "http://splatoonfr.net").save();
+
+            // SOG
+            def sog = new TournamentOrganizer(name: "SoG", website: "http://societyofgamers.fr/").save()
+            new Tournament(
+                    name: "Splattour of Gods 2 Winer Bracket",
+                    organizer: sog,
+                    events: [
+                            new TournamentEvent(
+                                    date: LocalDate.of(2017, Month.MARCH, 10),
+                                    startTime: LocalTime.of(21, 00),
+                                    endTime: LocalTime.of(23, 59),
+                                    streamUrl: "https://gaming.youtube.com/watch?v=TRo_iSNqNno",
+                                    challongeUrl: "http://sogfr.challonge.com/fr/SplatofGods2"
+                            )
+                    ]
+            ).save()
         }
     }
     def destroy = {
