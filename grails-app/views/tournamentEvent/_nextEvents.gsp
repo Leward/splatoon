@@ -19,10 +19,16 @@
                     à <g:formatDate date="${DateConversions.asDate(event.date, event.endTime)}" format="HH:mm"/>
                 </div>
 
+                <div class="name">
+                    <g:link mapping="tournament_event" id="${event.id}">
+                        ${event.tournament.name}
+                    </g:link>
+                </div>
+
                 <div class="organizer">
                     Organisé par
                     <g:link controller="tournamentEvent" action="show" id="${event.id}">
-                        ${event.tournament.name}
+                        ${event.tournament.organizer.name}
                     </g:link>
                 </div>
             </li>
