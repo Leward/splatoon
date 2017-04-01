@@ -20,7 +20,10 @@ grails.plugin.springsecurity.interceptUrlMap = [
 	[pattern: '/**/js/**',       access: ['permitAll']],
 	[pattern: '/**/css/**',      access: ['permitAll']],
 	[pattern: '/**/images/**',   access: ['permitAll']],
-	[pattern: '/**/favicon.ico', access: ['permitAll']]
+	[pattern: '/**/favicon.ico', access: ['permitAll']],
+
+	[pattern: '/recrutement/annonces/cherche-team/creer', access: ['isAuthenticated()']],
+	[pattern: '/recrutement/annonces/cherche-joueur/creer', access: ['isAuthenticated()']]
 ]
 
 grails.plugin.springsecurity.filterChain.chainMap = [

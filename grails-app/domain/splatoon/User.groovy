@@ -46,4 +46,9 @@ class User {
 	static mapping = {
 		password column: '`password`'
 	}
+
+	@Override
+	String toString() {
+		return username
+	}
 }

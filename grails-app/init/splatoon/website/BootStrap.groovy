@@ -1,18 +1,18 @@
 package splatoon.website
 
 import grails.util.Environment
-import splatoon.Tournament
-import splatoon.TournamentEvent
-import splatoon.TournamentOrganizer
+import splatoon.*
 
+import java.time.Instant
 import java.time.LocalDate
 import java.time.LocalTime
 import java.time.Month
+import java.time.ZoneId
 
 class BootStrap {
 
     def init = { servletContext ->
-        if(Environment.current == Environment.DEVELOPMENT) {
+        if (Environment.current == Environment.DEVELOPMENT) {
             log.debug("Development environment detected: boostrapping with some data.")
             // Create some tournament and events for the ESL organization
             def esl = new TournamentOrganizer(name: "ESL France", website: "https://play.eslgaming.com/france/").save()
@@ -38,6 +38,37 @@ class BootStrap {
                             )
                     ]
             ).save()
+
+            def ayo = new User(
+                    username: "Ayo",
+                    password: 'changeit',
+                    email: 'ayo@splatoon.fr'
+            ).save()
+
+            def oli = new User(
+                    username: "Oli",
+                    password: 'changeit',
+                    email: 'oli@splatoon.fr'
+            ).save()
+
+            def ad1 = RecruitingAd.builder()
+                    .type(AdType.LOOKING_FOR_TEAM_AD)
+                    .title("Recherche une team casual")
+                    .message("Hello")
+                    .author(ayo)
+                    .profileUrl('https://twitter.com/Rising_Moon_Sp/')
+                    .createdAt(Instant.now())
+                    .build()
+                    .save(failOnError: true)
+
+            def ad2 = RecruitingAd.builder()
+                    .type(AdType.LOOKING_FOR_TEAMMATE_AD)
+                    .title("Recherche une team casual")
+                    .message("Salut... ")
+                    .author(oli)
+                    .createdAt(Instant.now())
+                    .build()
+                    .save(failOnError: true)
         }
     }
     def destroy = {

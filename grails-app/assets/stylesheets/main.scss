@@ -1,3 +1,4 @@
+@import "bootstrap-sass/bootstrap";
 @import "neat/neat";
 @import "variables";
 //@import "reset";
@@ -130,19 +131,17 @@ body {
 }
 
 .home-page {
-  @include outer-container;
+  //@extend .row;
   > .next-events {
-    @include span-columns(6);
-    @include media($smaller-than-mobile) {
-      @include span-columns(12)
-    }
+    //@extend .col-sm-6 .col-xs-12;
   }
 
   > .news {
-    @include span-columns(6);
-    @include media($smaller-than-mobile) {
-      @include span-columns(12)
-    }
+    //@extend .col-sm-6 .col-xs-12;
+  }
+
+  > .recruitment {
+    //@extend .col-xs-12;
   }
 }
 

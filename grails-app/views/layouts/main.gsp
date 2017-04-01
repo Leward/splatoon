@@ -24,6 +24,7 @@
             <li>
                 <g:link url="http://fr.splatoonwiki.org/wiki/Accueil">Inkipedia</g:link>
             </li>
+            <li><g:link mapping="recruitment">Recrutements</g:link></li>
             <li>Live Matches</li>
             <li>Ladder / Ranking</li>
             <li>

@@ -1,6 +1,7 @@
 package splatoon.website
 
 import grails.plugin.springsecurity.LoginController
+import splatoon.AdType
 
 class UrlMappings {
 
@@ -16,6 +17,10 @@ class UrlMappings {
 //        name "registration": "/inscription"(controller: "user", action: "register")
         name "registration_success": "/inscription/confirmation"(view: "/user/register_success")
         name "tournament_event": "/evenement/$id"(controller: "tournamentEvent", action: "details")
+        name "recruitment": "/recrutement"(controller: "recruitment", action: "index")
+        name "recruitment_new_teammate_search": "/recrutement/annonces/cherche-joueur/creer"(controller: "recruitment", action: "create_teammate_search_ad")
+        name "recruitment_new_team_search": "/recrutement/annonces/cherche-team/creer"(controller: "recruitment", action: "create_team_search_ad")
+        name "recruitment_show_ad": "/recrutement/annonces/$id"(controller: "recruitment", action: "show")
 
         // Spring Security routes
         name "login": "/login/auth"(controller: "login", action: "auth")
