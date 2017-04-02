@@ -33,7 +33,7 @@ grails:
         authorityJoinClassName: 'splatoon.UserRole'
       authority:
         className: 'splatoon.Role'
-      securityConfigType: "InterceptUrlMap"
+      securityConfigType: "Annotation"
       logout:
         postOnly: false
       rejectIfNoRule: false

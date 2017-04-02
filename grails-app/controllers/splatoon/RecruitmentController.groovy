@@ -19,10 +19,16 @@ class RecruitmentController {
         render(view: "index", model: viewModel)
     }
 
-    def show(RecruitingAd ad) {
-        respond ad
+    def show(RecruitingAd recruitingAd) {
+        def viewModel = [
+                recruitingAd: recruitingAd,
+                adReply: new AdReply(),
+                replies: AdReply.findAllByAd(recruitingAd)
+        ]
+        render(view: "show", model: viewModel)
     }
 
+    @Secured('IS_AUTHENTICATED_FULLY')
     def create_team_search_ad() {
         def ad = new RecruitingAd(params)
         ad.author = springSecurityService.currentUser as User
@@ -36,6 +42,7 @@ class RecruitmentController {
         respond ad
     }
 
+    @Secured('IS_AUTHENTICATED_FULLY')
     def create_teammate_search_ad() {
         def ad = new RecruitingAd(params)
         ad.author = springSecurityService.currentUser as User
@@ -47,5 +54,13 @@ class RecruitmentController {
             }
         }
         respond ad
+    }
+
+    @Secured('IS_AUTHENTICATED_FULLY')
+    def replyToAd(AdReply adReply) {
+        adReply.author = springSecurityService.currentUser as User
+        if(adReply.validate()) {
+            adReply.save()
+        }
     }
 }
