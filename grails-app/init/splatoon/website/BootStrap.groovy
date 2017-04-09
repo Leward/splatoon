@@ -63,7 +63,7 @@ class BootStrap {
 
             def ad2 = RecruitingAd.builder()
                     .type(AdType.LOOKING_FOR_TEAMMATE_AD)
-                    .title("Recherche une team casual")
+                    .title("Recherche joueurs S+ pour team competitive")
                     .message("Salut... ")
                     .author(oli)
                     .createdAt(Instant.now())
