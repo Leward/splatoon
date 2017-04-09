@@ -1,5 +1,6 @@
 package splatoon
 
+import grails.plugin.springsecurity.SpringSecurityService
 import groovy.transform.EqualsAndHashCode
 import groovy.transform.ToString
 
@@ -7,7 +8,7 @@ import groovy.transform.ToString
 @ToString(includes='username', includeNames=true, includePackage=false)
 class User {
 
-	transient springSecurityService
+	transient SpringSecurityService springSecurityService
 
 	String username
 	String password
@@ -47,8 +48,21 @@ class User {
 		password column: '`password`'
 	}
 
+	boolean hasRole(String role) {
+		return authorities.any { it.authority == role }
+	}
+
 	@Override
 	String toString() {
 		return username
+	}
+
+	@Override
+	boolean equals(Object o) {
+		if(o == null || !(o instanceof User)) {
+			return false
+		}
+		def otherUser = o as User
+		return id != null && id == otherUser.id
 	}
 }

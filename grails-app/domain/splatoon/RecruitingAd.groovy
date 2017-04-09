@@ -22,6 +22,8 @@ class RecruitingAd {
         return Date.from(createdAt)
     }
 
+    static hasMany = [AdReply]
+
     static mapping = {
         sort(createdAt: "desc")
     }

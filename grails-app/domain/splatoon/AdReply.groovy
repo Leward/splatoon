@@ -1,8 +1,12 @@
 package splatoon
 
+import grails.plugin.springsecurity.SpringSecurityService
+
 import java.time.Instant
 
 class AdReply {
+
+    transient SpringSecurityService springSecurityService
 
     User author
     String message
@@ -20,7 +24,36 @@ class AdReply {
         createdAt = Instant.now()
     }
 
+    def mergeProperties(AdReply modifiedAdReply, User updatedBy) {
+        if (hasFullControl(updatedBy)) {
+            author = modifiedAdReply.author
+            ad = modifiedAdReply.ad
+            createdAt = modifiedAdReply.createdAt
+        }
+        message = modifiedAdReply.message
+    }
+
     Date getCreatedAtAsDate() {
         return Date.from(createdAt)
+    }
+
+    boolean canEdit(User user) {
+        return user == author
+    }
+
+    boolean canEdit() {
+        canEdit(springSecurityService.currentUser as User)
+    }
+
+    boolean canDelete(User user) {
+        return canEdit(user)
+    }
+
+    boolean canDelete() {
+        canDelete(springSecurityService.currentUser as User)
+    }
+
+    boolean hasFullControl(User user) {
+        return user.hasRole('ROLE_ADMIN')
     }
 }

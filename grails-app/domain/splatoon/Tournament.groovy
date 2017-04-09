@@ -1,7 +1,5 @@
 package splatoon
 
-import java.time.LocalDate
-
 class Tournament {
 
     String name

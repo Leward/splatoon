@@ -35,7 +35,12 @@
 <g:panel title="Discussion">
     <g:each in="${replies}" var="reply">
     <p>${reply.message}</p>
-    <p>Par ${reply.author.username}</p>
+    <p>
+        Par ${reply.author.username}
+        <g:if test="${reply.canEdit()}">
+            - <g:link mapping="recruitment_reply_ad_edit" id="${reply.id}">Modifier</g:link>
+        </g:if>
+    </p>
     </g:each>
 </g:panel>
 

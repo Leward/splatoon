@@ -22,6 +22,7 @@ class UrlMappings {
         name "recruitment_new_team_search": "/recrutement/annonces/cherche-team/creer"(controller: "recruitment", action: "create_team_search_ad")
         name "recruitment_show_ad": "/recrutement/annonces/$id"(controller: "recruitment", action: "show")
         name "recruitment_reply_ad": "/recrutement/annonces/$id/repondre"(controller: 'adReply', action: 'create')
+        name "recruitment_reply_ad_edit": "/recrutement/annonces/responses/$id/modifier"(controller: 'adReply', action: 'edit')
 
         // Spring Security routes
         name "login": "/login/auth"(controller: "login", action: "auth")
