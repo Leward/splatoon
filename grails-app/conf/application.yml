@@ -121,8 +121,12 @@ environments:
             url: jdbc:h2:mem:testDb;MVCC=TRUE;LOCK_TIMEOUT=10000;DB_CLOSE_ON_EXIT=FALSE
     production:
         dataSource:
-            dbCreate: none
-            url: jdbc:h2:./prodDb;MVCC=TRUE;LOCK_TIMEOUT=10000;DB_CLOSE_ON_EXIT=FALSE
+            dbCreate: update
+            url: ${SPLATOON_JDBC_URL:jdbc:mysql://localhost:3306/splatoon}
+            username: splatoon
+            password: ${SPLATOON_DB_PASSWORD:splatoon}
+            driverClassName: com.mysql.jdbc.Driver
+            dialect: org.hibernate.dialect.MySQL5InnoDBDialect
             properties:
                 jmxEnabled: true
                 initialSize: 5
