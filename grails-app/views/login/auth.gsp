@@ -1,4 +1,4 @@
-<%@ page import="splatoon.TournamentOrganizer; splatoon.TournamentEvent" %>
+<%@ page import="splatoon.User; splatoon.TournamentOrganizer; splatoon.TournamentEvent" %>
 <!doctype html>
 <html>
 <head>
@@ -10,7 +10,7 @@
 
 <body>
 
-<div class="registration-page">
+<div class="login-page">
 
     <g:panel title="Connexion" class="login">
 
@@ -50,7 +50,10 @@
         </div>
     </g:panel>
 
-    <g:include controller="user" action="register" />
+    <g:panel title="Pas encore de profil ?" class="register">
+        <g:include view="user/_register_introduction.gsp" />
+        <g:include view="user/_register_form.gsp" model="${[newUser:new User()]}"/>
+    </g:panel>
 
 </div>
 

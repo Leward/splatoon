@@ -145,7 +145,7 @@ body {
   }
 }
 
-.registration-page {
+.login-page {
   @include outer-container;
   > .login {
     @include span-columns(6);

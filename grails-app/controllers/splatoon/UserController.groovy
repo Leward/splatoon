@@ -7,7 +7,6 @@ class UserController {
             def user = new User(params)
             if(user.validate()) {
                 user.save()
-                // TODO: Redirect to a confirmation page
                 redirect(mapping: "registration_success")
             }
             return [newUser: user]

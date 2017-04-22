@@ -1,34 +1,21 @@
-<g:panel title="Pas encore de profil ?" class="register">
+<%@ page import="splatoon.TournamentOrganizer; splatoon.TournamentEvent" %>
+<!doctype html>
+<html>
+<head>
+    <meta name="layout" content="main"/>
+    <title>Inscription</title>
+</head>
 
-    <p>En vous créant un compte, vous pourrez profiter des fonctions du Splat Portail
-    telles que poster des offres et demandes dans l'espace de recrutement.</p>
+<body>
 
-    <g:hasErrors bean="${newUser}">
-        <div class="alert alert-danger">
-            <ul class="errors">
-                <g:eachError bean="${newUser}" var="error">
-                    <li <g:if test="${error in org.springframework.validation.FieldError}">data-field-id="${error.field}"</g:if>>
-                        <g:message error="${error}"/>
-                    </li>
-                </g:eachError>
-            </ul>
-        </div>
-    </g:hasErrors>
+<div class="registration-page">
 
-    <div class="width-80p">
+    <g:panel title="Pas encore de profil ?" class="register">
+        <g:include view="user/_register_introduction.gsp"/>
+        <g:include view="user/_register_form.gsp" model="${[newUser: newUser]}"/>
+    </g:panel>
 
-        <form method="post" action="">
-            <fieldset class="form">
-                <f:with bean="newUser">
-                    <f:field property="username"/>
-                    <f:field property="email"/>
-                    <f:field property="password"/>
-                </f:with>
-            </fieldset>
-            <fieldset class="buttons">
-                <g:submitButton name="create" class="save btn btn-primary full-width" value="Créer mon profil"/>
-            </fieldset>
-        </form>
+</div>
 
-    </div>
-</g:panel>
+</body>
+</html>
