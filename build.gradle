@@ -75,4 +75,5 @@ jar {
 assets {
     minifyJs = true
     minifyCss = true
+    enableGzip = true
 }
