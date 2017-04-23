@@ -11,10 +11,10 @@
 //= require_self
 
 if (typeof jQuery !== 'undefined') {
-    (function($) {
-        $(document).ajaxStart(function() {
+    (function ($) {
+        $(document).ajaxStart(function () {
             $('#spinner').fadeIn();
-        }).ajaxStop(function() {
+        }).ajaxStop(function () {
             $('#spinner').fadeOut();
         });
     })(jQuery);
@@ -26,8 +26,23 @@ function configurejQueryPlugins($) {
     });
 }
 
+function configureCkeditor($) {
+    CKEDITOR.replaceAll(function (textarea, config) {
+        if (!$(textarea).hasClass('ckeditor-simple')) {
+            return false;
+        }
+        config.contentsCss = '/assets/application.css?compile=false';
+        config.toolbar = [
+            ['Bold', 'Italic']
+        ];
+        config.removePlugins = 'elementspath,contextmenu,tabletools';
+        return true;
+    });
+}
+
 $(document).ready(function () {
     configurejQueryPlugins(jQuery);
+    configureCkeditor(jQuery);
 });
 
 // Configure polyfills

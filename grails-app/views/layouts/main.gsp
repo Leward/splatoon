@@ -56,6 +56,7 @@
 </div>
 
 <asset:javascript src="application.js"/>
+<asset:javascript src="ckeditor.js" />
 
 </body>
 </html>
