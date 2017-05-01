@@ -11,43 +11,71 @@
 <body>
 
 <div class="home-page">
-    <div class="row">
-        <div class="next-events col-sm-6 col-xs-12">
-            <g:render template="tournamentEvent/nextEvents"
-                      model="${[nextEvents: TournamentEvent.findUpcomingEvents(6)]}"/>
-        </div>
 
-        <div class="news col-sm-6 col-xs-12">
-            <g:panel title="Les dernières nouvelles">
-                <p>Aucun contenu pour le moment.</p>
-            </g:panel>
+    <div class="streams">
+        <div class="row">
+            <div class="col-sm-6">
+                <div class="twitch-placeholder">
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <p><em>A venir: Splatoon Live TV</em></p>
+            </div>
         </div>
     </div>
+    %{--<div class="row">--}%
+    %{--<div class="next-events col-sm-6 col-xs-12">--}%
+    %{--<g:render template="tournamentEvent/nextEvents"--}%
+    %{--model="${[nextEvents: TournamentEvent.findUpcomingEvents(6)]}"/>--}%
+    %{--</div>--}%
 
-    <div class="recruitment row">
-        <g:panel title="Recrutement" class="col-xs-12">
-            <div class="row">
-                <g:each in="${splatoon.RecruitingAd.findAll()}" var="ad">
-                    <div class="recruitment-ad col-md-3 col-sm-4 col-xs-2">
-                        <h3>
-                            <g:if test="${ad.type == AdType.LOOKING_FOR_TEAM_AD}">
-                                Recrute
-                            </g:if>
-                            <g:if test="${ad.type == AdType.LOOKING_FOR_TEAMMATE_AD}">
-                                Cherche
-                            </g:if>
-                        </h3>
+    %{--<div class="news col-sm-6 col-xs-12">--}%
+    %{--<g:panel title="Les dernières nouvelles">--}%
+    %{--<p>Aucun contenu pour le moment.</p>--}%
+    %{--</g:panel>--}%
+    %{--</div>--}%
+    %{--</div>--}%
 
-                        <p>${ad.title}</p>
+    <div class=" recruitment row">
+        <h2>Recrutements & Candidatures</h2>
 
-                        <p>
-                            Par ${ad.author.username}
-                            le <g:formatDate date="${ad.createdAtAsDate}" dateStyle="SHORT" />
-                        </p>
-                    </div>
-                </g:each>
+        <div class="row">
+            <div class="col-sm-6">
+                <h3>Recherches de joueurs</h3>
+                <ul class="ads">
+                    <g:each in="${RecruitingAd.findAllByType(AdType.LOOKING_FOR_TEAMMATE_AD)}" var="ad">
+                        <li class="ad">
+                            <h4 class="title">${ad.title}</h4>
+
+                            <p class="intro">${ad.message}</p>
+
+                            <div class="read-more">
+                                <g:link mapping="recruitment_show_ad" id="${ad.id}">
+                                    en lire +
+                                </g:link>
+                            </div>
+                        </li>
+                    </g:each>
+                </ul>
             </div>
-        </g:panel>
+
+            <div class="col-sm-6">
+                <h3>Recherches d'equipes</h3>
+                <ul>
+                    <g:each in="${RecruitingAd.findAllByType(AdType.LOOKING_FOR_TEAM_AD)}" var="ad">
+                        <li class="ad">
+                            <h4 class="title">${ad.title}</h4>
+
+                            <p class="intro">${ad.message}</p>
+
+                            <div class="read-more">
+                                <a href="">en lire +</a>
+                            </div>
+                        </li>
+                    </g:each>
+                </ul>
+            </div>
+        </div>
     </div>
 </div>
 

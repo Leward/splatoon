@@ -15,8 +15,30 @@ $title-font-size: 28px;
 $color-orange: #FF6347;
 $color-orange-lighter: #ffd3c2;
 $color-orange-darker: #cc4f35;
+$color-brick-red: #6e1001;
 $color-danger: red;
 $color-info: $color-orange;
+$color-twitch-pruple: #6441a4;
 
 $smaller-than-mobile: new-breakpoint(max-width 500px 12);
 $smaller-than-narrow-screen: new-breakpoint(max-width 960px 12);
+
+// source of the aspect-ratio mixin:
+// https://css-tricks.com/snippets/sass/maintain-aspect-ratio-mixin/
+@mixin aspect-ratio($width, $height) {
+  position: relative;
+  &:before{
+    display: block;
+    content: " ";
+    width: 100%;
+    padding-top: ($height / $width) * 100%;
+  }
+
+  > .content {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+  }
+}

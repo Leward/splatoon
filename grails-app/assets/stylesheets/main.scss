@@ -6,7 +6,7 @@
 
 body {
   > header {
-    background-color: $color-orange;
+    background-color: $color-brick-red;
     color: white;
     margin-bottom: 40px;
 
@@ -77,6 +77,18 @@ body {
       color: $color-orange-lighter;
     }
   }
+
+  > footer {
+    background-color: #303030;
+    padding: 15px;
+    color: whitesmoke;
+    a {
+      color: whitesmoke;
+    }
+    a:hover {
+      color: white;
+    }
+  }
 }
 
 .panel {
@@ -91,7 +103,7 @@ body {
 
   > .panel-header {
     h1, h2, h3 {
-      color: $color-orange;
+      color: $color-brick-red;
       font-size: $title-font-size;
     }
   }
@@ -131,17 +143,50 @@ body {
 }
 
 .home-page {
-  //@extend .row;
+
+  h2 {
+    text-align: right;
+    margin-bottom: 25px;
+  }
+
+  > .streams {
+    .twitch-placeholder {
+      background-image: url("../images/twitch/Twitch_White_RGB.png");
+      background-color: $color-twitch-pruple;
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: 150px;
+      @include aspect-ratio(16,9);
+    }
+  }
+
   > .next-events {
-    //@extend .col-sm-6 .col-xs-12;
   }
 
   > .news {
-    //@extend .col-sm-6 .col-xs-12;
   }
 
   > .recruitment {
-    //@extend .col-xs-12;
+    h2 {
+      color: #0287cf;
+    }
+    h3 {
+      color: $color-brick-red;
+      text-align: center;
+    }
+    ul {
+      list-style: none;
+      padding: 0;
+    }
+    .ad {
+      h4 {
+        color: #0287cf;
+        font-weight: bold;
+      }
+      .read-more {
+        text-align: right;
+      }
+    }
   }
 }
 
