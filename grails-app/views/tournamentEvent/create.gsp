@@ -18,7 +18,7 @@
     <div class="message" role="status">${flash.message}</div>
 </g:if>
 
-<g:panel title="Créer un événement pour un tournoi">
+%{--<g:panel title="Créer un événement pour un tournoi">--}%
 
     <g:hasErrors bean="${this.tournamentEvent}">
         <ul class="errors" role="alert">
@@ -30,13 +30,20 @@
     </g:hasErrors>
     <g:form action="save">
         <fieldset class="form">
-            <f:all bean="tournamentEvent"/>
+            %{-- There is an error when using f:all --}%
+            %{--<f:all bean="tournamentEvent" />--}%
+            <f:field property="tournament" bean="tournamentEvent" />
+            <f:field property="date" bean="tournamentEvent" />
+            <f:field property="startTime" bean="tournamentEvent" />
+            <f:field property="endTime" bean="tournamentEvent" />
+            <f:field property="challongeUrl" bean="tournamentEvent" />
+            <f:field property="streamUrl" bean="tournamentEvent" />
         </fieldset>
         <fieldset class="buttons">
             <g:submitButton name="create" class="save"
                             value="${message(code: 'default.button.create.label', default: 'Create')}"/>
         </fieldset>
     </g:form>
-</g:panel>
+%{--</g:panel>--}%
 </body>
 </html>
