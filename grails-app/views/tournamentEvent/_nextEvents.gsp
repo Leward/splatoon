@@ -1,37 +1,27 @@
 <%@ page import="java.time.format.DateTimeFormatter; splatoon.DateConversions" %>
-<g:panel title="Événements à venir" class="next-events">
-    <ul class="toto-list">
-        <g:each in="${nextEvents}" var="event">
+<ul>
+    <g:each in="${nextEvents}" var="event">
+        <g:link mapping="tournament_event" id="${event.id}">
             <li class="event">
 
-                <header class="date">
-                    <g:link mapping="tournament_event" id="${event.id}">
-                        <g:formatDate format="EEEE dd MMMM yyyy" date="${DateConversions.asDate(event.date)}"
+                <div class="date">
+                    <div class="day">
+                        <g:formatDate format="dd" date="${DateConversions.asDate(event.date)}"
                                       locale="fr"/>
-                    </g:link>
-                    <g:if test="${event.isLive()}">
-                        <span class="live">Live</span>
-                    </g:if>
-                </header>
+                    </div>
 
-                <div class="time">
-                    De <g:formatDate date="${DateConversions.asDate(event.date, event.startTime)}" format="HH:mm"/>
-                    à <g:formatDate date="${DateConversions.asDate(event.date, event.endTime)}" format="HH:mm"/>
+                    <div class="month">
+                        <g:formatDate format="MMMM" date="${DateConversions.asDate(event.date)}"
+                                      locale="fr"/>
+                    </div>
                 </div>
 
-                <div class="name">
-                    <g:link mapping="tournament_event" id="${event.id}">
-                        ${event.tournament.name}
-                    </g:link>
-                </div>
+                <div class="content">
+                    <div class="name">${event.tournament.name}</div>
 
-                <div class="organizer">
-                    Organisé par
-                    <g:link controller="tournamentEvent" action="show" id="${event.id}">
-                        ${event.tournament.organizer.name}
-                    </g:link>
+                    <div class="organizer">${event.tournament.organizer.name}</div>
                 </div>
             </li>
-        </g:each>
-    </ul>
-</g:panel>
+        </g:link>
+    </g:each>
+</ul>

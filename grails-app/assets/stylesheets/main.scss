@@ -8,7 +8,6 @@ body {
   > header {
     background-color: $color-brick-red;
     color: white;
-    margin-bottom: 40px;
 
     > nav {
       height: 57px;
@@ -122,14 +121,70 @@ body {
   }
 }
 
-.next-events {
-  .date {
-    font-weight: bold;
-  }
-  .time, .organizer {
-    color: dimgrey;
+.flex-container {
+  display: flex;
+  flex-direction: row;
+
+  > nav.next-events {
+    background-color: #7e7e7e;
+    color: white;
+    width: 325px;
+    ul {
+      padding: 0;
+      list-style: none;
+    }
+
+    a {
+      color: white;
+      &:hover {
+        text-decoration: none;
+        .event {
+          background-color: #6e6e6e;
+        }
+      }
+    }
+
+    .event {
+      padding: 0 10px;
+      display: flex;
+      align-items: center;
+      height: 80px;
+
+      &:not(:first-child) {
+        border-top: 1px solid #b9b9b8;
+      }
+      &:not(:last-child) {
+        border-bottom: 1px solid #666667;
+      }
+
+      .date {
+        .day {
+          font-weight: bold;
+          font-size: xx-large;
+        }
+        .month {
+          margin-top: -10px;
+        }
+      }
+      .content {
+        padding-left: 15px;
+        text-transform: uppercase;
+        .name {
+          font-weight: bold;
+        }
+        .organizer {
+          color: #cacaca;
+          margin-top: -5px;
+        }
+      }
+    }
+
   }
 
+  > main {
+    padding-top: 40px;
+    padding-bottom: 30px;
+  }
 }
 
 .event {

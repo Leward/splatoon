@@ -1,3 +1,4 @@
+<%@ page import="splatoon.TournamentEvent" %>
 <!doctype html>
 <html lang="en" class="no-js">
 <head>
@@ -39,9 +40,17 @@
     </nav>
 </header>
 
-<main>
-    <g:layoutBody/>
-</main>
+<div class="flex-container">
+    <nav class="next-events">
+        <g:render template="/tournamentEvent/nextEvents"
+                  model="${[nextEvents: TournamentEvent.findUpcomingEvents(6)]}"/>
+    </nav>
+    <main>
+        <div class="container-fluid">
+            <g:layoutBody/>
+        </div>
+    </main>
+</div>
 
 <footer>
     <ul>
