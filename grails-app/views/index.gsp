@@ -69,7 +69,9 @@
                             <p class="intro">${ad.message}</p>
 
                             <div class="read-more">
-                                <a href="">en lire +</a>
+                                <g:link mapping="recruitment_show_ad" id="${ad.id}">
+                                    en lire +
+                                </g:link>
                             </div>
                         </li>
                     </g:each>
