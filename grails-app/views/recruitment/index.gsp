@@ -14,7 +14,7 @@
 </g:panel>
 
 <div class="row">
-    <g:panel title="Ils recherche une team" class="col-sm-6">
+    <g:panel title="Ils recherchent une team" class="col-sm-6">
         <g:each in="${searchTeamAds}" var="ad">
             <p><g:link mapping="recruitment_show_ad" id="${ad.id}">${ad.title}</g:link></p>
         </g:each>
