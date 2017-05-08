@@ -20,6 +20,8 @@ class AdReply {
         createdAt(nullable: true)
     }
 
+    static mappedBy = [ad: "replies"]
+
     def beforeInsert() {
         createdAt = Instant.now()
     }

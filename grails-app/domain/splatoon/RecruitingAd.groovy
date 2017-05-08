@@ -22,9 +22,10 @@ class RecruitingAd {
         return Date.from(createdAt)
     }
 
-    static hasMany = [AdReply]
+    static hasMany = [replies: AdReply]
 
     static mapping = {
+        message(type: 'text')
         sort(createdAt: "desc")
     }
 
