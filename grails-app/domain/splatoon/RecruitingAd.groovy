@@ -22,6 +22,10 @@ class RecruitingAd {
         return Date.from(createdAt)
     }
 
+    String getShortMessage() {
+        return HtmlStringUtils.truncateHtml(message, 50)
+    }
+
     static hasMany = [replies: AdReply]
 
     static mapping = {
