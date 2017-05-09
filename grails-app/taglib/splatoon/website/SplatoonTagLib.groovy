@@ -1,9 +1,12 @@
 package splatoon.website
 
+import org.owasp.html.HtmlPolicyBuilder
+import org.owasp.html.PolicyFactory
+import org.owasp.html.Sanitizers
 import splatoon.TournamentEvent
 
 class SplatoonTagLib {
-    static defaultEncodeAs = [taglib:'none']
+    static defaultEncodeAs = [taglib: 'none']
     //static encodeAsForTags = [tagName: [taglib:'html'], otherTagName: [taglib:'none']]
 
     /**
@@ -15,7 +18,7 @@ class SplatoonTagLib {
      */
     def panel = { attrs, body ->
         out << """<div class="panel ${attrs.class}">"""
-        if(attrs.title != null && !attrs.title.isEmpty()) {
+        if (attrs.title != null && !attrs.title.isEmpty()) {
             out << """<div class="panel-header">
             <h3>${attrs.title}</h3>
             </div>"""
@@ -33,7 +36,7 @@ class SplatoonTagLib {
      * @attr url challonge url formatted like: http://sogfr.challonge.com/SplatofGods2
      */
     def challonge = { attrs, body ->
-        if(attrs.url != null && !attrs.url.isEmpty()) {
+        if (attrs.url != null && !attrs.url.isEmpty()) {
             out << """
             <iframe src="${attrs.url}/module"
             width="100%"
@@ -52,7 +55,7 @@ class SplatoonTagLib {
      */
     def stream = { attrs, body ->
         def event = (TournamentEvent) attrs.event
-        if(event.isTwitchStream()) {
+        if (event.isTwitchStream()) {
             out << """
             <iframe 
                 src="https://player.twitch.tv/?channel=pokemonvgc_eu" 
@@ -62,7 +65,7 @@ class SplatoonTagLib {
                 height="378" 
                 width="620"></iframe>
             """
-        } else if(event.isYoutubeGamingStream()) {
+        } else if (event.isYoutubeGamingStream()) {
             out << """
             <iframe
             width="1084"
@@ -72,5 +75,39 @@ class SplatoonTagLib {
             """
         }
 
+    }
+
+    /**
+     * Print safe HTML code
+     * @attr code HTML Code to be sanitized then printed
+     */
+    def html = { attrs, body ->
+        def policy = Sanitizers.BLOCKS
+                .and(Sanitizers.FORMATTING)
+                .and(Sanitizers.LINKS)
+                .and(new HtmlPolicyBuilder()
+                .toFactory())
+        out << policy.sanitize(attrs.code)
+    }
+
+    /**
+     * Print safe HTML code for an
+     * @attr code HTML Code to be sanitized then printed
+     * @attr strict if true does not allow formatting, blocks, images, etc.
+     */
+    def excerptHtml = { attrs, body ->
+        PolicyFactory policy
+        if(attrs.strict || attrs.strict == 'true') {
+            policy = Sanitizers.FORMATTING
+                    .and(new HtmlPolicyBuilder()
+                    .toFactory())
+        } else {
+            policy = Sanitizers.BLOCKS
+                    .and(Sanitizers.FORMATTING)
+                    .and(Sanitizers.LINKS)
+                    .and(new HtmlPolicyBuilder()
+                    .toFactory())
+        }
+        out << policy.sanitize(attrs.code)
     }
 }

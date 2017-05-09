@@ -18,7 +18,7 @@
 <g:panel title="Annonce : ${head}">
     <h3>${recruitingAd.title}</h3>
 
-    <p>${recruitingAd.message}</p>
+    <g:html code="${recruitingAd.message}"/>
 
     <p><g:if test="${recruitingAd.profileUrl}">
         Profile : <g:link url="${recruitingAd.profileUrl}">
@@ -34,13 +34,16 @@
 
 <g:panel title="Discussion">
     <g:each in="${replies}" var="reply">
-    <p>${reply.message}</p>
-    <p>
-        Par ${reply.author.username}
-        <g:if test="${reply.canEdit()}">
-            - <g:link mapping="recruitment_reply_ad_edit" id="${reply.id}">Modifier</g:link>
-        </g:if>
-    </p>
+        <div>
+            <g:html code="${reply.message}"/>
+        </div>
+        </div>
+        <p>
+            Par ${reply.author.username}
+            <g:if test="${reply.canEdit()}">
+                - <g:link mapping="recruitment_reply_ad_edit" id="${reply.id}">Modifier</g:link>
+            </g:if>
+        </p>
     </g:each>
 </g:panel>
 

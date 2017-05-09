@@ -66,7 +66,9 @@
                         <li class="ad">
                             <h4 class="title">${ad.title}</h4>
 
-                            <p class="intro">${raw(ad.shortMessage)}</p>
+                            <p class="intro">
+                                <g:excerptHtml code="${ad.shortMessage}" strict="true" />
+                            </p>
 
                             <div class="read-more">
                                 <g:link mapping="recruitment_show_ad" id="${ad.id}">
