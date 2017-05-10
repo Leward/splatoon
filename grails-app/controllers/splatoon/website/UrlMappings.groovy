@@ -40,6 +40,11 @@ class UrlMappings {
         name "admin_tournament_show": "/admin/tournois/$id" (controller: "tournament", action: "show")
         name "admin_tournament_show": "/admin/tournois/$id/modifier" (controller: "tournament", action: "edit")
         name "admin_tournamentEvent_show": "/admin/tournois/evenements/$id" (controller: "tournamentEvent", action: "show")
+        name "admin_news": "/admin/news" (controller: 'news', action: 'admin_index')
+        name "admin_news_create": "/admin/news/creer" (controller: 'news', action: 'admin_create')
+        name "admin_news_show": "/admin/news/$id" (controller: 'news', action: 'admin_show')
+        name "admin_news_edit": "/admin/news/$id/modifier" (controller: 'news', action: 'admin_update')
+        name "admin_news_delete": "/admin/news/$id/supprimer" (controller: 'news', action: 'admin_delete')
 
         "500"(view:'/error')
         "404"(view:'/notFound')

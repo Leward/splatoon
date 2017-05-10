@@ -18,6 +18,7 @@
                 <div class="twitch-placeholder">
                 </div>
             </div>
+
             <div class="col-sm-6">
                 <p><em>A venir: Splatoon Live TV</em></p>
             </div>
@@ -35,6 +36,11 @@
     %{--</g:panel>--}%
     %{--</div>--}%
     %{--</div>--}%
+
+    <div class="featured-news">
+        <h2>A la Une</h2>
+        <g:render template="/news/latest_news"/>
+    </div>
 
     <div class=" recruitment row">
         <h2>Recrutements & Candidatures</h2>
@@ -67,7 +73,7 @@
                             <h4 class="title">${ad.title}</h4>
 
                             <p class="intro">
-                                <g:excerptHtml code="${ad.shortMessage}" strict="true" />
+                                <g:excerptHtml code="${ad.shortMessage}" strict="true"/>
                             </p>
 
                             <div class="read-more">

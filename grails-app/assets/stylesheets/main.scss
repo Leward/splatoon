@@ -222,6 +222,13 @@ body {
   > .news {
   }
 
+  .latest-news {
+    ul {
+      list-style: none;
+      padding: 0;
+    }
+  }
+
   > .recruitment {
     h2 {
       color: #0287cf;

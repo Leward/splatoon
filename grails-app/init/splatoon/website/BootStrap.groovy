@@ -8,6 +8,7 @@ import java.time.LocalDate
 import java.time.LocalTime
 import java.time.Month
 import java.time.ZoneId
+import java.time.temporal.ChronoUnit
 
 class BootStrap {
 
@@ -69,6 +70,24 @@ class BootStrap {
                     .createdAt(Instant.now())
                     .build()
                     .save(failOnError: true)
+
+            def news1 = new News(
+                    title: "News de test 1",
+                    content: "<p>Content of the news</p>",
+                    date: Instant.now().minus(2, ChronoUnit.DAYS)
+            ).save(failOnError: true)
+
+            def news2 = new News(
+                    title: "News de test 2",
+                    content: "<p>Content of the news</p>",
+                    date: Instant.now()
+            ).save(failOnError: true)
+
+            def news3 = new News(
+                    title: "News de test 3",
+                    content: "<p>Content of the news</p>",
+                    date: Instant.now()
+            ).save(failOnError: true)
         }
     }
     def destroy = {
