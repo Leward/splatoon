@@ -27,17 +27,19 @@ endpoints:
 ---
 grails:
   plugin:
-    springsecurity:
-      userLookup:
-        userDomainClassName: 'splatoon.User'
-        authorityJoinClassName: 'splatoon.UserRole'
-      authority:
-        className: 'splatoon.Role'
-      securityConfigType: "Annotation"
-      logout:
-        postOnly: false
-      rejectIfNoRule: false
-      fii.rejectPublicInvocations: false
+      awssdk:
+          region: eu-central-1
+      springsecurity:
+          userLookup:
+              userDomainClassName: 'splatoon.User'
+              authorityJoinClassName: 'splatoon.UserRole'
+          authority:
+              className: 'splatoon.Role'
+          securityConfigType: "Annotation"
+          logout:
+              postOnly: false
+          rejectIfNoRule: false
+          fii.rejectPublicInvocations: false
 
 ---
 grails:
@@ -78,6 +80,9 @@ grails:
             maxsize: 1000
     controllers:
         defaultScope: singleton
+        upload:
+            maxFileSize: 10000000
+            maxRequestSize: 10000000
     converters:
         encoding: UTF-8
     views:

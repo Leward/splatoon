@@ -31,3 +31,11 @@ docker container run -d \
   --name splatoon-db \
   mysql:5.7;
 ```
+
+## Uploaded files
+
+Uploaded files are stored on AWS S3.
+ 
+To have the upload feature to work, sepcify the following environment variables: 
+* AWS_ACCESS_KEY_ID
+* AWS_SECRET_KEY

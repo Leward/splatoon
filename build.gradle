@@ -24,6 +24,7 @@ apply plugin:"asset-pipeline"
 repositories {
     mavenLocal()
     maven { url "https://repo.grails.org/grails/core" }
+    maven { url 'http://dl.bintray.com/agorapulse/libs' }
 }
 
 dependencyManagement {
@@ -49,6 +50,7 @@ dependencies {
     console "org.grails:grails-console"
     compile 'org.grails.plugins:spring-security-core:3.1.1'
     compile 'com.googlecode.owasp-java-html-sanitizer:owasp-java-html-sanitizer:20170411.1'
+    compile 'org.grails.plugins:aws-sdk-s3:2.1.5'
     profile "org.grails.profiles:web"
     runtime "com.bertramlabs.plugins:asset-pipeline-grails:2.11.6"
     runtime "com.bertramlabs.plugins:sass-asset-pipeline:2.13.2"

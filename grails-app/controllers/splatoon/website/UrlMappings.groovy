@@ -1,8 +1,5 @@
 package splatoon.website
 
-import grails.plugin.springsecurity.LoginController
-import splatoon.AdType
-
 class UrlMappings {
 
     static mappings = {
@@ -45,6 +42,9 @@ class UrlMappings {
         name "admin_news_show": "/admin/news/$id" (controller: 'news', action: 'admin_show')
         name "admin_news_edit": "/admin/news/$id/modifier" (controller: 'news', action: 'admin_update')
         name "admin_news_delete": "/admin/news/$id/supprimer" (controller: 'news', action: 'admin_delete')
+
+        // Others
+        name 'upload': '/upload' (controller: 'upload', action: 'index')
 
         "500"(view:'/error')
         "404"(view:'/notFound')

@@ -28,14 +28,22 @@ function configurejQueryPlugins($) {
 
 function configureCkeditor($) {
     CKEDITOR.replaceAll(function (textarea, config) {
-        if (!$(textarea).hasClass('ckeditor-simple')) {
+        var isCkeditorSimple = $(textarea).hasClass('ckeditor-simple');
+        var isCkeditorFull = $(textarea).hasClass('ckeditor-full');
+        if (!isCkeditorSimple && !isCkeditorFull) {
             return false;
         }
+
         config.contentsCss = '/assets/application.css?compile=false';
-        config.toolbar = [
-            ['Bold', 'Italic']
-        ];
-        config.removePlugins = 'elementspath,contextmenu,tabletools';
+        if(isCkeditorSimple) {
+            config.toolbar = [
+                ['Bold', 'Italic']
+            ];
+            config.removePlugins = 'elementspath,contextmenu,tabletools';
+        } else if(isCkeditorFull) {
+            config.extraPlugins = 'uploadimage';
+            config.uploadUrl = '/upload'
+        }
         return true;
     });
 }
