@@ -1,9 +1,11 @@
 package splatoon
 
 import grails.plugin.springsecurity.SpringSecurityService
+import groovy.transform.builder.Builder
 
 import java.time.Instant
 
+@Builder
 class AdReply {
 
     transient SpringSecurityService springSecurityService

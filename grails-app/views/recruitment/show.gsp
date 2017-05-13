@@ -8,6 +8,7 @@
 
 <body>
 
+<div class="row">
 <g:if test="${recruitingAd.type == splatoon.AdType.LOOKING_FOR_TEAM_AD}">
     <g:set var="head" value="${recruitingAd.author.username} cherche une equipe"/>
 </g:if>
@@ -71,6 +72,8 @@
         </g:form>
     </g:panel>
 </sec:ifLoggedIn>
+
+</div>
 
 </body>
 </html>

@@ -62,6 +62,20 @@ class BootStrap {
                     .build()
                     .save(failOnError: true)
 
+            def ad1Reply1 = new AdReply(
+                    ad: ad1,
+                    author: oli,
+                    message: '<p>Personne ?<p>',
+                    createdAt: Instant.now()
+            ).save(failOnError: true)
+
+            def ad1Reply2 = new AdReply(
+                    ad: ad1,
+                    author: ayo,
+                    message: '<p>No arnaque, no noob !<p>',
+                    createdAt: Instant.now()
+            ).save(failOnError: true)
+
             def ad2 = RecruitingAd.builder()
                     .type(AdType.LOOKING_FOR_TEAMMATE_AD)
                     .title("Recherche joueurs S+ pour team competitive")

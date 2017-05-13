@@ -28,6 +28,8 @@ class RecruitingAd {
 
     static hasMany = [replies: AdReply]
 
+    static mappedBy = [ad: AdReply]
+
     static mapping = {
         message(type: 'text')
         sort(createdAt: "desc")
