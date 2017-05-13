@@ -85,6 +85,7 @@ class SplatoonTagLib {
         def policy = Sanitizers.BLOCKS
                 .and(Sanitizers.FORMATTING)
                 .and(Sanitizers.LINKS)
+                .and(Sanitizers.IMAGES)
                 .and(new HtmlPolicyBuilder()
                 .toFactory())
         out << policy.sanitize(attrs.code)
