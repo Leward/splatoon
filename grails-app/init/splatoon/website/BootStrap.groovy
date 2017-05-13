@@ -92,6 +92,12 @@ class BootStrap {
                     """,
                     date: Instant.now()
             ).save(failOnError: true)
+
+            def news4 = new News(
+                    title: "News de test 4",
+                    content: "<p>Content of the news</p>",
+                    date: Instant.now()
+            ).save(failOnError: true)
         }
     }
     def destroy = {

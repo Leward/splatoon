@@ -185,3 +185,9 @@ ol.property-list {
 .uppercase {
   text-transform: uppercase;
 }
+
+// Workaround from: http://stackoverflow.com/a/22892773/1566809
+.row.equal {
+  display: flex;
+  flex-wrap: wrap;
+}
