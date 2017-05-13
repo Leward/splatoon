@@ -15,6 +15,10 @@ class News {
         date = Instant.now()
     }
 
+    Date getDateAsDateType() {
+        return Date.from(date)
+    }
+
     static constraints = {
         title blank: false
         content blank: false

@@ -84,8 +84,12 @@ class BootStrap {
             ).save(failOnError: true)
 
             def news3 = new News(
-                    title: "News de test 3",
-                    content: "<p>Content of the news</p>",
+                    title: "Des nouveautes concernant la creation de personnages",
+                    content: """
+                        <p style="text-align:center"><img src="https://s3-eu-central-1.amazonaws.com/splatoon/0be69296-2b43-4c19-8d2e-b567df7f5fdb-image.png" style="height:191px; width:310px" /></p>
+                        <p style="text-align:center">&nbsp;</p>
+                        <p>Pas mal de nouveautes sont a venir sur Splatoon. Aujourd&#39;hui nous nous interessons a la creation de personnages...&nbsp;</p>
+                    """,
                     date: Instant.now()
             ).save(failOnError: true)
         }

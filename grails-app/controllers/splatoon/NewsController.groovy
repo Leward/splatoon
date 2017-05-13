@@ -4,6 +4,10 @@ import grails.transaction.Transactional
 
 class NewsController {
 
+    def show(News news) {
+        render(view: 'show', model: [news:news])
+    }
+
     def admin_index() {
         render(view: "admin_index", model: [
                 newsList: News.findAll(sort: 'date', order: 'desc')
