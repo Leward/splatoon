@@ -1,5 +1,8 @@
 package splatoon.website
 
+import com.fasterxml.jackson.core.JsonProcessingException
+import com.mashape.unirest.http.ObjectMapper
+import com.mashape.unirest.http.Unirest
 import grails.util.Environment
 import splatoon.*
 
@@ -7,12 +10,33 @@ import java.time.Instant
 import java.time.LocalDate
 import java.time.LocalTime
 import java.time.Month
-import java.time.ZoneId
 import java.time.temporal.ChronoUnit
 
 class BootStrap {
 
     def init = { servletContext ->
+
+        Unirest.setObjectMapper(new ObjectMapper() {
+            private com.fasterxml.jackson.databind.ObjectMapper jacksonObjectMapper = new com.fasterxml.jackson.databind.ObjectMapper();
+
+            def <T> T readValue(String value, Class<T> valueType) {
+                try {
+                    return jacksonObjectMapper.readValue(value, valueType);
+                } catch (IOException e) {
+                    throw new RuntimeException(e);
+                }
+            }
+
+            String writeValue(Object value) {
+                try {
+                    return jacksonObjectMapper.writeValueAsString(value);
+                } catch (JsonProcessingException e) {
+                    throw new RuntimeException(e);
+                }
+            }
+        });
+
+
         if (Environment.current == Environment.DEVELOPMENT) {
             log.debug("Development environment detected: boostrapping with some data.")
             // Create some tournament and events for the ESL organization

@@ -10,7 +10,7 @@ class UrlMappings {
         }
 
         // Regular routes
-        name "index": "/"(view:"/index")
+        name "index": "/"(controller: 'home', action: 'index')
         name "registration": "/inscription"(controller: "user", action: "register")
         name "registration_success": "/inscription/confirmation"(view: "/user/register_success")
         name "tournament_event": "/evenement/$id"(controller: "tournamentEvent", action: "details")

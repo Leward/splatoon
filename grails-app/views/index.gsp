@@ -15,12 +15,30 @@
     <div class="streams">
         <div class="row">
             <div class="col-sm-6">
-                <div class="twitch-placeholder">
-                </div>
+                <g:if test="${streams.size() == 0}">
+                    <div class="twitch-placeholder">
+                    </div>
+                </g:if>
+                <g:if test="${streams.size() > 0}">
+                    <div class="twitch-stream">
+                        <iframe src="https://player.twitch.tv/?autoplay=false&channel=${streams[0].channelName}"
+                                frameborder="0"
+                                allowfullscreen="true"
+                                scrolling="no"></iframe>
+                    </div>
+                </g:if>
+
+
+            </iframe>
             </div>
 
             <div class="col-sm-6">
-                <p><em>A venir: Splatoon Live TV</em></p>
+                <p>Live Streams: </p>
+                <ul>
+                    <g:each in="${streams}" var="stream">
+                        <li>${stream.channelName}</li>
+                    </g:each>
+                </ul>
             </div>
         </div>
     </div>
