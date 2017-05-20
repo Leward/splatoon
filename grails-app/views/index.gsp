@@ -21,7 +21,9 @@
                 </g:if>
                 <g:if test="${streams.size() > 0}">
                     <div class="twitch-stream">
-                        <iframe src="https://player.twitch.tv/?autoplay=false&channel=${streams[0].channelName}"
+                        <iframe src="/twitch_placeholder"
+                                id="twitch"
+                                name="twitch"
                                 frameborder="0"
                                 allowfullscreen="true"
                                 scrolling="no"></iframe>
@@ -33,10 +35,14 @@
             </div>
 
             <div class="col-sm-6">
-                <p>Live Streams: </p>
+                <p>Live Streams:</p>
                 <ul>
                     <g:each in="${streams}" var="stream">
-                        <li>${stream.channelName}</li>
+                        <li class="stream-switch" data-channel-name="${stream.channelName}">
+                            <a href="https://player.twitch.tv/?autoplay=true&channel=${stream.channelName}" target="twitch">
+                                ${stream.channelName}
+                            </a>
+                        </li>
                     </g:each>
                 </ul>
             </div>

@@ -194,6 +194,14 @@ body {
   }
 }
 
+.twitch-placeholder {
+  background-image: url("../images/twitch/Twitch_White_RGB.png");
+  background-color: $color-twitch-pruple;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 150px;
+}
+
 .home-page {
 
   h2 {
@@ -202,14 +210,6 @@ body {
   }
 
   > .streams {
-    .twitch-placeholder {
-      background-image: url("../images/twitch/Twitch_White_RGB.png");
-      background-color: $color-twitch-pruple;
-      background-repeat: no-repeat;
-      background-position: center;
-      background-size: 150px;
-      @include aspect-ratio(16,9);
-    }
     .twitch-stream {
       width: 100%;
       @include aspect-ratio(16,9);

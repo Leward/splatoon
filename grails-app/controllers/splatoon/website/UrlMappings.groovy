@@ -46,6 +46,7 @@ class UrlMappings {
 
         // Others
         name 'upload': '/upload' (controller: 'upload', action: 'index')
+        name 'twitch_placeholder': '/twitch_placeholder' (view: '/twitch_placeholder')
 
         "500"(view:'/error')
         "404"(view:'/notFound')
