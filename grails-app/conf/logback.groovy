@@ -37,5 +37,5 @@ if (Environment.isDevelopmentMode() && targetDir != null) {
     root(INFO, ['STDOUT', 'FULL_STACKTRACE'])
 }
 else {
-    root(ERROR, ['STDOUT'])
+    root(INFO, ['STDOUT'])
 }
