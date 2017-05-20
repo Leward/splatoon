@@ -15,7 +15,7 @@ class TwitchService {
                 .header('Client-ID', '6iml9gxvz80elk7qxjve5ofezklffw')
                 .queryString('game', 'Splatoon')
                 .queryString('stream_type', 'live')
-                .queryString('limit', 10)
+                .queryString('limit', 8)
                 .asJson()
         return getJsonObjectsForStreamResponse(response)
                 .collect { new TwitchStream(it) }

@@ -221,6 +221,19 @@ body {
         top: 0;
       }
     }
+    ul {
+      list-style: none;
+      padding: 15px 0 0 0;
+      li {
+        text-align: center;
+        img, .twitch-placeholder {
+          height: 100px;
+          width: 100px;
+          display: inline-block;
+        }
+        padding-bottom: 25px;
+      }
+    }
   }
 
   > .next-events {

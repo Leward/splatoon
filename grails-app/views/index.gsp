@@ -14,7 +14,7 @@
 
     <div class="streams">
         <div class="row">
-            <div class="col-sm-6">
+            <div class="col-md-6">
                 <g:if test="${streams.size() == 0}">
                     <div class="twitch-placeholder">
                     </div>
@@ -34,12 +34,18 @@
             </iframe>
             </div>
 
-            <div class="col-sm-6">
-                <p>Live Streams:</p>
-                <ul>
+            <div class="col-md-6">
+                <ul class="row">
                     <g:each in="${streams}" var="stream">
-                        <li class="stream-switch" data-channel-name="${stream.channelName}">
+                        <li class="stream-switch col-xs-3" data-channel-name="${stream.channelName}">
                             <a href="https://player.twitch.tv/?autoplay=true&channel=${stream.channelName}" target="twitch">
+                                <g:if test="${stream.channelLogoUrl}">
+                                    <img src="${stream.channelLogoUrl}" alt="${stream.channelName}" class="img-circle">
+                                </g:if>
+                                <g:else>
+                                    <div class="twitch-placeholder img-circle"></div>
+                                </g:else>
+                                <br>
                                 ${stream.channelName}
                             </a>
                         </li>
