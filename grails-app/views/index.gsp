@@ -38,16 +38,21 @@
                 <ul class="row">
                     <g:each in="${streams}" var="stream">
                         <li class="stream-switch col-xs-3" data-channel-name="${stream.channelName}">
-                            <a href="https://player.twitch.tv/?autoplay=true&channel=${stream.channelName}" target="twitch">
+                            <a href="https://player.twitch.tv/?autoplay=true&channel=${stream.channelName}"
+                               target="twitch">
                                 <g:if test="${stream.channelLogoUrl}">
                                     <img src="${stream.channelLogoUrl}" alt="${stream.channelName}" class="img-circle">
                                 </g:if>
                                 <g:else>
                                     <div class="twitch-placeholder img-circle"></div>
                                 </g:else>
-                                <br>
+                            </a>
+                            <br>
+                            <a href="https://player.twitch.tv/?autoplay=true&channel=${stream.channelName}"
+                               target="twitch">
                                 ${stream.channelName}
                             </a>
+
                         </li>
                     </g:each>
                 </ul>
