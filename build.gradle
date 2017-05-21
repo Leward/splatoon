@@ -53,11 +53,13 @@ dependencies {
     compile 'com.googlecode.owasp-java-html-sanitizer:owasp-java-html-sanitizer:20170411.1'
     compile 'org.grails.plugins:aws-sdk-s3:2.1.5'
     compile 'com.mashape.unirest:unirest-java:1.4.9'
+    compile 'org.grails.plugins:grails-flyway:0.2'
     profile "org.grails.profiles:web"
     runtime "com.bertramlabs.plugins:asset-pipeline-grails:2.11.6"
     runtime "com.bertramlabs.plugins:sass-asset-pipeline:2.13.2"
     runtime "com.h2database:h2"
     runtime 'mysql:mysql-connector-java:5.1.41'
+    compile 'org.postgresql:postgresql:42.1.1'
     testCompile "org.grails:grails-plugin-testing"
     testCompile "org.grails.plugins:geb"
     testRuntime "org.seleniumhq.selenium:selenium-htmlunit-driver:2.47.1"

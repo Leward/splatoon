@@ -45,7 +45,8 @@ class User {
 	}
 
 	static mapping = {
-		password column: '`password`'
+		table '`user`' // backticks mandatory as in postgresql 'user' is a reserved keyword
+		password column: '`password`' // backticks mandatory as in postgresql/mysql 'password' is a reserved keyword
 	}
 
 	boolean hasRole(String role) {
