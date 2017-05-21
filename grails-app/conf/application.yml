@@ -129,7 +129,7 @@ environments:
             enabled: true
             mimeTypes: application/json,application/xml,text/html,text/xml,text/plain
         dataSource:
-            dbCreate: update
+            dbCreate: none
             url: ${SPLATOON_JDBC_URL:jdbc:mysql://localhost:3306/splatoon}
             username: splatoon
             password: ${SPLATOON_DB_PASSWORD:splatoon}
