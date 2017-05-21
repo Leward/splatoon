@@ -29,6 +29,11 @@ grails {
             maxRequestSize = 10000000
         }
     }
+    mime {
+        types {
+            html = ['text/html', 'application/xhtml+xml']
+        }
+    }
 }
 
 hibernate {
