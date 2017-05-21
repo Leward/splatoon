@@ -9,7 +9,7 @@ import java.time.LocalTime
 class LocalTimeValueConverter implements ValueConverter {
     @Override
     boolean canConvert(Object value) {
-        return value instanceof String && value.matches('^[0-9]{1,2}:[0-9]{1,2}$')
+        return value instanceof String && (value as String).matches('^[0-9]{1,2}:[0-9]{1,2}$')
     }
 
     @Override
