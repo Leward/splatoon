@@ -59,6 +59,7 @@ dependencies {
     runtime "com.bertramlabs.plugins:sass-asset-pipeline:2.13.2"
     runtime "com.h2database:h2"
     runtime 'mysql:mysql-connector-java:5.1.41'
+    runtime 'com.heroku.agent:heroku-javaagent:2.0'
     compile 'org.postgresql:postgresql:42.1.1'
     testCompile "org.grails:grails-plugin-testing"
     testCompile "org.grails.plugins:geb"
@@ -84,3 +85,10 @@ assets {
     minifyCss = true
     enableGzip = true
 }
+
+task copyToLib(type: Copy) {
+    into "$buildDir/libs"
+    from configurations.runtime.files { it.group.equals('com.heroku.agent') }
+}
+
+build.dependsOn(copyToLib)
