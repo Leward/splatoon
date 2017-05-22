@@ -1,1 +1,1 @@
-web: java -Dserver.port=$PORT -XX:+UseG1GC -Xmx500m $JAVA_OPTS -jar build/libs/splatoon-0.1.jar
+web: java -Dserver.port=$PORT -XX:+UseG1GC -XX:+UseCompressedOops $JAVA_OPTS -jar build/libs/splatoon-0.1.jar
