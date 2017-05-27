@@ -8,8 +8,10 @@ grails {
             region = 'eu-central-1'
         }
         springsecurity {
-            userDomainClassName = 'splatoon.User'
-            authorityJoinClassName = 'splatoon.UserRole'
+            userLookup {
+                userDomainClassName = 'splatoon.User'
+                authorityJoinClassName = 'splatoon.UserRole'
+            }
             authority {
                 className = 'splatoon.Role'
             }
