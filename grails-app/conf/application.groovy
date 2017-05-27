@@ -75,12 +75,16 @@ environments {
             baselineOnMigrate = false
         }
     }
-}
-development {
-    dataSource {
-        dbCreate = 'update'
-        driverClassName = 'org.h2.Driver'
-        username = 'sa'
-        password = ''
+    development {
+        dataSource {
+            dbCreate = 'create-drop'
+            url = 'jdbc:h2:mem:devDb;MVCC=TRUE;LOCK_TIMEOUT=10000;DB_CLOSE_ON_EXIT=FALSE'
+            driverClassName = 'org.h2.Driver'
+            username = 'sa'
+            password = ''
+        }
+        flyway {
+            enabled = false
+        }
     }
 }
