@@ -20,9 +20,13 @@ $color-danger: red;
 $color-info: $color-orange;
 $color-twitch-pruple: #6441a4;
 $color-light-grey: lightslategray;
+$color-header-blue: #2ea0d1;
 
 $smaller-than-mobile: new-breakpoint(max-width 500px 12);
 $smaller-than-narrow-screen: new-breakpoint(max-width 960px 12);
+
+$top-nav-height: 57px;
+$left-menu-width: 325px;
 
 // source of the aspect-ratio mixin:
 // https://css-tricks.com/snippets/sass/maintain-aspect-ratio-mixin/
