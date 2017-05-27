@@ -153,6 +153,11 @@ body {
     width: $left-menu-width;
     min-width: $left-menu-width;
     max-width: $left-menu-width;
+    @include media($smaller-than-narrow-screen) {
+      width: $left-menu-collapsed-width;
+      min-width: $left-menu-collapsed-width;
+      max-width: $left-menu-collapsed-width;
+    }
     ul {
       padding: 0;
       list-style: none;
@@ -191,6 +196,9 @@ body {
         }
       }
       .content {
+        @include media($smaller-than-narrow-screen) {
+          display: none;
+        }
         padding-left: 15px;
         text-transform: uppercase;
         .name {

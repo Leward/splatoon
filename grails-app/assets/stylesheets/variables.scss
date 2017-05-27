@@ -27,6 +27,7 @@ $smaller-than-narrow-screen: new-breakpoint(max-width 960px 12);
 
 $top-nav-height: 57px;
 $left-menu-width: 325px;
+$left-menu-collapsed-width: 60px;
 
 // source of the aspect-ratio mixin:
 // https://css-tricks.com/snippets/sass/maintain-aspect-ratio-mixin/
