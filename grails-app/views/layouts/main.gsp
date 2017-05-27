@@ -55,7 +55,7 @@
                   model="${[nextEvents: TournamentEvent.findUpcomingEvents(6)]}"/>
     </nav>
     <main>
-        <div class="container-fluid">
+        <div class="container">
             <g:layoutBody/>
         </div>
     </main>
