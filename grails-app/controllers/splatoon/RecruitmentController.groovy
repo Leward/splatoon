@@ -1,6 +1,7 @@
 package splatoon
 
 import grails.plugin.springsecurity.SpringSecurityService
+import grails.transaction.Transactional
 import org.springframework.security.access.annotation.Secured
 
 class RecruitmentController {
@@ -29,6 +30,7 @@ class RecruitmentController {
     }
 
     @Secured('IS_AUTHENTICATED_FULLY')
+    @Transactional
     def create_team_search_ad() {
         def ad = new RecruitingAd(params)
         ad.author = springSecurityService.currentUser as User
@@ -39,10 +41,11 @@ class RecruitmentController {
                 redirect(mapping: 'recruitment_show_ad', id: ad.id)
             }
         }
-        respond ad
+        render(view: "create_team_search_ad", model: [recruitingAd:ad])
     }
 
     @Secured('IS_AUTHENTICATED_FULLY')
+    @Transactional
     def create_teammate_search_ad() {
         def ad = new RecruitingAd(params)
         ad.author = springSecurityService.currentUser as User
@@ -53,7 +56,7 @@ class RecruitmentController {
                 redirect(mapping: 'recruitment_show_ad', id: ad.id)
             }
         }
-        respond ad
+        render(view: "create_teammate_search_ad", model: [recruitingAd:ad])
     }
 
     @Secured('IS_AUTHENTICATED_FULLY')

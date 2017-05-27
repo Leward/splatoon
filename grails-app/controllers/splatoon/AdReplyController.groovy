@@ -2,12 +2,14 @@ package splatoon
 
 import grails.plugin.springsecurity.SpringSecurityService
 import grails.plugin.springsecurity.annotation.Secured
+import grails.transaction.Transactional
 
 class AdReplyController {
 
     SpringSecurityService springSecurityService
 
     @Secured('IS_AUTHENTICATED_FULLY')
+    @Transactional
     def create(RecruitingAd recruitingAd) {
         def adReply = new AdReply(params)
         adReply.id = null // params.id is not null we don't want it to interfere in our object
@@ -24,6 +26,7 @@ class AdReplyController {
     }
 
     @Secured('IS_AUTHENTICATED_FULLY')
+    @Transactional
     def edit(AdReply adReply) {
         if (!adReply.canEdit(springSecurityService.currentUser as User)) {
             render(status: 403)
@@ -43,6 +46,7 @@ class AdReplyController {
     }
 
     @Secured('IS_AUTHENTICATED_FULLY')
+    @Transactional
     def delete(AdReply adReply) {
         if (!adReply.canDelete(springSecurityService.currentUser as User)) {
             render(status: 403)
