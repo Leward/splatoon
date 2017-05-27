@@ -1,7 +1,10 @@
 package splatoon
 
+import grails.transaction.Transactional
+
 class UserController {
 
+    @Transactional
     def register() {
         if (request.method == "POST") {
             def user = new User(params)
