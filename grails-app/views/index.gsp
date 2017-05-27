@@ -12,9 +12,9 @@
 
 <div class="home-page">
 
-    <div class="streams">
-        <div class="row">
-            <div class="col-md-6">
+    <div class="streams card">
+        <main class="row">
+            <div class="col-sm-5 col-md-12 col-lg-6">
                 <g:if test="${streams.size() == 0}">
                     <div class="twitch-placeholder">
                     </div>
@@ -30,34 +30,37 @@
                     </div>
                 </g:if>
 
-
-            </iframe>
             </div>
 
-            <div class="col-md-6">
+            <div class="col-sm-7 col-md-12 col-lg-6">
                 <ul class="row">
                     <g:each in="${streams}" var="stream">
                         <li class="stream-switch col-xs-3" data-channel-name="${stream.channelName}">
-                            <a href="https://player.twitch.tv/?autoplay=true&channel=${stream.channelName}"
-                               target="twitch">
-                                <g:if test="${stream.channelLogoUrl}">
-                                    <img src="${stream.channelLogoUrl}" alt="${stream.channelName}" class="img-circle">
-                                </g:if>
-                                <g:else>
-                                    <div class="twitch-placeholder img-circle"></div>
-                                </g:else>
-                            </a>
-                            <br>
-                            <a href="https://player.twitch.tv/?autoplay=true&channel=${stream.channelName}"
-                               target="twitch">
-                                ${stream.channelName}
-                            </a>
+                            <div class="channel-logo">
+                                <a href="https://player.twitch.tv/?autoplay=true&channel=${stream.channelName}"
+                                   target="twitch">
+                                    <g:if test="${stream.channelLogoUrl}">
+                                        <img src="${stream.channelLogoUrl}" alt="${stream.channelName}"
+                                             class="img-circle">
+                                    </g:if>
+                                    <g:else>
+                                        <div class="twitch-placeholder img-circle"></div>
+                                    </g:else>
+                                </a>
+                            </div>
+
+                            <div class="channel-name">
+                                <a href="https://player.twitch.tv/?autoplay=true&channel=${stream.channelName}"
+                                   target="twitch">
+                                    ${stream.channelName}
+                                </a>
+                            </div>
 
                         </li>
                     </g:each>
                 </ul>
             </div>
-        </div>
+        </main>
     </div>
     %{--<div class="row">--}%
     %{--<div class="next-events col-sm-6 col-xs-12">--}%
@@ -72,15 +75,15 @@
     %{--</div>--}%
     %{--</div>--}%
 
-    <div class="featured-news">
-        <h2>A la Une</h2>
-        <g:render template="/news/latest_news"/>
+    <div class="featured-news card">
+        <header><h2>A la Une</h2></header>
+        <main><g:render template="/news/latest_news"/></main>
     </div>
 
-    <div class=" recruitment row">
-        <h2>Recrutements & Candidatures</h2>
+    <div class="recruitment card">
+        <header><h2>Recrutements & Candidatures</h2></header>
 
-        <div class="row">
+        <main class="row">
             <div class="col-sm-6">
                 <h3>Recherches de joueurs</h3>
                 <ul class="ads">
@@ -120,7 +123,7 @@
                     </g:each>
                 </ul>
             </div>
-        </div>
+        </main>
     </div>
 </div>
 

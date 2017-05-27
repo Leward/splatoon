@@ -1,4 +1,5 @@
 @import "neat/neat";
+@import "bootstrap-sass/bootstrap/variables";
 
 $grid-width: 1150px;
 $body-lateral-padding: 20px; // Body here refers to the <main> tag
@@ -22,12 +23,19 @@ $color-twitch-pruple: #6441a4;
 $color-light-grey: lightslategray;
 $color-header-blue: #2ea0d1;
 
-$smaller-than-mobile: new-breakpoint(max-width 500px 12);
-$smaller-than-narrow-screen: new-breakpoint(max-width 960px 12);
-
 $top-nav-height: 57px;
 $left-menu-width: 325px;
 $left-menu-collapsed-width: 60px;
+
+$smaller-than-mobile: new-breakpoint(max-width 500px 12);
+$smaller-than-narrow-screen: new-breakpoint(max-width 960px 12);
+$smaller-than-xs-screen: new-breakpoint(max-width $screen-xs 12);
+$smaller-than-sm-screen: new-breakpoint(max-width $screen-sm 12);
+$smaller-than-md-screen: new-breakpoint(max-width $screen-md 12);
+$smaller-than-lg-screen: new-breakpoint(max-width $screen-lg 12);
+$bigger-than-lg-screen: new-breakpoint(min-width $screen-lg 12);
+
+
 
 // source of the aspect-ratio mixin:
 // https://css-tricks.com/snippets/sass/maintain-aspect-ratio-mixin/

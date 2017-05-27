@@ -2,7 +2,7 @@
 <div class="latest-news">
     <ul class="row equal">
         <g:each in="${News.findAll([max: 4, sort: 'date', order: 'desc'])}" var="news">
-            <li class="col-md-3 col-sm-6 col-xs-12">
+            <li class="col-sm-3 col-xs-6">
                 <div class="news">
                     <div class="news-image">
                         <g:link mapping="news_show" id="${news.id}">

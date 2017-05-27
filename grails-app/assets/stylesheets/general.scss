@@ -190,3 +190,26 @@ ol.property-list {
   display: flex;
   flex-wrap: wrap;
 }
+
+.card {
+  transition: 0.3s;
+  margin-bottom: 20px;
+  > header {
+    text-align: right;
+    font-size: $font-size-h4;
+    text-transform: uppercase;
+    font-weight: bold;
+    > h1, h2, h3, h4 {
+      font-size: $font-size-h4;
+      font-weight: bold;
+    }
+  }
+  > main {
+    background: white;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    padding: 15px;
+    &:hover {
+      box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+    }
+  }
+}

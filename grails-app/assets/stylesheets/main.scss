@@ -31,6 +31,10 @@ body {
         font-size: 18px;
         letter-spacing: .01em;
         width: $left-menu-width;
+        @include media($smaller-than-md-screen) {
+          width: auto;
+          padding-right: 15px;
+        }
         padding-left: 15px;
       }
 
@@ -153,7 +157,7 @@ body {
     width: $left-menu-width;
     min-width: $left-menu-width;
     max-width: $left-menu-width;
-    @include media($smaller-than-narrow-screen) {
+    @include media($smaller-than-md-screen) {
       width: $left-menu-collapsed-width;
       min-width: $left-menu-collapsed-width;
       max-width: $left-menu-collapsed-width;
@@ -196,7 +200,7 @@ body {
         }
       }
       .content {
-        @include media($smaller-than-narrow-screen) {
+        @include media($smaller-than-md-screen) {
           display: none;
         }
         padding-left: 15px;
@@ -240,11 +244,6 @@ body {
 
 .home-page {
 
-  h2 {
-    text-align: right;
-    margin-bottom: 25px;
-  }
-
   > .streams {
     .twitch-stream {
       width: 100%;
@@ -262,10 +261,15 @@ body {
       padding: 15px 0 0 0;
       li {
         text-align: center;
+        > div {
+          overflow: hidden;
+        }
         img, .twitch-placeholder {
-          height: 100px;
-          width: 100px;
-          display: inline-block;
+          height: 70px;
+          width: 70px;
+        }
+        .channel-name {
+          text-overflow: clip;
         }
         padding-bottom: 25px;
       }
