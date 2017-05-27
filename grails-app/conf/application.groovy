@@ -76,6 +76,12 @@ environments {
             locations = jdbcUrl.contains('mysql') ? 'db/migration/mysql' : 'db/migration/postgresql'
             baselineOnMigrate = false
         }
+        server {
+            compression {
+                enabled = true
+                mimeTypes = ['text/html', 'text/css', 'text/javascript', 'application/javascript'].join(',')
+            }
+        }
     }
     development {
         dataSource {
