@@ -10,7 +10,8 @@ class AdReplyController {
 
     @Secured('IS_AUTHENTICATED_FULLY')
     @Transactional
-    def create(RecruitingAd recruitingAd) {
+    def create() {
+        def recruitingAd = RecruitingAd.get(params.id) // Do not pass recruitingAd as parameter, we we to retrieve it from DB and not let grails do any data binding on it
         def adReply = new AdReply(params)
         adReply.id = null // params.id is not null we don't want it to interfere in our object
         adReply.author = springSecurityService.currentUser as User
