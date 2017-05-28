@@ -58,7 +58,7 @@ class SplatoonTagLib {
         if (event.isTwitchStream()) {
             out << """
             <iframe 
-                src="https://player.twitch.tv/?channel=pokemonvgc_eu" 
+                src="https://player.twitch.tv/?channel=${event.extractTwitchStreamId()}" 
                 frameborder="0" 
                 allowfullscreen="true" 
                 scrolling="no" 
