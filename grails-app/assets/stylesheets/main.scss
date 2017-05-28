@@ -4,6 +4,18 @@
 //@import "reset";
 @import "general";
 
+.container-fluid {
+  @include media($smaller-than-md-screen) {
+    max-width: $container-sm;
+  }
+  @include media($smaller-than-lg-screen) {
+    max-width: $container-lg;
+  }
+  @include media($bigger-than-lg-screen) {
+    max-width: $container-lg;
+  }
+}
+
 body {
   > header {
     background-color: $color-header-blue;
@@ -321,7 +333,8 @@ body {
     }
     h3 {
       color: $color-brick-red;
-      text-align: center;
+      text-align: right;
+      text-transform: uppercase;
     }
     ul {
       list-style: none;

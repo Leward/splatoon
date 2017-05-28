@@ -76,15 +76,15 @@
     %{--</div>--}%
 
     <div class="featured-news card">
-        <header><h2>A la Une</h2></header>
+        <header class="red"><h2>A la Une</h2></header>
         <main><g:render template="/news/latest_news"/></main>
     </div>
 
     <div class="recruitment card">
-        <header><h2>Recrutements & Candidatures</h2></header>
+        <header class="blue"><h2>Recrutements & Candidatures</h2></header>
 
         <main class="row">
-            <div class="col-sm-6">
+            <div class="col-md-5 col-sm-6">
                 <h3>Recherches de joueurs</h3>
                 <ul class="ads">
                     <g:each in="${RecruitingAd.findAllByType(AdType.LOOKING_FOR_TEAMMATE_AD)}" var="ad">
@@ -103,7 +103,7 @@
                 </ul>
             </div>
 
-            <div class="col-sm-6">
+            <div class="col-md-offset-2 col-md-5 col-sm-6">
                 <h3>Recherches d'equipes</h3>
                 <ul>
                     <g:each in="${RecruitingAd.findAllByType(AdType.LOOKING_FOR_TEAM_AD)}" var="ad">

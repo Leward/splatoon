@@ -203,6 +203,12 @@ ol.property-list {
       font-size: $font-size-h4;
       font-weight: bold;
     }
+    &.red {
+      color: $color-brick-red;
+    }
+    &.blue {
+      color: $color-header-blue;
+    }
   }
   > main {
     background: white;
