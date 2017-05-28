@@ -11,6 +11,7 @@ class RecruitingAd {
     String title
     String message
     String profileUrl
+    Rank rank
     User author
     Instant createdAt
 
@@ -40,6 +41,7 @@ class RecruitingAd {
         title(blank: false)
         message(blank: false)
         profileUrl(nullable: true, url: true)
+        rank(nullable: false)
         author(nullable: false)
         createdAt(nullable: true)
     }

@@ -414,3 +414,35 @@ body {
     }
   }
 }
+
+.recruitment-ad-page {
+  .card {
+    .title {
+      text-align: right;
+      text-transform: uppercase;
+      color: $color-brick-red;
+      font-size: $font-size-h4;
+    }
+    .rank {
+      font-size: 74px;
+      font-weight: bold;
+      color: $color-highlight;
+      text-align: center;
+    }
+    h4 {
+      font-weight: bold;
+      color: $color-highlight;
+    }
+    .presentation {
+      margin-top: 20px;
+    }
+    .reply {
+      margin-bottom: 20px;
+      border-bottom: 1px solid rgba(171, 217, 237, 0.3);
+      &:last-child {
+        border-bottom: 0;
+        margin-bottom: 10px;
+      }
+    }
+  }
+}

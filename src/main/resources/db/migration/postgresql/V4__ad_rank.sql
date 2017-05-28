@@ -1,0 +1,2 @@
+ALTER TABLE tournament
+  ADD COLUMN rank VARCHAR(255) DEFAULT 'B';

@@ -22,6 +22,7 @@
         <fieldset class="form">
             <f:with bean="${recruitingAd}">
                 <f:field property="title"/>
+                <f:field property="rank"/>
                 <f:field property="message"/>
                 <f:field property="profileUrl"/>
             </f:with>
