@@ -6,7 +6,7 @@
 
 body {
   > header {
-    background-color:$color-header-blue;
+    background-color: $color-header-blue;
     color: white;
     border-bottom: 1px solid #abd9ed;
     box-shadow: 0 1px 0 #134054;
@@ -53,13 +53,13 @@ body {
           &.separator {
             width: 2px;
             height: $top-nav-height;
-            background: linear-gradient(to bottom, rgba(33,115,150,0), rgba(33,115,150,1));
+            background: linear-gradient(to bottom, rgba(33, 115, 150, 0), rgba(33, 115, 150, 1));
             &::before {
               content: "";
               width: 1px;
               height: $top-nav-height;
               display: block;
-              background: linear-gradient(to bottom, rgba(171,217,237,0), rgba(171,217,237,1));
+              background: linear-gradient(to bottom, rgba(171, 217, 237, 0), rgba(171, 217, 237, 1));
             }
           }
         }
@@ -152,7 +152,7 @@ body {
   flex-direction: row;
 
   > nav.next-events {
-    background: linear-gradient(to bottom, rgba(144,46,209,1), rgba(88,134,209,1));
+    background: linear-gradient(to bottom, rgba(144, 46, 209, 1), rgba(88, 134, 209, 1));
     color: white;
     width: $left-menu-width;
     min-width: $left-menu-width;
@@ -247,7 +247,7 @@ body {
   > .streams {
     .twitch-stream {
       width: 100%;
-      @include aspect-ratio(16,9);
+      @include aspect-ratio(16, 9);
       position: relative;
       > iframe {
         position: absolute;
@@ -267,6 +267,14 @@ body {
         img, .twitch-placeholder {
           height: 70px;
           width: 70px;
+          @include media($smaller-than-sm-screen) {
+            height: 60px;
+            width: 60px;
+          }
+          @include media($smaller-than-xs-screen) {
+            height: 30px;
+            width: 30px;
+          }
         }
         .channel-name {
           text-overflow: clip;
@@ -293,7 +301,7 @@ body {
       margin: auto;
       padding-bottom: 20px;
       img {
-        @include aspect-ratio(310,190);
+        @include aspect-ratio(310, 190);
         margin: auto;
         width: 100%;
         max-width: $news-width;
@@ -355,6 +363,54 @@ body {
     }
     .content {
       margin-top: 20px;
+    }
+  }
+}
+
+.event-details-page {
+  .stream {
+    width: 100%;
+    @include aspect-ratio(16, 9);
+    position: relative;
+    > iframe {
+      position: absolute;
+      height: 100%;
+      width: 100%;
+      top: 0;
+    }
+  }
+  .event-details {
+    .name, .organizer {
+      text-align: right;
+      text-transform: uppercase;
+      color: $color-brick-red;
+      font-size: $font-size-h4;
+      a {
+        color: $color-brick-red;
+      }
+    }
+    .name {
+      font-weight: bold;
+    }
+    dl {
+      dt, dd {
+      }
+      dt {
+        font-weight: bold;
+        color: $color-highlight;
+        width: 100px;
+        float: left;
+        clear: left;
+      }
+      dd {
+        margin-bottom: 10px;
+      }
+    }
+    .rules {
+      > .title {
+        font-weight: bold;
+        color: $color-highlight;
+      }
     }
   }
 }

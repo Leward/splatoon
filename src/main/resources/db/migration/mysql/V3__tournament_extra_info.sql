@@ -1,0 +1,5 @@
+ALTER TABLE tournament
+  ADD COLUMN game VARCHAR(255);
+
+ALTER TABLE tournament
+  ADD COLUMN rules TEXT;

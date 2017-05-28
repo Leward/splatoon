@@ -71,7 +71,7 @@ class SplatoonTagLib {
             width="1084"
             height="610"
             src="https://gaming.youtube.com/embed/${event.extractYoutubeStreamId()}"
-            frameborder="0" allowfullscreen>
+            frameborder="0" allowfullscreen></iframe>
             """
         }
 

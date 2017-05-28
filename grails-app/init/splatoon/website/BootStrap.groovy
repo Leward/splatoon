@@ -41,10 +41,22 @@ class BootStrap {
             log.debug("Development environment detected: boostrapping with some data.")
             // Create some tournament and events for the ESL organization
             def esl = new TournamentOrganizer(name: "ESL France", website: "https://play.eslgaming.com/france/").save()
-            def tournament = new Tournament(name: "Nintendo Europe 2018", organizer: esl).save()
+            def tournament = new Tournament(
+                    name: "Nintendo Europe 2018",
+                    organizer: esl,
+                    game: Game.SPLATOON_1,
+                    rules: "<p>Please refer to the ESL website for more detailed rules</p>"
+            ).save()
             def firstTournamentDate = LocalDate.of(2018, Month.JUNE, 1)
-            10.times {
-                new TournamentEvent(tournament: tournament, date: firstTournamentDate.plusDays(it), startTime: LocalTime.of(17, 00), endTime: LocalTime.of(20, 00)).save()
+            5.times {
+                new TournamentEvent(
+                        tournament: tournament,
+                        date: firstTournamentDate.plusDays(it),
+                        startTime: LocalTime.of(17, 00),
+                        endTime: LocalTime.of(20, 00),
+                        streamUrl: "https://gaming.youtube.com/watch?v=TRo_iSNqNno",
+                        challongeUrl: "http://sogfr.challonge.com/fr/SplatofGods2"
+                ).save()
             }
             new TournamentOrganizer(name: "Splatoon FR", website: "http://splatoonfr.net").save();
 
@@ -55,14 +67,14 @@ class BootStrap {
                     organizer: sog,
                     events: [
                             new TournamentEvent(
-                                    date: LocalDate.of(2017, Month.MARCH, 10),
+                                    date: LocalDate.of(2017, Month.JULY, 10),
                                     startTime: LocalTime.of(21, 00),
                                     endTime: LocalTime.of(23, 59),
                                     streamUrl: "https://gaming.youtube.com/watch?v=TRo_iSNqNno",
                                     challongeUrl: "http://sogfr.challonge.com/fr/SplatofGods2"
                             )
                     ]
-            ).save()
+            ).save(failOrError: true)
 
             def ayo = new User(
                     username: "Ayo",

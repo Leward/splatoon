@@ -8,31 +8,55 @@
 
 <body>
 
-<g:panel
-        title="${tournamentEvent.date.format(DateTimeFormatter.ofPattern("dd MMMM yyyy", Locale.FRANCE))} : ${tournamentEvent.tournament}"
-        padded="true">
-    <p>
-        De ${tournamentEvent.startTime} à ${tournamentEvent.endTime}
-    </p>
-    <p>
-        Organisateur:
-        <g:link controller="tournamentOrganizer" action="show" id="${tournamentEvent.tournament.organizer.id}">
-            ${tournamentEvent.tournament.organizer}
-        </g:link>
-    </p>
-</g:panel>
+<div class="event-details-page">
 
-<g:if test="${tournamentEvent.challongeUrl != null}">
-    <g:panel title="Résultats">
-        <g:challonge url="${tournamentEvent.challongeUrl}" />
-    </g:panel>
-</g:if>
+    <g:if test="${tournamentEvent.streamUrl != null}">
+        <div class="card no-padding">
+            <main>
+                <div class="stream">
+                    <g:stream event="${tournamentEvent}"/>
+                </div>
+            </main>
+        </div>
+    </g:if>
 
-<g:if test="${tournamentEvent.streamUrl != null}">
-<g:panel title="Stream">
-    <g:stream event="${tournamentEvent}" />
-</g:panel>
-</g:if>
+    <div class="card event-details">
+        <main>
+            <h2 class="name">${tournamentEvent.tournament.name}</h2>
 
+            <div class="organizer">
+                <g:link url="${tournamentEvent.tournament.organizer.website}">
+                    ${tournamentEvent.tournament.organizer.name}
+                </g:link>
+            </div>
+            <dl>
+                <dt>Jeu</dt>
+                <dd>${tournamentEvent.tournament.game}</dd>
+                <dt>Date</dt>
+                <dd>${tournamentEvent.date.format(DateTimeFormatter.ofPattern("dd MMMM yyyy", Locale.FRANCE))}</dd>
+                <dt>Début</dt>
+                <dd>${tournamentEvent.startTime}</dd>
+                <dt>Fin</dt>
+                <dd>${tournamentEvent.endTime}</dd>
+            </dl>
+
+            <div class="rules">
+                <div class="title">Règles</div>
+
+                <div class="content">
+                    <g:html code="${tournamentEvent.tournament.rules}"/>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <g:if test="${tournamentEvent.challongeUrl != null}">
+        <div class="card no-padding">
+            <header>Résultats</header>
+            <main><g:challonge url="${tournamentEvent.challongeUrl}"/></main>
+        </div>
+    </g:if>
+
+</div>
 </body>
 </html>
