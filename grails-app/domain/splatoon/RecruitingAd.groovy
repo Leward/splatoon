@@ -33,6 +33,7 @@ class RecruitingAd {
 
     static mapping = {
         message(type: 'text')
+        rank(column: '`rank`')
         sort(createdAt: "desc")
     }
 
