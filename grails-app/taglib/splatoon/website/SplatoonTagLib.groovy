@@ -17,16 +17,16 @@ class SplatoonTagLib {
      * @attr class supplementary classes to add (string)
      */
     def panel = { attrs, body ->
-        out << """<div class="panel ${attrs.class}">"""
+        out << """<div class="card ${attrs.class}">"""
         if (attrs.title != null && !attrs.title.isEmpty()) {
-            out << """<div class="panel-header">
+            out << """<header>
             <h3>${attrs.title}</h3>
-            </div>"""
+            </header>"""
         }
         out << """
-        <div class="panel-body ${(attrs.padded) ? 'padded' : ''}">
+        <main>
             ${body()}
-        </div>
+        </main>
         """
         out << '</div>'
     }
