@@ -21,6 +21,7 @@ class UrlMappings {
         name "recruitment_reply_ad": "/recrutement/annonces/$id/repondre"(controller: 'adReply', action: 'create')
         name "recruitment_reply_ad_edit": "/recrutement/annonces/responses/$id/modifier"(controller: 'adReply', action: 'edit')
         name "news_show": "/news/$id"(controller: 'news', action: 'show')
+        name "ladder": "/ladder"(controller: 'ladder', action: 'index')
 
         // Spring Security routes
         name "login": "/login/auth"(controller: "login", action: "auth")
@@ -43,6 +44,11 @@ class UrlMappings {
         name "admin_news_show": "/admin/news/$id" (controller: 'news', action: 'admin_show')
         name "admin_news_edit": "/admin/news/$id/modifier" (controller: 'news', action: 'admin_update')
         name "admin_news_delete": "/admin/news/$id/supprimer" (controller: 'news', action: 'admin_delete')
+        name "admin_ladder": "/admin/ladder"(view: '/ladder/admin')
+        name "admin_ladder_event_details": "/admin/ladder/$id"(controller: 'ladder', action: 'adminEventDetails')
+        name "admin_ladder_add_result": "/admin/ladder/$eventId/ajouter-resultat"(controller: 'ladder', action: 'create')
+        name "admin_ladder_update_result": "/admin/ladder/$id/modifier-resultat"(controller: 'ladder', action: 'update')
+        name "admin_team": "/admin/equipes"(controller: 'team', action: 'index')
 
         // Others
         name 'upload': '/upload' (controller: 'upload', action: 'index')

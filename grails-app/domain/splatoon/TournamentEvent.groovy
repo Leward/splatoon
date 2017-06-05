@@ -23,6 +23,7 @@ class TournamentEvent {
     String streamUrl
 
     static belongsTo = [tournament: Tournament]
+    static hasMany = [ladderEntries: Ladder]
 
     static mapping = {
         sort(date: "asc", startTime: "asc")
@@ -56,6 +57,10 @@ class TournamentEvent {
 
     @Override
     String toString() {
+        return formattedDate
+    }
+
+    String getFormattedDate() {
         return date.format(DateTimeFormatter.ofPattern("EEEE dd MMMM yyyy", Locale.FRANCE))
     }
 

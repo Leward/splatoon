@@ -150,6 +150,36 @@ class BootStrap {
                     content: "<p>Content of the news</p>",
                     date: Instant.now()
             ).save(failOnError: true)
+
+            def teamRisingMoon = new Team(name: 'Rising Moon').save(failOnError: true)
+            def teamSeiches = new Team(name: 'Les seiches').save(faileOnError: true)
+
+            new Ladder(
+                    event: tournament.events.get(0),
+                    team: teamRisingMoon,
+                    points: 50,
+                    wins: 3,
+                    loses: 0,
+                    date: Instant.now().minus(60, ChronoUnit.DAYS)
+            ).save()
+
+            new Ladder(
+                    event: tournament.events.get(1),
+                    team: teamRisingMoon,
+                    points: 35,
+                    wins: 2,
+                    loses: 1,
+                    date: Instant.now()
+            ).save()
+
+            new Ladder(
+                    event: tournament.events.get(1),
+                    team: teamSeiches,
+                    points: 50,
+                    wins: 3,
+                    loses: 0,
+                    date: Instant.now()
+            ).save()
         }
     }
     def destroy = {

@@ -29,7 +29,7 @@
             <li class="separator"></li>
             <li><g:link mapping="recruitment">Le mag</g:link></li>
             <li class="separator"></li>
-            <li><g:link mapping="recruitment">Ladder</g:link></li>
+            <li><g:link mapping="ladder">Ladder</g:link></li>
             <li class="separator"></li>
             <li><g:link mapping="recruitment">Recrutements</g:link></li>
         </ul>

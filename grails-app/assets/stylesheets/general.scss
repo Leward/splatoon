@@ -128,13 +128,17 @@ fieldset {
   padding-bottom: 10px;
 }
 
+.buttons {
+  margin-bottom: 15px;
+}
+
 .btn {
   border-radius: 5px;
   padding: 8px;
   border: 1px solid;
   font-size: 1em;
   &.btn-primary {
-    background-color: $color-orange;
+    background-color: $color-highlight;
     color: white;
   }
   &.btn-danger {
@@ -202,6 +206,9 @@ ol.property-list {
     > h1, h2, h3, h4 {
       font-size: $font-size-h4;
       font-weight: bold;
+      small {
+        font-size: $font-size-h5;
+      }
     }
     &.red {
       color: $color-brick-red;

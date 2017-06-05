@@ -20,7 +20,8 @@
 
 <g:panel title="Ladder">
     <ul>
-        <li>Points ajoutés</li>
+        <li><g:link mapping="admin_ladder">Gestion du Ladder</g:link></li>
+        <li><g:link mapping="admin_team">Équipes</g:link></li>
     </ul>
 </g:panel>
 
