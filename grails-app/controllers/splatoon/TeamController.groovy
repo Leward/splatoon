@@ -13,12 +13,13 @@ class TeamController {
     }
 
     @Transactional
-    def create(Team team) {
+    def create() {
+        def team = new Team(params)
         if(request.isPost() && team.validate()) {
             team.save()
             redirect(action: 'show', id: team.id)
         }
-        [team: team]
+        render(view: 'create', model: [team: team])
     }
 
     @Transactional
@@ -27,7 +28,7 @@ class TeamController {
             team.save()
             redirect(action: 'show', id: team.id)
         }
-        [team: team]
+        render(view: 'edit', model: [team: team])
     }
 
     @Transactional

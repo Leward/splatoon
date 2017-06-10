@@ -29,7 +29,7 @@
         </ul>
     </g:hasErrors>
 
-    <g:form resource="${this.team}" method="PUT">
+    <g:form action="edit" id="${team.id}" method="POST">
         <g:hiddenField name="version" value="${this.team?.version}"/>
         <fieldset class="form">
             <f:all bean="team"/>

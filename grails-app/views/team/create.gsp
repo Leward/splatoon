@@ -30,7 +30,7 @@
         </ul>
     </g:hasErrors>
 
-    <g:form resource="${this.team}" method="POST">
+    <g:form action="create" method="POST">
         <fieldset class="form">
             <f:all bean="team"/>
         </fieldset>
