@@ -25,6 +25,14 @@ grails {
             }
         }
     }
+    mail {
+        def smtpLogin = System.env.SMTP_LOGIN ?: System.env.MAILGUN_SMTP_LOGIN
+        host = System.env.SMTP_SERVER ?: System.env.MAILGUN_SMTP_SERVER ?: 'localhost'
+        port = System.env.SMTP_PORT ?: System.env.MAILGUN_SMTP_PORT ?: 2555
+        username = smtpLogin
+        password = System.env.SMTP_PASSWORD ?: System.env.MAILGUN_SMTP_PASSWORD
+        props = ["mail.smtp.auth": smtpLogin != null]
+    }
     controllers {
         upload {
             maxFileSize = 10000000

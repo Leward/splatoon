@@ -44,7 +44,9 @@
                     <div class="login">
                         <input type="submit" class="btn btn-primary full-width" value="Me connecter"/>
                     </div>
-                    <div class="forgotten-password"></div>
+                    <div class="forgotten-password">
+                        <p><g:link mapping="forgotten_password">Mot de passe oublié ? </g:link></p>
+                    </div>
                 </div>
             </form>
         </div>

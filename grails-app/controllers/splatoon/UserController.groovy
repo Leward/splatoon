@@ -9,6 +9,7 @@ class UserController {
 
     SpringSecurityService springSecurityService
     BCryptPasswordEncoder passwordEncoder
+    UserService userService
 
     @Transactional
     def register() {
@@ -62,8 +63,14 @@ class UserController {
 
     }
 
-    def forgottenPassword() {
-
+    def forgottenPassword(NewPasswordRequest newPasswordRequest) {
+        if(request.isPost() && !newPasswordRequest.hasErrors()) {
+            userService.resetUserPassword(newPasswordRequest.email)
+            render(view: 'forgottenPassword_sent')
+        }
+        else {
+            render(view: 'forgottenPassword', model: [newPasswordRequest: newPasswordRequest])
+        }
     }
 
     def index() {

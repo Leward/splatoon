@@ -27,6 +27,7 @@ class UrlMappings {
 
         // Spring Security routes
         name "login": "/login/auth"(controller: "login", action: "auth")
+        name "forgotten_password": "/mot-de-passe-oublie"(controller: 'user', action: 'forgottenPassword')
 
         // For dev
         name "dev": "/dev"(view:"/dev")
