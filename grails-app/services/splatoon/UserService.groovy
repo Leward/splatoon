@@ -20,7 +20,6 @@ class UserService {
         }
         user.save()
         mailService.sendMail {
-            from "no-reply@inkzone.fr"
             to email
             subject "Votre nouveau mot de passe InkZone"
             body "Vous avez oublié votre mot de passe InkZone ? Ce dernier a été réinitialisé. " +

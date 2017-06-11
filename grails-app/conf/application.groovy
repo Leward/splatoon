@@ -32,6 +32,9 @@ grails {
         username = smtpLogin
         password = System.env.SMTP_PASSWORD ?: System.env.MAILGUN_SMTP_PASSWORD
         props = ["mail.smtp.auth": smtpLogin != null]
+        'default' {
+            from = System.env.MAIL_FROM ?: smtpLogin ?: 'no-reply@localhost'
+        }
     }
     controllers {
         upload {
