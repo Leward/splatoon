@@ -25,6 +25,7 @@ repositories {
     mavenLocal()
     maven { url "https://repo.grails.org/grails/core" }
     maven { url 'http://dl.bintray.com/agorapulse/libs' }
+    maven { url "http://dl.bintray.com/agorapulse/plugins" }
 }
 
 dependencyManagement {
@@ -60,6 +61,7 @@ dependencies {
     runtime "com.h2database:h2"
     runtime 'mysql:mysql-connector-java:5.1.41'
     runtime 'com.newrelic.agent.java:newrelic-java:3.38.0'
+    compile "org.grails.plugins:newrelic:3.35.2"
     compile 'org.postgresql:postgresql:42.1.1'
     testCompile "org.grails:grails-plugin-testing"
     testCompile "org.grails.plugins:geb"
