@@ -13,6 +13,8 @@ class UrlMappings {
         name "index": "/"(controller: 'home', action: 'index')
         name "registration": "/inscription"(controller: "user", action: "register")
         name "registration_success": "/inscription/confirmation"(view: "/user/register_success")
+        name "my_account": "/mon-espace"(controller: 'user', action: 'myAccount')
+        name "change_password": "/modifier-mot-de-passe"(controller: 'user', action: 'changePassword')
         name "tournament_event": "/evenement/$id"(controller: "tournamentEvent", action: "details")
         name "recruitment": "/recrutement"(controller: "recruitment", action: "index")
         name "recruitment_new_teammate_search": "/recrutement/annonces/cherche-joueur/creer"(controller: "recruitment", action: "create_teammate_search_ad")

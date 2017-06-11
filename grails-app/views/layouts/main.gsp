@@ -34,17 +34,13 @@
             <li><g:link mapping="recruitment">Recrutements</g:link></li>
         </ul>
         <ul class="links-2">
-            <li>
                 <sec:ifLoggedIn>
-                    <g:link controller="logout" action="index">Déconnexion</g:link>
+                    <li><g:link mapping="my_account">Mon espace</g:link></li>
+                    <li><g:link controller="logout" action="index">Déconnexion</g:link></li>
                 </sec:ifLoggedIn>
                 <sec:ifNotLoggedIn>
-                    <g:link mapping="login">Connexion</g:link>
+                    <li><g:link mapping="login">Connexion</g:link></li>
                 </sec:ifNotLoggedIn>
-            </li>
-            <li>
-
-            </li>
         </ul>
     </nav>
 </header>
