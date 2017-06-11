@@ -59,7 +59,7 @@ dependencies {
     runtime "com.bertramlabs.plugins:sass-asset-pipeline:2.13.2"
     runtime "com.h2database:h2"
     runtime 'mysql:mysql-connector-java:5.1.41'
-    runtime 'com.heroku.agent:heroku-javaagent:2.0'
+    runtime 'com.newrelic.agent.java:newrelic-java:3.38.0'
     compile 'org.postgresql:postgresql:42.1.1'
     testCompile "org.grails:grails-plugin-testing"
     testCompile "org.grails.plugins:geb"
@@ -87,8 +87,10 @@ assets {
 }
 
 task copyToLib(type: Copy) {
-    into "$buildDir/libs"
-    from configurations.runtime.files { it.group.equals('com.heroku.agent') }
+    def zipFile = configurations.runtime.files { it.group.equals('com.newrelic.agent.java') }.first()
+    def outputDir = file("${buildDir}/libs")
+    from zipTree(zipFile)
+    into outputDir
 }
 
 build.dependsOn(copyToLib)

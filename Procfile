@@ -1,1 +1,1 @@
-web: java -javaagent:build/libs/heroku-javaagent-2.0.jar=stdout=true,lxmem=true -Dserver.port=$PORT $JAVA_OPTS -jar build/libs/splatoon-0.1.jar
+web: java -javaagent:build/libs/newrelic/newrelic.jar -Dserver.port=$PORT $JAVA_OPTS -jar build/libs/splatoon-0.1.jar
