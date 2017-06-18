@@ -143,13 +143,15 @@ class BootStrap {
             def news1 = new News(
                     title: "News de test 1",
                     content: "<p>Content of the news</p>",
-                    date: Instant.now().minus(2, ChronoUnit.DAYS)
+                    date: Instant.now().minus(2, ChronoUnit.DAYS),
+                    cover: cover
             ).save(failOnError: true)
 
             def news2 = new News(
                     title: "News de test 2",
                     content: "<p>Content of the news</p>",
-                    date: Instant.now()
+                    date: Instant.now(),
+                    cover: cover
             ).save(failOnError: true)
 
             def news3 = new News(
@@ -159,13 +161,15 @@ class BootStrap {
                         <p style="text-align:center">&nbsp;</p>
                         <p>Pas mal de nouveautes sont a venir sur Splatoon. Aujourd&#39;hui nous nous interessons a la creation de personnages...&nbsp;</p>
                     """,
-                    date: Instant.now()
+                    date: Instant.now(),
+                    cover: cover
             ).save(failOnError: true)
 
             def news4 = new News(
                     title: "News de test 4",
                     content: "<p>Content of the news</p>",
-                    date: Instant.now()
+                    date: Instant.now(),
+                    cover: cover
             ).save(failOnError: true)
 
             def teamRisingMoon = new Team(name: 'Rising Moon').save(failOnError: true)

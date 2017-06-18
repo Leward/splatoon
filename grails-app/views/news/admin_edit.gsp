@@ -31,6 +31,7 @@
         <fieldset class="form">
             <f:with bean="${news}">
                 <f:field property="title"/>
+                <f:field property="cover"/>
                 <f:field property="content"/>
             </f:with>
         </fieldset>

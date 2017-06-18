@@ -6,7 +6,7 @@
                 <div class="news">
                     <div class="news-image">
                         <g:link mapping="news_show" id="${news.id}">
-                            <img src="https://s3-eu-central-1.amazonaws.com/splatoon/0be69296-2b43-4c19-8d2e-b567df7f5fdb-image.png"/>
+                            <img src="${news.cover.url}" alt="${news.cover.name}"/>
                         </g:link>
                     </div>
 

@@ -12,7 +12,7 @@ class Cover {
     static transients = ['file']
 
     static constraints = {
-        name blank: false
+        name blank: false, unique: true
         url nullable: true, validator: { val, obj ->
             return obj.file != null || (val != null && UrlValidator.getInstance().isValid(val))
         }
@@ -28,5 +28,10 @@ class Cover {
                 return false
             }
         }
+    }
+
+    @Override
+    String toString() {
+        return name
     }
 }
