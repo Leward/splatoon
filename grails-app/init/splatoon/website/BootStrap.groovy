@@ -135,6 +135,11 @@ class BootStrap {
                     .build()
                     .save(failOnError: true)
 
+            def cover = new Cover(
+                    name: 'Splatoon 2',
+                    url: 'https://s3-eu-central-1.amazonaws.com/splatoon/0be69296-2b43-4c19-8d2e-b567df7f5fdb-image.png'
+            ).save(failOnError: true)
+
             def news1 = new News(
                     title: "News de test 1",
                     content: "<p>Content of the news</p>",

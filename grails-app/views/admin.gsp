@@ -33,9 +33,11 @@
     </ul>
 </g:panel>
 
-<g:panel title="News">
+<g:panel title="News & Mag">
     <ul>
         <li><g:link mapping="admin_news">News</g:link></li>
+        <li><g:link mapping="admin_news">Articles</g:link></li>
+        <li><g:link mapping="admin_cover_list">Covers</g:link></li>
     </ul>
 </g:panel>
 

@@ -54,6 +54,11 @@ class UrlMappings {
         name "admin_team": "/admin/equipes"(controller: 'team', action: 'index')
         name "admin_user_uroles": "/admin/utilisateurs/$id/roles"(controller: 'user', action: 'manageRoles')
 
+        name 'admin_cover_list':'/admin/covers'(controller: 'cover', action: 'index')
+        name 'admin_cover_create':'/admin/covers/ajouter'(controller: 'cover', action: 'create')
+        name 'admin_cover_update':"/admin/covers/$id/modifier"(controller: 'cover', action: 'update')
+        name 'admin_cover_delete':"/admin/covers/$id/supprimer"(controller: 'cover', action: 'delete')
+
         // Others
         name 'upload': '/upload' (controller: 'upload', action: 'index')
         name 'twitch_placeholder': '/twitch_placeholder' (view: '/twitch_placeholder')
