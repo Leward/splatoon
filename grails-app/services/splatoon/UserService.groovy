@@ -8,6 +8,7 @@ import org.apache.commons.lang.RandomStringUtils
 class UserService {
 
     public static final int GENERATED_PASSWORD_LENGTH = 10
+    static transactional = true
 
     MailService mailService
 
@@ -15,9 +16,9 @@ class UserService {
         def user = User.findByEmail(email)
         def newPassword = RandomStringUtils.randomAlphanumeric(GENERATED_PASSWORD_LENGTH)
         user.password = newPassword
-//        if(!user.isDirty('password')) {
-//            user.encodePassword()
-//        }
+        if(!user.isDirty('password')) {
+            user.encodePassword()
+        }
         user.save()
         mailService.sendMail {
             to email
