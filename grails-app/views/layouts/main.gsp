@@ -24,7 +24,7 @@
         <ul class="links-1">
             <li class="separator"></li>
             <li>
-                <g:link url="http://fr.splatoonwiki.org/wiki/Accueil">Stream TV</g:link>
+                <g:link url="http://fr.splatoonwiki.org/wiki/Accueil">Inkipédia</g:link>
             </li>
             <li class="separator"></li>
             <li><g:link mapping="recruitment">Le mag</g:link></li>
