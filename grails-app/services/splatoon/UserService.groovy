@@ -15,9 +15,9 @@ class UserService {
         def user = User.findByEmail(email)
         def newPassword = RandomStringUtils.randomAlphanumeric(GENERATED_PASSWORD_LENGTH)
         user.password = newPassword
-        if(!user.isDirty('password')) {
-            user.encodePassword()
-        }
+//        if(!user.isDirty('password')) {
+//            user.encodePassword()
+//        }
         user.save()
         mailService.sendMail {
             to email
