@@ -13,5 +13,5 @@ UPDATE news SET cover_id = (SELECT id FROM cover LIMIT 1);
 ALTER TABLE news
     MODIFY cover_id BIGINT NOT NULL;
 
-ALTER TABLE splatoon.public.news
+ALTER TABLE news
   ADD CONSTRAINT fk_news_cover FOREIGN KEY (cover_id) REFERENCES cover (id);

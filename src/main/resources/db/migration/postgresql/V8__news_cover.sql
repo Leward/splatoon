@@ -14,5 +14,5 @@ UPDATE news SET cover_id = (SELECT id FROM cover LIMIT 1);
 ALTER TABLE news
     ALTER COLUMN cover_id SET NOT NULL;
 
-ALTER TABLE ONLY splatoon.public.news
+ALTER TABLE ONLY news
   ADD CONSTRAINT fk_news_cover FOREIGN KEY (cover_id) REFERENCES cover (id);
