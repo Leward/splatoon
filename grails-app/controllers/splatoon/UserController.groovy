@@ -83,14 +83,15 @@ class UserController {
     def manageRoles() {
         def user = User.get(params.getLong('id'))
         if(request.isPost() && params.'roles[]') {
-            String[] roles = params.'roles[]'
+            List<String> roles = params.getList('roles[]')
             // Remove roles
             Set<String> rolesToAdd = roles
                     .findAll { !user.hasRole(it) }
             Set<String> rolesToRemove = user.roles
                     .findAll  { !roles.contains(it.authority) }
                     .collect { it.authority }
-
+            log.info("Roles to add to ${user.username}: ${rolesToAdd.join(',')}")
+            log.info("Roles to remove from ${user.username}: ${rolesToRemove.join(',')}")
             UserRole.remove(user, rolesToRemove)
             rolesToAdd.collect { Role.findByAuthority(it) }
                 .each {role -> UserRole.create(user, role)}
