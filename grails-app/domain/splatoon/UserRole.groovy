@@ -55,6 +55,18 @@ class UserRole implements Serializable {
 		}
 	}
 
+	static boolean remove(User u, String authority) {
+		if(u != null && authority != null) {
+			UserRole.where { user == u && role.authority == authority}.deleteAll()
+		}
+	}
+
+	static boolean remove(User u, Collection<String> authorities) {
+		if(u != null) {
+			UserRole.where { user == u && role.authority in authorities }
+		}
+	}
+
 	static int removeAll(User u) {
 		u == null ? 0 : UserRole.where { user == u }.deleteAll()
 	}

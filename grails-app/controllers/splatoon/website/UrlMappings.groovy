@@ -52,6 +52,7 @@ class UrlMappings {
         name "admin_ladder_add_result": "/admin/ladder/$eventId/ajouter-resultat"(controller: 'ladder', action: 'create')
         name "admin_ladder_update_result": "/admin/ladder/$id/modifier-resultat"(controller: 'ladder', action: 'update')
         name "admin_team": "/admin/equipes"(controller: 'team', action: 'index')
+        name "admin_user_uroles": "/admin/utilisateurs/$id/roles"(controller: 'user', action: 'manageRoles')
 
         // Others
         name 'upload': '/upload' (controller: 'upload', action: 'index')

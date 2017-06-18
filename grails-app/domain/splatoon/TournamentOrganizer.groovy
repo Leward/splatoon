@@ -1,13 +1,11 @@
 package splatoon
 
-import java.time.LocalDate
-
 class TournamentOrganizer {
 
     String name
     String website
 
-    static hasMany = [tournaments: Tournament]
+    static hasMany = [tournaments: Tournament, members: User]
 
     static constraints = {
         name(blank: false)
@@ -17,5 +15,9 @@ class TournamentOrganizer {
     @Override
     String toString() {
         return name
+    }
+
+    boolean canBeManagedBy(User user) {
+        user.hasRole(Role.ROLE_ADMIN) || members.contains(user)
     }
 }

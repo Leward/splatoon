@@ -73,7 +73,31 @@ class UserController {
         }
     }
 
+    @Secured('ROLE_ADMIN')
     def index() {
         [users: User.getAll()]
     }
+
+    @Secured('ROLE_ADMIN')
+    @Transactional
+    def manageRoles() {
+        def user = User.get(params.getLong('id'))
+        if(request.isPost() && params.'roles[]') {
+            String[] roles = params.'roles[]'
+            // Remove roles
+            Set<String> rolesToAdd = roles
+                    .findAll { !user.hasRole(it) }
+            Set<String> rolesToRemove = user.roles
+                    .findAll  { !roles.contains(it.authority) }
+                    .collect { it.authority }
+
+            UserRole.remove(user, rolesToRemove)
+            rolesToAdd.collect { Role.findByAuthority(it) }
+                .each {role -> UserRole.create(user, role)}
+            flash.message = "Roles mis à jour"
+            user = User.get(user.id)
+        }
+        render(view: 'manageRoles', model: [user: user, roles: Role.findAll()])
+    }
+
 }

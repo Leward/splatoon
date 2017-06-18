@@ -36,6 +36,10 @@ class BootStrap {
             }
         });
 
+        def roleAdmin = Role.findOrSaveWhere(authority: Role.ROLE_ADMIN)
+        def roleTO = Role.findOrSaveWhere(authority: Role.ROLE_TO)
+        def roleModerator = Role.findOrSaveWhere(authority: Role.ROLE_MODERATOR)
+        def roleEditor = Role.findOrSaveWhere(authority: Role.ROLE_EDITOR)
 
         if (Environment.current == Environment.DEVELOPMENT) {
             log.debug("Development environment detected: boostrapping with some data.")
@@ -87,6 +91,14 @@ class BootStrap {
                     password: 'changeit',
                     email: 'oli@splatoon.fr'
             ).save()
+
+            def admin = new User(
+                    username: 'admin',
+                    password: 'admin',
+                    email: 'admin@splatoon.fr'
+            ).save()
+
+            new UserRole(user: admin, role: roleAdmin).save()
 
             def ad1 = RecruitingAd.builder()
                     .type(AdType.LOOKING_FOR_TEAM_AD)

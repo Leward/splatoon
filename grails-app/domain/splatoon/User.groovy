@@ -18,8 +18,19 @@ class User {
 	boolean accountLocked
 	boolean passwordExpired
 
+	static hasMany = [tournamentOrganizers: TournamentOrganizer]
+	static belongsTo = TournamentOrganizer
+
 	Set<Role> getAuthorities() {
-		UserRole.findAllByUser(this)*.role
+		def roles = UserRole.findAllByUser(this)*.role
+		if(!tournamentOrganizers.empty) {
+			roles.add(Role.findByAuthority(Role.ROLE_TO))
+		}
+		return roles
+	}
+
+	Set<Role> getRoles() {
+		return getAuthorities()
 	}
 
 	def beforeInsert() {
@@ -65,5 +76,9 @@ class User {
 		}
 		def otherUser = o as User
 		return id != null && id == otherUser.id
+	}
+
+	boolean canManage(TournamentOrganizer tournamentOrganizer) {
+		return hasRole(Role.ROLE_ADMIN) || tournamentOrganizers.contains(tournamentOrganizer)
 	}
 }

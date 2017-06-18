@@ -9,6 +9,11 @@ class Role implements Serializable {
 
 	private static final long serialVersionUID = 1
 
+	public static final String ROLE_ADMIN = 'ROLE_ADMIN'
+	public static final String ROLE_TO = 'ROLE_TO'
+	public static final String ROLE_MODERATOR = 'ROLE_MODERATOR'
+	public static final String ROLE_EDITOR = 'ROLE_EDITOR'
+
 	String authority
 
 	static constraints = {

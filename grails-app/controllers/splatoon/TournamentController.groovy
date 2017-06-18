@@ -1,10 +1,16 @@
 package splatoon
 
+import grails.plugin.springsecurity.SpringSecurityService
+import grails.plugin.springsecurity.annotation.Secured
+import org.springframework.security.access.AccessDeniedException
+
 import static org.springframework.http.HttpStatus.*
 import grails.transaction.Transactional
 
 @Transactional(readOnly = true)
 class TournamentController {
+
+    SpringSecurityService springSecurityService
 
     static allowedMethods = [save: "POST", update: "PUT", delete: "DELETE"]
 
@@ -17,12 +23,14 @@ class TournamentController {
         respond tournament
     }
 
+    @Secured(['ROLE_ADMIN', 'ROLE_TO'])
     def create() {
         respond new Tournament(params)
     }
 
     @Transactional
     def save(Tournament tournament) {
+        verifyThatUserCanManage(tournament)
         if (tournament == null) {
             transactionStatus.setRollbackOnly()
             notFound()
@@ -46,7 +54,15 @@ class TournamentController {
         }
     }
 
+    private void verifyThatUserCanManage(Tournament tournament) throws AccessDeniedException {
+        def user = springSecurityService.currentUser as User
+        if (!user.canManage(tournament.organizer)) {
+            throw new AccessDeniedException("Not allowed to manage tournament organizer")
+        }
+    }
+
     def edit(Tournament tournament) {
+        verifyThatUserCanManage(tournament)
         respond tournament
     }
 
@@ -57,6 +73,7 @@ class TournamentController {
             notFound()
             return
         }
+        verifyThatUserCanManage(tournament)
 
         if (tournament.hasErrors()) {
             transactionStatus.setRollbackOnly()
@@ -83,6 +100,7 @@ class TournamentController {
             notFound()
             return
         }
+        verifyThatUserCanManage(tournament)
 
         tournament.delete flush:true
 
