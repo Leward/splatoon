@@ -63,7 +63,10 @@ class UserRole implements Serializable {
 
 	static boolean remove(User u, Collection<String> authorities) {
 		if(u != null) {
-			UserRole.where { user == u && role.authority in authorities }
+			UserRole.log.info("Remove roles where user == ${u} and authorities in ${authorities}")
+			def roles = authorities.collect { Role.findByAuthority(it) }
+			def userRoles = UserRole.findAllByUserAndRoleInList(u, roles)
+			UserRole.deleteAll(userRoles)
 		}
 	}
 

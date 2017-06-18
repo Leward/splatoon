@@ -82,7 +82,7 @@ class UserController {
     @Transactional
     def manageRoles() {
         def user = User.get(params.getLong('id'))
-        if(request.isPost() && params.'roles[]') {
+        if(request.isPost()) {
             List<String> roles = params.getList('roles[]')
             // Remove roles
             Set<String> rolesToAdd = roles
@@ -92,7 +92,9 @@ class UserController {
                     .collect { it.authority }
             log.info("Roles to add to ${user.username}: ${rolesToAdd.join(',')}")
             log.info("Roles to remove from ${user.username}: ${rolesToRemove.join(',')}")
-            UserRole.remove(user, rolesToRemove)
+            if(rolesToRemove.size() > 0) {
+                UserRole.remove(user, rolesToRemove)
+            }
             rolesToAdd.collect { Role.findByAuthority(it) }
                 .each {role -> UserRole.create(user, role)}
             flash.message = "Roles mis à jour"
