@@ -34,7 +34,7 @@ class UrlMappings {
         name "styleguide": "/styleguide"(view:"/styleguide")
 
         // Admin routes
-        name "admin": "/admin"(view: "/admin")
+        name "admin": "/admin"(controller: 'home', action: 'admin')
         name "admin_tournamentOrganizer_list": "/admin/organisateurs" (controller: "tournamentOrganizer", action: "index")
         name "admin_tournamentOrganizer_add": "/admin/organisateurs/ajouter" (controller: "tournamentOrganizer", action: "create")
         name "admin_tournament_list": "/admin/tournois" (controller: "tournament", action: "index")
