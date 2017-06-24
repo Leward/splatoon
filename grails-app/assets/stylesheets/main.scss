@@ -481,3 +481,26 @@ body {
     }
   }
 }
+
+ul.row.articles {
+  $article-width: 310px;
+  list-style: none;
+  padding: 0;
+  .article {
+    max-width: $article-width;
+    margin: auto;
+    padding-bottom: 20px;
+    img {
+      @include aspect-ratio(310, 190);
+      margin: auto;
+      width: 100%;
+      max-width: $article-width;
+    }
+
+    .information {
+      padding-top: 5px;
+      padding-left: 5px;
+      color: $color-light-grey;
+    }
+  }
+}

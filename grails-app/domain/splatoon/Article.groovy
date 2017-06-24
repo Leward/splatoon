@@ -11,6 +11,7 @@ class Article {
     String content
     Instant date
     Cover cover
+    ArticleCategory category
 
     def beforeInsert() {
         date = Instant.now()
@@ -25,6 +26,7 @@ class Article {
         content blank: false
         date nullable: true
         cover nullable: false
+        category nullable: false
     }
 
     static mapping = {

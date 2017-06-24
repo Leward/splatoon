@@ -201,6 +201,34 @@ class BootStrap {
                     loses: 0,
                     date: Instant.now()
             ).save()
+
+            def category1 = new ArticleCategory(name: 'Analyze de match').save()
+            def category2 = new ArticleCategory(name: 'Gears').save()
+            def category3 = new ArticleCategory(name: 'Interview').save()
+
+            def article1 = new Article(
+                    title: "La finale du Go 4 Splatoon",
+                    content: "<p>Contenu de test</p>",
+                    cover: cover,
+                    category: category1,
+                    date: Instant.now()
+            ).save(failOnError: true)
+
+            def article2 = new Article(
+                    title: "Hime et PA répondent à vos questions",
+                    content: "<p>Contenu de test</p>",
+                    cover: cover,
+                    category: category3,
+                    date: Instant.now()
+            ).save(failOnError: true)
+
+            def article3 = new Article(
+                    title: "Interview Rising Moon",
+                    content: "<p>Contenu de test</p>",
+                    cover: cover,
+                    category: category3,
+                    date: Instant.now()
+            ).save(failOnError: true)
         }
     }
     def destroy = {

@@ -31,6 +31,7 @@
             <f:with bean="${article}">
                 <f:field property="title"/>
                 <f:field property="cover"/>
+                <f:field property="category"/>
                 <f:field property="content"/>
             </f:with>
         </fieldset>

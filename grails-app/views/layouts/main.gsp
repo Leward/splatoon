@@ -27,7 +27,7 @@
                 <g:link url="http://fr.splatoonwiki.org/wiki/Accueil">Inkipédia</g:link>
             </li>
             <li class="separator"></li>
-            <li><g:link mapping="recruitment">Le mag</g:link></li>
+            <li><g:link mapping="magazine">Le mag</g:link></li>
             <li class="separator"></li>
             <li><g:link mapping="ladder">Ladder</g:link></li>
             <li class="separator"></li>

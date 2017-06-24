@@ -26,6 +26,7 @@
         <tr>
             <th>#</th>
             <th>Title</th>
+            <th>Catégorie</th>
         </tr>
         </thead>
         <tbody>
@@ -41,6 +42,7 @@
                         ${article.title}
                     </g:link>
                 </td>
+                <td>${article.category}</td>
             </tr>
         </g:each>
         </tbody>

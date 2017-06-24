@@ -5,6 +5,18 @@ import grails.transaction.Transactional
 
 class ArticleController {
 
+    def magazine() {
+        Map<ArticleCategory, List<Article>> categoryMap = [:]
+        ArticleCategory.list().each {
+            categoryMap[it] = Article.findAllByCategory(it, [max: 4])
+        }
+        render(view: 'magazine', model: [categories: categoryMap])
+    }
+
+    def show(Article article) {
+        render(view: 'show', model: [article: article])
+    }
+
     @Secured(['ROLE_ADMIN', 'ROLE_EDITOR'])
     def admin_index() {
         render(view: "admin_index", model: [

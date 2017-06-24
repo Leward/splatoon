@@ -42,6 +42,9 @@
         <ul>
             <li><g:link mapping="admin_news">News</g:link></li>
             <li><g:link mapping="admin_article">Articles</g:link></li>
+            <sec:ifAnyGranted roles="ROLE_ADMIN">
+                <li><g:link controller="articleCategory">Catégories d'Article</g:link></li>
+            </sec:ifAnyGranted>
             <li><g:link mapping="admin_cover_list">Covers</g:link></li>
         </ul>
     </g:panel>

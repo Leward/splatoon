@@ -26,6 +26,7 @@
 </g:form>
 
 <g:panel title="Gerer une article: ${article.title}">
+    <p>Catégorie: ${article.category}</p>
     <div class="article">
         <g:html code="${article.content}"/>
     </div>
