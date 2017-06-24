@@ -24,8 +24,8 @@ apply plugin:"asset-pipeline"
 repositories {
     mavenLocal()
     maven { url "https://repo.grails.org/grails/core" }
-    maven { url 'http://dl.bintray.com/agorapulse/libs' }
-    maven { url "http://dl.bintray.com/agorapulse/plugins" }
+    maven { url 'https://dl.bintray.com/agorapulse/libs/' }
+    maven { url "https://dl.bintray.com/agorapulse/libs/" }
 }
 
 dependencyManagement {
@@ -55,6 +55,7 @@ dependencies {
     compile 'org.grails.plugins:aws-sdk-s3:2.1.5'
     compile 'com.mashape.unirest:unirest-java:1.4.9'
     compile 'org.grails.plugins:grails-flyway:0.2'
+    compile 'org.flywaydb:flyway-core:4.2.0' // force upgrade of flyway version
     profile "org.grails.profiles:web"
     runtime "com.bertramlabs.plugins:asset-pipeline-grails:2.11.6"
     runtime "com.bertramlabs.plugins:sass-asset-pipeline:2.13.2"
