@@ -76,7 +76,9 @@
     %{--</div>--}%
 
     <div class="featured-news card">
-        <header class="red"><h2>A la Une</h2></header>
+        <header class="red"><h2>
+            <g:link mapping="news">News</g:link>
+        </h2></header>
         <main><g:render template="/news/latest_news"/></main>
     </div>
 

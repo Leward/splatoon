@@ -5,6 +5,15 @@ import grails.transaction.Transactional
 
 class NewsController {
 
+    def list() {
+        def newsPerPage = 12
+        def page = params.getLong('page', 1)
+        def offset = (page - 1) * newsPerPage
+        def newsList = News.findAll([offset: offset, max: newsPerPage])
+        def nbPages = Math.ceil(News.count()/ newsPerPage)
+        render(view: 'list', model: [newsList: newsList, page: page, nbPages: nbPages])
+    }
+
     def show(News news) {
         render(view: 'show', model: [news:news])
     }

@@ -378,6 +378,28 @@ body {
       margin-top: 20px;
     }
   }
+  ul.news-list {
+    $news-width: 310px;
+    list-style: none;
+    padding: 0;
+    .news {
+      max-width: $news-width;
+      margin: auto;
+      padding-bottom: 40px;
+      img {
+        @include aspect-ratio(310, 190);
+        margin: auto;
+        width: 100%;
+        max-width: $news-width;
+      }
+
+      .information {
+        padding-top: 5px;
+        padding-left: 5px;
+        color: $color-light-grey;
+      }
+    }
+  }
 }
 
 .event-details-page {

@@ -212,9 +212,15 @@ ol.property-list {
     }
     &.red {
       color: $color-brick-red;
+      a {
+        color: $color-brick-red;
+      }
     }
     &.blue {
       color: $color-header-blue;
+      a {
+        color: $color-header-blue;
+      }
     }
   }
   > main {
