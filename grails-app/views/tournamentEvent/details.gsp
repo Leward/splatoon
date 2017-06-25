@@ -10,16 +10,6 @@
 
 <div class="event-details-page">
 
-    <g:if test="${tournamentEvent.streamUrl != null}">
-        <div class="card no-padding">
-            <main>
-                <div class="stream">
-                    <g:stream event="${tournamentEvent}"/>
-                </div>
-            </main>
-        </div>
-    </g:if>
-
     <div class="card event-details">
         <main>
             <h2 class="name">${tournamentEvent.tournament.name}</h2>
@@ -49,6 +39,16 @@
             </div>
         </main>
     </div>
+
+    <g:if test="${tournamentEvent.streamUrl != null}">
+        <div class="card no-padding">
+            <main>
+                <div class="stream">
+                    <g:stream event="${tournamentEvent}"/>
+                </div>
+            </main>
+        </div>
+    </g:if>
 
     <g:if test="${tournamentEvent.challongeUrl != null}">
         <div class="card no-padding">
