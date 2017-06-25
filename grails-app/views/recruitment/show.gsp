@@ -36,7 +36,7 @@
                     <p><g:formatDate date="${recruitingAd.createdAtAsDate}" format="dd/MM/yyyy"/></p>
                 </div>
 
-                <div class="col-sm-4 col-xs-5 rank">A+</div>
+                <div class="col-sm-4 col-xs-5 rank">${recruitingAd.rank.label}</div>
             </div>
 
             <div class="presentation">
