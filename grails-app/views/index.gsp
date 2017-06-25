@@ -83,7 +83,11 @@
     </div>
 
     <div class="recruitment card">
-        <header class="blue"><h2>Recrutements & Candidatures</h2></header>
+        <header class="blue"><h2>
+            <g:link mapping="recruitment">
+                Recrutements & Candidatures
+            </g:link>
+        </h2></header>
 
         <main class="row">
             <div class="col-md-5 col-sm-6">
