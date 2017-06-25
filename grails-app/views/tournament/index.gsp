@@ -26,7 +26,7 @@
         </g:link>
     </p>
 
-    <f:table collection="${tournamentList}" properties="['id', 'name', 'organizer']"/>
+    <f:table collection="${tournamentList}" properties="['name', 'organizer']"/>
 
     <div class="pagination">
         <g:paginate total="${tournamentCount ?: 0}"/>
