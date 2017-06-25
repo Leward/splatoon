@@ -39,6 +39,9 @@
             <f:field property="challongeUrl" bean="tournamentEvent" />
             <f:field property="streamUrl" bean="tournamentEvent" />
         </fieldset>
+
+        <g:include view="tournamentEvent/_info_url_formats.gsp" />
+
         <fieldset class="buttons">
             <g:submitButton name="create" class="save"
                             value="${message(code: 'default.button.create.label', default: 'Create')}"/>

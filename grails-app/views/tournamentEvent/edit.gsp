@@ -31,6 +31,7 @@
                 <fieldset class="form">
                     <f:all bean="tournamentEvent"/>
                 </fieldset>
+                <g:include view="tournamentEvent/_info_url_formats.gsp" />
                 <fieldset class="buttons">
                     <input class="save" type="submit" value="${message(code: 'default.button.update.label', default: 'Update')}" />
                 </fieldset>
