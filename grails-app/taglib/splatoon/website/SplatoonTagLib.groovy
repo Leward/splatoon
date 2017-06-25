@@ -87,6 +87,7 @@ class SplatoonTagLib {
                 .and(Sanitizers.LINKS)
                 .and(Sanitizers.IMAGES)
                 .and(new HtmlPolicyBuilder()
+                .allowStyling()
                 .toFactory())
         out << policy.sanitize(attrs.code)
     }
