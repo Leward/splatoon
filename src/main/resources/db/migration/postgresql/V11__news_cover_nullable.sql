@@ -1,0 +1,2 @@
+ALTER TABLE news
+    ALTER COLUMN cover DROP NOT NULL;
