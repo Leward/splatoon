@@ -167,7 +167,7 @@ class BootStrap {
 
             def news4 = new News(
                     title: "News de test 4",
-                    content: "<p>Content of the news</p>",
+                    content: '<p>Content of the news</p><img src="https://s3.eu-central-1.amazonaws.com/splatoon/13e47e0a-f826-4ebb-9c12-b2f4c336c170-test.png" class="img-responsive">',
                     date: Instant.now(),
                     cover: cover
             ).save(failOnError: true)

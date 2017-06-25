@@ -5,7 +5,11 @@ import org.owasp.html.PolicyFactory
 import org.owasp.html.Sanitizers
 import splatoon.TournamentEvent
 
+import java.util.regex.Pattern
+
 class SplatoonTagLib {
+
+    private static final Pattern HTML_CLASS = Pattern.compile("[a-zA-Z0-9\\s,\\-_]+");
     static defaultEncodeAs = [taglib: 'none']
     //static encodeAsForTags = [tagName: [taglib:'html'], otherTagName: [taglib:'none']]
 
@@ -88,6 +92,7 @@ class SplatoonTagLib {
                 .and(Sanitizers.IMAGES)
                 .and(new HtmlPolicyBuilder()
                 .allowStyling()
+                .allowAttributes("class").matching(HTML_CLASS).globally()
                 .toFactory())
         out << policy.sanitize(attrs.code)
     }
