@@ -14,11 +14,14 @@ class TournamentController {
 
     static allowedMethods = [save: "POST", update: "PUT", delete: "DELETE"]
 
+    @Secured(['ROLE_ADMIN', 'ROLE_TO'])
     def index(Integer max) {
-        params.max = Math.min(max ?: 10, 100)
-        respond Tournament.list(params), model:[tournamentCount: Tournament.count()]
+        def tournaments = Tournament.list()
+            .findAll { it.organizer.canBeManagedBy(springSecurityService.currentUser as User)} // TODO: Optimize at query level
+        render(view: 'index', model: [tournamentList: tournaments])
     }
 
+    @Secured(['ROLE_ADMIN', 'ROLE_TO'])
     def show(Tournament tournament) {
         respond tournament
     }

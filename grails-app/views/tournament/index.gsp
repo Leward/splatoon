@@ -28,9 +28,6 @@
 
     <f:table collection="${tournamentList}" properties="['name', 'organizer']"/>
 
-    <div class="pagination">
-        <g:paginate total="${tournamentCount ?: 0}"/>
-    </div>
 </g:panel>
 </body>
 </html>
