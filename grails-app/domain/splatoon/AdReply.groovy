@@ -42,7 +42,7 @@ class AdReply {
     }
 
     boolean canEdit(User user) {
-        return user == author
+        return user != null && (user.hasRole(Role.ROLE_ADMIN) || user.hasRole(Role.ROLE_MODERATOR) || user == author)
     }
 
     boolean canEdit() {

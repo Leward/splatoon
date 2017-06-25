@@ -4,6 +4,8 @@ import grails.plugin.springsecurity.SpringSecurityService
 import grails.transaction.Transactional
 import org.springframework.security.access.annotation.Secured
 
+import java.nio.file.AccessDeniedException
+
 class RecruitmentController {
 
     SpringSecurityService springSecurityService
@@ -27,6 +29,19 @@ class RecruitmentController {
                 replies: AdReply.findAllByAd(recruitingAd)
         ]
         render(view: "show", model: viewModel)
+    }
+
+    @Secured('IS_AUTHENTICATED_FULLY')
+    @Transactional
+    def edit(RecruitingAd ad) {
+        if(!ad.canEdit()) {
+            throw new AccessDeniedException("Vous ne pouvez pas modifier cette annonce");
+        }
+        if(request.isPost()) {
+            ad.save()
+            redirect(mapping: 'recruitment_show_ad', id: ad.id)
+        }
+        render(view: 'edit', model: [recruitingAd: ad])
     }
 
     @Secured('IS_AUTHENTICATED_FULLY')

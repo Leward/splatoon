@@ -43,6 +43,12 @@
                 <h4>Présentation</h4>
 
                 <div><g:html code="${recruitingAd.message}"/></div>
+
+                <g:if test="${recruitingAd.canEdit()}">
+                    <div class="text-right">
+                        <g:link class="btn btn-primary" mapping="recruitment_edit_ad" id="${recruitingAd.id}">Modifier</g:link>
+                    </div>
+                </g:if>
             </div>
 
         </main>

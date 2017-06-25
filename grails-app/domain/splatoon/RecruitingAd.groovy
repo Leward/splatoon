@@ -1,11 +1,14 @@
 package splatoon
 
+import grails.plugin.springsecurity.SpringSecurityService
 import groovy.transform.builder.Builder
 
 import java.time.Instant
 
 @Builder
 class RecruitingAd {
+
+    transient SpringSecurityService springSecurityService
 
     AdType type
     String title
@@ -27,6 +30,22 @@ class RecruitingAd {
         return HtmlStringUtils.truncateHtml(message, 50)
     }
 
+    boolean canEdit(User user) {
+        return user != null && (user.hasRole(Role.ROLE_ADMIN) || user.hasRole(Role.ROLE_MODERATOR) || user == author)
+    }
+
+    boolean canEdit() {
+        canEdit(springSecurityService.currentUser as User)
+    }
+
+    boolean canDelete(User user) {
+        return canEdit(user)
+    }
+
+    boolean canDelete() {
+        canDelete(springSecurityService.currentUser as User)
+    }
+
     static hasMany = [replies: AdReply]
 
     static mappedBy = [ad: AdReply]
@@ -35,6 +54,8 @@ class RecruitingAd {
         message(type: 'text')
         rank(column: '`rank`')
         sort(createdAt: "desc")
+        author(updateable: false)
+        createdAt(updateable: false)
     }
 
     static constraints = {
