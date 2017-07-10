@@ -49,6 +49,7 @@ class BootStrap {
                     name: "Nintendo Europe 2018",
                     organizer: esl,
                     game: Game.SPLATOON_1,
+                    registrationDetails: """<p>Inscription sur <a href="https://play.eslgaming.com/france/">le site de l'ESL</a>. </p>""",
                     rules: "<p>Please refer to the ESL website for more detailed rules</p>"
             ).save()
             def firstTournamentDate = LocalDate.of(2018, Month.JUNE, 1)

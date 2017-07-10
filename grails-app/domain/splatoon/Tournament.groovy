@@ -6,6 +6,7 @@ class Tournament {
     TournamentOrganizer organizer
     Game game = Game.SPLATOON_1
     String rules
+    String registrationDetails
     List<TournamentEvent> events // Enforce a List instead of default Set to keep ordering
 
     static hasMany = [events: TournamentEvent]

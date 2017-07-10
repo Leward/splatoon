@@ -31,6 +31,17 @@
             </dl>
 
             <div class="rules">
+                <div class="title">Modalités d'inscription</div>
+                <div class="content">
+                    <g:if test="${tournamentEvent.tournament.registrationDetails}">
+                        <g:html code="${tournamentEvent.tournament.registrationDetails}"/>
+                    </g:if>
+                    <g:else>
+                        <p>Contacter l'organisateur pour s'inscrire au tournoi. </p>
+                    </g:else>
+                </div>
+            </div>
+            <div class="rules">
                 <div class="title">Règles</div>
 
                 <div class="content">
