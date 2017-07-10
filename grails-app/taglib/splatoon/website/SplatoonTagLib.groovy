@@ -1,10 +1,12 @@
 package splatoon.website
 
+import com.google.common.base.Predicates
 import org.owasp.html.HtmlPolicyBuilder
 import org.owasp.html.PolicyFactory
 import org.owasp.html.Sanitizers
 import splatoon.TournamentEvent
 
+import java.util.function.Predicate
 import java.util.regex.Pattern
 
 class SplatoonTagLib {
@@ -94,6 +96,13 @@ class SplatoonTagLib {
                 .allowStyling()
                 .allowAttributes("class").matching(HTML_CLASS).globally()
                 .toFactory())
+                .and(new HtmlPolicyBuilder()
+                .allowStandardUrlProtocols()
+                .allowAttributes("width", "height", "frameborder", "webkitallowfullscreen", "mozallowfullscreen", "allowfullscreen").onElements("iframe")
+                .allowAttributes("src").matching(Pattern.compile("^((https:)?//player\\.vimeo\\.com/|(https:)?//www\\.youtube\\.com/|(https:)?//player\\.twitch\\.tv/).+"))
+                .onElements("iframe")
+                .allowElements("iframe", 'hr')
+                .toFactory())
         out << policy.sanitize(attrs.code)
     }
 
@@ -104,7 +113,7 @@ class SplatoonTagLib {
      */
     def excerptHtml = { attrs, body ->
         PolicyFactory policy
-        if(attrs.strict || attrs.strict == 'true') {
+        if (attrs.strict || attrs.strict == 'true') {
             policy = Sanitizers.FORMATTING
                     .and(new HtmlPolicyBuilder()
                     .toFactory())
