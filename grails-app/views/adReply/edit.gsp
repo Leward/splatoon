@@ -18,7 +18,7 @@
         </ul>
     </g:hasErrors>
 
-    <g:form method="POST" mapping="recruitment_reply_ad_edit" id="${recruitingAd.id}">
+    <g:form method="POST" mapping="recruitment_reply_ad_edit" id="${adReply.id}">
         <fieldset class="form">
             <f:with bean="${adReply}">
                 <g:hiddenField name="ad.id" value="${recruitingAd.id}"/>

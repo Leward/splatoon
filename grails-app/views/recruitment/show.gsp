@@ -80,8 +80,7 @@
                         <g:form mapping="recruitment_reply_ad_delete" id="${reply.id}" method="POST" style="float: right;">
                             <fieldset class="buttons">
                                 <div class="text-right">
-                                    %{--<g:link class="btn btn-primary" mapping="recruitment_edit_ad"--}%
-                                    %{--id="${recruitingAd.id}">Modifier</g:link>--}%
+                                    <g:link class="btn btn-primary btn-xs" mapping="recruitment_reply_ad_edit" id="${reply.id}">Modifier</g:link>
                                     <button type="submit" class="delete btn btn-danger btn-xs"
                                             onclick="return confirm('Êtes-vous sûr de vouloir supprimer ce commentaire ? Cette action est irréversible. ');">
                                         Supprimer

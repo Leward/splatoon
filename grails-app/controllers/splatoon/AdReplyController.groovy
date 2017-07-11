@@ -3,8 +3,7 @@ package splatoon
 import grails.plugin.springsecurity.SpringSecurityService
 import grails.plugin.springsecurity.annotation.Secured
 import grails.transaction.Transactional
-
-import java.nio.file.AccessDeniedException
+import org.springframework.security.access.AccessDeniedException
 
 class AdReplyController {
 
@@ -13,7 +12,8 @@ class AdReplyController {
     @Secured('IS_AUTHENTICATED_FULLY')
     @Transactional
     def create() {
-        def recruitingAd = RecruitingAd.get(params.id) // Do not pass recruitingAd as parameter, we we to retrieve it from DB and not let grails do any data binding on it
+        def recruitingAd = RecruitingAd.get(params.id)
+        // Do not pass recruitingAd as parameter, we we to retrieve it from DB and not let grails do any data binding on it
         def adReply = new AdReply(params)
         adReply.id = null // params.id is not null we don't want it to interfere in our object
         adReply.author = springSecurityService.currentUser as User
@@ -30,9 +30,10 @@ class AdReplyController {
 
     @Secured('IS_AUTHENTICATED_FULLY')
     @Transactional
-    def edit(AdReply adReply) {
-        if (!adReply.canEdit(springSecurityService.currentUser as User)) {
-            render(status: 403)
+    def edit() {
+        def adReply = AdReply.get(params.id)
+        if (!adReply.canEdit()) {
+            throw new AccessDeniedException("Vous ne pouvez pas modifier cette réponse");
         }
         if (request.method == 'POST') {
             adReply.mergeProperties(new AdReply(params), springSecurityService.currentUser as User)
@@ -40,12 +41,13 @@ class AdReplyController {
                 adReply.save(flush: true)
                 redirect(mapping: 'recruitment_show_ad', id: adReply.ad.id)
             }
+        } else {
+            def viewModel = [
+                    recruitingAd: adReply.ad,
+                    adReply     : adReply
+            ]
+            render(view: 'edit', model: viewModel)
         }
-        def viewModel = [
-                recruitingAd: adReply.ad,
-                adReply     : adReply
-        ]
-        render(view: 'edit', model: viewModel)
     }
 
     @Secured('IS_AUTHENTICATED_FULLY')
@@ -54,7 +56,7 @@ class AdReplyController {
         if (!adReply.canDelete()) {
             throw new AccessDeniedException("Vous ne pouvez pas supprimer cette réponse");
         }
-        if(request.method == 'POST') {
+        if (request.method == 'POST') {
             def ad = adReply.ad
             adReply.delete()
             flash.message = "Commentaire supprimé"
