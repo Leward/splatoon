@@ -46,6 +46,19 @@ class RecruitmentController {
 
     @Secured('IS_AUTHENTICATED_FULLY')
     @Transactional
+    def delete(RecruitingAd ad) {
+        if(!ad.canDelete()) {
+            throw new AccessDeniedException("Vous ne pouvez pas modifier cette annonce");
+        }
+        if(request.isPost()) {
+            ad.delete()
+            flash.message = "Annonce supprimée"
+            redirect(mapping: 'recruitment')
+        }
+    }
+
+    @Secured('IS_AUTHENTICATED_FULLY')
+    @Transactional
     def create_team_search_ad() {
         def ad = new RecruitingAd(params)
         ad.author = springSecurityService.currentUser as User

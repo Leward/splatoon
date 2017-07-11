@@ -109,21 +109,10 @@ fieldset {
 
 .alert {
   padding: 0 5px;
-  &.alert-danger {
-    border: 1px solid $color-danger;
-    border-radius: 10px;
-    color: $color-danger;
-    font-weight: bold;
-  }
-  &.alert-info {
-    border: 1px solid $color-info;
-    border-radius: 10px;
-  }
 }
 
 .message {
   @extend .alert;
-  @extend .alert.alert-info;
   padding-top: 10px;
   padding-bottom: 10px;
 }

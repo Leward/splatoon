@@ -7,6 +7,12 @@
 
 <body>
 
+<g:if test="${flash.message}">
+    <div class="alert alert-info">
+        ${flash.message}
+    </div>
+</g:if>
+
 <div class="card">
     <header class="blue">
         <h2>Poster une annonce</h2>

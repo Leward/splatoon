@@ -45,9 +45,19 @@
                 <div><g:html code="${recruitingAd.message}"/></div>
 
                 <g:if test="${recruitingAd.canEdit()}">
-                    <div class="text-right">
-                        <g:link class="btn btn-primary" mapping="recruitment_edit_ad" id="${recruitingAd.id}">Modifier</g:link>
-                    </div>
+                    <g:form mapping="recruitment_delete_ad" id="${recruitingAd.id}" method="POST">
+                        <fieldset class="buttons">
+                            <div class="text-right">
+                                <g:link class="btn btn-primary" mapping="recruitment_edit_ad"
+                                        id="${recruitingAd.id}">Modifier</g:link>
+                                <button type="submit" class="delete btn btn-danger"
+                                        onclick="return confirm('Êtes-vous sûr de vouloir supprimer cette annonce ? Cette action est irréversible. ');">
+                                    Supprimer
+                                </button>
+                            </div>
+                        </fieldset>
+                    </g:form>
+
                 </g:if>
             </div>
 

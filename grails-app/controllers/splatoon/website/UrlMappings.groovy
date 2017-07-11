@@ -21,6 +21,7 @@ class UrlMappings {
         name "recruitment_new_team_search": "/recrutement/annonces/cherche-team/creer"(controller: "recruitment", action: "create_team_search_ad")
         name "recruitment_show_ad": "/recrutement/annonces/$id"(controller: "recruitment", action: "show")
         name "recruitment_edit_ad": "/recrutement/annonces/$id/modifier"(controller: "recruitment", action: "edit")
+        name "recruitment_delete_ad": "/recrutement/annonces/$id/supprimer"(controller: "recruitment", action: "delete")
         name "recruitment_reply_ad": "/recrutement/annonces/$id/repondre"(controller: 'adReply', action: 'create')
         name "recruitment_reply_ad_edit": "/recrutement/annonces/responses/$id/modifier"(controller: 'adReply', action: 'edit')
         name "news": "/news"(controller: 'news', action: 'list')
