@@ -4,6 +4,8 @@ import grails.plugin.springsecurity.SpringSecurityService
 import grails.plugin.springsecurity.annotation.Secured
 import grails.transaction.Transactional
 
+import java.nio.file.AccessDeniedException
+
 class AdReplyController {
 
     SpringSecurityService springSecurityService
@@ -49,12 +51,13 @@ class AdReplyController {
     @Secured('IS_AUTHENTICATED_FULLY')
     @Transactional
     def delete(AdReply adReply) {
-        if (!adReply.canDelete(springSecurityService.currentUser as User)) {
-            render(status: 403)
+        if (!adReply.canDelete()) {
+            throw new AccessDeniedException("Vous ne pouvez pas supprimer cette réponse");
         }
         if(request.method == 'POST') {
             def ad = adReply.ad
             adReply.delete()
+            flash.message = "Commentaire supprimé"
             redirect(mapping: 'recruitment_show_ad', id: ad.id)
         }
     }

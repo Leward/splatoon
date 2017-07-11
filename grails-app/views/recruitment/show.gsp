@@ -9,6 +9,13 @@
 <body>
 
 <div class="recruitment-ad-page">
+
+    <g:if test="${flash.message}">
+        <div class="alert alert-info">
+            ${flash.message}
+        </div>
+    </g:if>
+
     <div class="card">
         <header>Recrutements & Candidatures</header>
         <main>
@@ -69,11 +76,26 @@
         <main>
             <g:each in="${replies}" var="reply">
                 <div class="reply">
+                    <g:if test="${reply.canEdit()}">
+                        <g:form mapping="recruitment_reply_ad_delete" id="${reply.id}" method="POST" style="float: right;">
+                            <fieldset class="buttons">
+                                <div class="text-right">
+                                    %{--<g:link class="btn btn-primary" mapping="recruitment_edit_ad"--}%
+                                    %{--id="${recruitingAd.id}">Modifier</g:link>--}%
+                                    <button type="submit" class="delete btn btn-danger btn-xs"
+                                            onclick="return confirm('Êtes-vous sûr de vouloir supprimer ce commentaire ? Cette action est irréversible. ');">
+                                        Supprimer
+                                    </button>
+                                </div>
+                            </fieldset>
+                        </g:form>
+                    </g:if>
                     <h4>${reply.author}</h4>
 
                     <div>
                         <g:html code="${reply.message}"/>
                     </div>
+
                 </div>
             </g:each>
         </main>
