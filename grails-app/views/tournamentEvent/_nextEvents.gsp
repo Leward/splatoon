@@ -17,6 +17,9 @@
                 </div>
 
                 <div class="content">
+                    <g:if test="${event.isLive()}">
+                        <div class="live"><span class="badge">Live!</span></div>
+                    </g:if>
                     <div class="name">${event.tournament.name}</div>
 
                     <div class="organizer">${event.tournament.organizer.name}</div>
