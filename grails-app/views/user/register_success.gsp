@@ -4,9 +4,7 @@
 <head>
     <meta name="layout" content="main"/>
     <title>Inscription confrimée</title>
-
-    <asset:link rel="icon" href="favicon.ico" type="image/x-ico"/>
-</head>
+s</head>
 
 <body>
 
