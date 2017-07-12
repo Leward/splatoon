@@ -20,7 +20,7 @@
                     <th>Wins</th>
                     <th>Loses</th>
                     <th>Points</th>
-                    <th>Évolution</th>
+                    <th class="evolution">Évolution</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -31,7 +31,14 @@
                             <td>${rankedTeam.wins}</td>
                             <td>${rankedTeam.loses}</td>
                             <td>${rankedTeam.points}</td>
-                            <td>${rankedTeam.evolution}</td>
+                            <td class="evolution">
+                                <g:if test="${rankedTeam.evolution == splatoon.RankedTeam.Evolution.BETTER}">
+                                    <g:img src="up-small.png" class="evolution" />
+                                </g:if>
+                                <g:if test="${rankedTeam.evolution == splatoon.RankedTeam.Evolution.WORSE}">
+                                    <g:img src="down-small.png" class="evolution" />
+                                </g:if>
+                            </td>
                         </tr>
                     </g:each>
                 </tbody>
