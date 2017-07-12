@@ -54,4 +54,14 @@ class LadderController {
     def adminEventDetails(TournamentEvent event) {
         render(view: 'admin_event_details', model: [event: event])
     }
+
+    @Secured(['ROLE_ADMIN'])
+    @Transactional
+    def reset() {
+        if(request.method == 'POST') {
+            Ladder.executeUpdate('DELETE FROM Ladder');
+            flash.message = "Ladder remis à zéro"
+        }
+        redirect(mapping: 'admin_ladder')
+    }
 }

@@ -59,6 +59,7 @@ class UrlMappings {
         name "admin_article_edit": "/admin/article/$id/modifier" (controller: 'article', action: 'admin_update')
         name "admin_article_delete": "/admin/article/$id/supprimer" (controller: 'article', action: 'admin_delete')
         name "admin_ladder": "/admin/ladder"(view: '/ladder/admin')
+        name "admin_ladder_reset": "/admin/ladder/reset"(controller: 'ladder', action: 'reset')
         name "admin_ladder_event_details": "/admin/ladder/$id"(controller: 'ladder', action: 'adminEventDetails')
         name "admin_ladder_add_result": "/admin/ladder/$eventId/ajouter-resultat"(controller: 'ladder', action: 'create')
         name "admin_ladder_update_result": "/admin/ladder/$id/modifier-resultat"(controller: 'ladder', action: 'update')
