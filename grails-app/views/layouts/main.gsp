@@ -19,7 +19,9 @@
 <header>
     <nav>
         <h1 class="logo">
-            <g:link mapping="index">Ink Zone</g:link>
+            <g:link mapping="index">
+                <g:img src="logo-wihite-horizontal-small.png" alt="Ink Zone" />
+            </g:link>
         </h1>
         <ul class="links-1">
             <li class="separator"></li>
