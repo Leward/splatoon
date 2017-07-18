@@ -32,7 +32,7 @@
 
             <div class="rules">
                 <div class="title">Modalités d'inscription</div>
-                <div class="content">
+                <div class="content read-more">
                     <g:if test="${tournamentEvent.tournament.registrationDetails}">
                         <g:html code="${tournamentEvent.tournament.registrationDetails}"/>
                     </g:if>
@@ -44,7 +44,7 @@
             <div class="rules">
                 <div class="title">Règles</div>
 
-                <div class="content">
+                <div class="content read-more">
                     <g:html code="${tournamentEvent.tournament.rules}"/>
                 </div>
             </div>

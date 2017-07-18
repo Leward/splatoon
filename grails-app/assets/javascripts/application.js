@@ -7,6 +7,7 @@
 //
 //= require jquery-2.2.0.min
 //= require jquery.timepicker
+//= require readmore
 //= require polyfiller
 //= require_self
 
@@ -48,9 +49,19 @@ function configureCkeditor($) {
     });
 }
 
+function configureReadMore($) {
+    $('.read-more').readmore({
+        speed: 75,
+        collapsedHeight: 230,
+        moreLink: '<p class="text-right"><a href="#">Lire plus</a></p>',
+        lessLink: '<p class="text-right"><a href="#">Lire moins</a></p>'
+    });
+}
+
 $(document).ready(function () {
     configurejQueryPlugins(jQuery);
     configureCkeditor(jQuery);
+    configureReadMore(jQuery);
 });
 
 // Configure polyfills
