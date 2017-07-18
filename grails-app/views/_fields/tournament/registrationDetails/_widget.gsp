@@ -1,5 +1,5 @@
 <textarea
         id="${property}"
         name="${property}"
-        class="ckeditor-simple"
+        class="ckeditor-full"
     ${(required) ? 'required' : ''}>${value}</textarea>
