@@ -17,6 +17,8 @@ class Tournament {
 
     static mapping = {
         events sort: 'date', order: 'asc'
+        rules type: 'text'
+        registrationDetails type: 'text'
     }
 
     @Override
