@@ -3,7 +3,7 @@
 <html>
 <head>
     <meta name="layout" content="main"/>
-    <title>Portail Splatoon France</title>
+    <title>Portail e-sport Splatoon</title>
 </head>
 
 <body>
