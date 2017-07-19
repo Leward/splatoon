@@ -110,7 +110,9 @@ class BootStrap {
             def ad1 = RecruitingAd.builder()
                     .type(AdType.LOOKING_FOR_TEAM_AD)
                     .title("Recherche une team casual")
-                    .message("Hello")
+                    .message("<p>Salut les Calamars !</p>" +
+                    "<p>Envie de vivre une exp&eacute;rience hors du commun ? Tu souhaites rivaliser avec les meilleures Teams Fran&ccedil;aises, Europ&eacute;ennes et Mondiales ? Et bien sache que c&#39;est notre projet pour Splatoon 2.</p> " +
+                    "<p>Si tu est sur InkZone pour rechercher une Team comp&eacute;titive sur Splatoon 2 sache que la Hearts Brothers est faite pour toi.&nbsp;<br /> La Hearts Brothers (anciennement Jedox Star) est n&eacute;e le 25 Avril 2014 par KaporalSky au d&eacute;part pour Mario Kart 7, depuis 5 ans cette Team est pr&eacute;sente sur tous les jeux comp&eacute;titifs Nintendo (Kid Icarus Uprising, Mario Kart Wii, Super Smash Bros for 3DS et Wii U, Mario Kart 8, Splatoon et plus r&eacute;cemment Overwatch et Pok&eacute;mon Online).&nbsp;</p> ")
                     .author(ayo)
                     .profileUrl('https://twitter.com/Rising_Moon_Sp/')
                     .rank(Rank.C_PLUS)
