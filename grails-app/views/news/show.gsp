@@ -15,9 +15,19 @@
         </header>
         <main>
             <div class="content">
-            <g:html code="${news.content}"/>
+                <g:html code="${news.content}"/>
             </div>
         </main>
+        <footer>
+            <div class="share">
+                <g:link url="https://www.facebook.com/sharer/sharer.php?u=${createLink(absolute: true, mapping: 'news_show', id: news.id)}" target="_blank" class="btn">
+                    <i class="fa fa-facebook"></i> Partager sur Facebook</g:link>
+                <g:link url="https://twitter.com/home?status=${news.title} : ${createLink(absolute: true, mapping: 'news_show', id: news.id)}"
+                        target="_blank" class="btn">
+                    <i class="fa fa-twitter"></i> Partager sur Twitter</a>
+                </g:link>
+            </div>
+        </footer>
     </div>
 </div>
 

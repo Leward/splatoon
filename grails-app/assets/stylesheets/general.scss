@@ -220,6 +220,11 @@ ol.property-list {
       box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
     }
   }
+  > footer {
+    .share {
+      text-align: right;
+    }
+  }
   &.no-padding {
     > main {
       padding: 0;
