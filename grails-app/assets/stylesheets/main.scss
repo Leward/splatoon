@@ -58,6 +58,17 @@ body {
 
       }
 
+      img.icon {
+        vertical-align: middle;
+        height: 20px;
+        margin-right: 3px;
+      }
+
+      a.icon:hover {
+        opacity: 0.5;
+      }
+
+
       > ul {
         display: flex;
         list-style: none;

@@ -21,7 +21,7 @@
     <nav>
         <h1 class="logo">
             <g:link mapping="index">
-                <g:img src="logo-wihite-horizontal-small.png" alt="Ink Zone" />
+                <g:img src="logo-wihite-horizontal-small.png" alt="Ink Zone"/>
             </g:link>
         </h1>
         <ul class="links-1">
@@ -44,6 +44,15 @@
             <sec:ifNotLoggedIn>
                 <li><g:link mapping="login">Connexion</g:link></li>
             </sec:ifNotLoggedIn>
+            <li class="separator"></li>
+            <li>
+                <a href="https://twitter.com" class="icon">
+                    <img src="${resource(dir: 'images', file: 'twitter.png')}" alt="Twitter" class="icon">
+                </a>
+                <a href="https://discordapp.com" class="icon">
+                    <img src="${resource(dir: 'images', file: 'discord.png')}" alt="Discord" class="icon">
+                </a>
+            </li>
         </ul>
     </nav>
 </header>
