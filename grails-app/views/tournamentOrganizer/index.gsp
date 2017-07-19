@@ -21,7 +21,7 @@
             Ajouter un organisateur
         </g:link>
     </p>
-    <f:table collection="${tournamentOrganizerList}" properties="['id', 'name', 'website']"/>
+    <f:table collection="${tournamentOrganizerList}" properties="['name', 'website']"/>
 </g:panel>
 
 %{--<div id="list-tournamentOrganizer" class="content scaffold-list" role="main">--}%
