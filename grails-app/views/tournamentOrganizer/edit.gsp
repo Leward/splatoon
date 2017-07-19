@@ -22,8 +22,9 @@
     </div>
 
     <div class="panel-body padded">
-        <g:form action="save">
+        <g:form action="update" method="PUT">
             <fieldset class="form">
+                <g:hiddenField name="id" value="${tournamentOrganizer.id}"/>
                 <f:all bean="tournamentOrganizer"/>
             </fieldset>
             <fieldset class="buttons">
