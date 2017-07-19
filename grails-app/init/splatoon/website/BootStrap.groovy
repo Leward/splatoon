@@ -110,9 +110,31 @@ class BootStrap {
             def ad1 = RecruitingAd.builder()
                     .type(AdType.LOOKING_FOR_TEAM_AD)
                     .title("Recherche une team casual")
-                    .message("<p>Salut les Calamars !</p>" +
-                    "<p>Envie de vivre une exp&eacute;rience hors du commun ? Tu souhaites rivaliser avec les meilleures Teams Fran&ccedil;aises, Europ&eacute;ennes et Mondiales ? Et bien sache que c&#39;est notre projet pour Splatoon 2.</p> " +
-                    "<p>Si tu est sur InkZone pour rechercher une Team comp&eacute;titive sur Splatoon 2 sache que la Hearts Brothers est faite pour toi.&nbsp;<br /> La Hearts Brothers (anciennement Jedox Star) est n&eacute;e le 25 Avril 2014 par KaporalSky au d&eacute;part pour Mario Kart 7, depuis 5 ans cette Team est pr&eacute;sente sur tous les jeux comp&eacute;titifs Nintendo (Kid Icarus Uprising, Mario Kart Wii, Super Smash Bros for 3DS et Wii U, Mario Kart 8, Splatoon et plus r&eacute;cemment Overwatch et Pok&eacute;mon Online).&nbsp;</p> ")
+                    .message('<p>Salut les Calamars !</p>\n' +
+                    '\n' +
+                    '<p>Envie de vivre une exp&eacute;rience hors du commun ? Tu souhaites rivaliser avec les meilleures Teams Fran&ccedil;aises, Europ&eacute;ennes et Mondiales ? Et bien sache que c&#39;est notre projet pour Splatoon 2.</p>\n' +
+                    '\n' +
+                    '<p>Si tu est sur InkZone pour rechercher une Team comp&eacute;titive sur Splatoon 2 sache que la Hearts Brothers est faite pour toi.&nbsp;<br />\n' +
+                    'La Hearts Brothers (anciennement Jedox Star) est n&eacute;e le 25 Avril 2014 par KaporalSky au d&eacute;part pour Mario Kart 7, depuis 5 ans cette Team est pr&eacute;sente sur tous les jeux comp&eacute;titifs Nintendo (Kid Icarus Uprising, Mario Kart Wii, Super Smash Bros for 3DS et Wii U, Mario Kart 8, Splatoon et plus r&eacute;cemment Overwatch et Pok&eacute;mon Online).&nbsp;</p>\n' +
+                    '\n' +
+                    '<p>Actuellement la Hearts Brothers joue sur Mario Kart 8 Deluxe, elle est 1&egrave;re de la Division 3 de la MKU et &agrave; remport&eacute; le TFT MK8 #01, sur Splatoon 2 notre rooster est quasiment pr&ecirc;t, nous avons entre 6 et 7 joueurs actifs entre 16 et 25 ans et pour la plupart Parisien.&nbsp;<br />\n' +
+                    '<br />\n' +
+                    'Nous recherchons des joueurs avant tout motiv&eacute;s et pr&ecirc;ts &agrave; progresser afin de peaufiner une line up comp&eacute;titive, sachant que le jeu vient de sortir, nous n&#39;exigeons pas un rang particulier, mais une grande maturit&eacute;, de bonnes disponibilit&eacute;s ainsi qu&#39;une r&eacute;elle volont&eacute; de progresser.&nbsp;<br />\n' +
+                    'Si tu souhaites nous rejoindre, cela se fait sur notre forum en 3 &eacute;tapes :&nbsp;http://hearts-brothers.clicforum.com/index.php<br />\n' +
+                    '1) Inscription sur le forum<br />\n' +
+                    '2) Pr&eacute;sentation &agrave; partir du mod&egrave;le dans la section appropri&eacute;e<br />\n' +
+                    '3) Demande de recrutement &agrave; partir du mod&egrave;le qui se trouve dans la section.&nbsp;<br />\n' +
+                    '<br />\n' +
+                    'Vous pouvez nous contacter :&nbsp;<br />\n' +
+                    '-Sur discord : Marteaufou#8054 ou&nbsp;H&szlig;★Robin [ebTV]#7069<br />\n' +
+                    '<br />\n' +
+                    'Suivez la Hearts Brothers sur nos r&eacute;seaux sociaux :</p>\n' +
+                    '\n' +
+                    '<p>-Twitter :&nbsp;https://twitter.com/heartsbrothers<br />\n' +
+                    '-Youtube :&nbsp;https://www.youtube.com/channel/UCg663gni69sf0LNBckahMvg<br />\n' +
+                    '-Twitch :&nbsp;https://www.twitch.tv/heartsbrothers<br />\n' +
+                    '<br />\n' +
+                    'A plus tard Calamars !</p>')
                     .author(ayo)
                     .profileUrl('https://twitter.com/Rising_Moon_Sp/')
                     .rank(Rank.C_PLUS)

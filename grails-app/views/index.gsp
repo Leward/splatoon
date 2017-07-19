@@ -1,4 +1,4 @@
-<%@ page import="splatoon.AdType; splatoon.TournamentOrganizer; splatoon.TournamentEvent; splatoon.RecruitingAd" %>
+<%@ page import="splatoon.HtmlStringUtils; splatoon.AdType; splatoon.TournamentOrganizer; splatoon.TournamentEvent; splatoon.RecruitingAd" %>
 <!doctype html>
 <html>
 <head>
@@ -95,7 +95,7 @@
                         <li class="ad">
                             <h4 class="title">${ad.title}</h4>
 
-                            <g:excerptHtml code="${ad.shortMessage}" strict="true"/>
+                            ${raw(HtmlStringUtils.truncateHtml(excerptHtml(code: ad.message, strict: true).toString(), 50))}
 
                             <div class="read-more">
                                 <g:link mapping="recruitment_show_ad" id="${ad.id}">
@@ -115,7 +115,7 @@
                             <h4 class="title">${ad.title}</h4>
 
                             <p class="intro">
-                                <g:excerptHtml code="${ad.shortMessage}" strict="true"/>
+                                ${raw(HtmlStringUtils.truncateHtml(excerptHtml(code: ad.message, strict: true).toString(), 50))}
                             </p>
 
                             <div class="read-more">
