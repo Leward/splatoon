@@ -277,46 +277,53 @@ body {
   background-size: 150px;
 }
 
+.streams {
+  .twitch-stream {
+    width: 100%;
+    @include aspect-ratio(16, 9);
+    position: relative;
+    > iframe {
+      position: absolute;
+      height: 100%;
+      width: 100%;
+      top: 0;
+    }
+  }
+
+  ul {
+    list-style: none;
+    padding: 15px 0 0 0;
+    li {
+      text-align: center;
+      > div {
+        overflow: hidden;
+      }
+      img, .twitch-placeholder {
+        height: 70px;
+        width: 70px;
+        margin: auto;
+        @include media($smaller-than-sm-screen) {
+          height: 60px;
+          width: 60px;
+        }
+        @include media($smaller-than-xs-screen) {
+          height: 30px;
+          width: 30px;
+        }
+      }
+      .channel-name {
+        text-overflow: clip;
+      }
+      padding-bottom: 25px;
+    }
+  }
+}
+
 .home-page {
 
   > .streams {
-    .twitch-stream {
-      width: 100%;
-      @include aspect-ratio(16, 9);
-      position: relative;
-      > iframe {
-        position: absolute;
-        height: 100%;
-        width: 100%;
-        top: 0;
-      }
-    }
-    ul {
-      list-style: none;
-      padding: 15px 0 0 0;
-      li {
-        text-align: center;
-        > div {
-          overflow: hidden;
-        }
-        img, .twitch-placeholder {
-          height: 70px;
-          width: 70px;
-          @include media($smaller-than-sm-screen) {
-            height: 60px;
-            width: 60px;
-          }
-          @include media($smaller-than-xs-screen) {
-            height: 30px;
-            width: 30px;
-          }
-        }
-        .channel-name {
-          text-overflow: clip;
-        }
-        padding-bottom: 25px;
-      }
-    }
+
+
   }
 
   > .next-events {

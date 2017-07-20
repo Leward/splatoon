@@ -57,6 +57,9 @@
                         </li>
                     </g:each>
                 </ul>
+                <p class="text-right">
+                    <g:link mapping="streams">Voir plus de streams</g:link>
+                </p>
             </div>
         </main>
     </div>

@@ -30,6 +30,7 @@ class UrlMappings {
         name "ladder": "/ladder"(controller: 'ladder', action: 'index')
         name "magazine": "/magazine"(controller: 'article', action: 'magazine')
         name "article_show": "/magazine/$id"(controller: 'article', action: 'show')
+        name "streams": "/streams"(controller: 'stream', action: 'index')
 
         // Spring Security routes
         name "login": "/login/auth"(controller: "login", action: "auth")
