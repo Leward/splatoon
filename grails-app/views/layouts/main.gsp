@@ -47,10 +47,10 @@
             </sec:ifNotLoggedIn>
             <li class="separator"></li>
             <li>
-                <a href="https://twitter.com" class="icon">
+                <a href="https://twitter.com/ink_zone" class="icon">
                     <img src="${resource(dir: 'images', file: 'twitter.png')}" alt="Twitter" class="icon">
                 </a>
-                <a href="https://discordapp.com" class="icon">
+                <a href="https://discord.gg/PxpqxVn" class="icon">
                     <img src="${resource(dir: 'images', file: 'discord.png')}" alt="Discord" class="icon">
                 </a>
             </li>
