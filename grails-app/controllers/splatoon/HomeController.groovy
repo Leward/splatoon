@@ -12,7 +12,7 @@ class HomeController {
     def index() {
         def test = User.findByUsername('Ayo')
         def viewModel = [
-                streams: twitchService.getLiveChannels()
+                streams: twitchService.getTopLiveChannels(8)
         ]
         render(view: '/index', model: viewModel)
     }

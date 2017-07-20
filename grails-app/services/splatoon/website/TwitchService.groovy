@@ -10,7 +10,8 @@ import splatoon.CachedValue
 import splatoon.TwitchStream
 
 import java.time.Duration
-import java.time.Instant
+import java.util.function.ToIntFunction
+import java.util.stream.Collectors
 
 @Service
 @CompileStatic
@@ -23,15 +24,38 @@ class TwitchService {
         if(cachedLiveChannels.cacheValid) {
             return cachedLiveChannels.value
         }
-        def response = Unirest.get('https://api.twitch.tv/kraken/streams/')
+
+        def responseSplatoonStreams = Unirest.get('https://api.twitch.tv/kraken/streams/')
                 .header('Client-ID', '6iml9gxvz80elk7qxjve5ofezklffw')
                 .queryString('game', 'Splatoon')
                 .queryString('stream_type', 'live')
-                .queryString('limit', 8)
+                .queryString('limit', 30)
                 .asJson()
-        def streams = getJsonObjectsForStreamResponse(response).collect { new TwitchStream(it) }
-        cachedLiveChannels.cache(streams)
-        return streams
+        def splatoonStreams = getJsonObjectsForStreamResponse(responseSplatoonStreams).collect { new TwitchStream(it) }
+
+        def responseSplatoon2Streams = Unirest.get('https://api.twitch.tv/kraken/streams/')
+                .header('Client-ID', '6iml9gxvz80elk7qxjve5ofezklffw')
+                .queryString('game', 'Splatoon 2')
+                .queryString('stream_type', 'live')
+                .queryString('limit', 30)
+                .asJson()
+        def splatoon2Streams = getJsonObjectsForStreamResponse(responseSplatoon2Streams).collect { new TwitchStream(it) }
+
+        List<TwitchStream> allStreams = [] + splatoonStreams + splatoon2Streams
+        allStreams.sort(Comparator.comparingInt(new ToIntFunction<TwitchStream>() {
+            @Override
+            int applyAsInt(TwitchStream o) {
+                return o.viewers
+            }
+        }).reversed())
+
+        cachedLiveChannels.cache(allStreams)
+        return allStreams
+    }
+
+    List<TwitchStream> getTopLiveChannels(int n) {
+        def streams = getLiveChannels()
+        return streams.stream().limit(n).collect(Collectors.toList());
     }
 
     private List<JSONObject> getJsonObjectsForStreamResponse(HttpResponse<JsonNode> response) {
