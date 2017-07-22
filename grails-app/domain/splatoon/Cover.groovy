@@ -30,6 +30,10 @@ class Cover {
         }
     }
 
+    void setUrl(String url) {
+        this.url = url.replace(' ', '%20')
+    }
+
     @Override
     String toString() {
         return name

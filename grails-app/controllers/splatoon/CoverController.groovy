@@ -16,6 +16,7 @@ class CoverController {
     @Transactional
     def create() {
         def cover = new Cover(params)
+        cover.file = params.file
         if(request.isPost() && cover.validate()) {
             uploadFileIfPresent(cover)
             cover.save()
@@ -29,6 +30,7 @@ class CoverController {
     def update(Cover cover) {
         cover = Cover.get(params.id)
         cover.properties = params
+        cover.file = params.file
         if(request.isPost() && cover.validate()) {
             uploadFileIfPresent(cover)
             cover.save()
