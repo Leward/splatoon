@@ -1,5 +1,8 @@
 package splatoon
 
+import groovy.transform.EqualsAndHashCode
+
+@EqualsAndHashCode(includes = 'id')
 class TournamentOrganizer {
 
     String name
