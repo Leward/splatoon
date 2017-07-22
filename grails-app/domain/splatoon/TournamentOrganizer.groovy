@@ -21,6 +21,6 @@ class TournamentOrganizer {
     }
 
     boolean canBeManagedBy(User user) {
-        user.hasRole(Role.ROLE_ADMIN) || members.contains(user)
+        user.hasRole(Role.ROLE_ADMIN) || members.any { it.id == user.id }
     }
 }
