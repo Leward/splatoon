@@ -83,6 +83,13 @@
         <main><g:render template="/news/latest_news"/></main>
     </div>
 
+    <div class="featured-news card">
+        <header class="red"><h2>
+            <g:link mapping="magazine">Magazine</g:link>
+        </h2></header>
+        <main><g:render template="/article/latest_articles"/></main>
+    </div>
+
     <div class="recruitment card">
         <header class="blue"><h2>
             <g:link mapping="recruitment">
