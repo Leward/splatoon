@@ -23,7 +23,7 @@
         <div class="buttons">
             <g:link class="btn btn-primary" action="create">Nouvelle équipe</g:link>
         </div>
-        <f:table collection="${teamList}"/>
+        <f:table collection="${teams}"/>
     </main>
 </div>
 
