@@ -15,7 +15,7 @@
                     </div>
 
                     <div class="title">
-                        <g:link mapping="news_show" id="${article.id}">
+                        <g:link mapping="article_show" id="${article.id}">
                             ${article.title}
                         </g:link>
                     </div>
