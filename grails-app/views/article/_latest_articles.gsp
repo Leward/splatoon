@@ -5,7 +5,7 @@
             <li class="col-sm-3 col-xs-6">
                 <div class="news">
                     <div class="news-image">
-                        <g:link mapping="news_show" id="${article.id}">
+                        <g:link mapping="article_show" id="${article.id}">
                             <img src="${article.cover.url}" alt="${article.cover.name}"/>
                         </g:link>
                     </div>
