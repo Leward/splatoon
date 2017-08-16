@@ -11,7 +11,7 @@
                     </div>
 
                     <div class="month">
-                        <g:formatDate format="MMMM" date="${DateConversions.asDate(event.date)}"
+                        <g:formatDate format="MMM" date="${DateConversions.asDate(event.date)}"
                                       locale="fr"/>
                     </div>
                 </div>

@@ -58,7 +58,7 @@ class BootStrap {
                             "<p>Nulla convallis ex eu felis semper, nec maximus nulla venenatis. Sed vel turpis in tortor congue suscipit eu a purus. Vivamus vehicula turpis a sagittis mollis. Integer pharetra hendrerit tortor, eget malesuada eros molestie finibus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse faucibus est sit amet sem efficitur, vel sollicitudin orci tempor. Aenean id interdum massa. Curabitur blandit mauris vel velit laoreet cursus. Sed aliquam, mauris eget rhoncus ultricies, magna nulla congue turpis, ac vulputate sapien purus sit amet lacus. Nunc purus justo, tempus porta augue sed, sodales semper purus. Nunc pulvinar, ipsum rhoncus viverra sollicitudin, eros ligula convallis ipsum, iaculis tempor nunc felis eget diam. Aliquam erat volutpat. Morbi convallis tellus sed odio hendrerit, id sollicitudin lacus finibus. Aenean vitae elementum felis, eu tincidunt metus. Pellentesque porta ullamcorper justo sed eleifend.</p>" +
                             ""
             ).save()
-            def firstTournamentDate = LocalDate.of(2018, Month.JUNE, 1)
+            def firstTournamentDate = LocalDate.of(2018, Month.SEPTEMBER, 1)
             5.times {
                 new TournamentEvent(
                         tournament: tournament,
