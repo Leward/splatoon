@@ -5,9 +5,8 @@ buildscript {
     }
     dependencies {
         classpath "org.grails:grails-gradle-plugin:$grailsVersion"
-        classpath "com.bertramlabs.plugins:asset-pipeline-gradle:2.11.6"
-        classpath "com.bertramlabs.plugins:sass-asset-pipeline:2.13.2"
-        classpath "org.grails.plugins:hibernate5:6.0.9"
+        classpath "org.grails.plugins:hibernate5:${gormVersion-".RELEASE"}"
+        classpath "com.bertramlabs.plugins:asset-pipeline-gradle:2.14.2"
     }
 }
 
@@ -41,32 +40,43 @@ dependencies {
     compile "org.grails:grails-core"
     compile "org.springframework.boot:spring-boot-starter-actuator"
     compile "org.springframework.boot:spring-boot-starter-tomcat"
-    compile "org.grails:grails-dependencies"
     compile "org.grails:grails-web-boot"
+    compile "org.grails:grails-logging"
+    compile "org.grails:grails-plugin-rest"
+    compile "org.grails:grails-plugin-databinding"
+    compile "org.grails:grails-plugin-i18n"
+    compile "org.grails:grails-plugin-services"
+    compile "org.grails:grails-plugin-url-mappings"
+    compile "org.grails:grails-plugin-interceptors"
     compile "org.grails.plugins:cache"
+    compile "org.grails.plugins:async"
     compile "org.grails.plugins:scaffolding"
+    compile "org.grails.plugins:events"
     compile "org.grails.plugins:hibernate5"
-    compile "org.hibernate:hibernate-core:5.1.2.Final"
-    compile "org.hibernate:hibernate-ehcache:5.1.2.Final"
-    compile "org.hibernate:hibernate-java8:5.1.0.Final"
+    compile "org.hibernate:hibernate-core:5.1.5.Final"
+    compile "org.hibernate:hibernate-ehcache:5.1.5.Final"
+    compile "org.hibernate:hibernate-java8:5.1.5.Final"
+    compile "org.grails.plugins:gsp"
     console "org.grails:grails-console"
-    compile 'org.grails.plugins:spring-security-core:3.1.1'
+    compile 'org.grails.plugins:spring-security-core:3.2.0.M1'
     compile 'com.googlecode.owasp-java-html-sanitizer:owasp-java-html-sanitizer:20170411.1'
     compile 'org.grails.plugins:aws-sdk-s3:2.1.5'
     compile 'com.mashape.unirest:unirest-java:1.4.9'
     compile 'org.grails.plugins:grails-flyway:0.2'
     compile 'org.flywaydb:flyway-core:4.2.0' // force upgrade of flyway version
     profile "org.grails.profiles:web"
-    runtime "com.bertramlabs.plugins:asset-pipeline-grails:2.11.6"
-    runtime "com.bertramlabs.plugins:sass-asset-pipeline:2.13.2"
+    runtime "com.bertramlabs.plugins:asset-pipeline-grails:2.14.3"
+    runtime "com.bertramlabs.plugins:sass-asset-pipeline:2.14.3"
     runtime "com.h2database:h2"
+    runtime "org.apache.tomcat:tomcat-jdbc"
     runtime 'mysql:mysql-connector-java:5.1.41'
     runtime 'com.newrelic.agent.java:newrelic-java:3.38.0'
     compile "org.grails.plugins:newrelic:3.35.2"
     compile 'org.postgresql:postgresql:42.1.1'
     compile 'org.grails.plugins:mail:2.0.0.RC6'
-    testCompile "org.grails:grails-plugin-testing"
+    testCompile "org.grails:grails-gorm-testing-support"
     testCompile "org.grails.plugins:geb"
+    testCompile "org.grails:grails-web-testing-support"
     testRuntime "org.seleniumhq.selenium:selenium-htmlunit-driver:2.47.1"
     testRuntime "net.sourceforge.htmlunit:htmlunit:2.18"
 }
