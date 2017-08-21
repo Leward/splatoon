@@ -177,6 +177,16 @@ class BootStrap {
                     .build()
                     .save(failOnError: true)
 
+            def ad3 = RecruitingAd.builder()
+                    .type(AdType.LOOKING_FOR_TEAMMATE_AD)
+                    .title("Je monte une team pour le fun")
+                    .message("Salut... ")
+                    .author(ayo)
+                    .rank(Rank.B)
+                    .createdAt(Instant.now().plusSeconds(3600 * 24 * 5))
+                    .build()
+                    .save(failOnError: true)
+
             def cover = new Cover(
                     name: 'Splatoon 2',
                     url: 'https://s3-eu-central-1.amazonaws.com/splatoon/0be69296-2b43-4c19-8d2e-b567df7f5fdb-image.png'

@@ -101,7 +101,7 @@
             <div class="col-md-5 col-sm-6">
                 <h3>Recherches de joueurs</h3>
                 <ul class="ads">
-                    <g:each in="${RecruitingAd.findAllByType(AdType.LOOKING_FOR_TEAMMATE_AD)}" var="ad">
+                    <g:each in="${RecruitingAd.findAllByType(AdType.LOOKING_FOR_TEAMMATE_AD, [sort: 'createdAt', order: 'desc', maxSize: 8])}" var="ad">
                         <li class="ad">
                             <h4 class="title">${ad.title}</h4>
 
@@ -120,7 +120,7 @@
             <div class="col-md-offset-2 col-md-5 col-sm-6">
                 <h3>Recherches d'equipes</h3>
                 <ul>
-                    <g:each in="${RecruitingAd.findAllByType(AdType.LOOKING_FOR_TEAM_AD)}" var="ad">
+                    <g:each in="${RecruitingAd.findAllByType(AdType.LOOKING_FOR_TEAM_AD, [sort: 'createdAt', order: 'desc', maxSize: 8])}" var="ad">
                         <li class="ad">
                             <h4 class="title">${ad.title}</h4>
 
