@@ -14,6 +14,17 @@ import java.time.temporal.ChronoUnit
 
 class BootStrap {
 
+    TournamentEvent pickNth(Set<TournamentEvent> set, int n) {
+        def iterator = set.iterator()
+        TournamentEvent event
+        (n + 1).times {
+            if (iterator.hasNext()) {
+                event = iterator.next()
+            }
+        }
+        return event
+    }
+
     def init = { servletContext ->
 
         Unirest.setObjectMapper(new ObjectMapper() {
@@ -208,7 +219,7 @@ class BootStrap {
             def teamSeiches = new Team(name: 'Les seiches').save(faileOnError: true)
 
             new Ladder(
-                    event: tournament.events.get(0),
+                    event: pickNth(tournament.events, 0),
                     team: teamRisingMoon,
                     points: 50,
                     wins: 3,
@@ -217,7 +228,7 @@ class BootStrap {
             ).save()
 
             new Ladder(
-                    event: tournament.events.get(1),
+                    event: pickNth(tournament.events, 1),
                     team: teamRisingMoon,
                     points: 35,
                     wins: 2,
@@ -226,7 +237,7 @@ class BootStrap {
             ).save()
 
             new Ladder(
-                    event: tournament.events.get(1),
+                    event: pickNth(tournament.events, 1),
                     team: teamSeiches,
                     points: 50,
                     wins: 3,
