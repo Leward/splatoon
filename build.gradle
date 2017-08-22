@@ -25,14 +25,6 @@ repositories {
     mavenLocal()
     maven { url "https://repo.grails.org/grails/core" }
     maven { url 'https://dl.bintray.com/agorapulse/libs/' }
-    maven { url "https://dl.bintray.com/agorapulse/libs/" }
-}
-
-dependencyManagement {
-    imports {
-        mavenBom "org.grails:grails-bom:$grailsVersion"
-    }
-    applyMavenExclusions false
 }
 
 dependencies {
@@ -84,6 +76,7 @@ dependencies {
 
 bootRun {
     jvmArgs('-Dspring.output.ansi.enabled=always')
+    addResources = true
 }
 
 springBoot {
