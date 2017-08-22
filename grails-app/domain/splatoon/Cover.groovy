@@ -1,6 +1,6 @@
 package splatoon
 
-import org.grails.validation.routines.UrlValidator
+import org.apache.commons.validator.routines.UrlValidator
 import org.springframework.web.multipart.MultipartFile
 
 class Cover {
