@@ -15,7 +15,6 @@ grails {
             authority {
                 className = 'splatoon.Role'
             }
-            securityConfigType = 'Annotation'
             logout {
                 postOnly = false
             }
