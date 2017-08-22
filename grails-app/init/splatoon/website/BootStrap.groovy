@@ -167,6 +167,18 @@ class BootStrap {
                     createdAt: Instant.now()
             ).save(failOnError: true)
 
+            8.times {
+                RecruitingAd.builder()
+                        .type(AdType.LOOKING_FOR_TEAMMATE_AD)
+                        .title("Je monte une team pour le fun (${it})")
+                        .message("Salut... ")
+                        .author(ayo)
+                        .rank(Rank.B)
+                        .createdAt(Instant.now().minusSeconds(3600 * 24 * 5).plusSeconds(it * 60))
+                        .build()
+                        .save(failOnError: true)
+            }
+
             def ad2 = RecruitingAd.builder()
                     .type(AdType.LOOKING_FOR_TEAMMATE_AD)
                     .title("Recherche joueurs S+ pour team competitive")
@@ -174,16 +186,6 @@ class BootStrap {
                     .author(oli)
                     .rank(Rank.S_PLUS)
                     .createdAt(Instant.now())
-                    .build()
-                    .save(failOnError: true)
-
-            def ad3 = RecruitingAd.builder()
-                    .type(AdType.LOOKING_FOR_TEAMMATE_AD)
-                    .title("Je monte une team pour le fun")
-                    .message("Salut... ")
-                    .author(ayo)
-                    .rank(Rank.B)
-                    .createdAt(Instant.now().plusSeconds(3600 * 24 * 5))
                     .build()
                     .save(failOnError: true)
 
