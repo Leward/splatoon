@@ -2,7 +2,7 @@ package splatoon
 
 import grails.plugin.awssdk.s3.AmazonS3Service
 import grails.plugin.springsecurity.annotation.Secured
-import grails.transaction.Transactional
+import  grails.gorm.transactions.Transactional
 
 @Secured([Role.ROLE_ADMIN, Role.ROLE_EDITOR])
 class CoverController {

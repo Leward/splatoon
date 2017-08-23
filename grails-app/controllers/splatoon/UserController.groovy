@@ -2,7 +2,7 @@ package splatoon
 
 import grails.plugin.springsecurity.SpringSecurityService
 import grails.plugin.springsecurity.authentication.encoding.BCryptPasswordEncoder
-import grails.transaction.Transactional
+import  grails.gorm.transactions.Transactional
 import org.springframework.security.access.annotation.Secured
 
 class UserController {
