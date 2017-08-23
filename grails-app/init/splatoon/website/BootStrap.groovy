@@ -14,17 +14,6 @@ import java.time.temporal.ChronoUnit
 
 class BootStrap {
 
-    TournamentEvent pickNth(Set<TournamentEvent> set, int n) {
-        def iterator = set.iterator()
-        TournamentEvent event
-        (n + 1).times {
-            if (iterator.hasNext()) {
-                event = iterator.next()
-            }
-        }
-        return event
-    }
-
     def init = { servletContext ->
 
         Unirest.setObjectMapper(new ObjectMapper() {
@@ -68,7 +57,7 @@ class BootStrap {
                             "<p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Integer dignissim turpis ex, eget luctus elit finibus nec. Suspendisse sollicitudin interdum lorem sed finibus. Morbi molestie ex et dolor vestibulum, ac feugiat turpis tempor. Duis ut tortor sollicitudin sapien maximus scelerisque a in neque. Duis ullamcorper placerat nunc. Integer commodo vehicula ex et posuere. Integer pharetra lorem neque, aliquam malesuada nulla sagittis sed. Integer malesuada, urna id auctor pretium, ligula sapien posuere libero, eget posuere lacus turpis id libero. Donec a nibh sed urna consequat lobortis vitae a est. Proin mauris orci, ultrices et tincidunt at, vestibulum ut nunc. Quisque semper at tellus vel condimentum. Fusce dignissim posuere est, ut aliquet urna maximus id. Sed finibus hendrerit nunc sed dapibus. Curabitur laoreet, velit non finibus tristique, sem nisi malesuada quam, vitae fringilla turpis augue non sem. Aliquam efficitur diam at nulla pellentesque, sed dapibus est sodales.</p>" +
                             "<p>Nulla convallis ex eu felis semper, nec maximus nulla venenatis. Sed vel turpis in tortor congue suscipit eu a purus. Vivamus vehicula turpis a sagittis mollis. Integer pharetra hendrerit tortor, eget malesuada eros molestie finibus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse faucibus est sit amet sem efficitur, vel sollicitudin orci tempor. Aenean id interdum massa. Curabitur blandit mauris vel velit laoreet cursus. Sed aliquam, mauris eget rhoncus ultricies, magna nulla congue turpis, ac vulputate sapien purus sit amet lacus. Nunc purus justo, tempus porta augue sed, sodales semper purus. Nunc pulvinar, ipsum rhoncus viverra sollicitudin, eros ligula convallis ipsum, iaculis tempor nunc felis eget diam. Aliquam erat volutpat. Morbi convallis tellus sed odio hendrerit, id sollicitudin lacus finibus. Aenean vitae elementum felis, eu tincidunt metus. Pellentesque porta ullamcorper justo sed eleifend.</p>" +
                             ""
-            ).save()
+            ).save(flush: true)
             def firstTournamentDate = LocalDate.of(2018, Month.SEPTEMBER, 1)
             5.times {
                 new TournamentEvent(
@@ -78,7 +67,7 @@ class BootStrap {
                         endTime: LocalTime.of(20, 00),
                         streamUrl: "https://gaming.youtube.com/watch?v=TRo_iSNqNno",
                         challongeUrl: "http://sogfr.challonge.com/fr/SplatofGods2"
-                ).save()
+                ).save(flush: true)
             }
             new TournamentOrganizer(name: "Splatoon FR", website: "http://splatoonfr.net").save();
 
@@ -231,31 +220,31 @@ class BootStrap {
             def teamSeiches = new Team(name: 'Les seiches').save(faileOnError: true)
 
             new Ladder(
-                    event: pickNth(tournament.events, 0),
+                    event: TournamentEvent.findByTournament(tournament, [offset: 0]),
                     team: teamRisingMoon,
                     points: 50,
                     wins: 3,
                     loses: 0,
                     date: Instant.now().minus(60, ChronoUnit.DAYS)
-            ).save()
+            ).save(failOnError: true)
 
             new Ladder(
-                    event: pickNth(tournament.events, 1),
+                    event: TournamentEvent.findByTournament(tournament, [offset: 1]),
                     team: teamRisingMoon,
                     points: 35,
                     wins: 2,
                     loses: 1,
                     date: Instant.now()
-            ).save()
+            ).save(failOnError: true)
 
             new Ladder(
-                    event: pickNth(tournament.events, 1),
+                    event: TournamentEvent.findByTournament(tournament, [offset: 1]),
                     team: teamSeiches,
                     points: 50,
                     wins: 3,
                     loses: 0,
                     date: Instant.now()
-            ).save()
+            ).save(failOnError: true)
 
             def category1 = new ArticleCategory(name: 'Analyze de match').save()
             def category2 = new ArticleCategory(name: 'Gears').save()
