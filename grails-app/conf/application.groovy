@@ -48,6 +48,9 @@ grails {
             multipartForm = ['multipart/form-data']
         }
     }
+    gorm.default.mapping = {
+        autowire true
+    }
 }
 
 hibernate {
