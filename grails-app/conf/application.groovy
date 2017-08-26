@@ -54,6 +54,7 @@ grails {
 }
 
 hibernate {
+    temp.use_jdbc_metadata_defaults = false // See: https://stackoverflow.com/questions/10075081/hibernate-slow-to-acquire-postgres-connection
     cache {
         queries = false
         use_second_level_cache = true
