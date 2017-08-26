@@ -1,10 +1,9 @@
 package splatoon.website
 
-import grails.test.mixin.TestFor
+import grails.testing.web.taglib.TagLibUnitTest
 import spock.lang.Specification
 
-@TestFor(SplatoonTagLib)
-class SplatoonTagLibTest extends Specification {
+class SplatoonTagLibTest extends Specification implements TagLibUnitTest<SplatoonTagLib> {
 
     void "should keep iframes from youtube"() {
         setup:

@@ -1,7 +1,7 @@
 package splatoon
 
 import grails.plugins.mail.MailService
-import grails.transaction.Transactional
+import  grails.gorm.transactions.Transactional
 import org.apache.commons.lang.RandomStringUtils
 
 @Transactional

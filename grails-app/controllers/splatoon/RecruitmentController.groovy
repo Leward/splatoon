@@ -1,7 +1,7 @@
 package splatoon
 
 import grails.plugin.springsecurity.SpringSecurityService
-import grails.transaction.Transactional
+import  grails.gorm.transactions.Transactional
 import org.springframework.security.access.annotation.Secured
 
 import java.nio.file.AccessDeniedException

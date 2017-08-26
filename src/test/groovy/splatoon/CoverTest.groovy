@@ -1,10 +1,9 @@
 package splatoon
 
-import grails.test.mixin.TestFor
+import grails.testing.gorm.DomainUnitTest
 import spock.lang.Specification
 
-@TestFor(Cover)
-class CoverTest extends Specification {
+class CoverTest extends Specification implements DomainUnitTest<Cover> {
 
     def "test validate with url with space)"() {
         setup:

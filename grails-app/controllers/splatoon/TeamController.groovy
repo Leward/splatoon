@@ -1,7 +1,7 @@
 package splatoon
 
 import grails.plugin.springsecurity.annotation.Secured
-import grails.transaction.Transactional
+import  grails.gorm.transactions.Transactional
 
 @Secured(['ROLE_ADMIN', 'ROLE_TO'])
 class TeamController {
