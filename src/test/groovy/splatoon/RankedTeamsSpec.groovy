@@ -13,9 +13,9 @@ class RankedTeamsSpec extends Specification {
     def "should rank the teams"() {
         given:
         def ladders = [
-                new Ladder(team: TEAM_A, points: 10),
-                new Ladder(team: TEAM_B, points: 8),
-                new Ladder(team: TEAM_B, points: 5)
+                new Ladder(team: TEAM_A, points: 10, event: EVENT_TOURNAMENT_A),
+                new Ladder(team: TEAM_B, points: 8, wins: 2, loses: 1, event: EVENT_TOURNAMENT_A),
+                new Ladder(team: TEAM_B, points: 5, wins: 1, loses: 1, event: EVENT_TOURNAMENT_B)
         ]
         when:
         def rankedTeams = new RankedTeams(ladders)
@@ -30,9 +30,9 @@ class RankedTeamsSpec extends Specification {
     def "should add wins, loses and points"() {
         given:
         def ladders = [
-                new Ladder(team: TEAM_A, points: 10),
-                new Ladder(team: TEAM_B, points: 8, wins: 2, loses: 1),
-                new Ladder(team: TEAM_B, points: 5, wins: 1, loses: 1)
+                new Ladder(team: TEAM_A, points: 10, event: EVENT_TOURNAMENT_A),
+                new Ladder(team: TEAM_B, points: 8, wins: 2, loses: 1, event: EVENT_TOURNAMENT_A),
+                new Ladder(team: TEAM_B, points: 5, wins: 1, loses: 1, event: EVENT_TOURNAMENT_B)
         ]
         when:
         def teamBRanking = new RankedTeams(ladders).list.find { it.team == TEAM_B }
