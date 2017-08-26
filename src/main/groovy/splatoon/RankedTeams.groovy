@@ -15,8 +15,8 @@ class RankedTeams {
         ladderList.each { ladder ->
             RankedTeam rankedTeam = getRankedTeam(ladder.team)
             rankedTeam.points += ladder.points
-            rankedTeam.wins = ladder.wins
-            rankedTeam.loses = ladder.loses
+            rankedTeam.wins += ladder.wins
+            rankedTeam.loses += ladder.loses
         }
         list = list.sort()
         list.eachWithIndex { RankedTeam rankedTeam, int i ->

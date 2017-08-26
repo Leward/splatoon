@@ -24,4 +24,19 @@ class RankedTeamsSpec extends Specification {
         ranking[1].rank == 2
     }
 
+    def "should add wins, loses and points"() {
+        given:
+        def ladders = [
+                new Ladder(team: TEAM_A, points: 10),
+                new Ladder(team: TEAM_B, points: 8, wins: 2, loses: 1),
+                new Ladder(team: TEAM_B, points: 5, wins: 1, loses: 1)
+        ]
+        when:
+        def teamBRanking = new RankedTeams(ladders).list.find { it.team == TEAM_B }
+        then:
+        assert teamBRanking.wins == 3
+        assert teamBRanking.loses == 2
+        assert teamBRanking.points == 13
+    }
+
 }
