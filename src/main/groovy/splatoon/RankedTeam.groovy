@@ -14,6 +14,7 @@ class RankedTeam implements Comparable<RankedTeam> {
     Integer wins = 0
     Integer loses = 0
     Integer points = 0
+    Set<Tournament> participations = []
     Evolution evolution
 
     @Override
@@ -41,6 +42,10 @@ class RankedTeam implements Comparable<RankedTeam> {
         } else {
             evolution = Evolution.WORSE
         }
+    }
+
+    int getNbTournaments() {
+        return participations.size()
     }
 
 }

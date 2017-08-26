@@ -73,9 +73,11 @@ class BootStrap {
 
             // SOG
             def sog = new TournamentOrganizer(name: "SoG", website: "http://societyofgamers.fr/").save()
-            new Tournament(
+            def tournament2 = new Tournament(
                     name: "Splattour of Gods 2 Winer Bracket",
                     organizer: sog,
+                    registrationDetails: "<p>Some registration details</p>",
+                    rules: "<p>Some rules</p>",
                     events: [
                             new TournamentEvent(
                                     date: LocalDate.of(2017, Month.JULY, 10),
@@ -85,7 +87,8 @@ class BootStrap {
                                     challongeUrl: "http://sogfr.challonge.com/fr/SplatofGods2"
                             )
                     ]
-            ).save(failOrError: true)
+            )
+            tournament2 = tournament2.save(failOrError: true, flush: true)
 
             def ayo = new User(
                     username: "Ayo",
@@ -234,6 +237,15 @@ class BootStrap {
                     points: 35,
                     wins: 2,
                     loses: 1,
+                    date: Instant.now()
+            ).save(failOnError: true)
+
+            new Ladder(
+                    event: TournamentEvent.findByTournament(tournament2, [offset: 0]),
+                    team: teamRisingMoon,
+                    points: 10,
+                    wins: 1,
+                    loses: 0,
                     date: Instant.now()
             ).save(failOnError: true)
 

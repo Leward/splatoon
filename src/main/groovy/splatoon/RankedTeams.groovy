@@ -17,6 +17,7 @@ class RankedTeams {
             rankedTeam.points += ladder.points
             rankedTeam.wins += ladder.wins
             rankedTeam.loses += ladder.loses
+            rankedTeam.participations.add(ladder.event.tournament)
         }
         list = list.sort()
         list.eachWithIndex { RankedTeam rankedTeam, int i ->

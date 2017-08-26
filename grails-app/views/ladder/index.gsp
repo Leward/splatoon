@@ -17,6 +17,7 @@
                 <tr>
                     <th>Rang</th>
                     <th>Équipe</th>
+                    <th>Tournois</th>
                     <th>Wins</th>
                     <th>Loses</th>
                     <th>Points</th>
@@ -28,6 +29,7 @@
                         <tr>
                             <th>${rankedTeam.rank}</th>
                             <td>${rankedTeam.team.name}</td>
+                            <td>${rankedTeam.nbTournaments}</td>
                             <td>${rankedTeam.wins}</td>
                             <td>${rankedTeam.loses}</td>
                             <td>${rankedTeam.points}</td>
