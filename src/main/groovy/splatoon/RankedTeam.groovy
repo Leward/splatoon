@@ -7,15 +7,14 @@ import groovy.transform.ToString
 @ToString
 class RankedTeam implements Comparable<RankedTeam> {
 
-    static final int NOT_COMPUTED = -1
-
     Team team
-    Integer rank = NOT_COMPUTED
+    Integer rank = null
     Integer wins = 0
     Integer loses = 0
     Integer points = 0
     Set<Tournament> participations = []
     Evolution evolution
+    Integer previousRank = null
 
     @Override
     int compareTo(RankedTeam rankedTeam) {
@@ -29,15 +28,16 @@ class RankedTeam implements Comparable<RankedTeam> {
     }
 
     static enum Evolution {
-        BETTER, SAME, WORSE
+        BETTER, SAME, WORSE, NEW
     }
 
     Evolution compareWithPreviousRanking(RankedTeam previousTeamRanking) {
-        if(previousTeamRanking == null) {
-            evolution = Evolution.BETTER
+        previousRank = previousTeamRanking.rank
+        if(previousTeamRanking?.rank == null) {
+            evolution = Evolution.NEW
         } else if(rank == previousTeamRanking.rank) {
             evolution = Evolution.SAME
-        } else if(rank > previousTeamRanking.rank) {
+        } else if(rank < previousTeamRanking.rank) {
             evolution = Evolution.BETTER
         } else {
             evolution = Evolution.WORSE

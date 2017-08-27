@@ -4,6 +4,7 @@ import com.google.common.collect.ImmutableList
 import groovy.transform.CompileStatic
 
 import java.time.Instant
+import java.time.ZoneOffset
 import java.time.temporal.ChronoUnit
 
 @CompileStatic
@@ -30,10 +31,12 @@ class RankedTeams {
     }
 
     private void computeEvolutionSinceLastMonth(Collection<Ladder> ladderList) {
-        Instant oneMonthAgo = Instant.now().minus(30, ChronoUnit.DAYS)
-        Collection<Ladder> laddersFromLastMonthEvicted = ladderList.findAll { it.date.isBefore(oneMonthAgo) }
-        RankedTeams rankingFromOneMonthAgo = new RankedTeams(laddersFromLastMonthEvicted, false)
-        computeEvolutionFromPreviousRankings(rankingFromOneMonthAgo)
+        Instant oneWeekAgo = Instant.now().minus(7, ChronoUnit.DAYS)
+        Collection<Ladder> laddersFromLastMonthEvicted = ladderList.findAll {
+            it.event.date.atTime(it.event.endTime).toInstant(ZoneOffset.UTC).isBefore(oneWeekAgo)
+        }
+        RankedTeams rankingFromOneWeek = new RankedTeams(laddersFromLastMonthEvicted, false)
+        computeEvolutionFromPreviousRankings(rankingFromOneWeek)
     }
 
     private void computeEvolutionFromPreviousRankings(RankedTeams previousRankings) {

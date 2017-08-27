@@ -221,6 +221,7 @@ class BootStrap {
 
             def teamRisingMoon = new Team(name: 'Rising Moon').save(failOnError: true)
             def teamSeiches = new Team(name: 'Les seiches').save(faileOnError: true)
+            def teamPapierPeint = new Team(name: 'Papier Peint').save(faileOnError: true)
 
             new Ladder(
                     event: TournamentEvent.findByTournament(tournament, [offset: 0]),
@@ -254,6 +255,15 @@ class BootStrap {
                     team: teamSeiches,
                     points: 50,
                     wins: 3,
+                    loses: 0,
+                    date: Instant.now()
+            ).save(failOnError: true)
+
+            new Ladder(
+                    event: TournamentEvent.findByTournament(tournament, [offset: 0]),
+                    team: teamPapierPeint,
+                    points: 10,
+                    wins: 1,
                     loses: 0,
                     date: Instant.now()
             ).save(failOnError: true)
