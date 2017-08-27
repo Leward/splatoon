@@ -7,21 +7,58 @@
 </head>
 
 <body>
+
 <nav>
-    <ul>
-        <li><g:link mapping="admin">Retour administration</g:link></li>
-        <li><g:link class="create" action="create">Nouvel événement</g:link></li>
+    <ul class="breadcrumb">
+        <li><g:link mapping="admin">Administration</g:link></li>
+        <li>Evenements</li>
     </ul>
 </nav>
 
-<g:if test="${flash.message}">
-    <div class="message" role="status">${flash.message}</div>
-</g:if>
-
 <g:panel title="Liste des évenements programmés">
-    <f:table collection="${tournamentEventList}" />
-</g:panel>
+    <g:if test="${flash.message}">
+        <div class="message" role="status">${flash.message}</div>
+    </g:if>
 
+    <p>
+        <g:link class="btn btn-primary" action="create">
+            Ajouter un evenement
+        </g:link>
+    </p>
+
+    <table>
+        <thead>
+        <tr>
+            <td>Date</td>
+            <td>Heure</td>
+            <td>Tournoi</td>
+            <td>Ladders</td>
+        </tr>
+        </thead>
+        <tbody>
+        <g:each in="${tournamentEventList}" var="tournamentEvent" status="i">
+            <tr>
+                <td>
+                    <g:link action="show" id="${tournamentEvent.id}">
+                        ${tournamentEvent.date}
+                    </g:link>
+                </td>
+                <td>
+                    <abbr title="Debut">${tournamentEvent.startTime}</abbr><br>
+                    <abbr title="Fin">${tournamentEvent.endTime}</abbr>
+                </td>
+                <td>
+                    <g:link mapping="admin_tournament_show" id="${tournamentEvent.tournament.id}">
+                        ${tournamentEvent.tournament.name}
+                    </g:link>
+                </td>
+                <td>${tournamentEvent.ladderEntries.size()}</td>
+            </tr>
+        </g:each>
+        </tbody>
+    </table>
+
+</g:panel>
 
 
 %{--<div class="pagination">--}%

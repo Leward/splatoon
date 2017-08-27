@@ -7,18 +7,19 @@
 </head>
 
 <body>
+
 <nav>
-    <ul>
-        <li><g:link mapping="admin">Retour administration</g:link></li>
-        <li><g:link controller="tournamentEvent" action="index">Liste des événements</g:link></li>
+    <ul class="breadcrumb">
+        <li><g:link mapping="admin">Administration</g:link></li>
+        <li><g:link action="index">Evenements</g:link></li>
+        <li>Ajouter</li>
     </ul>
 </nav>
 
-<g:if test="${flash.message}">
-    <div class="message" role="status">${flash.message}</div>
-</g:if>
-
-%{--<g:panel title="Créer un événement pour un tournoi">--}%
+<g:panel title="Liste des évenements programmés">
+    <g:if test="${flash.message}">
+        <div class="message" role="status">${flash.message}</div>
+    </g:if>
 
     <g:hasErrors bean="${this.tournamentEvent}">
         <ul class="errors" role="alert">
@@ -47,6 +48,7 @@
                             value="${message(code: 'default.button.create.label', default: 'Create')}"/>
         </fieldset>
     </g:form>
-%{--</g:panel>--}%
+</g:panel>
+
 </body>
 </html>
