@@ -37,8 +37,8 @@ class TournamentEvent {
         date(nullable: false)
         endTime(nullable: false)
         // Removed constraint url: true because of some error with FieldsPlugin since Grails 3.3
-        challongeUrl(nullable: true, validator: { new UrlValidator().isValid(it) })
-        streamUrl(nullable: true, validator: { new UrlValidator().isValid(it) })
+        challongeUrl(nullable: true, validator: { it == null || new UrlValidator().isValid(it) })
+        streamUrl(nullable: true, validator: { it == null || new UrlValidator().isValid(it) })
     }
 
     static embedded = ['']

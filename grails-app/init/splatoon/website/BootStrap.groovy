@@ -83,7 +83,6 @@ class BootStrap {
                                     date: LocalDate.of(2017, Month.JULY, 10),
                                     startTime: LocalTime.of(21, 00),
                                     endTime: LocalTime.of(23, 59),
-                                    streamUrl: "https://gaming.youtube.com/watch?v=TRo_iSNqNno",
                                     challongeUrl: "http://sogfr.challonge.com/fr/SplatofGods2"
                             )
                     ]
