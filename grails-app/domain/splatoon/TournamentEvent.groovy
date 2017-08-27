@@ -30,6 +30,7 @@ class TournamentEvent {
 
     static mapping = {
         sort(date: "asc", startTime: "asc")
+        tournament updateable: false
     }
 
     static constraints = {
