@@ -1,6 +1,7 @@
 package splatoon
 
 import groovy.transform.EqualsAndHashCode
+import org.apache.commons.validator.routines.UrlValidator
 
 @EqualsAndHashCode(includes = 'id')
 class TournamentOrganizer {
@@ -12,7 +13,7 @@ class TournamentOrganizer {
 
     static constraints = {
         name(blank: false)
-        website(url: true)
+        website(validator: { new UrlValidator().isValid(it) })
     }
 
     @Override
