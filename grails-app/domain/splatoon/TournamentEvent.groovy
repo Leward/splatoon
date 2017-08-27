@@ -1,5 +1,8 @@
 package splatoon
 
+import org.apache.commons.validator.routines.UrlValidator
+import org.springframework.validation.Errors
+
 import java.time.LocalDate
 import java.time.LocalTime
 import java.time.ZoneId
@@ -32,8 +35,9 @@ class TournamentEvent {
     static constraints = {
         date(nullable: false)
         endTime(nullable: false)
-        challongeUrl(url: true, nullable: true)
-        streamUrl(url: true, nullable: true)
+        // Removed constraint url: true because of some error with FieldsPlugin since Grails 3.3
+        challongeUrl(nullable: true, validator: { new UrlValidator().isValid(it) })
+        streamUrl(nullable: true, validator: { new UrlValidator().isValid(it) })
     }
 
     static embedded = ['']
