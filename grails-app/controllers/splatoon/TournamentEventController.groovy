@@ -16,8 +16,8 @@ class TournamentEventController {
 
     @Secured(['ROLE_ADMIN', 'ROLE_TO'])
     def index(Integer max) {
-        params.max = Math.min(max ?: 10, 100)
-        respond TournamentEvent.list(params), model:[tournamentEventCount: TournamentEvent.count()]
+        params.max = Math.min(max ?: 20, 100)
+        respond TournamentEvent.list(params << [sort: 'date', order: 'desc']), model:[tournamentEventCount: TournamentEvent.count()]
     }
 
     // For admin
