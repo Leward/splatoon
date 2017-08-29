@@ -252,3 +252,32 @@ ol.property-list {
   }
 
 }
+
+// Adapt bootstrap-like pagination to grails tags
+.pagination {
+  > a, > span {
+    @include border-right-radius($border-radius-base);
+    position: relative;
+    float: left; // Collapse white-space
+    padding: $padding-base-vertical $padding-base-horizontal;
+    line-height: $line-height-base;
+    text-decoration: none;
+    color: $pagination-color;
+    background-color: $pagination-bg;
+    border: 1px solid $pagination-border;
+    margin-left: -1px;
+  }
+  &:first-child {
+    > a,
+    > span {
+      margin-left: 0;
+      @include border-left-radius($border-radius-base);
+    }
+  }
+  &:last-child {
+    > a,
+    > span {
+      @include border-right-radius($border-radius-base);
+    }
+  }
+}
