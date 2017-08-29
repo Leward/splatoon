@@ -8,8 +8,20 @@
 
 <body>
 
+<nav>
+    <ul class="breadcrumb">
+        <li><g:link mapping="admin">Administration</g:link></li>
+        <li>Utilisateurs</li>
+    </ul>
+</nav>
+
 <div>
-    <g:panel title="Inscription">
+    <g:panel title="Utilisateurs">
+
+        <g:if test="${flash.message}">
+            <div class="message" role="status">${flash.message}</div>
+        </g:if>
+
         <table>
             <thead>
             <tr>
@@ -28,7 +40,14 @@
                     <td>${user.email}</td>
                     <td>${user.roles.collect { it.authority }.join(',')}</td>
                     <td>
-                        <g:link class="btn" mapping="admin_user_uroles" id="${user.id}">Gérer rôles</g:link>
+                        <g:form method="POST" action="delete" id="${user.id}">
+                            <g:link class="btn btn-default" mapping="admin_user_uroles"
+                                    id="${user.id}">Gérer rôles</g:link>
+                            <button type="submit" class="btn btn-danger"
+                                    onclick="return confirm('Êtes-vous sûr de vouloir supprimer cet utilisateur? Cette action est irréversible. ');">
+                                <i class="fa fa-trash" aria-hidden="true"></i>
+                            </button>
+                        </g:form>
                     </td>
                 </tr>
             </g:each>

@@ -18,7 +18,11 @@ class User {
 	boolean accountLocked
 	boolean passwordExpired
 
-	static hasMany = [tournamentOrganizers: TournamentOrganizer]
+	static hasMany = [
+			tournamentOrganizers: TournamentOrganizer,
+			adReplies: AdReply,
+			recruitingAds: RecruitingAd
+	]
 	static belongsTo = TournamentOrganizer
 
 	Set<Role> getAuthorities() {
@@ -43,6 +47,10 @@ class User {
 		}
 	}
 
+	def beforeDelete() {
+		UserRole.removeAll(this)
+	}
+
 	protected void encodePassword() {
 		password = springSecurityService?.passwordEncoder ? springSecurityService.encodePassword(password) : password
 	}
@@ -58,6 +66,8 @@ class User {
 	static mapping = {
 		table '`user`' // backticks mandatory as in postgresql 'user' is a reserved keyword
 		password column: '`password`' // backticks mandatory as in postgresql/mysql 'password' is a reserved keyword
+		adReplies lazy: true
+		recruitingAds lazy: true
 	}
 
 	boolean hasRole(String role) {

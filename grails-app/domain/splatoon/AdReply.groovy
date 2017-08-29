@@ -10,11 +10,10 @@ class AdReply {
 
     transient SpringSecurityService springSecurityService
 
-    User author
     String message
     Instant createdAt
 
-    static belongsTo = [ad: RecruitingAd]
+    static belongsTo = [author: User, ad: RecruitingAd]
 
     static constraints = {
         author(nullable: false)

@@ -15,8 +15,9 @@ class RecruitingAd {
     String message
     String profileUrl
     Rank rank
-    User author
     Instant createdAt
+
+    static belongsTo = [author: User]
 
     def beforeInsert() {
         createdAt = Instant.now()

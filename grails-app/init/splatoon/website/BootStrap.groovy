@@ -137,12 +137,12 @@ class BootStrap {
                     '-Twitch :&nbsp;https://www.twitch.tv/heartsbrothers<br />\n' +
                     '<br />\n' +
                     'A plus tard Calamars !</p>')
-                    .author(ayo)
                     .profileUrl('https://twitter.com/Rising_Moon_Sp/')
                     .rank(Rank.C_PLUS)
                     .createdAt(Instant.now())
                     .build()
-                    .save(failOnError: true)
+            ad1.setAuthor(ayo)
+            ad1 = ad1.save(failOnError: true)
 
             def ad1Reply1 = new AdReply(
                     ad: ad1,
@@ -159,26 +159,25 @@ class BootStrap {
             ).save(failOnError: true)
 
             8.times {
-                RecruitingAd.builder()
-                        .type(AdType.LOOKING_FOR_TEAMMATE_AD)
-                        .title("Je monte une team pour le fun (${it})")
-                        .message("Salut... ")
-                        .author(ayo)
-                        .rank(Rank.B)
-                        .createdAt(Instant.now().minusSeconds(3600 * 24 * 5).plusSeconds(it * 60))
-                        .build()
-                        .save(failOnError: true)
+                new RecruitingAd(
+                        type: AdType.LOOKING_FOR_TEAMMATE_AD,
+                        title: "Je monte une team pour le fun (${it})",
+                        message: "Salut...",
+                        author: ayo,
+                        rank: Rank.B,
+                        createdAt: Instant.now().minusSeconds(3600 * 24 * 5).plusSeconds(it * 60)
+                ).save(failOnError: true)
             }
 
             def ad2 = RecruitingAd.builder()
                     .type(AdType.LOOKING_FOR_TEAMMATE_AD)
                     .title("Recherche joueurs S+ pour team competitive")
                     .message("Salut... ")
-                    .author(oli)
                     .rank(Rank.S_PLUS)
                     .createdAt(Instant.now())
                     .build()
-                    .save(failOnError: true)
+            ad2.setAuthor(oli)
+            ad2 = ad2.save(failOnError: true)
 
             def cover = new Cover(
                     name: 'Splatoon 2',

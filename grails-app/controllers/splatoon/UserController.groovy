@@ -103,4 +103,14 @@ class UserController {
         render(view: 'manageRoles', model: [user: user, roles: Role.findAll()])
     }
 
+    @Secured('ROLE_ADMIN')
+    @Transactional
+    def delete(User user) {
+        if(request.isPost()) {
+            user.delete()
+            flash.message = "Utilisateur ${user.username} supprime !"
+        }
+        redirect(action: 'index')
+    }
+
 }
