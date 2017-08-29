@@ -29,10 +29,10 @@
     <table>
         <thead>
         <tr>
-            <td>Date</td>
-            <td>Heure</td>
-            <td>Tournoi</td>
-            <td>Ladders</td>
+            <th>Date</th>
+            <th>Heure</th>
+            <th>Tournoi</th>
+            <th>Ladders</th>
         </tr>
         </thead>
         <tbody>
@@ -61,8 +61,8 @@
 </g:panel>
 
 
-%{--<div class="pagination">--}%
-%{--<g:paginate total="${tournamentEventCount ?: 0}" />--}%
+<div class="pagination">
+    <g:paginate total="${tournamentEventCount}" max="${params.max}" />
 </div>
 </body>
 </html>
