@@ -75,7 +75,8 @@ class UserController {
 
     @Secured('ROLE_ADMIN')
     def index() {
-        [users: User.getAll()]
+        def defaultParams = [sort: 'username', order: 'asc']
+        [users: User.list(defaultParams << params)]
     }
 
     @Secured('ROLE_ADMIN')

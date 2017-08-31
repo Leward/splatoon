@@ -26,7 +26,7 @@
             <thead>
             <tr>
                 <th>#</th>
-                <th>Username</th>
+                <g:sortableColumn property="username" title="Username" />
                 <th>Email</th>
                 <th>Roles</th>
                 <th>Actions</th>
