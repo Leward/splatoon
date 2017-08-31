@@ -83,7 +83,7 @@ class RankedTeamsSpec extends Specification {
         )
         def eventLastWeek = new TournamentEvent(
                 tournament: tournament,
-                date: LocalDate.now().minusDays(8),
+                date: LocalDate.now().minusDays(9),
                 startTime: LocalTime.NOON,
                 endTime: LocalTime.of(23, 00)
         )
