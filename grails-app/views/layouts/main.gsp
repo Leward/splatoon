@@ -61,7 +61,7 @@
 <div class="flex-container">
     <nav class="next-events">
         <g:render template="/tournamentEvent/nextEvents"
-                  model="${[nextEvents: TournamentEvent.findUpcomingEvents(6)]}"/>
+                  model="${[nextEvents: TournamentEvent.findUpcomingEvents(10)]}"/>
     </nav>
     <main>
         <div class="container-fluid">
