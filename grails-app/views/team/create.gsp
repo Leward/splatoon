@@ -32,7 +32,7 @@
 
     <g:form action="create" method="POST">
         <fieldset class="form">
-            <f:all bean="team"/>
+            <f:all bean="team" except="createdAt"/>
         </fieldset>
         <fieldset class="buttons">
             <g:submitButton name="create" class="save" value="Ajouter"/>

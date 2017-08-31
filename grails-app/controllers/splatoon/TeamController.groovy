@@ -7,7 +7,7 @@ import  grails.gorm.transactions.Transactional
 class TeamController {
 
     def index() {
-        [teams: Team.findAll()]
+        [teams: Team.list(params)]
     }
 
     def show(Team team) {

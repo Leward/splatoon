@@ -32,7 +32,7 @@
     <g:form action="edit" id="${team.id}" method="POST">
         <g:hiddenField name="version" value="${this.team?.version}"/>
         <fieldset class="form">
-            <f:all bean="team"/>
+            <f:all bean="team" except="createdAt"/>
         </fieldset>
         <fieldset class="buttons">
             <input class="save" type="submit"
