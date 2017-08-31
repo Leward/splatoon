@@ -1,0 +1,8 @@
+{
+  "name": "splatoon-website-dependencies",
+  "version": "1.0.0",
+  "description": "Frontend dependencies fron splatoon-website-projects",
+  "dependencies": {
+    "webshim": "1.16.0"
+  }
+}

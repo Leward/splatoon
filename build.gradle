@@ -5,7 +5,7 @@ buildscript {
     }
     dependencies {
         classpath "org.grails:grails-gradle-plugin:$grailsVersion"
-        classpath "org.grails.plugins:hibernate5:${gormVersion-".RELEASE"}"
+        classpath "org.grails.plugins:hibernate5:${gormVersion - ".RELEASE"}"
         classpath "com.bertramlabs.plugins:asset-pipeline-gradle:2.14.3"
         classpath "com.bertramlabs.plugins:sass-asset-pipeline:2.14.3"
     }
@@ -14,12 +14,12 @@ buildscript {
 version "0.1"
 group "splatoon.website"
 
-apply plugin:"eclipse"
-apply plugin:"idea"
+apply plugin: "eclipse"
+apply plugin: "idea"
 //apply plugin:"war"
-apply plugin:"org.grails.grails-web"
-apply plugin:"org.grails.grails-gsp"
-apply plugin:"asset-pipeline"
+apply plugin: "org.grails.grails-web"
+apply plugin: "org.grails.grails-gsp"
+apply plugin: "asset-pipeline"
 
 repositories {
     mavenLocal()
@@ -101,4 +101,9 @@ task copyToLib(type: Copy) {
     into outputDir
 }
 
-build.dependsOn(copyToLib)
+task npmInstall(type: Exec) {
+    executable 'npm'
+    args 'install'
+}
+
+assetCompile.dependsOn('npmInstall')

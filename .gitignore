@@ -11,3 +11,4 @@ build/
 .classpath
 .asscache
 out/
+node_modules
