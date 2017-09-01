@@ -150,6 +150,6 @@ task('cleanNpmFiles') {
     delete 'src/main/resources/public/ckeditor/'
 }
 
-assetCompile.dependsOn('copyNpmFiles')
+compileJava.dependsOn('copyNpmFiles')
 bootRun.dependsOn('copyNpmFiles')
 clean.dependsOn('cleanNpmFiles')
