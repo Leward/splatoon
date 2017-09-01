@@ -7,6 +7,7 @@
     "bourbon-neat": "1.8.0",
     "bootstrap-sass": "3.3.7",
     "ckeditor": "4.7.2",
-    "jquery": "2.2.0"
+    "jquery": "2.2.0",
+    "timepicker": "1.11.11"
   }
 }

@@ -18,3 +18,4 @@ node_modules
 /grails-app/assets/stylesheets/neat/
 /grails-app/assets/javascripts/jquery.js
 /src/main/resources/public/ckeditor/
+/grails-app/assets/libs/

@@ -6,7 +6,7 @@
 // to create separate JavaScript files as needed.
 //
 //= require jquery
-//= require jquery.timepicker
+//= require timepicker/jquery.timepicker
 //= require readmore
 //= require polyfiller
 //= require_self

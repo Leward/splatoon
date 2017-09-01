@@ -116,6 +116,10 @@ task('copyNpmFiles', type: Copy, dependsOn: ':npmInstall') {
     from('node_modules/jquery/dist/jquery.js') {
         into 'grails-app/assets/javascripts'
     }
+    from('node_modules/timepicker') {
+        includes = ['jquery.timepicker.css', 'jquery.timepicker.js']
+        into 'grails-app/assets/libs/timepicker'
+    }
     from('node_modules/ckeditor') {
         into 'src/main/resources/public/ckeditor/'
     }
@@ -126,6 +130,7 @@ task('cleanNpmFiles') {
     delete 'grails-app/assets/stylesheets/bootstrap-sass'
     delete 'grails-app/assets/stylesheets/neat'
     delete 'grails-app/assets/javascripts/jquery.js'
+    delete 'grails-app/assets/libs'
     delete 'src/main/resources/public/ckeditor/'
 }
 
