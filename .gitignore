@@ -16,4 +16,5 @@ node_modules
 # Front libs copiued from npm
 /grails-app/assets/stylesheets/bootstrap-sass/
 /grails-app/assets/stylesheets/neat/
+/grails-app/assets/javascripts/jquery.js
 /src/main/resources/public/ckeditor/
