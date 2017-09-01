@@ -19,3 +19,4 @@ node_modules
 /grails-app/assets/javascripts/jquery.js
 /src/main/resources/public/ckeditor/
 /grails-app/assets/libs/
+/grails-app/assets/webshim-1.16.0/

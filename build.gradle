@@ -120,6 +120,9 @@ task('copyNpmFiles', type: Copy, dependsOn: ':npmInstall') {
         includes = ['jquery.timepicker.css', 'jquery.timepicker.js']
         into 'grails-app/assets/libs/timepicker'
     }
+    from('node_modules/webshim/js-webshim/minified') {
+        into 'grails-app/assets/webshim-1.16.0'
+    }
     from('node_modules/ckeditor') {
         into 'src/main/resources/public/ckeditor/'
     }
@@ -131,6 +134,7 @@ task('cleanNpmFiles') {
     delete 'grails-app/assets/stylesheets/neat'
     delete 'grails-app/assets/javascripts/jquery.js'
     delete 'grails-app/assets/libs'
+    delete 'grails-app/assets/webshim-1.16.0'
     delete 'src/main/resources/public/ckeditor/'
 }
 
