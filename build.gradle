@@ -94,32 +94,62 @@ assets {
     enableGzip = true
 }
 
-task copyToLib(type: Copy) {
+task('copyToLib', type: Copy) {
     def zipFile = configurations.runtime.files { it.group.equals('com.newrelic.agent.java') }.first()
     def outputDir = file("${buildDir}/libs")
     from zipTree(zipFile)
     into outputDir
 }
 
-task npmInstall(type: Exec) {
+task('npmInstall', type: Exec) {
     executable 'npm'
     args 'install'
 }
 
-task copyNpmFiles(dependsOn: ':npmInstall') {
-    copy {
-        from 'node_modules/bootstrap-sass/assets/stylesheets'
-        into 'grails-app/assets/stylesheets/bootstrap-sass'
-    }
-    copy {
-        from 'node_modules/bourbon-neat/app/assets/stylesheets'
-        into 'grails-app/assets/stylesheets/neat'
-    }
-    copy {
-        from 'node_modules/ckeditor'
-        into 'src/main/resources/public/ckeditor/'
-    }
+//task('copyNpmFiles', dependsOn: ':npmInstall') {
+//    doFirst {
+//        def fileTree = fileTree('grails-app/assets/stylesheets')
+//        fileTree.visit { println it }
+//    }
+//    doLast {
+//        copy {
+//            from 'node_modules/bootstrap-sass/assets/stylesheets'
+//            into 'grails-app/assets/stylesheets/bootstrap-sass'
+//        }
+//        copy {
+//            from 'node_modules/bourbon-neat/app/assets/stylesheets'
+//            into 'grails-app/assets/stylesheets/neat'
+//        }
+//        copy {
+//            from 'node_modules/ckeditor'
+//            into 'src/main/resources/public/ckeditor/'
+//        }
+//        def fileTree = fileTree('grails-app/assets/stylesheets')
+//        println "Test"
+//        println fileTree
+//        fileTree.visit { println it }
+//    }
+//}
+
+task('copyNpmFiles', type: Copy, dependsOn: ':npmInstall') {
+        from('node_modules/bootstrap-sass/assets/stylesheets') {
+            into 'grails-app/assets/stylesheets/bootstrap-sass'
+        }
+        from('node_modules/bourbon-neat/app/assets/stylesheets') {
+            into 'grails-app/assets/stylesheets/neat'
+        }
+        from('node_modules/ckeditor') {
+            into 'src/main/resources/public/ckeditor/'
+        }
+        into './' // Relative dir for the other "into" specifications (it mandatory to have a root "into")
+}
+
+task('cleanNpmFiles') {
+    delete 'grails-app/assets/stylesheets/bootstrap-sass'
+    delete 'grails-app/assets/stylesheets/neat'
+    delete 'src/main/resources/public/ckeditor/'
 }
 
 assetCompile.dependsOn('copyNpmFiles')
 bootRun.dependsOn('copyNpmFiles')
+clean.dependsOn('cleanNpmFiles')
