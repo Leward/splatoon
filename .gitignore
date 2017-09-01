@@ -12,3 +12,8 @@ build/
 .asscache
 out/
 node_modules
+
+# Front libs copiued from npm
+/grails-app/assets/stylesheets/bootstrap-sass/
+/grails-app/assets/stylesheets/neat/
+/src/main/resources/public/ckeditor/

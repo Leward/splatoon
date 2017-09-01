@@ -1,6 +1,18 @@
 [![Build Status](https://travis-ci.org/Leward/splatoon.svg?branch=master)](https://travis-ci.org/Leward/splatoon)
 [![Heroku](https://heroku-badge.herokuapp.com/?style=flat&app=splatoon-portal)](https://splatoon-portal.herokuapp.com/)
 
+## Frontend dependencies
+
+Front-end dependencies are not managed by gradle itself. 
+You need to have nodejs and npm installed.
+
+When running `gradle assemble` or `gradle build` the `copyNpmFiles` 
+will be automatically called. 
+
+However running `grails run` won't do it. 
+
+To install the frontend dependencies in the project run: `./gradlew copyNpmFiles`
+
 ## Docker
 
 Build the image:

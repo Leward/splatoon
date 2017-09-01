@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "description": "Frontend dependencies fron splatoon-website-projects",
   "dependencies": {
-    "webshim": "1.16.0"
+    "webshim": "1.16.0",
+    "bourbon-neat": "1.8.0",
+    "bootstrap-sass": "3.3.7",
+    "ckeditor": "4.7.2"
   }
 }

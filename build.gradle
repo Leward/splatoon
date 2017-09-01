@@ -106,4 +106,20 @@ task npmInstall(type: Exec) {
     args 'install'
 }
 
-assetCompile.dependsOn('npmInstall')
+task copyNpmFiles(dependsOn: ':npmInstall') {
+    copy {
+        from 'node_modules/bootstrap-sass/assets/stylesheets'
+        into 'grails-app/assets/stylesheets/bootstrap-sass'
+    }
+    copy {
+        from 'node_modules/bourbon-neat/app/assets/stylesheets'
+        into 'grails-app/assets/stylesheets/neat'
+    }
+    copy {
+        from 'node_modules/ckeditor'
+        into 'src/main/resources/public/ckeditor/'
+    }
+}
+
+assetCompile.dependsOn('copyNpmFiles')
+bootRun.dependsOn('copyNpmFiles')
