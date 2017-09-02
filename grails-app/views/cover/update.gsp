@@ -38,6 +38,7 @@
                     <f:with bean="cover">
                         <f:field property="name"/>
                         <f:field property="file"/>
+                        <div class="alert alert-info">Les images sont automatiquement redimensionnees a la taille 310x191</div>
                     </f:with>
                     <div>
                         <label>Image actuelle</label>

@@ -67,6 +67,8 @@ dependencies {
     compile "org.grails.plugins:newrelic:3.35.2"
     compile 'org.postgresql:postgresql:42.1.1'
     compile 'org.grails.plugins:mail:2.0.0.RC6'
+    compile 'net.coobird:thumbnailator:0.4.8'
+    compile 'commons-io:commons-io:2.5'
     testCompile "org.grails:grails-gorm-testing-support"
     testCompile "org.grails.plugins:geb"
     testCompile "org.grails:grails-web-testing-support"
@@ -119,6 +121,10 @@ task('copyNpmFiles', type: Copy, dependsOn: ':npmInstall') {
     from('node_modules/timepicker') {
         includes = ['jquery.timepicker.css', 'jquery.timepicker.js']
         into 'grails-app/assets/libs/timepicker'
+    }
+    from('node_modules/cropperjs/dist') {
+        includes = ['cropper.css', 'cropper.js']
+        into 'grails-app/assets/libs/cropperjs'
     }
     from('node_modules/webshim/js-webshim/minified') {
         into 'grails-app/assets/webshim-1.16.0'

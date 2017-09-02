@@ -1,8 +1,9 @@
 package splatoon
 
+import grails.gorm.transactions.Transactional
 import grails.plugin.awssdk.s3.AmazonS3Service
 import grails.plugin.springsecurity.annotation.Secured
-import  grails.gorm.transactions.Transactional
+import net.coobird.thumbnailator.Thumbnails
 
 @Secured([Role.ROLE_ADMIN, Role.ROLE_EDITOR])
 class CoverController {
@@ -52,7 +53,11 @@ class CoverController {
     private void uploadFileIfPresent(Cover cover) {
         if(cover.file != null && !cover.file.empty) {
             def s3FileName = UUID.randomUUID().toString() + '-' + cover.file.getOriginalFilename()
-            def url = amazonS3Service.storeMultipartFile('splatoon', s3FileName, cover.file)
+            def resizedImage = Thumbnails.of(cover.file.inputStream)
+                .size(310, 191)
+                .keepAspectRatio(false)
+                .asFiles([File.createTempFile('splatoon-', s3FileName)])[0]
+            def url = amazonS3Service.storeFile('splatoon', s3FileName, resizedImage)
             cover.url = url
         }
     }
