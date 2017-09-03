@@ -89,6 +89,7 @@
 
 <asset:javascript src="application.js"/>
 <script src="/static/ckeditor/ckeditor.js"></script>
+<script async="" charset="utf-8" src="//platform.twitter.com/widgets.js"></script>
 
 </body>
 </html>

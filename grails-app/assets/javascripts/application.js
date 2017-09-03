@@ -35,15 +35,27 @@ function configureCkeditor($) {
             return false;
         }
 
-        config.contentsCss = '/assets/application.css?compile=false';
+        config.contentsCss = '/assets/application.css';
         if(isCkeditorSimple) {
             config.toolbar = [
                 ['Bold', 'Italic']
             ];
             config.removePlugins = 'elementspath,contextmenu,tabletools';
         } else if(isCkeditorFull) {
-            config.extraPlugins = 'uploadimage';
-            config.uploadUrl = '/upload'
+            config.toolbar = [
+                { name: 'editing', items: [ 'Undo', 'Redo' ] },
+                { name: 'links', items: [ 'Link', 'Unlink', 'Anchor' ] },
+                { name: 'insert', items: [ 'Image', 'Table', 'HorizontalRule', 'SpecialChar', 'Embed' ] },
+                { name: 'document', items: [ 'Maximize', '-', 'Source' ] },
+                '/',
+                { name: 'basicstyles', items: [ 'Bold', 'Italic', 'Underline', 'Strike', '-', 'RemoveFormat' ] },
+                { name: 'align', items: [ 'JustifyLeft', 'JustifyCenter', 'JustifyRight', 'JustifyBlock' ] },
+                { name: 'paragraph', items: [ 'NumberedList', 'BulletedList', '-', 'Outdent', 'Indent', '-', 'Blockquote' ] },
+                { name: 'styles', items: [ 'Styles', 'Format' ] }
+            ];
+            config.extraPlugins = 'uploadimage,embed,justify';
+            config.uploadUrl = '/upload';
+            config.embed_provider = '//ckeditor.iframe.ly/api/oembed?url={url}&callback={callback}';
         }
         return true;
     });
