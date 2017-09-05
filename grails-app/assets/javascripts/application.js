@@ -55,7 +55,8 @@ function configureCkeditor($) {
             ];
             config.extraPlugins = 'uploadimage,embed,justify';
             config.uploadUrl = '/upload';
-            config.embed_provider = '//ckeditor.iframe.ly/api/oembed?url={url}&callback={callback}';
+            //config.embed_provider = '//noembed.com/embed?url={url}&callback={callback}';
+            config.embed_provider = 'https://noembed.com/embed?callback={callback}&url={url}';
         }
         return true;
     });
