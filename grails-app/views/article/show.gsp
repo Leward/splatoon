@@ -18,12 +18,15 @@
         </header>
         <main>
             <div class="content">
-                <g:html code="${article.content}"/>
+                <g:enforceResponsiveContent>
+                    <g:html code="${article.content}"/>
+                </g:enforceResponsiveContent>
             </div>
         </main>
         <footer>
             <div class="share">
-                <g:link url="https://www.facebook.com/sharer/sharer.php?u=${createLink(absolute: true, mapping: 'article_show', id: article.id)}" target="_blank" class="btn">
+                <g:link url="https://www.facebook.com/sharer/sharer.php?u=${createLink(absolute: true, mapping: 'article_show', id: article.id)}"
+                        target="_blank" class="btn">
                     <i class="fa fa-facebook"></i> Partager sur Facebook</g:link>
                 <g:link url="https://twitter.com/home?status=${article.title} : ${createLink(absolute: true, mapping: 'article_show', id: article.id)}"
                         target="_blank" class="btn">

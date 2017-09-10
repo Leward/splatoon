@@ -1,12 +1,12 @@
 package splatoon.website
 
-import com.google.common.base.Predicates
+import org.jsoup.Jsoup
+import org.jsoup.nodes.Document
 import org.owasp.html.HtmlPolicyBuilder
 import org.owasp.html.PolicyFactory
 import org.owasp.html.Sanitizers
 import splatoon.TournamentEvent
 
-import java.util.function.Predicate
 import java.util.regex.Pattern
 
 class SplatoonTagLib {
@@ -125,5 +125,12 @@ class SplatoonTagLib {
                     .toFactory())
         }
         out << policy.sanitize(attrs.code)
+    }
+
+    def enforceResponsiveContent = { attrs, body ->
+        String originalHtml = body().toString()
+        Document document = Jsoup.parseBodyFragment(originalHtml);
+        document.select("img").addClass("img-responsive")
+        out << document.body().html()
     }
 }

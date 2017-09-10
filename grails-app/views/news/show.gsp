@@ -15,7 +15,9 @@
         </header>
         <main>
             <div class="content">
-                <g:html code="${news.content}"/>
+                <g:enforceResponsiveContent>
+                    <g:html code="${news.content}"/>
+                </g:enforceResponsiveContent>
             </div>
         </main>
         <footer>
@@ -24,7 +26,7 @@
                     <i class="fa fa-facebook"></i> Partager sur Facebook</g:link>
                 <g:link url="https://twitter.com/home?status=${news.title} : ${createLink(absolute: true, mapping: 'news_show', id: news.id)}"
                         target="_blank" class="btn">
-                    <i class="fa fa-twitter"></i> Partager sur Twitter</a>
+                    <i class="fa fa-twitter"></i> Partager sur Twitter
                 </g:link>
             </div>
         </footer>

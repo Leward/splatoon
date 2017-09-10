@@ -90,6 +90,10 @@ fieldset {
   border: 0;
 }
 
+iframe {
+  max-width: 100%;
+}
+
 .scaffold-show {
   background-color: white;
   border: 2px solid lightgrey;

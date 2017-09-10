@@ -211,7 +211,7 @@ class BootStrap {
 
             def news4 = new News(
                     title: "News de test 4",
-                    content: '<p>Content of the news</p><img src="https://s3.eu-central-1.amazonaws.com/splatoon/13e47e0a-f826-4ebb-9c12-b2f4c336c170-test.png" class="img-responsive"><hr>' +
+                    content: '<p>Content of the news</p><img src="https://s3.eu-central-1.amazonaws.com/splatoon/13e47e0a-f826-4ebb-9c12-b2f4c336c170-test.png"><hr>' +
                             '<p style="text-align:center"><iframe frameborder="0" height="378" scrolling="no" src="https://player.twitch.tv/?video=v156860792&amp;autoplay=false" width="620"></iframe></p>',
                     date: Instant.now(),
                     cover: cover

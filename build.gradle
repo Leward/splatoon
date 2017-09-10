@@ -69,6 +69,7 @@ dependencies {
     compile 'org.grails.plugins:mail:2.0.0.RC6'
     compile 'net.coobird:thumbnailator:0.4.8'
     compile 'commons-io:commons-io:2.5'
+    compile 'org.jsoup:jsoup:1.10.3'
     testCompile "org.grails:grails-gorm-testing-support"
     testCompile "org.grails.plugins:geb"
     testCompile "org.grails:grails-web-testing-support"
