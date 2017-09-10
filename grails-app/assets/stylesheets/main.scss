@@ -74,6 +74,13 @@ body {
         list-style: none;
         margin: 0;
         padding: 0;
+        @include media($smaller-than-md-screen) {
+          display: block;
+          text-align: center;
+          > li {
+            display: inline-block;
+          }
+        }
         > li {
           align-self: center;
           margin-right: 10px;
