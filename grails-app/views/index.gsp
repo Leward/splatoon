@@ -63,18 +63,6 @@
             </div>
         </main>
     </div>
-    %{--<div class="row">--}%
-    %{--<div class="next-events col-sm-6 col-xs-12">--}%
-    %{--<g:render template="tournamentEvent/nextEvents"--}%
-    %{--model="${[nextEvents: TournamentEvent.findUpcomingEvents(6)]}"/>--}%
-    %{--</div>--}%
-
-    %{--<div class="news col-sm-6 col-xs-12">--}%
-    %{--<g:panel title="Les dernières nouvelles">--}%
-    %{--<p>Aucun contenu pour le moment.</p>--}%
-    %{--</g:panel>--}%
-    %{--</div>--}%
-    %{--</div>--}%
 
     <div class="featured-news card">
         <header class="red"><h2>
