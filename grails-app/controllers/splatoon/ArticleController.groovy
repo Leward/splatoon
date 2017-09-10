@@ -8,7 +8,7 @@ class ArticleController {
     def magazine() {
         Map<ArticleCategory, List<Article>> categoryMap = [:]
         ArticleCategory.list().each {
-            categoryMap[it] = Article.findAllByCategory(it, [max: 4])
+            categoryMap[it] = Article.findAllByCategory(it, [sort: 'date', order: 'desc', max: 4])
         }
         render(view: 'magazine', model: [categories: categoryMap])
     }
