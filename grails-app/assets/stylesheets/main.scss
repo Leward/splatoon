@@ -109,30 +109,6 @@ body {
       > ul.links-2 {
 
       }
-
-      //@include media($smaller-than-narrow-screen) {
-      //  flex-direction: column;
-      //  padding-top: 10px;
-      //  height: auto;
-      //  > h1 {
-      //    margin-bottom: 5px;
-      //  }
-      //  > ul {
-      //  }
-      //}
-      //
-      //@include media($smaller-than-mobile) {
-      //  > h1 {
-      //    margin-bottom: 10px;
-      //  }
-      //  > ul {
-      //    > li {
-      //      display: block;
-      //      text-align: center;
-      //      margin-bottom: 5px;
-      //    }
-      //  }
-      //}
     }
 
     a {
