@@ -12,6 +12,9 @@ body {
 
 main {
   padding: 0 $body-lateral-padding;
+  @include media($smaller-than-md-screen) {
+    padding: 0;
+  }
 }
 
 footer {

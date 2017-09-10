@@ -7,6 +7,8 @@
 .container-fluid {
   @include media($smaller-than-md-screen) {
     max-width: $container-sm;
+    padding-left:10px;
+    padding-right: 10px;
   }
   @include media($smaller-than-lg-screen) {
     max-width: $container-lg;
@@ -241,6 +243,9 @@ body {
     flex-grow: 1;
     padding-top: 40px;
     padding-bottom: 30px;
+    @include media($smaller-than-md-screen) {
+      padding-top: 20px;
+    }
   }
 }
 
