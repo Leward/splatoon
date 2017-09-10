@@ -94,6 +94,10 @@ iframe {
   max-width: 100%;
 }
 
+.img-responsive {
+  height: auto !important;
+}
+
 .scaffold-show {
   background-color: white;
   border: 2px solid lightgrey;
