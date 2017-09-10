@@ -9,7 +9,7 @@ class NewsController {
         def newsPerPage = 12
         def page = params.getLong('page', 1)
         def offset = (page - 1) * newsPerPage
-        def newsList = News.findAll([offset: offset, max: newsPerPage])
+        def newsList = News.findAll([offset: offset, max: newsPerPage, sort: 'date', order: 'desc'])
         def nbPages = Math.ceil(News.count()/ newsPerPage)
         render(view: 'list', model: [newsList: newsList, page: page, nbPages: nbPages])
     }
