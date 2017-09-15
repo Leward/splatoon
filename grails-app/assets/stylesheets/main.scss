@@ -45,9 +45,23 @@ body {
       //max-width: $grid-width;
       margin: auto;
 
+      .small-menu {
+        display: none;
+      }
+      .large-menu {
+        display: inline;
+      }
+
       @include media($smaller-than-md-screen) {
         flex-direction: column;
         height: auto;
+
+        .small-menu {
+          display: inline;
+        }
+        .large-menu {
+          display: none;
+        }
       }
 
       h1.logo {
@@ -88,7 +102,7 @@ body {
         margin: 0;
         padding: 0;
         @include media($smaller-than-md-screen) {
-          display: block;
+          white-space: nowrap;
           text-align: center;
           > li {
             display: inline-block;
