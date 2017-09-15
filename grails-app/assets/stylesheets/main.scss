@@ -184,6 +184,11 @@ body {
       min-width: $left-menu-collapsed-width;
       max-width: $left-menu-collapsed-width;
     }
+    @include media($smaller-than-sm-screen) {
+      width: $left-menu-super-collapsed-width;
+      min-width: $left-menu-super-collapsed-width;
+      max-width: $left-menu-super-collapsed-width;
+    }
     ul {
       padding: 0;
       list-style: none;
@@ -204,6 +209,10 @@ body {
       display: flex;
       align-items: center;
       height: 80px;
+      @include media($smaller-than-sm-screen) {
+        padding: 0 5px;
+        height: 60px;
+      }
 
       &:not(:first-child) {
         border-top: 1px solid #b9b9b8;
@@ -213,12 +222,19 @@ body {
       }
 
       .date {
+        text-align: center;
         .day {
           font-weight: bold;
           font-size: xx-large;
+          @include media($smaller-than-sm-screen) {
+            font-size: x-large;
+          }
         }
         .month {
           margin-top: -10px;
+          @include media($smaller-than-sm-screen) {
+            font-size: 90%;
+          }
         }
       }
       .content {
