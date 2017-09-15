@@ -58,7 +58,7 @@ class CoverController {
                 .keepAspectRatio(false)
                 .asFiles([File.createTempFile('splatoon-', s3FileName)])[0]
             def url = amazonS3Service.storeFile('splatoon', s3FileName, resizedImage)
-            cover.url = url
+            cover.url = URLEncoder.encode(url, 'UTF-8')
         }
     }
 }
