@@ -15,12 +15,12 @@
             <table>
                 <thead>
                 <tr>
-                    <th>Rang</th>
-                    <th>Équipe</th>
-                    <th>Tournois</th>
-                    <th>Wins</th>
-                    <th>Loses</th>
-                    <th>Points</th>
+                    <th><span>Rang</span></th>
+                    <th><span>Équipe</span></th>
+                    <th><span>Tournois</span></th>
+                    <th><span>Wins</span></th>
+                    <th><span>Loses</span></th>
+                    <th><span>Points</span></th>
                     <th class="evolution">
                         <abbr title="Evolution du rang sur les 7 derniers jours">
                             Évolution

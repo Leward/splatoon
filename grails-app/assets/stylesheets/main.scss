@@ -569,7 +569,9 @@ ul.row.articles {
   @include media($smaller-than-sm-screen) {
     thead {
       th {
-          writing-mode: vertical-lr;
+          span, abbr {
+            writing-mode: vertical-lr;
+          }
       }
     }
   }
