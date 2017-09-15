@@ -566,6 +566,13 @@ ul.row.articles {
 }
 
 .ladder-page {
+  @include media($smaller-than-sm-screen) {
+    thead {
+      th {
+          writing-mode: vertical-lr;
+      }
+    }
+  }
   th.evolution, td.evolution {
     text-align: center;
   }

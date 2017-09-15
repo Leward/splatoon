@@ -50,7 +50,8 @@
                                     =
                                 </g:if>
                                 <g:if test="${rankedTeam.evolution == splatoon.RankedTeam.Evolution.NEW}">
-                                    Nouveau
+                                    <span class="hidden-xs">Nouveau</span>
+                                    <span class="visible-xs">New</span>
                                 </g:if>
                             </td>
                         </tr>
