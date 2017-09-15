@@ -18,6 +18,17 @@
   }
 }
 
+@include media($smaller-than-sm-screen) {
+  blockquote {
+    padding: 10px 15px;
+    margin: 0 0 15px;
+  }
+
+  ul {
+    padding-left: 20px;
+  }
+}
+
 body {
   > header {
     background-color: $color-header-blue;
