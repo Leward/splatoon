@@ -31,7 +31,7 @@ class Cover {
     }
 
     void setUrl(String url) {
-        this.url = url.replace(' ', '%20')
+        this.url = URI.create(url.replace(" ", "%20")).toASCIIString()
     }
 
     @Override
