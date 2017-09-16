@@ -44,7 +44,7 @@ class CoverController {
     @Transactional
     def delete(Cover cover) {
         if(request.isPost()) {
-            cover.delete()
+            cover.delete(flush: true)
             flash.message = 'Cover supprimée'
             redirect(action: 'index')
         }
