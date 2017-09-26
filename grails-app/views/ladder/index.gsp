@@ -12,7 +12,7 @@
     <div class="card">
         <header><h2>Ladder</h2></header>
         <main>
-            <h4>Organizateurs de tournois</h4>
+            <h4>Organisateurs de tournois</h4>
             <p>
             <div>
                 <g:link class="btn ${selectedOrganizer == null ? 'btn-primary' : 'btn-default'}">Tous</g:link>
