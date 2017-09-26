@@ -51,9 +51,12 @@ function configureCkeditor($) {
                 { name: 'basicstyles', items: [ 'Bold', 'Italic', 'Underline', 'Strike', '-', 'RemoveFormat' ] },
                 { name: 'align', items: [ 'JustifyLeft', 'JustifyCenter', 'JustifyRight', 'JustifyBlock' ] },
                 { name: 'paragraph', items: [ 'NumberedList', 'BulletedList', '-', 'Outdent', 'Indent', '-', 'Blockquote' ] },
-                { name: 'styles', items: [ 'Styles', 'Format' ] }
+                '/',
+                { name: 'styles', items: [ 'Styles', 'Format' ] },
+                { name: 'colors', items: [ 'TextColor', 'BGColor' ] }
+
             ];
-            config.extraPlugins = 'uploadimage,embed,justify';
+            config.extraPlugins = 'uploadimage,embed,justify,colorbutton';
             config.uploadUrl = '/upload';
             //config.embed_provider = '//noembed.com/embed?url={url}&callback={callback}';
             config.embed_provider = 'https://noembed.com/embed?callback={callback}&url={url}';
