@@ -21,6 +21,11 @@ class Tournament {
         registrationDetails type: 'text'
     }
 
+    Tournament withId(Long id) {
+        this.id = id
+        return this
+    }
+
     @Override
     String toString() {
         return name

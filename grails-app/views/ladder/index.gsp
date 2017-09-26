@@ -12,6 +12,15 @@
     <div class="card">
         <header><h2>Ladder</h2></header>
         <main>
+            <h4>Organizateurs de tournois</h4>
+            <p>
+            <div>
+                <g:link class="btn ${selectedOrganizer == null ? 'btn-primary' : 'btn-default'}">Tous</g:link>
+                <g:each in="${tournamentOrganizers}" var="${tournamentOrganizer}">
+                    <g:link mapping="ladder" params="${[id: tournamentOrganizer.id]}" class="btn  ${selectedOrganizer == tournamentOrganizer ? 'btn-primary' : 'btn-default'}">${tournamentOrganizer}</g:link>
+                </g:each>
+            </div>
+            </p>
             <table>
                 <thead>
                 <tr>

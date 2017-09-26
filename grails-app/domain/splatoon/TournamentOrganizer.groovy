@@ -24,4 +24,9 @@ class TournamentOrganizer {
     boolean canBeManagedBy(User user) {
         user.hasRole(Role.ROLE_ADMIN) || members.any { it.id == user.id }
     }
+
+    TournamentOrganizer withId(Long id) {
+        this.id = id
+        return this
+    }
 }

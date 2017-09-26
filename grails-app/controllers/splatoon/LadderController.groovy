@@ -10,8 +10,15 @@ class LadderController {
     SpringSecurityService springSecurityService
 
     def index() {
-        def rankedTeams = new RankedTeams(Ladder.findAll())
-        render(view: 'index', model: [rankedTeams: rankedTeams])
+        def rankingsCompilation = new RankingsCompilation(Ladder.findAll())
+        def tournamentOrganizers = rankingsCompilation.listTournamentOrganizers()
+        def selectedOrganizer = tournamentOrganizers.find { it.id == params.long("id") }
+        def rankedTeams = (selectedOrganizer) ? rankingsCompilation.perTournamentOrganizerRankings[selectedOrganizer] : rankingsCompilation.globalRankings
+        render(view: 'index', model: [
+                rankedTeams: rankedTeams,
+                tournamentOrganizers: tournamentOrganizers,
+                selectedOrganizer: selectedOrganizer
+        ])
     }
 
     @Secured(['ROLE_ADMIN', 'ROLE_TO'])

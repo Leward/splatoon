@@ -11,13 +11,13 @@ class RankedTeamsSpec extends Specification {
     static Team TEAM_B = new Team(name: 'Team B')
 
     static TournamentEvent EVENT_TOURNAMENT_A = new TournamentEvent(
-            tournament: new Tournament(id: 1, name: 'Tournament A'),
+            tournament: new Tournament(withId: 1, name: 'Tournament A'),
             date: LocalDate.now(),
             startTime: LocalTime.MIN,
             endTime: LocalTime.MAX
     )
     static TournamentEvent EVENT_TOURNAMENT_B = new TournamentEvent(
-            tournament:  new Tournament(id: 2, name: 'Tournament B'),
+            tournament:  new Tournament(withId: 2, name: 'Tournament B'),
             date: LocalDate.now(),
             startTime: LocalTime.MIN,
             endTime: LocalTime.MAX
@@ -74,7 +74,7 @@ class RankedTeamsSpec extends Specification {
 
     def "should calculate the evolution"() {
         given:
-        def tournament = new Tournament(id: 1, name: 'Tournament A')
+        def tournament = new Tournament(withId: 1, name: 'Tournament A')
         def eventToday = new TournamentEvent(
                 tournament: tournament,
                 date: LocalDate.now(),
@@ -107,7 +107,7 @@ class RankedTeamsSpec extends Specification {
     }
 
     def "evolution of new teams should be marked as new"() {
-        def tournament = new Tournament(id: 1, name: 'Tournament A')
+        def tournament = new Tournament(withId: 1, name: 'Tournament A')
         def eventToday = new TournamentEvent(
                 tournament: tournament,
                 date: LocalDate.now(),
