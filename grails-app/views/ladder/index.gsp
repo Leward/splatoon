@@ -49,18 +49,18 @@
                             <td class="evolution">
                                 <g:if test="${rankedTeam.evolution == splatoon.RankedTeam.Evolution.BETTER}">
                                     <g:img src="up-small.png" class="evolution" title="Rang il y a 7 jours: ${rankedTeam.previousRank}" />
-                                    (+ ${Math.abs(rankedTeam.previousRank - rankedTeam.rank)} places)
+                                    <span class="hidden-xs">(+ ${Math.abs(rankedTeam.previousRank - rankedTeam.rank)} places)</span>
                                 </g:if>
                                 <g:if test="${rankedTeam.evolution == splatoon.RankedTeam.Evolution.WORSE}">
                                     <g:img src="down-small.png" class="evolution" title="Rang il y a 7 jours: ${rankedTeam.previousRank}"/>
-                                    (- ${Math.abs(rankedTeam.previousRank - rankedTeam.rank)} places)
+                                    <span class="hidden-xs">(- ${Math.abs(rankedTeam.previousRank - rankedTeam.rank)} places)</span>
                                 </g:if>
                                 <g:if test="${rankedTeam.evolution == splatoon.RankedTeam.Evolution.SAME}">
                                     =
                                 </g:if>
                                 <g:if test="${rankedTeam.evolution == splatoon.RankedTeam.Evolution.NEW}">
-                                    <span class="hidden-xs">Nouveau</span>
-                                    <span class="visible-xs">New</span>
+                                    <span class="hidden-xs visible-md">Nouveau</span>
+                                    <span class="hidden-xs hidden-md">New</span>
                                 </g:if>
                             </td>
                         </tr>
