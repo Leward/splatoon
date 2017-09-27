@@ -8,9 +8,10 @@ import org.springframework.security.access.AccessDeniedException
 class LadderController {
 
     SpringSecurityService springSecurityService
+    LadderService ladderService
 
     def index() {
-        def rankingsCompilation = new RankingsCompilation(Ladder.findAll())
+        def rankingsCompilation = ladderService.getRankings()
         def tournamentOrganizers = rankingsCompilation.listTournamentOrganizers()
         def selectedOrganizer = tournamentOrganizers.find { it.id == params.long("id") }
         def rankedTeams = (selectedOrganizer) ? rankingsCompilation.perTournamentOrganizerRankings[selectedOrganizer] : rankingsCompilation.globalRankings
@@ -32,6 +33,7 @@ class LadderController {
             verifyUserCanManage(ladder)
             if (ladder.validate()) {
                 ladder.save()
+                ladderService.invalidCache()
                 redirect(mapping: 'admin_ladder_event_details', id: ladder.event.id)
             }
         }
@@ -52,6 +54,7 @@ class LadderController {
         if(request.isPost() && ladder.validate()) {
             verifyUserCanManage(ladder)
             ladder.save()
+            ladderService.invalidCache()
             redirect(mapping: 'admin_ladder_event_details', id: ladder.event.id)
         }
         render(view: 'update', model: [ladder: ladder])
@@ -67,6 +70,7 @@ class LadderController {
     def reset() {
         if(request.method == 'POST') {
             Ladder.executeUpdate('DELETE FROM Ladder');
+            ladderService.invalidCache()
             flash.message = "Ladder remis à zéro"
         }
         redirect(mapping: 'admin_ladder')

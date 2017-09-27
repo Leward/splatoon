@@ -25,4 +25,8 @@ class CachedValue<T> {
     T getValue() {
         return value
     }
+
+    void invalid() {
+        value = null
+    }
 }
