@@ -581,6 +581,9 @@ ul.row.articles {
     }
   }
   @include media($smaller-than-xs-screen) {
+    table {
+      font-size: 85%;
+    }
     tr {
       border: 0;
     }
