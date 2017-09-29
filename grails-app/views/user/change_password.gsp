@@ -24,9 +24,9 @@
     <g:form mapping="change_password" method="POST">
         <fieldset class="form">
             <f:with bean="${newPassword}">
-                <f:field property="oldPassword"/>
-                <f:field property="newPassword"/>
-                <f:field property="newPasswordRepeat"/>
+                <f:field property="oldPassword" templates="user/password" />
+                <f:field property="newPassword" templates="user/password" />
+                <f:field property="newPasswordRepeat" templates="user/password" />
             </f:with>
         </fieldset>
         <fieldset class="buttons">
