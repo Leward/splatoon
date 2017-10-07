@@ -1,4 +1,4 @@
 <input type="password"
        id="${property}"
-       name="${property}
+       name="${property}"
        ${(required) ? 'required' : ''}">
