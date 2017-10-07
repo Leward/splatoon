@@ -51,14 +51,14 @@
 </section>
 
 
-<section>
-    <h2>Headers</h2>
-    <ul>
-        <g:each var="headerName" in="${request.getHeaderNames()}">
-            <li>${headerName}: ${request.getHeader(headerName)}</li>
-        </g:each>
-    </ul>
-</section>
+%{--<section>--}%
+    %{--<h2>Headers</h2>--}%
+    %{--<ul>--}%
+        %{--<g:each var="headerName" in="${request.getHeaderNames()}">--}%
+            %{--<li>${headerName}: ${request.getHeader(headerName)}</li>--}%
+        %{--</g:each>--}%
+    %{--</ul>--}%
+%{--</section>--}%
 
 </body>
 </html>
