@@ -10,7 +10,6 @@ class HomeController {
     TwitchService twitchService
 
     def index() {
-        def test = User.findByUsername('Ayo')
         def viewModel = [
                 streams: twitchService.getTopLiveChannels(8)
         ]
