@@ -29,5 +29,15 @@ class SplatoonTagLibTest extends Specification implements TagLibUnitTest<Splatoo
         tagLib.html(code: html).toString().trim() == expected
     }
 
+    void "should keep tables"() {
+        setup:
+        def html = '<table>' +
+                '<thead><tr><th>A</th><td>B</td></tr></thead>' +
+                '<tbody><tr><td>C</td><td>D</td></tr></tbody>' +
+                '</table>'
+        expect:
+        tagLib.html(code: html).toString().trim() == html
+    }
+
 
 }

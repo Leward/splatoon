@@ -92,6 +92,7 @@ class SplatoonTagLib {
                 .and(Sanitizers.FORMATTING)
                 .and(Sanitizers.LINKS)
                 .and(Sanitizers.IMAGES)
+                .and(Sanitizers.TABLES)
                 .and(new HtmlPolicyBuilder()
                 .allowStyling()
                 .allowAttributes("class").matching(HTML_CLASS).globally()
