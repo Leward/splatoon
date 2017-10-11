@@ -42,21 +42,21 @@ function configureCkeditor($) {
             ];
             config.removePlugins = 'elementspath,contextmenu,tabletools';
         } else if(isCkeditorFull) {
-            config.toolbar = [
-                { name: 'editing', items: [ 'Undo', 'Redo' ] },
-                { name: 'links', items: [ 'Link', 'Unlink', 'Anchor' ] },
-                { name: 'insert', items: [ 'Image', 'Table', 'HorizontalRule', 'SpecialChar', 'Embed' ] },
-                { name: 'document', items: [ 'Maximize', '-', 'Source' ] },
-                '/',
-                { name: 'basicstyles', items: [ 'Bold', 'Italic', 'Underline', 'Strike', '-', 'RemoveFormat' ] },
-                { name: 'align', items: [ 'JustifyLeft', 'JustifyCenter', 'JustifyRight', 'JustifyBlock' ] },
-                { name: 'paragraph', items: [ 'NumberedList', 'BulletedList', '-', 'Outdent', 'Indent', '-', 'Blockquote' ] },
-                '/',
-                { name: 'styles', items: [ 'Styles', 'Format' ] },
-                { name: 'colors', items: [ 'TextColor', 'BGColor' ] }
-
-            ];
-            config.extraPlugins = 'uploadimage,embed,justify,colorbutton';
+            // config.toolbar = [
+            //     { name: 'editing', items: [ 'Undo', 'Redo' ] },
+            //     { name: 'links', items: [ 'Link', 'Unlink', 'Anchor' ] },
+            //     { name: 'insert', items: [ 'Image', 'Table', 'HorizontalRule', 'SpecialChar', 'Embed' ] },
+            //     { name: 'document', items: [ 'Maximize', '-', 'Source' ] },
+            //     '/',
+            //     { name: 'basicstyles', items: [ 'Bold', 'Italic', 'Underline', 'Strike', '-', 'RemoveFormat' ] },
+            //     { name: 'align', items: [ 'JustifyLeft', 'JustifyCenter', 'JustifyRight', 'JustifyBlock' ] },
+            //     { name: 'paragraph', items: [ 'NumberedList', 'BulletedList', '-', 'Outdent', 'Indent', '-', 'Blockquote' ] },
+            //     '/',
+            //     { name: 'styles', items: [ 'Styles', 'Format' ] },
+            //     { name: 'colors', items: [ 'TextColor', 'BGColor' ] }
+            //
+            // ];
+            config.extraPlugins = 'uploadimage,embed,justify,colorbutton,table,tabletools';
             config.uploadUrl = '/upload';
             //config.embed_provider = '//noembed.com/embed?url={url}&callback={callback}';
             config.embed_provider = 'https://noembed.com/embed?callback={callback}&url={url}';
