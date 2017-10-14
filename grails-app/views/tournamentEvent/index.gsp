@@ -33,6 +33,7 @@
             <th>Heure</th>
             <th>Tournoi</th>
             <th>Ladders</th>
+            <th>Equipes</th>
         </tr>
         </thead>
         <tbody>
@@ -53,6 +54,7 @@
                     </g:link>
                 </td>
                 <td>${tournamentEvent.ladderEntries.size()}</td>
+                <td>${tournamentEvent.registrations.size()}</td>
             </tr>
         </g:each>
         </tbody>
