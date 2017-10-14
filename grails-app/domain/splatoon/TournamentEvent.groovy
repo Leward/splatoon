@@ -26,7 +26,7 @@ class TournamentEvent {
     String streamUrl
 
     static belongsTo = [tournament: Tournament]
-    static hasMany = [ladderEntries: Ladder]
+    static hasMany = [ladderEntries: Ladder, registrations: TournamentRegistration]
 
     static mapping = {
         sort(date: "asc", startTime: "asc")
@@ -61,7 +61,7 @@ class TournamentEvent {
 
     @Override
     String toString() {
-        return formattedDate
+        return tournament.name + ': ' + formattedDate
     }
 
     String getFormattedDate() {

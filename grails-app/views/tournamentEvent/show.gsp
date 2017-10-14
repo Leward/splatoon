@@ -9,11 +9,9 @@
 
 <body>
 
-%{--<nav>--}%
-    %{--<ul>--}%
-        %{--<li><g:link class="list" action="index"><g:message code="default.list.label" args="[entityName]"/></g:link></li>--}%
-    %{--</ul>--}%
-%{--</nav>--}%
+<g:if test="${flash.message}">
+    <div class="alert alert-info" role="status">${flash.message}</div>
+</g:if>
 
 <g:panel
         title="${tournamentEvent.date.format(DateTimeFormatter.ofPattern("dd MMMM yyyy", Locale.FRANCE))} : ${tournamentEvent.tournament}"
@@ -21,6 +19,7 @@
     <p>
         De ${tournamentEvent.startTime} à ${tournamentEvent.endTime}
     </p>
+
     <p>
         Organisateur:
         <g:link controller="tournamentOrganizer" action="show" id="${tournamentEvent.tournament.organizer.id}">
@@ -29,10 +28,39 @@
     </p>
 </g:panel>
 
+<g:panel title="Participants">
+    <table class="table">
+        <thead>
+        <tr>
+            <th>Equipe</th>
+            <th>Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        <g:each in="${tournamentEvent.registrations}" var="registration">
+            <tr>
+                <td>${registration.team.name}</td>
+                <td>
+                    <g:form controller="tournamentRegistration" action="delete" method="DELETE" id="${registration.id}">
+                        <button type="submit" class="btn btn-danger" onclick="return confirm('Êtes-vous sûr de vouloir retirer cette equipe du tournoi ?');">
+                            Retirer
+                        </button>
+                    </g:form>
+                </td>
+            </tr>
+        </g:each>
+        </tbody>
+    </table>
+
+    <p>
+        <g:link mapping="admin_tournamentParticipation_add" params="${['event.id': tournamentEvent.id]}"
+                class="btn btn-primary">
+            Ajouter une equipe au tournoi
+        </g:link>
+    </p>
+</g:panel>
+
 <g:panel title="Gérer">
-    <g:if test="${flash.message}">
-        <div class="message" role="status">${flash.message}</div>
-    </g:if>
     <g:form resource="${this.tournamentEvent}" method="DELETE">
         <fieldset class="buttons">
             <g:link class="edit" action="edit" resource="${this.tournamentEvent}"><g:message

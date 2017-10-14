@@ -49,6 +49,7 @@ class UrlMappings {
         name "admin_tournament_show": "/admin/tournois/$id" (controller: "tournament", action: "show")
         name "admin_tournament_show": "/admin/tournois/$id/modifier" (controller: "tournament", action: "edit")
         name "admin_tournamentEvent_show": "/admin/tournois/evenements/$id" (controller: "tournamentEvent", action: "show")
+        name "admin_tournamentParticipation_add": "/admin/participations/ajouter" (controller: "tournamentRegistration", action: "create")
         name "admin_news": "/admin/news" (controller: 'news', action: 'admin_index')
         name "admin_news_create": "/admin/news/creer" (controller: 'news', action: 'admin_create')
         name "admin_news_show": "/admin/news/$id" (controller: 'news', action: 'admin_show')
