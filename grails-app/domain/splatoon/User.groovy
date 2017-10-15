@@ -21,7 +21,8 @@ class User {
 	static hasMany = [
 			tournamentOrganizers: TournamentOrganizer,
 			adReplies: AdReply,
-			recruitingAds: RecruitingAd
+			recruitingAds: RecruitingAd,
+			teams: Team
 	]
 	static belongsTo = TournamentOrganizer
 

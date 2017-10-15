@@ -7,9 +7,12 @@ class Team {
     String name
     Instant createdAt
 
+    static belongsTo = [leader: User]
+
     static constraints = {
         name blank: false, unique: true
         createdAt nullable: true
+        leader nullable: true // A can exist in the system but its leader is not registered in InkZone
     }
 
     static mapping = {

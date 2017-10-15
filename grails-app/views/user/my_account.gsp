@@ -13,10 +13,24 @@
         <div class="message" role="status">${flash.message}</div>
     </g:if>
 
+    <p>Bienvenue, ${me.username} !</p>
+
     <ul>
         <li><g:link mapping="change_password">Changer de mot de passe</g:link></li>
     </ul>
 </g:panel>
+
+<g:if test="${me.teams}">
+    <g:panel>
+        <h2>Mes equipes</h2>
+        <ul>
+            <g:each in="${me.teams}" var="team">
+                <li>${team}</li>
+            </g:each>
+        </ul>
+    </g:panel>
+</g:if>
+
 
 </body>
 </html>
