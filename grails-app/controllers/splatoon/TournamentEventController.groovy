@@ -35,7 +35,8 @@ class TournamentEventController {
 
     // For general public
     def details(TournamentEvent tournamentEvent) {
-        respond tournamentEvent
+        def tournamentRegistration = tournamentEvent.registrations.find { it.team.leader == springSecurityService.currentUser }
+        render(view: 'details', model: [tournamentEvent: tournamentEvent, registration: tournamentRegistration])
     }
 
     @Secured(['ROLE_ADMIN', 'ROLE_TO'])

@@ -80,9 +80,11 @@ class BootStrap {
                     rules: "<p>Some rules</p>",
                     events: [
                             new TournamentEvent(
-                                    date: LocalDate.of(2017, Month.JULY, 10),
+                                    date: LocalDate.now().plusDays(5),
                                     startTime: LocalTime.of(21, 00),
                                     endTime: LocalTime.of(23, 59),
+                                    managedRegistrations: true,
+                                    registrationsOpen: true,
                                     challongeUrl: "http://sogfr.challonge.com/fr/SplatofGods2"
                             )
                     ]
@@ -219,8 +221,8 @@ class BootStrap {
             ).save(failOnError: true)
 
             def teamRisingMoon = new Team(name: 'Rising Moon').save(failOnError: true)
-            def teamSeiches = new Team(name: 'Les seiches').save(faileOnError: true)
-            def teamPapierPeint = new Team(name: 'Papier Peint').save(faileOnError: true)
+            def teamSeiches = new Team(name: 'Les seiches', leader: ayo).save(faileOnError: true)
+            def teamPapierPeint = new Team(name: 'Papier Peint', leader: oli).save(faileOnError: true)
 
             new Ladder(
                     event: TournamentEvent.findByTournament(tournament, [offset: 0]),

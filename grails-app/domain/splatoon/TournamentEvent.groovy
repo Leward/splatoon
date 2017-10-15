@@ -3,13 +3,16 @@ package splatoon
 import org.apache.commons.validator.routines.UrlValidator
 import org.springframework.validation.Errors
 
+import java.time.Instant
 import java.time.LocalDate
 import java.time.LocalTime
 import java.time.ZoneId
+import java.time.ZoneOffset
 import java.time.format.DateTimeFormatter
 
 class TournamentEvent {
 
+    public static final PARIS_ZONE_ID = ZoneId.of("Europe/Paris")
     LocalDate date
 
     /**
@@ -65,9 +68,8 @@ class TournamentEvent {
     }
 
     boolean isLive() {
-        def parisTimeZone = ZoneId.of("Europe/Paris");
-        def todaysDate = LocalDate.now(parisTimeZone)
-        def nowTime = LocalTime.now(parisTimeZone)
+        def todaysDate = LocalDate.now(PARIS_ZONE_ID)
+        def nowTime = LocalTime.now(PARIS_ZONE_ID)
         return todaysDate == date &&
                 startTime.isBefore(nowTime) &&
                 endTime.isAfter(nowTime)
@@ -105,6 +107,23 @@ class TournamentEvent {
 
     boolean isTwitchStream() {
         return streamUrl != null && streamUrl.startsWith("https://www.twitch.tv/")
+    }
+
+    Instant getStartInstant() {
+        def zoneOffset = PARIS_ZONE_ID.getRules().getOffset(Instant.now())
+        return date.atTime(startTime).toInstant(zoneOffset)
+    }
+
+    boolean hasStarted() {
+        return Instant.now().isAfter(startInstant)
+    }
+
+    /**
+     * Can the general public (the players) register to this tournament?
+     * @return whether the tournament is open to public registration at the moment of the moment call (now
+     */
+    boolean isPublicRegistrationOpen() {
+        return registrationsOpen && managedRegistrations && !hasStarted()
     }
 
 }

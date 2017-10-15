@@ -32,4 +32,8 @@ class Team {
     String toString() {
         return name
     }
+
+    boolean canBeManagedBy(User user) {
+        return user.hasRole('ROLE_ADMIN') || user.hasRole('ROLE_TO') || user == leader
+    }
 }

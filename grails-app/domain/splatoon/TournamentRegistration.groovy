@@ -24,6 +24,19 @@ class TournamentRegistration {
         }
     }
 
+    boolean validatePublicRegistration(User currentUser) {
+        validate()
+        if(!team.canBeManagedBy(currentUser)) {
+            log.info("Rejecting team ${team} for user ${currentUser} as he cannot manage the team")
+            errors.rejectValue('team', 'team_registration.errors.not_team_leader', "Vous n'etes pas le leader de l'equipe.")
+        }
+        if(!event.isPublicRegistrationOpen()) {
+            log.info("Rejecting event ${event} as public registration for that event is not open")
+            errors.rejectValue('team', 'team_registration.errors.registration_closed', "Les inscriptions ne sont pas ouvertes pour cet evenement.")
+        }
+        return !hasErrors()
+    }
+
     def beforeInsert() {
         registeredAt = Instant.now()
     }
