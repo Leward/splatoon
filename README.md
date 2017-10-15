@@ -98,3 +98,14 @@ be used by grails to make redirects.
 
 Reference: 
 *[Stackoverflow - Redirect location includes “:80” when X-Forwarded-Proto is https](https://stackoverflow.com/questions/34442944/redirect-location-includes-80-when-x-forwarded-proto-is-https)*
+
+### Export Database Schema
+
+Run the following command: 
+
+```
+./grailsw dev schema-export export
+```
+
+Schema will be generate in the `build/ddl.sql` file. Be aware that running against the dev profile will generate the 
+schema using HSQLDB dialect. 
