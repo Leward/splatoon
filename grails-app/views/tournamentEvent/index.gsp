@@ -34,6 +34,8 @@
             <th>Tournoi</th>
             <th>Ladders</th>
             <th>Equipes</th>
+            <th>Inscriptions sur Inkzone</th>
+            <th>Inscriptions ouvertes</th>
         </tr>
         </thead>
         <tbody>
@@ -55,6 +57,16 @@
                 </td>
                 <td>${tournamentEvent.ladderEntries.size()}</td>
                 <td>${tournamentEvent.registrations.size()}</td>
+                <td>
+                    <g:if test="${tournamentEvent.managedRegistrations}">
+                        <i class="fa fa-check" aria-hidden="true"></i>
+                    </g:if>
+                </td>
+                <td>
+                    <g:if test="${tournamentEvent.registrationsOpen}">
+                        <i class="fa fa-check" aria-hidden="true"></i>
+                    </g:if>
+                </td>
             </tr>
         </g:each>
         </tbody>

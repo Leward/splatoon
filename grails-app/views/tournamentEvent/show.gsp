@@ -9,6 +9,14 @@
 
 <body>
 
+<nav>
+    <ul class="breadcrumb">
+        <li><g:link mapping="admin">Administration</g:link></li>
+        <li><g:link action="index">Evenements</g:link></li>
+        <li>${tournamentEvent.date.format(DateTimeFormatter.ofPattern("dd MMMM yyyy", Locale.FRANCE))} : ${tournamentEvent.tournament}</li>
+    </ul>
+</nav>
+
 <g:if test="${flash.message}">
     <div class="alert alert-info" role="status">${flash.message}</div>
 </g:if>
@@ -25,6 +33,11 @@
         <g:link controller="tournamentOrganizer" action="show" id="${tournamentEvent.tournament.organizer.id}">
             ${tournamentEvent.tournament.organizer}
         </g:link>
+    </p>
+
+    <p>
+        Inscriptions gerees depuis Inkzone : ${(tournamentEvent.managedRegistrations ? 'Oui' : 'Non')} <br>
+        Inscriptions ouvertes : ${(tournamentEvent.registrationsOpen ? 'Oui' : 'Non')}
     </p>
 </g:panel>
 

@@ -25,6 +25,16 @@ class TournamentEvent {
     String challongeUrl
     String streamUrl
 
+    /**
+     * Whether the registrations to this events are managed via Inkzone
+     */
+    boolean managedRegistrations
+
+    /**
+     * Are registrations open for this event?
+     */
+    boolean registrationsOpen
+
     static belongsTo = [tournament: Tournament]
     static hasMany = [ladderEntries: Ladder, registrations: TournamentRegistration]
 
@@ -33,8 +43,12 @@ class TournamentEvent {
     }
 
     static constraints = {
+        tournament()
         date(nullable: false)
+        startTime()
         endTime(nullable: false)
+        managedRegistrations()
+        registrationsOpen()
         // Removed constraint url: true because of some error with FieldsPlugin since Grails 3.3
         challongeUrl(nullable: true, validator: { it == null || new UrlValidator().isValid(it) })
         streamUrl(nullable: true, validator: { it == null || new UrlValidator().isValid(it) })
