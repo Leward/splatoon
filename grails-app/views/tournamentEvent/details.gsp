@@ -34,32 +34,6 @@
                 <dd>${tournamentEvent.endTime}</dd>
             </dl>
 
-
-            <div class="rules">
-                <div class="title">Modalités d'inscription</div>
-
-
-                <div class="content read-more">
-                    <g:if test="${tournamentEvent.tournament.registrationDetails}">
-                        <g:enforceResponsiveContent>
-                            <g:html code="${tournamentEvent.tournament.registrationDetails}"/>
-                        </g:enforceResponsiveContent>
-                    </g:if>
-                    <g:else>
-                        <p>Contacter l'organisateur pour s'inscrire au tournoi.</p>
-                    </g:else>
-                </div>
-            </div>
-
-            <div class="rules">
-                <div class="title">Règles</div>
-
-                <div class="content read-more">
-                    <g:enforceResponsiveContent>
-                        <g:html code="${tournamentEvent.tournament.rules}"/>
-                    </g:enforceResponsiveContent>
-                </div>
-            </div>
         </main>
     </div>
 
