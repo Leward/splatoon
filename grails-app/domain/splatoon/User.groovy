@@ -5,7 +5,6 @@ import groovy.transform.EqualsAndHashCode
 import groovy.transform.ToString
 
 @EqualsAndHashCode(includes='username')
-@ToString(includes='username', includeNames=true, includePackage=false)
 class User {
 
 	transient SpringSecurityService springSecurityService
@@ -13,6 +12,7 @@ class User {
 	String username
 	String password
 	String email
+	String nintendoId
 	boolean enabled = true
 	boolean accountExpired
 	boolean accountLocked
@@ -62,6 +62,7 @@ class User {
 		password blank: false, password: true
 		username blank: false, unique: true
 		email blank: false, email: true, unique: true
+		nintendoId nullable: true, size: 0..100
 	}
 
 	static mapping = {

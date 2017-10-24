@@ -46,6 +46,22 @@ class UserController {
         render(view: 'change_password', model: [newPassword: newPassword])
     }
 
+    @Secured('IS_AUTHENTICATED_FULLY')
+    @Transactional
+    def updateInformation(ProfileInformation information) {
+        def user = User.get((springSecurityService.currentUser as User).id)
+        if(request.isPost() && information.validate()) {
+            user.nintendoId = information.nintendoId
+            user.save(flush: true)
+            flash.message = "Informations mises a jour avec succes"
+            redirect(mapping: 'my_account')
+        }
+        if(request.isGet()) {
+            information = new ProfileInformation(user)
+        }
+        render(view: 'update_information', model: [information: information ?: new ProfileInformation()])
+    }
+
     private boolean isCurrentPasswordCorrect(NewPassword newPassword) {
         def user = springSecurityService.currentUser as User
         return passwordEncoder.isPasswordValid(user.password, newPassword.oldPassword, null)

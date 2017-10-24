@@ -15,6 +15,7 @@ class UrlMappings {
         name "registration_success": "/inscription/confirmation"(view: "/user/register_success")
         name "my_account": "/mon-espace"(controller: 'user', action: 'myAccount')
         name "change_password": "/modifier-mot-de-passe"(controller: 'user', action: 'changePassword')
+        name "update_information": "/modifier-mon-profil"(controller: 'user', action: 'updateInformation')
         name "tournament_event": "/evenement/$id"(controller: "tournamentEvent", action: "details")
         name "tournament_event_registration": "/evenement/$id/inscription"(controller: "tournamentRegistration", action: "register")
         name "recruitment": "/recrutement"(controller: "recruitment", action: "index")

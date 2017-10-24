@@ -94,7 +94,8 @@ class BootStrap {
             def ayo = new User(
                     username: "Ayo",
                     password: 'changeit',
-                    email: 'ayo@splatoon.fr'
+                    email: 'ayo@splatoon.fr',
+                    nintendoId: 'Ayoyo'
             ).save()
 
             def oli = new User(

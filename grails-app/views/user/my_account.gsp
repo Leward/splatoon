@@ -17,7 +17,17 @@
 
     <ul>
         <li><g:link mapping="change_password">Changer de mot de passe</g:link></li>
+        <li><g:link mapping="update_information">Modifier mes informations</g:link></li>
     </ul>
+</g:panel>
+
+<g:panel title="Mes informations">
+    <dl>
+        <dt>Pseudo :</dt>
+        <dd>${me.username}</dd>
+        <dt>Identifiant Nintendo :</dt>
+        <dd>${me.nintendoId ?: 'Inconnu'}</dd>
+    </dl>
 </g:panel>
 
 <g:if test="${me.teams}">
