@@ -38,7 +38,7 @@
                     <td>${user.id}</td>
                     <td>${user.username}</td>
                     <td>${user.email}</td>
-                    <td>${user.roles.collect { it.authority }.join(',')}</td>
+                    <td><g:html code="${user.roles.collect { it.authority }.join('<br>')}" /> </td>
                     <td>
                         <g:form method="POST" action="delete" id="${user.id}">
                             <g:link class="btn btn-default" mapping="admin_user_uroles"
