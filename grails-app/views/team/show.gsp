@@ -20,11 +20,11 @@
         <table>
             <thead>
             <tr>
-                <th>Classement</th>
-                <th>Rang</th>
-                <th>Tournois</th>
-                <th>Wins</th>
-                <th>Évolution</th>
+                <th><span>Classement</span></th>
+                <th><span>Rang</span></th>
+                <th><span>Tournois</span></th>
+                <th><span>Wins</span></th>
+                <th><span>Évolution</span></th>
             </tr>
             </thead>
             <tbody>
@@ -56,11 +56,11 @@
         <table>
             <thead>
             <tr>
-                <th>Date</th>
-                <th>Tournoi</th>
-                <th>Wins</th>
-                <th>Loses</th>
-                <th>Points</th>
+                <th><span>Date</span></th>
+                <th><span>Tournoi</span></th>
+                <th><span>Wins</span></th>
+                <th><span>Loses</span></th>
+                <th><span>Points</span></th>
             </tr>
             </thead>
             <tbody>

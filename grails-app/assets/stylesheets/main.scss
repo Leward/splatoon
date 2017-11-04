@@ -565,7 +565,7 @@ ul.row.articles {
   }
 }
 
-.ladder-page {
+.ladder-page, .team-page {
   @include media($smaller-than-sm-screen) {
     table {
       margin-left: -10px;
