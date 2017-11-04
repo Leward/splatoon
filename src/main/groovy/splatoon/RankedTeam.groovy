@@ -1,11 +1,17 @@
 package splatoon
 
+import groovy.transform.CompileStatic
 import groovy.transform.EqualsAndHashCode
 import groovy.transform.ToString
 
+import java.text.DecimalFormat
+
+@CompileStatic
 @EqualsAndHashCode(includes = "team")
 @ToString
 class RankedTeam implements Comparable<RankedTeam> {
+
+    public static final DecimalFormat DECIMAL_FORMAT = new DecimalFormat('#.##')
 
     Team team
     Integer rank = null
@@ -46,6 +52,17 @@ class RankedTeam implements Comparable<RankedTeam> {
 
     int getNbTournaments() {
         return participations.size()
+    }
+
+    BigDecimal getRatio() {
+        if(wins == 0 && loses == 0) {
+            return 0
+        }
+        return wins / (wins + loses)
+    }
+
+    String getRatioAsString() {
+        DECIMAL_FORMAT.format(ratio)
     }
 
 }

@@ -24,6 +24,8 @@
                 <th><span>Rang</span></th>
                 <th><span>Tournois</span></th>
                 <th><span>Wins</span></th>
+                <th><span>Loses</span></th>
+                <th><span>Ratio</span></th>
                 <th><span>Évolution</span></th>
             </tr>
             </thead>
@@ -33,6 +35,8 @@
                 <td>${rankings.globalRankings.getRankedTeam(team).rank}</td>
                 <td>${rankings.globalRankings.getRankedTeam(team).nbTournaments}</td>
                 <td>${rankings.globalRankings.getRankedTeam(team).wins}</td>
+                <td>${rankings.globalRankings.getRankedTeam(team).loses}</td>
+                <td>${rankings.globalRankings.getRankedTeam(team).ratioAsString}</td>
                 <td><g:evolution rankedTeam="${rankings.globalRankings.getRankedTeam(team)}"/></td>
             </tr>
             <g:each in="${rankings.listTournamentOrganizers()}" var="to">
@@ -44,6 +48,8 @@
                         <td>${rankedTeam.rank}</td>
                         <td>${rankedTeam.nbTournaments}</td>
                         <td>${rankedTeam.wins}</td>
+                        <td>${rankedTeam.loses}</td>
+                        <td>${rankedTeam.ratioAsString}</td>
                         <td><g:evolution rankedTeam="${rankedTeam}"/></td>
                     </tr>
                 </g:if>
