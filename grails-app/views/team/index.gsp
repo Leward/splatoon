@@ -28,6 +28,7 @@
             <thead>
             <tr>
                 <g:sortableColumn property="name" title="Nom" />
+                <g:sortableColumn property="type" title="Type" />
                 <g:sortableColumn property="createdAt" title="Cree le" />
             </tr>
             </thead>
@@ -39,6 +40,7 @@
                             ${team.name}
                         </g:link>
                     </td>
+                    <td>${team.type}</td>
                     <td>
                         <g:formatDate date="${team.createdAtAsDate}" format="dd/MM/yyyy" />
                     </td>

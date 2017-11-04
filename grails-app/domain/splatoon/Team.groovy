@@ -5,6 +5,7 @@ import java.time.Instant
 class Team {
 
     String name
+    TeamType type = TeamType.TEAM
     Instant createdAt
 
     static belongsTo = [leader: User]
@@ -17,6 +18,7 @@ class Team {
 
     static mapping = {
         sort 'name'
+        type nullable: false
         createdAt updateable: false
     }
 
