@@ -66,6 +66,8 @@ dataSource {
     pooled = true
 }
 
+management.security.roles = 'ADMIN'
+
 environments {
     production {
         // Environment variables injected by Heroku:
