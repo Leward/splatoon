@@ -27,8 +27,8 @@
                     <th><span>Rang</span></th>
                     <th><span>Équipe</span></th>
                     <th><span>Tournois</span></th>
-                    <th><span>Wins</span></th>
-                    <th><span>Loses</span></th>
+                    <th><span>Matchs</span></th>
+                    <th><span>Ratio</span></th>
                     <th><span>Points</span></th>
                     <th class="evolution">
                         <abbr title="Evolution du rang sur les 7 derniers jours">
@@ -47,8 +47,8 @@
                                 </g:link>
                             </td>
                             <td>${rankedTeam.nbTournaments}</td>
-                            <td>${rankedTeam.wins}</td>
-                            <td>${rankedTeam.loses}</td>
+                            <td>${rankedTeam.nbGames}</td>
+                            <td>${rankedTeam.ratioAsString}</td>
                             <td>${rankedTeam.points}</td>
                             <td class="evolution">
                                 <g:evolution rankedTeam="${rankedTeam}" />

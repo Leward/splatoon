@@ -61,6 +61,10 @@ class RankedTeam implements Comparable<RankedTeam> {
         return wins / (wins + loses)
     }
 
+    int getNbGames() {
+        return wins + loses
+    }
+
     String getRatioAsString() {
         DECIMAL_FORMAT.format(ratio)
     }
