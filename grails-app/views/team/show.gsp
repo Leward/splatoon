@@ -11,7 +11,7 @@
 
     <g:panel title="${team.name}">
         <p>
-            <b>Type d'equipe :</b> <g:message code="${team.type.i18nMessage}" />
+            <b>Type d'equipe :</b> <g:message code="${team.type.i18nMessage}"/>
         </p>
     </g:panel>
 
@@ -36,13 +36,16 @@
             </tr>
             <g:each in="${rankings.listTournamentOrganizers()}" var="to">
                 <g:set var="toRankings" value="${rankings.perTournamentOrganizerRankings.get(to)}"/>
-                <tr>
-                    <td>${to.name}</td>
-                    <td>${toRankings.getRankedTeam(team).rank}</td>
-                    <td>${toRankings.getRankedTeam(team).nbTournaments}</td>
-                    <td>${toRankings.getRankedTeam(team).wins}</td>
-                    <td><g:evolution rankedTeam="${toRankings.getRankedTeam(team)}"/></td>
-                </tr>
+                <g:set var="rankedTeam" value="${toRankings.getRankedTeam(team)}"/>
+                <g:if test="${rankedTeam.rank != null && rankedTeam.rank > 0}">
+                    <tr>
+                        <td>${to.name}</td>
+                        <td>${rankedTeam.rank}</td>
+                        <td>${rankedTeam.nbTournaments}</td>
+                        <td>${rankedTeam.wins}</td>
+                        <td><g:evolution rankedTeam="${rankedTeam}"/></td>
+                    </tr>
+                </g:if>
             </g:each>
             </tbody>
         </table>
