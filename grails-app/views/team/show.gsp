@@ -1,3 +1,4 @@
+<%@ page import="splatoon.DateConversions" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -46,6 +47,40 @@
                         <td><g:evolution rankedTeam="${rankedTeam}"/></td>
                     </tr>
                 </g:if>
+            </g:each>
+            </tbody>
+        </table>
+    </g:panel>
+
+    <g:panel title="Resultats">
+        <table>
+            <thead>
+            <tr>
+                <th>Date</th>
+                <th>Tournoi</th>
+                <th>Wins</th>
+                <th>Loses</th>
+                <th>Points</th>
+            </tr>
+            </thead>
+            <tbody>
+            <g:each in="${results}" var="ladder">
+                <tr>
+                    <td>
+                        <g:link mapping="tournament_event" id="${ladder.event.id}">
+                            <g:formatDate format="dd MMM yyyy" date="${DateConversions.asDate(ladder.event.date)}"
+                                          locale="fr"/>
+                        </g:link>
+                    </td>
+                    <td>
+                        <g:link mapping="tournament_event" id="${ladder.event.id}">
+                            ${ladder.event.tournament.name}
+                        </g:link>
+                    </td>
+                    <td>${ladder.wins}</td>
+                    <td>${ladder.loses}</td>
+                    <td>${ladder.points}</td>
+                </tr>
             </g:each>
             </tbody>
         </table>

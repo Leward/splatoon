@@ -18,7 +18,9 @@ class TeamController {
     }
 
     def show(Team team) {
-        [team: team, rankings: ladderService.getRankings()]
+        [ team: team,
+          rankings: ladderService.getRankings(),
+          results: Ladder.findAllByTeam(team, [sort: 'date', order: 'desc']) ]
     }
 
     @Secured(['ROLE_ADMIN', 'ROLE_TO'])
