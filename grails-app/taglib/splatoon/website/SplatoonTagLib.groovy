@@ -5,6 +5,7 @@ import org.jsoup.nodes.Document
 import org.owasp.html.HtmlPolicyBuilder
 import org.owasp.html.PolicyFactory
 import org.owasp.html.Sanitizers
+import splatoon.RankedTeam
 import splatoon.TournamentEvent
 
 import java.util.regex.Pattern
@@ -133,5 +134,35 @@ class SplatoonTagLib {
         Document document = Jsoup.parseBodyFragment(originalHtml);
         document.select("img").addClass("img-responsive")
         out << document.body().html()
+    }
+
+    /**
+     * @attr rankedTeam
+     */
+    def evolution = { attrs, body ->
+        RankedTeam rankedTeam = attrs.rankedTeam
+        switch (rankedTeam.evolution) {
+            case RankedTeam.Evolution.BETTER:
+                out << """
+                    <g:img src="up-small.png" class="evolution" title="Rang il y a 7 jours: ${rankedTeam.previousRank}" />
+                    <span class="hidden-xs">(+ ${Math.abs(rankedTeam.previousRank - rankedTeam.rank)} places)</span>
+                """.toString()
+                break
+            case RankedTeam.Evolution.SAME:
+                out << "="
+                break
+            case RankedTeam.Evolution.WORSE:
+                out << """
+                    <g:img src="down-small.png" class="evolution" title="Rang il y a 7 jours: ${rankedTeam.previousRank}"/>
+                    <span class="hidden-xs">(- ${Math.abs(rankedTeam.previousRank - rankedTeam.rank)} places)</span>
+                """.toString()
+                break
+            case RankedTeam.Evolution.NEW:
+                out << """
+                    <span class="hidden-xs visible-md">Nouveau</span>
+                    <span class="hidden-xs hidden-md">New</span>
+                """.toString()
+                break
+        }
     }
 }

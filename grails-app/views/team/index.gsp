@@ -36,7 +36,7 @@
             <g:each in="${teams}" var="team">
                 <tr>
                     <td>
-                        <g:link action="show" id="${team.id}">
+                        <g:link action="showAdmin" id="${team.id}">
                             ${team.name}
                         </g:link>
                     </td>

@@ -2,34 +2,53 @@
 <html>
 <head>
     <meta name="layout" content="main"/>
-    <title>Gérer une équipe</title>
+    <title>Equipe ${team.name}</title>
 </head>
 
 <body>
 
-<nav>
-    <ul class="breadcrumb">
-        <li><g:link mapping="admin">Administration</g:link></li>
-        <li><g:link action="index">Gestion des équipes</g:link></li>
-        <li>${team.name}</li>
-    </ul>
-</nav>
+<div class="team-page">
 
-<g:panel title="Équipe ${team.name}">
-    <g:if test="${flash.message}">
-        <div class="message" role="status">${flash.message}</div>
-    </g:if>
-    <f:display bean="team"/>
-    <g:form resource="${this.team}" method="DELETE">
-        <fieldset class="buttons">
-            <g:link class="btn btn-primary" action="edit" resource="${this.team}"><g:message code="default.button.edit.label"
-                                                                                  default="Edit"/></g:link>
-            <input class="btn btn-danger" type="submit"
-                   value="${message(code: 'default.button.delete.label', default: 'Delete')}"
-                   onclick="return confirm('${message(code: 'default.button.delete.confirm.message', default: 'Are you sure?')}');"/>
-        </fieldset>
-    </g:form>
-</g:panel>
+    <g:panel title="${team.name}">
+        <p>
+            <b>Type d'equipe :</b> <g:message code="${team.type.i18nMessage}" />
+        </p>
+    </g:panel>
+
+    <g:panel title="Classements">
+        <table>
+            <thead>
+            <tr>
+                <th>Classement</th>
+                <th>Rang</th>
+                <th>Tournois</th>
+                <th>Wins</th>
+                <th>Évolution</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>Général</td>
+                <td>${rankings.globalRankings.getRankedTeam(team).rank}</td>
+                <td>${rankings.globalRankings.getRankedTeam(team).nbTournaments}</td>
+                <td>${rankings.globalRankings.getRankedTeam(team).wins}</td>
+                <td><g:evolution rankedTeam="${rankings.globalRankings.getRankedTeam(team)}"/></td>
+            </tr>
+            <g:each in="${rankings.listTournamentOrganizers()}" var="to">
+                <g:set var="toRankings" value="${rankings.perTournamentOrganizerRankings.get(to)}"/>
+                <tr>
+                    <td>${to.name}</td>
+                    <td>${toRankings.getRankedTeam(team).rank}</td>
+                    <td>${toRankings.getRankedTeam(team).nbTournaments}</td>
+                    <td>${toRankings.getRankedTeam(team).wins}</td>
+                    <td><g:evolution rankedTeam="${toRankings.getRankedTeam(team)}"/></td>
+                </tr>
+            </g:each>
+            </tbody>
+        </table>
+    </g:panel>
+
+</div>
 
 </body>
 </html>

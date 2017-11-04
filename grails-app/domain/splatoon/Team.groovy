@@ -38,4 +38,19 @@ class Team {
     boolean canBeManagedBy(User user) {
         return user.hasRole('ROLE_ADMIN') || user.hasRole('ROLE_TO') || user == leader
     }
+
+    boolean equals(o) {
+        if (this.is(o)) return true
+        if (getClass() != o.class) return false
+
+        Team team = (Team) o
+
+        if (id == null || id != team.id) return false
+
+        return true
+    }
+
+    int hashCode() {
+        return (id != null ? id.hashCode() : super.hashCode())
+    }
 }

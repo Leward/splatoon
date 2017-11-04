@@ -46,7 +46,7 @@ class RankedTeams {
         }
     }
 
-    private RankedTeam getRankedTeam(Team team) {
+    RankedTeam getRankedTeam(Team team) {
         RankedTeam rankedTeam = list.find { it.team == team }
         if(rankedTeam == null) {
             rankedTeam = new RankedTeam(team: team)

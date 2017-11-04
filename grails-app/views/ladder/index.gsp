@@ -41,27 +41,17 @@
                     <g:each in="${rankedTeams.list}" var="rankedTeam">
                         <tr>
                             <th>${rankedTeam.rank}</th>
-                            <td>${rankedTeam.team.name}</td>
+                            <td>
+                                <g:link mapping="team_show" id="${rankedTeam.team.id}">
+                                    ${rankedTeam.team.name}
+                                </g:link>
+                            </td>
                             <td>${rankedTeam.nbTournaments}</td>
                             <td>${rankedTeam.wins}</td>
                             <td>${rankedTeam.loses}</td>
                             <td>${rankedTeam.points}</td>
                             <td class="evolution">
-                                <g:if test="${rankedTeam.evolution == splatoon.RankedTeam.Evolution.BETTER}">
-                                    <g:img src="up-small.png" class="evolution" title="Rang il y a 7 jours: ${rankedTeam.previousRank}" />
-                                    <span class="hidden-xs">(+ ${Math.abs(rankedTeam.previousRank - rankedTeam.rank)} places)</span>
-                                </g:if>
-                                <g:if test="${rankedTeam.evolution == splatoon.RankedTeam.Evolution.WORSE}">
-                                    <g:img src="down-small.png" class="evolution" title="Rang il y a 7 jours: ${rankedTeam.previousRank}"/>
-                                    <span class="hidden-xs">(- ${Math.abs(rankedTeam.previousRank - rankedTeam.rank)} places)</span>
-                                </g:if>
-                                <g:if test="${rankedTeam.evolution == splatoon.RankedTeam.Evolution.SAME}">
-                                    =
-                                </g:if>
-                                <g:if test="${rankedTeam.evolution == splatoon.RankedTeam.Evolution.NEW}">
-                                    <span class="hidden-xs visible-md">Nouveau</span>
-                                    <span class="hidden-xs hidden-md">New</span>
-                                </g:if>
+                                <g:evolution rankedTeam="${rankedTeam}" />
                             </td>
                         </tr>
                     </g:each>
