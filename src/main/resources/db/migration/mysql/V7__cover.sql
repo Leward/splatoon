@@ -1,6 +1,0 @@
-CREATE TABLE cover(
-  id BIGINT AUTO_INCREMENT PRIMARY KEY,
-  version bigint NOT NULL,
-  name VARCHAR(255) NOT NULL,
-  url VARCHAR(255) NOT NULL
-);

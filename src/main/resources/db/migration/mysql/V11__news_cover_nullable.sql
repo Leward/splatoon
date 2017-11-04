@@ -1,2 +1,0 @@
-ALTER TABLE news
-    MODIFY cover VARCHAR(255);

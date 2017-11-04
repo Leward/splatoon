@@ -1,1 +1,0 @@
--- Nothing for MySQL, the user_role table is present in V1
