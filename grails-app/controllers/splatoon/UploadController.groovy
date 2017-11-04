@@ -1,12 +1,11 @@
 package splatoon
 
 import grails.converters.JSON
-import grails.plugin.awssdk.s3.AmazonS3Service
 import org.springframework.web.multipart.MultipartFile
 
 class UploadController {
 
-    AmazonS3Service amazonS3Service
+    UploadService uploadService
 
     static final TWO_MEGABYTES = 2 * 1024 * 1024
 
@@ -22,7 +21,7 @@ class UploadController {
         }
 
         def s3FileName = UUID.randomUUID().toString() + '-' + file.getOriginalFilename()
-        def url = amazonS3Service.storeMultipartFile('splatoon', s3FileName, file)
+        def url = uploadService.upload(s3FileName, file)
         def responseData = [uploaded: 1, fileName: s3FileName, url: url]
         render responseData as JSON
     }
