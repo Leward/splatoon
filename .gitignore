@@ -20,3 +20,4 @@ node_modules
 /src/main/resources/public/ckeditor/
 /grails-app/assets/libs/
 /grails-app/assets/webshim-1.16.0/
+/src/main/resources/public/flag-icon-css/

@@ -221,9 +221,9 @@ class BootStrap {
                     cover: cover
             ).save(failOnError: true)
 
-            def teamRisingMoon = new Team(name: 'Rising Moon').save(failOnError: true)
-            def teamSeiches = new Team(name: 'Les seiches', leader: ayo).save(faileOnError: true)
-            def teamPapierPeint = new Team(name: 'Papier Peint', leader: oli).save(faileOnError: true)
+            def teamRisingMoon = new Team(name: 'Rising Moon', countryCode: 'fr').save(failOnError: true)
+            def teamSeiches = new Team(name: 'Les seiches', leader: ayo, countryCode: 'fr').save(faileOnError: true)
+            def teamPapierPeint = new Team(name: 'Papier Peint', leader: oli, countryCode: 'eu').save(faileOnError: true)
 
             new Ladder(
                     event: TournamentEvent.findByTournament(tournament, [offset: 0]),

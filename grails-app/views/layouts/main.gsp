@@ -11,6 +11,8 @@
 
     <asset:stylesheet src="application.css"/>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    %{-- /static directory comes from Spring Boot handling of src/main/resources/public --}%
+    <link rel="stylesheet" href="/static/flag-icon-css/css/flag-icon.min.css">
     <asset:link rel="icon" href="favicon.png" type="image/png"/>
 
     <g:layoutHead/>

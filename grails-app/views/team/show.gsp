@@ -27,6 +27,12 @@
     <p>
         <b>Type d'equipe :</b> <g:message code="${team.type.i18nMessage}"/>
     </p>
+
+    <p>
+        <b>Nationalite: </b>
+        <span class="flag-icon flag-icon-${team.countryCode}"></span>
+        <g:message code="team.nationality.${team.countryCode}" />
+    </p>
 </g:panel>
 
 <g:panel title="Classements">

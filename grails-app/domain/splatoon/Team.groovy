@@ -8,12 +8,20 @@ class Team {
     TeamType type = TeamType.TEAM
     Instant createdAt
 
+    /**
+     * The country code of the team.
+     * This is the  <a href="https://www.iso.org/obp/ui/#search/code/">ISO 3166-1-alpha-2 code</a>
+     * of a country
+     */
+    String countryCode
+
     static belongsTo = [leader: User]
 
     static constraints = {
         name blank: false, unique: true
         createdAt nullable: true
         leader nullable: true // A can exist in the system but its leader is not registered in InkZone
+        countryCode inList: ['fr', 'eu', 'be']
     }
 
     static mapping = {

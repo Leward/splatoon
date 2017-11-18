@@ -42,6 +42,7 @@
                         <tr>
                             <th>${rankedTeam.rank}</th>
                             <td>
+                                <span class="flag-icon flag-icon-${rankedTeam.team.countryCode}"></span>
                                 <g:link mapping="team_show" id="${rankedTeam.team.id}">
                                     ${rankedTeam.team.name}
                                 </g:link>

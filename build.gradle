@@ -133,6 +133,9 @@ task('copyNpmFiles', type: Copy, dependsOn: ':npmInstall') {
     from('node_modules/ckeditor') {
         into 'src/main/resources/public/ckeditor/'
     }
+    from('node_modules/flag-icon-css') {
+        into 'src/main/resources/public/flag-icon-css/'
+    }
     into './' // Relative dir for the other "into" specifications (it mandatory to have a root "into")
 }
 
