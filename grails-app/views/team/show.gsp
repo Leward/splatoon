@@ -11,9 +11,18 @@
 <div class="team-page">
 
     <g:panel title="${team.name}">
-        <p>
-            <b>Type d'equipe :</b> <g:message code="${team.type.i18nMessage}"/>
-        </p>
+        <div class="row">
+            <div class="col-sm-8">
+                <p>
+                    <b>Type d'equipe :</b> <g:message code="${team.type.i18nMessage}"/>
+                </p>
+            </div>
+            <div class="col-sm-4 text-right text-primary">
+                <strong>
+                    Rang #${rankings.globalRankings.getRankedTeam(team).rank}
+                </strong>
+            </div>
+        </div>
     </g:panel>
 
     <g:panel title="Classements">
