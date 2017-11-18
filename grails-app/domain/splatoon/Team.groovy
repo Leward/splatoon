@@ -21,7 +21,7 @@ class Team {
         name blank: false, unique: true
         createdAt nullable: true
         leader nullable: true // A can exist in the system but its leader is not registered in InkZone
-        countryCode inList: ['fr', 'eu', 'be']
+        countryCode inList: ['fr', 'eu', 'be', 'us']
     }
 
     static mapping = {
