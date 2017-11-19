@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta name="layout" content="main"/>
-    <title>Gérer une équipe</title>
+    <title>Gérer un joueur</title>
 </head>
 
 <body>
@@ -10,27 +10,24 @@
 <nav>
     <ul class="breadcrumb">
         <li><g:link mapping="admin">Administration</g:link></li>
-        <li><g:link action="index">Gestion des équipes</g:link></li>
-        <li>${team.name}</li>
+        <li><g:link controller="team" action="index">Gestion des équipes</g:link></li>
+        <li><g:link controller="team" action="showAdmin" id="${teamMember.team.id}">${teamMember.team.name}</g:link></li>
+        <li>Membre: ${teamMember.name}</li>
     </ul>
 </nav>
 
-<g:panel title="Équipe ${team.name}">
+<g:panel title="Joueur ${teamMember.name}">
     <g:if test="${flash.message}">
         <div class="message" role="status">${flash.message}</div>
     </g:if>
-    <f:display bean="team"/>
-    <g:form resource="${this.team}" method="DELETE">
+    <f:display bean="teamMember"/>
+    <g:form resource="${this.teamMember}" method="DELETE">
         <fieldset class="buttons">
-            <g:link class="btn btn-primary" action="edit" resource="${this.team}"><g:message code="default.button.edit.label"
-                                                                                  default="Edit"/></g:link>
+            <g:link class="btn btn-primary" action="edit" resource="${this.teamMember}"><g:message code="default.button.edit.label"
+                                                                                                   default="Edit"/></g:link>
             <input class="btn btn-danger" type="submit"
                    value="${message(code: 'default.button.delete.label', default: 'Delete')}"
                    onclick="return confirm('${message(code: 'default.button.delete.confirm.message', default: 'Are you sure?')}');"/>
-
-            <g:link class="btn btn-default" controller="teamMember" action="create" params="${['team.id': team.id]}">
-                Ajouter membre
-            </g:link>
         </fieldset>
     </g:form>
 </g:panel>

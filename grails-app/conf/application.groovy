@@ -64,6 +64,7 @@ hibernate {
 
 dataSource {
     pooled = true
+//    logSql = true
 }
 
 management.security.roles = 'ADMIN'

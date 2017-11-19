@@ -17,6 +17,8 @@ class Team {
 
     static belongsTo = [leader: User]
 
+    static hasMany = [members: TeamMember]
+
     static constraints = {
         name blank: false, unique: true
         createdAt nullable: true

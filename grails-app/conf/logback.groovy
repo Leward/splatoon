@@ -34,6 +34,7 @@ if (Environment.isDevelopmentMode() && targetDir != null) {
     logger("StackTrace", ERROR, ['FULL_STACKTRACE'], false)
     logger("splatoon", DEBUG, ['STDOUT'])
     logger("org.springframework.security", INFO, ['STDOUT'])
+//    logger('org.hibermate.SQL', DEBUG)
     root(INFO, ['STDOUT', 'FULL_STACKTRACE'])
 }
 else {
