@@ -31,16 +31,13 @@
         </ul>
     </g:hasErrors>
 
-    <g:form action="edit" id="${teamMember.id}" method="POST">
-        <g:hiddenField name="version" value="${this.team?.version}"/>
-        <fieldset class="form">
-            <f:all bean="teamMember" />
-        </fieldset>
+    <g:uploadForm action="edit" id="${teamMember.id}" method="POST">
+        <g:include view="teamMember/_form.gsp" model="${[teamMember: teamMember]}"/>
         <fieldset class="buttons">
             <input class="save" type="submit"
                    value="${message(code: 'default.button.update.label', default: 'Update')}"/>
         </fieldset>
-    </g:form>
+    </g:uploadForm>
 </g:panel>
 
 </body>

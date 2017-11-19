@@ -30,16 +30,13 @@
         </ul>
     </g:hasErrors>
 
-    <g:form action="create" id="${teamMember.id}" method="POST">
-        <g:hiddenField name="version" value="${this.team?.version}"/>
-        <fieldset class="form">
-            <f:all bean="teamMember" />
-        </fieldset>
+    <g:uploadForm action="create" id="${teamMember.id}" method="POST">
+        <g:include view="teamMember/_form.gsp" model="${[teamMember: teamMember]}"/>
         <fieldset class="buttons">
             <input class="save" type="submit"
                    value="${message(code: 'default.button.create.label', default: 'Create')}"/>
         </fieldset>
-    </g:form>
+    </g:uploadForm>
 </g:panel>
 
 </body>

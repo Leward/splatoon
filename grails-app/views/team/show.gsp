@@ -40,7 +40,12 @@
                 <g:each in="${team.members}" var="player">
                     <div class="player">
                         <div class="avatar">
-                            <asset:image src="default_player_avatar.png"/>
+                            <g:if test="${player.avatar}">
+                                <img src="${player.avatar}" alt="Avatar" />
+                            </g:if>
+                            <g:else>
+                                <asset:image src="default_player_avatar.png" alt="Default avatar"/>
+                            </g:else>
                         </div>
 
                         <div class="details">
