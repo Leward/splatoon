@@ -24,7 +24,7 @@
     <nav>
         <h1 class="logo">
             <g:link mapping="index">
-                <g:img src="logo-wihite-horizontal-small.png" alt="Ink Zone"/>
+                <g:img file="logo-wihite-horizontal-small.png" alt="Ink Zone"/>
             </g:link>
         </h1>
         <ul class="links-1">
