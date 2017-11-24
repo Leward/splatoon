@@ -30,6 +30,6 @@ class Ladder {
 
     static mapping = {
         event(cascade: 'none')
-        team(cascade: 'none')
+        team(cascade: 'none', lazy: false)
     }
 }
