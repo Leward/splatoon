@@ -31,4 +31,11 @@ class RankingsCompilation {
                 .reverse()
     }
 
+    RankedTeam getTeamRanking(Team team, TournamentOrganizer to = null) {
+        if(to) {
+            return perTournamentOrganizerRankings[to]?.getRankedTeam(team)
+        }
+        globalRankings.getRankedTeam(team)
+    }
+
 }

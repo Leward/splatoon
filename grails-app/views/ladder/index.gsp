@@ -43,7 +43,10 @@
                             <th>${rankedTeam.rank}</th>
                             <td>
                                 <span class="flag-icon flag-icon-${rankedTeam.team.countryCode}"></span>
-                                <g:link mapping="team_show" id="${rankedTeam.team.id}">
+                                <g:if test="${selectedOrganizer}">
+                                    <g:set var="linkParams" value="${[to: selectedOrganizer?.id]}" />
+                                </g:if>
+                                <g:link mapping="team_show" id="${rankedTeam.team.id}" params="${linkParams}">
                                     ${rankedTeam.team.name}
                                 </g:link>
                             </td>
