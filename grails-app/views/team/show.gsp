@@ -99,7 +99,7 @@
         </table>
     </g:panel>
 
-    <g:panel title="Performances">
+    <g:panel title="Performances par mois">
         <div class="chart-container">
             <canvas id="team-performances-canvas"></canvas>
         </div>
