@@ -21,6 +21,15 @@ class RankedTeam implements Comparable<RankedTeam> {
     Set<Tournament> participations = []
     Evolution evolution
     Integer previousRank = null
+    Performances performances = new Performances()
+
+    void add(Ladder ladder) {
+        points += ladder.points
+        wins += ladder.wins
+        loses += ladder.loses
+        participations.add(ladder.event.tournament)
+        performances.add(ladder)
+    }
 
     @Override
     int compareTo(RankedTeam rankedTeam) {

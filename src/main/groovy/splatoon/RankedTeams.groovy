@@ -14,11 +14,7 @@ class RankedTeams {
 
     RankedTeams(Collection<Ladder> ladderList, boolean computeEvolution = true) {
         ladderList.each { ladder ->
-            RankedTeam rankedTeam = getRankedTeam(ladder.team)
-            rankedTeam.points += ladder.points
-            rankedTeam.wins += ladder.wins
-            rankedTeam.loses += ladder.loses
-            rankedTeam.participations.add(ladder.event.tournament)
+            getRankedTeam(ladder.team).add(ladder)
         }
         list = list.sort()
         list.eachWithIndex { RankedTeam rankedTeam, int i ->
@@ -60,5 +56,5 @@ class RankedTeams {
         list.each { builder.add(it) }
         return builder.build()
     }
-    
+
 }

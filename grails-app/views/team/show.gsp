@@ -93,6 +93,29 @@
         </table>
     </g:panel>
 
+    <g:panel title="Evolution">
+        <table>
+            <thead>
+            <tr>
+                <th>Month</th>
+                <th>Points</th>
+                <th>Wins</th>
+                <th>Loses</th>
+            </tr>
+            </thead>
+            <tbody>
+            <g:each in="${ranking.performances}" var="monthPerf">
+                <tr>
+                    <td>${monthPerf.key}</td>
+                    <td>${monthPerf.value.points}</td>
+                    <td>${monthPerf.value.wins}</td>
+                    <td>${monthPerf.value.loses}</td>
+                </tr>
+            </g:each>
+            </tbody>
+        </table>
+    </g:panel>
+
     <g:panel title="Resultats">
         <table>
             <thead>

@@ -32,4 +32,8 @@ class Ladder {
         event(cascade: 'none')
         team(cascade: 'none', lazy: false)
     }
+
+    MonthYear getMonthYear() {
+        return new MonthYear(event.date.month, event.date.year)
+    }
 }

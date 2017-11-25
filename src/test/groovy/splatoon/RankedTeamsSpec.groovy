@@ -17,7 +17,7 @@ class RankedTeamsSpec extends Specification {
             endTime: LocalTime.MAX
     )
     static TournamentEvent EVENT_TOURNAMENT_B = new TournamentEvent(
-            tournament:  new Tournament(withId: 2, name: 'Tournament B'),
+            tournament: new Tournament(withId: 2, name: 'Tournament B'),
             date: LocalDate.now(),
             startTime: LocalTime.MIN,
             endTime: LocalTime.MAX
