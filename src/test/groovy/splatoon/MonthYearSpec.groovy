@@ -52,4 +52,10 @@ class MonthYearSpec extends Specification {
         new MonthYear(Month.APRIL, 2003).toString() == "4/2003"
     }
 
+    def "conversion to date"() {
+        expect:
+        new MonthYear(Month.APRIL, 2003).toDate().month == 3
+        new MonthYear(Month.APRIL, 2003).toDate().year == 103
+    }
+
 }

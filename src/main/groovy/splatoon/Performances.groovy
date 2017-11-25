@@ -25,7 +25,7 @@ class Performances implements Iterable<Map.Entry<MonthYear, Performance>> {
     }
 
     Performance getAt(MonthYear monthYear) {
-        return map[monthYear]
+        return map[monthYear] ?: new Performance()
     }
 
     String getChartDataAsJson() {

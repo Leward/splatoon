@@ -41,6 +41,10 @@ class MonthYear {
         return new MonthYear(newMonth, newYear)
     }
 
+    Date toDate() {
+        return DateConversions.asDate(LocalDate.of(year, month, 1))
+    }
+
     @Override
     String toString() {
         return "${month.value}/${year}"

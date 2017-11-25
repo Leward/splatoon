@@ -55,4 +55,14 @@ class PerformancesTest extends Specification {
         performances[new MonthYear(Month.APRIL, 2015)] != null
     }
 
+    def "getAt return a new empty performance instead of returning null"() {
+        given:
+        def performances = new Performances()
+        def ladder = new Ladder(team: TEAM_A, points: 9, wins: 3, loses: 0, event: EVENT_TOURNAMENT_A)
+        when:
+        performances.add(ladder)
+        then:
+        performances[new MonthYear(Month.JUNE, 2017)] == new Performance()
+    }
+
 }

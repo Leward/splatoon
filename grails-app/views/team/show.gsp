@@ -1,4 +1,4 @@
-<%@ page import="splatoon.DateConversions" %>
+<%@ page import="splatoon.MonthYear; splatoon.DateConversions" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -70,24 +70,30 @@
         </g:if>
     </g:panel>
 
-    <g:panel title="Classements">
+    <g:set var="thisMonth" value="${splatoon.MonthYear.now()}" />
+    <g:set var="previousMonth" value="${thisMonth.previous()}" />
+    <g:panel title="Statistiques">
         <table>
             <thead>
             <tr>
-                <th><span>Tournois</span></th>
-                <th><span>Wins</span></th>
-                <th><span>Loses</span></th>
-                <th><span>Ratio</span></th>
-                <th><span>Évolution</span></th>
+                <th></th>
+                <th><span><g:formatDate date="${previousMonth.toDate()}" format="MMM" /></span></th>
+                <th><span><g:formatDate date="${thisMonth.toDate()}" format="MMM" /></span></th>
+                <th><span>Tout</span></th>
             </tr>
             </thead>
             <tbody>
             <tr>
-                <td>${ranking.nbTournaments}</td>
-                <td>${ranking.wins}</td>
-                <td>${ranking.loses}</td>
+                <th>Ratio</th>
+                <td>${ranking.performances[previousMonth].ratioAsString}</td>
+                <td>${ranking.performances[thisMonth].ratioAsString}</td>
                 <td>${ranking.ratioAsString}</td>
-                <td><g:evolution rankedTeam="${ranking}"/></td>
+            </tr>
+            <tr>
+                <th>Matchs</th>
+                <td><span class="win">${ranking.performances[previousMonth].wins}</span> / <span class="lose">${ranking.performances[previousMonth].loses}</span></td>
+                <td><span class="win">${ranking.performances[thisMonth].wins}</span> / <span class="lose">${ranking.performances[thisMonth].loses}</span></td>
+                <td><span class="win">${ranking.wins}</span> / <span class="lose">${ranking.loses}</span></td>
             </tr>
             </tbody>
         </table>
