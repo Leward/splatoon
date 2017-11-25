@@ -95,6 +95,7 @@
 <asset:javascript src="application.js"/>
 <script src="/static/ckeditor/ckeditor.js"></script>
 <script async="" charset="utf-8" src="//platform.twitter.com/widgets.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.bundle.min.js"></script>
 
 </body>
 </html>

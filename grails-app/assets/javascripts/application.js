@@ -74,10 +74,43 @@ function configureReadMore($) {
     });
 }
 
+function configureTeamPerformancesChart() {
+    var ctx = document.getElementById("team-performances-canvas").getContext("2d");
+    if(!ctx) {
+        return;
+    }
+    new Chart(ctx, {
+        type: 'bar',
+        data: window.teamChartData,
+        options: {
+            title: {
+                display: false
+            },
+            tooltips: {
+                mode: 'index',
+                intersect: false
+            },
+            legend: {
+                display: false
+            },
+            maintainAspectRatio: false,
+            scales: {
+                xAxes: [{
+                    stacked: true
+                }],
+                yAxes: [{
+                    stacked: true
+                }]
+            }
+        }
+    });
+}
+
 $(document).ready(function () {
     configurejQueryPlugins(jQuery);
     configureCkeditor(jQuery);
     configureReadMore(jQuery);
+    configureTeamPerformancesChart();
 });
 
 // Configure polyfills

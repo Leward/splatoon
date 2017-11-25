@@ -1,5 +1,7 @@
 package splatoon
 
+import groovy.json.JsonOutput
+
 class Performances implements Iterable<Map.Entry<MonthYear, Performance>> {
 
     TreeMap<MonthYear, Performance> map = [:]
@@ -24,6 +26,25 @@ class Performances implements Iterable<Map.Entry<MonthYear, Performance>> {
 
     Performance getAt(MonthYear monthYear) {
         return map[monthYear]
+    }
+
+    String getChartDataAsJson() {
+        def json = [
+                labels: map.keySet().collect { it.toString() },
+                datasets: [
+                        [
+                                label: 'Wins',
+                                backgroundColor: 'rgb(75, 192, 192)',
+                                data: map.values().collect { it.wins }
+                        ],
+                        [
+                                label: 'Loses',
+                                backgroundColor: 'rgb(255, 99, 132)',
+                                data: map.values().collect { it.loses * -1 }
+                        ],
+                ]
+        ]
+        return JsonOutput.prettyPrint(JsonOutput.toJson(json))
     }
 
     @Override
