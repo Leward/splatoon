@@ -94,7 +94,7 @@
     </g:panel>
 
     <g:panel title="Performances">
-        <div class="chart-container" style="position: relative; width: 100%; max-height: 400px;">
+        <div class="chart-container">
             <canvas id="team-performances-canvas"></canvas>
         </div>
 
