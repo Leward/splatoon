@@ -49,7 +49,14 @@
                                 <img src="${player.avatar}" alt="Avatar"/>
                             </g:if>
                             <g:else>
-                                <asset:image src="default_player_avatar.png" alt="Default avatar"/>
+                                <g:if test="${player.type == splatoon.PlayerType.MAIN}">
+                                    <asset:image src="default_player_avatar.png" alt="Default Main avatar"/>
+
+                                </g:if>
+                                <g:else>
+                                    <asset:image src="default_sub_player_avatar.png" alt="Default Sub avatar"/>
+
+                                </g:else>
                             </g:else>
                         </div>
 
@@ -70,15 +77,15 @@
         </g:if>
     </g:panel>
 
-    <g:set var="thisMonth" value="${splatoon.MonthYear.now()}" />
-    <g:set var="previousMonth" value="${thisMonth.previous()}" />
+    <g:set var="thisMonth" value="${splatoon.MonthYear.now()}"/>
+    <g:set var="previousMonth" value="${thisMonth.previous()}"/>
     <g:panel title="Statistiques">
         <table>
             <thead>
             <tr>
                 <th></th>
-                <th><span><g:formatDate date="${previousMonth.toDate()}" format="MMM" /></span></th>
-                <th><span><g:formatDate date="${thisMonth.toDate()}" format="MMM" /></span></th>
+                <th><span><g:formatDate date="${previousMonth.toDate()}" format="MMM"/></span></th>
+                <th><span><g:formatDate date="${thisMonth.toDate()}" format="MMM"/></span></th>
                 <th><span>Tout</span></th>
             </tr>
             </thead>
@@ -91,8 +98,10 @@
             </tr>
             <tr>
                 <th>Matchs</th>
-                <td><span class="win">${ranking.performances[previousMonth].wins}</span> / <span class="lose">${ranking.performances[previousMonth].loses}</span></td>
-                <td><span class="win">${ranking.performances[thisMonth].wins}</span> / <span class="lose">${ranking.performances[thisMonth].loses}</span></td>
+                <td><span class="win">${ranking.performances[previousMonth].wins}</span> / <span
+                        class="lose">${ranking.performances[previousMonth].loses}</span></td>
+                <td><span class="win">${ranking.performances[thisMonth].wins}</span> / <span
+                        class="lose">${ranking.performances[thisMonth].loses}</span></td>
                 <td><span class="win">${ranking.wins}</span> / <span class="lose">${ranking.loses}</span></td>
             </tr>
             </tbody>
