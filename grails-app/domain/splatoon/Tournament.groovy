@@ -19,6 +19,7 @@ class Tournament {
         events sort: 'date', order: 'asc'
         rules type: 'text'
         registrationDetails type: 'text'
+        organizer fetch: 'join'
     }
 
     Tournament withId(Long id) {

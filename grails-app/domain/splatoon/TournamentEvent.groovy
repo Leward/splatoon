@@ -43,6 +43,7 @@ class TournamentEvent {
 
     static mapping = {
         sort(date: "asc", startTime: "asc")
+        tournament fetch: 'join'
     }
 
     static constraints = {

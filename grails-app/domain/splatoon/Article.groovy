@@ -31,5 +31,7 @@ class Article {
 
     static mapping = {
         content type: 'text'
+        cover fetch: 'join'
+        category fetch: 'join'
     }
 }
