@@ -29,6 +29,11 @@
 
 <g:panel title="Gérer les roles">
     <h3>${user.username}</h3>
+
+    <div class="alert alert-info">
+        Le role TO est attribue automatiquement si l'utilisateur <g:link mapping="admin_tournamentOrganizer_list">est gerant d'un TO</g:link>.
+    </div>
+
     <g:form mapping="admin_user_uroles" id="${user.id}">
         <table>
             <thead>
