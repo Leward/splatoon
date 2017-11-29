@@ -34,17 +34,33 @@
             </li>
             <li class="separator"></li>
             <li><g:link mapping="magazine">
+                <g:img file="icon_mag.png" alt="Icone Le Mag" />
                 <span class="small-menu">Mag</span>
                 <span class="large-menu">Le Mag</span>
             </g:link></li>
             <li class="separator"></li>
-            <li><g:link mapping="ladder">Ladder</g:link></li>
+            <li>
+                <g:link mapping="ladder">
+                    <g:img file="icon_ladder.png" alt="Icone ladder" />
+                    Ladder
+                </g:link>
+            </li>
             <li class="separator"></li>
-            <li><g:link mapping="recruitment">Recrutements</g:link></li>
+            <li>
+                <g:link mapping="recruitment">
+                    <g:img file="icon_recruitment.png" alt="Icone recrutement" />
+                    Recrutements
+                </g:link>
+            </li>
         </ul>
         <ul class="links-2">
             <sec:ifLoggedIn>
-                <li><g:link mapping="my_account">Mon espace</g:link></li>
+                <li>
+                    <g:link mapping="my_account">
+                        <g:img file="icon_profile.png" alt="Icone profil" />
+                        Mon espace
+                    </g:link>
+                </li>
                 <li><g:link controller="logout" action="index">Déconnexion</g:link></li>
             </sec:ifLoggedIn>
             <sec:ifNotLoggedIn>
