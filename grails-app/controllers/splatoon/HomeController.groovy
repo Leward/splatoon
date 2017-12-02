@@ -11,7 +11,8 @@ class HomeController {
 
     def index() {
         def viewModel = [
-                streams: twitchService.getTopLiveChannels(8)
+                streams: twitchService.getTopLiveChannels(8),
+                liveEvent: TournamentEvent.getLiveEvent()
         ]
         render(view: '/index', model: viewModel)
     }

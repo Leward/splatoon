@@ -32,6 +32,25 @@
                 </div>
 
                 <div class="col-sm-7 col-md-12 col-lg-6">
+                    <g:if test="${liveEvent.isPresent()}">
+                        <div class="current-event-stream">
+                            <div class="stream-preview">
+                                <g:link mapping="tournament_event" id="${liveEvent.get().id}">
+                                    <g:img file="live_user_example-80x45.jpg" alt="Live stream"/>
+                                </g:link>
+                            </div>
+
+                            <div class="stream-details">
+                                <g:link mapping="tournament_event" id="${liveEvent.get().id}">
+                                    ${liveEvent.get().tournament.name}
+                                </g:link>
+                                <div class="current-event">
+                                    <g:link mapping="tournament_event" id="${liveEvent.get().id}">event en cours</g:link>
+                                </div>
+                            </div>
+                        </div>
+                    </g:if>
+
                     <ul class="row">
                         <g:each in="${streams}" var="stream">
                             <li class="stream-switch col-xs-3" data-channel-name="${stream.channelName}">

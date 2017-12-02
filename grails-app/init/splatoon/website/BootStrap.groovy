@@ -80,8 +80,8 @@ class BootStrap {
                     rules: "<p>Some rules</p>",
                     events: [
                             new TournamentEvent(
-                                    date: LocalDate.now().plusDays(5),
-                                    startTime: LocalTime.of(21, 00),
+                                    date: LocalDate.now(),
+                                    startTime: LocalTime.of(0,0),
                                     endTime: LocalTime.of(23, 59),
                                     managedRegistrations: true,
                                     registrationsOpen: true,

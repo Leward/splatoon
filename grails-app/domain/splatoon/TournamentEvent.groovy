@@ -68,6 +68,12 @@ class TournamentEvent {
         return findAllByDateGreaterThanEquals(LocalDate.now(ZoneId.of("Europe/Paris")), queryConfig)
     }
 
+    static Optional<TournamentEvent> getLiveEvent() {
+        def event = TournamentEvent.findAllByDate(LocalDate.now(ZoneId.of("Europe/Paris")))
+                .find { it.isLive() }
+        return Optional.ofNullable(event)
+    }
+
     boolean isLive() {
         def todaysDate = LocalDate.now(PARIS_ZONE_ID)
         def nowTime = LocalTime.now(PARIS_ZONE_ID)

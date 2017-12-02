@@ -325,6 +325,31 @@ body {
     }
   }
 
+  .current-event-stream {
+    display: flex;
+    padding: 5px;
+    background-color: $color-twitch-pruple;
+    color: white;
+    a {
+      color: white;
+    }
+    .stream-details {
+      padding-left: 5px;
+      padding-right: 10px;
+      flex-grow: 1;
+    }
+    .current-event {
+      text-align: right;
+      a {
+        color: $color-orange;
+        font-weight: bold;
+        &:hover {
+          color: $color-orange-darker
+        }
+      }
+    }
+  }
+
   ul {
     list-style: none;
     padding: 15px 0 0 0;
