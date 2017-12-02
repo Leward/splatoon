@@ -60,7 +60,7 @@
                     </ul>
 
                     <p class="text-right">
-                        <g:link mapping="streams">Voir plus de streams</g:link>
+                        <g:link mapping="streams" class="more">+ de streamers</g:link>
                     </p>
                 </div>
             </div>

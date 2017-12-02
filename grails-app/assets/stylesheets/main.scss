@@ -352,6 +352,15 @@ body {
       padding-bottom: 25px;
     }
   }
+
+  a.more {
+    color: $color-orange;
+    font-weight: bold;
+    padding-right: 1em;
+    &:hover {
+      color: $color-orange-darker
+    }
+  }
 }
 
 .home-page {
