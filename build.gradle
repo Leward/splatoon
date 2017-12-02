@@ -122,10 +122,6 @@ task('copyNpmFiles', type: Copy, dependsOn: ':npmInstall') {
         includes = ['jquery.timepicker.css', 'jquery.timepicker.js']
         into 'grails-app/assets/libs/timepicker'
     }
-    from('node_modules/cropperjs/dist') {
-        includes = ['cropper.css', 'cropper.js']
-        into 'grails-app/assets/libs/cropperjs'
-    }
     from('node_modules/ckeditor') {
         into 'src/main/resources/public/ckeditor/'
     }
