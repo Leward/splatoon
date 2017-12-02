@@ -111,8 +111,6 @@
     <g:message code="spinner.alt" default="Loading&hellip;"/>
 </div>
 
-<asset:javascript src="application.js"/>
-
 %{-- Load CKEditor only on pages where it is required --}%
 <!-- Use CKEditor: ${useCkEditor == true}-->
 <g:if test="${useCkEditor}">
@@ -120,8 +118,16 @@
 </g:if>
 
 <script async="" charset="utf-8" src="//platform.twitter.com/widgets.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.bundle.min.js"></script>
+
+%{-- Load ChartJS only on pages where it is required --}%
+<!-- Use ChartJS: ${useChartJS == true}-->
+<g:if test="${useChartJS}">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.bundle.min.js"></script>
+</g:if>
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/webshim/1.16.0/dev/polyfiller.js"></script>
+
+<asset:javascript src="application.js"/>
 
 </body>
 </html>

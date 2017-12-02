@@ -78,6 +78,10 @@ function configureReadMore($) {
 }
 
 function configureTeamPerformancesChart() {
+    if(window.Chart === undefined) {
+        console.warn("Chart.js is not enabled on this page");
+        return;
+    }
     var ctx = document.getElementById("team-performances-canvas").getContext("2d");
     if(!ctx) {
         return;

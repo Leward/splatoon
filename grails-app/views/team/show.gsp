@@ -109,6 +109,7 @@
     </g:panel>
 
     <g:panel title="Performances par mois">
+        <g:set var="useChartJS" value="${true}" scope="request" />
         <div class="chart-container">
             <canvas id="team-performances-canvas"></canvas>
         </div>
