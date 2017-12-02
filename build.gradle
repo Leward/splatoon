@@ -16,7 +16,6 @@ group "splatoon.website"
 
 apply plugin: "eclipse"
 apply plugin: "idea"
-//apply plugin:"war"
 apply plugin: "org.grails.grails-web"
 apply plugin: "org.grails.grails-gsp"
 apply plugin: "asset-pipeline"
@@ -126,9 +125,6 @@ task('copyNpmFiles', type: Copy, dependsOn: ':npmInstall') {
     from('node_modules/cropperjs/dist') {
         includes = ['cropper.css', 'cropper.js']
         into 'grails-app/assets/libs/cropperjs'
-    }
-    from('node_modules/webshim/js-webshim/minified') {
-        into 'grails-app/assets/webshim-1.16.0'
     }
     from('node_modules/ckeditor') {
         into 'src/main/resources/public/ckeditor/'

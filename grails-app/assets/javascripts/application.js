@@ -8,7 +8,6 @@
 //= require jquery
 //= require timepicker/jquery.timepicker
 //= require readmore
-//= require polyfiller
 //= require_self
 
 if (typeof jQuery !== 'undefined') {
