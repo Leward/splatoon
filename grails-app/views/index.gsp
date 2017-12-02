@@ -121,9 +121,14 @@
                         <g:each in="${RecruitingAd.findAllByType(AdType.LOOKING_FOR_TEAMMATE_AD, [max: 6, sort: "createdAt", order: "desc"])}"
                                 var="ad">
                             <li class="ad">
+                                <div class="avatar">
+                                    <g:img file="spash_avatar-44x45.png" alt="Avatar par defaut" />
+                                </div>
                                 <h4 class="title">${ad.title}</h4>
 
-                                ${raw(HtmlStringUtils.truncateHtml(excerptHtml(code: ad.message, strict: true).toString(), 50))}
+                                <p class="intro">
+                                    ${raw(HtmlStringUtils.truncateHtml(excerptHtml(code: ad.message, strict: true).toString(), 50))}
+                                </p>
 
                                 <div class="read-more">
                                     <g:link mapping="recruitment_show_ad" id="${ad.id}">
@@ -141,6 +146,9 @@
                         <g:each in="${RecruitingAd.findAllByType(AdType.LOOKING_FOR_TEAM_AD, [sort: 'createdAt', order: 'desc', max: 6])}"
                                 var="ad">
                             <li class="ad">
+                                <div class="avatar">
+                                    <g:img file="spash_avatar-44x45.png" alt="Avatar par defaut" />
+                                </div>
                                 <h4 class="title">${ad.title}</h4>
 
                                 <p class="intro">

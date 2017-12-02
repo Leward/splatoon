@@ -39,5 +39,19 @@ class SplatoonTagLibTest extends Specification implements TagLibUnitTest<Splatoo
         tagLib.html(code: html).toString().trim() == html
     }
 
+    void "excerpt html strict should not keep <p>"() {
+        setup:
+        def html = '<p>Salut les Calamars !</p>'
+        expect:
+        tagLib.excerptHtml(code: html, strict: true).toString() == 'Salut les Calamars !'
+    }
+
+    void "excerpt html non strict should keep <p>"() {
+        setup:
+        def html = '<p>Salut les Calamars !</p>'
+        expect:
+        tagLib.excerptHtml(code: html, strict: false).toString() == html
+    }
+
 
 }
