@@ -88,14 +88,20 @@
 
     <div class="featured-news card">
         <header class="red"><h2>
-            <g:link mapping="news">News</g:link>
+            <g:link mapping="news">
+                News
+                <span class="circle"></span>
+            </g:link>
         </h2></header>
         <main><g:render template="/news/latest_news"/></main>
     </div>
 
     <div class="featured-news card">
         <header class="red"><h2>
-            <g:link mapping="magazine">Magazine</g:link>
+            <g:link mapping="magazine">
+                Magazine
+                <span class="circle"></span>
+            </g:link>
         </h2></header>
         <main><g:render template="/article/latest_articles"/></main>
     </div>
@@ -103,7 +109,7 @@
     <div class="recruitment card">
         <header class="blue"><h2>
             <g:link mapping="recruitment">
-                Recrutements & Candidatures
+                Recrutements & Candidatures <span class="circle"></span>
             </g:link>
         </h2></header>
 
