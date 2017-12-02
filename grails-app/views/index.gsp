@@ -89,7 +89,7 @@
     <div class="featured-news card">
         <header class="red"><h2>
             <g:link mapping="news">
-                News
+                A la Une
                 <span class="circle"></span>
             </g:link>
         </h2></header>
