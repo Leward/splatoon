@@ -115,9 +115,6 @@ task('copyNpmFiles', type: Copy, dependsOn: ':npmInstall') {
     from('node_modules/bourbon-neat/app/assets/stylesheets') {
         into 'grails-app/assets/stylesheets/neat'
     }
-    from('node_modules/jquery/dist/jquery.js') {
-        into 'grails-app/assets/javascripts'
-    }
     from('node_modules/timepicker') {
         includes = ['jquery.timepicker.css', 'jquery.timepicker.js']
         into 'grails-app/assets/libs/timepicker'

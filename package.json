@@ -7,7 +7,6 @@
     "bourbon-neat": "1.8.0",
     "ckeditor": "4.7.2",
     "flag-icon-css": "^2.8.0",
-    "jquery": "2.2.0",
     "timepicker": "1.11.11"
   }
 }

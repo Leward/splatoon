@@ -111,21 +111,20 @@
     <g:message code="spinner.alt" default="Loading&hellip;"/>
 </div>
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+<script async="" charset="utf-8" src="//platform.twitter.com/widgets.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/webshim/1.16.0/dev/polyfiller.js"></script>
+
 %{-- Load CKEditor only on pages where it is required --}%
 <!-- Use CKEditor: ${useCkEditor == true}-->
 <g:if test="${useCkEditor}">
     <script src="/static/ckeditor/ckeditor.js"></script>
 </g:if>
-
-<script async="" charset="utf-8" src="//platform.twitter.com/widgets.js"></script>
-
 %{-- Load ChartJS only on pages where it is required --}%
 <!-- Use ChartJS: ${useChartJS == true}-->
 <g:if test="${useChartJS}">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.bundle.min.js"></script>
 </g:if>
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/webshim/1.16.0/dev/polyfiller.js"></script>
 
 <asset:javascript src="application.js"/>
 
