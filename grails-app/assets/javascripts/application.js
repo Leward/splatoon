@@ -27,6 +27,10 @@ function configurejQueryPlugins($) {
 }
 
 function configureCkeditor($) {
+    if(window.CKEDITOR == undefined) {
+        console.warn("CKEDITOR is not enabled on this page");
+        return;
+    }
     CKEDITOR.replaceAll(function (textarea, config) {
         var isCkeditorSimple = $(textarea).hasClass('ckeditor-simple');
         var isCkeditorFull = $(textarea).hasClass('ckeditor-full');
