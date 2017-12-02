@@ -30,7 +30,10 @@
         <ul class="links-1">
             <li class="separator"></li>
             <li>
-                <g:link url="http://fr.splatoonwiki.org/wiki/Accueil">Inkipédia</g:link>
+                <g:link mapping="streams">
+                    <g:img file="icon_stream.png" alt="Icone Stream TV" />
+                    Stream TV
+                </g:link>
             </li>
             <li class="separator"></li>
             <li><g:link mapping="magazine">
