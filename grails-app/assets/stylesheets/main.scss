@@ -138,6 +138,10 @@ body {
 
       > ul.links-1 {
         flex-grow: 1;
+        @include media($smaller-than-md-screen) {
+          flex-wrap: wrap;
+          justify-content: center;
+        }
       }
 
       > ul.links-2 {
