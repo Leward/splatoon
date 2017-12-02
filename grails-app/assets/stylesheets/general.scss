@@ -237,6 +237,7 @@ ol.property-list {
       border-radius: 15px;
       display: inline-block;
       vertical-align: -35%;
+      margin-left: 5px;
       @include media($smaller-than-sm-screen) {
         display: none;
       }
