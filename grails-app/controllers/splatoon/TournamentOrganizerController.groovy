@@ -67,6 +67,11 @@ class TournamentOrganizerController {
             return
         }
 
+        // If there is no members in the request that means we want to remove all the members
+        if(!params.members) {
+            tournamentOrganizer.members.clear()
+        }
+
         tournamentOrganizer.save flush:true
 
         request.withFormat {
