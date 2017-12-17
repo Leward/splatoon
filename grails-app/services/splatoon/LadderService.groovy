@@ -2,6 +2,7 @@ package splatoon
 
 import grails.gorm.transactions.Transactional
 import groovy.transform.CompileStatic
+import splatoon.elo.AllTeamsEloRankings
 
 import java.time.Duration
 
@@ -18,6 +19,13 @@ class LadderService {
         def rankingsCompilation = new RankingsCompilation(Ladder.findAll())
         cachedRankings.cache(rankingsCompilation)
         return rankingsCompilation
+    }
+
+    AllTeamsEloRankings calculateEloRankings() {
+        def events = TournamentEvent.list()
+        def rankings = new AllTeamsEloRankings()
+        rankings.add(events)
+        return rankings
     }
 
     void invalidCache() {

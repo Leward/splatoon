@@ -30,6 +30,7 @@ class UrlMappings {
         name "news": "/news"(controller: 'news', action: 'list')
         name "news_show": "/news/$id"(controller: 'news', action: 'show')
         name "ladder": "/ladder"(controller: 'ladder', action: 'index')
+        name "ladder": "/ladder/elo"(controller: 'ladder', action: 'elo')
         name "magazine": "/magazine"(controller: 'article', action: 'magazine')
         name "article_show": "/magazine/$id"(controller: 'article', action: 'show')
         name "streams": "/streams"(controller: 'stream', action: 'index')

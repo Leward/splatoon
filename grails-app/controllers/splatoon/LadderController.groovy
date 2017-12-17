@@ -22,6 +22,12 @@ class LadderController {
         ])
     }
 
+    def elo() {
+        render(view: 'elo', model: [
+                rankings: ladderService.calculateEloRankings()
+        ])
+    }
+
     @Secured(['ROLE_ADMIN', 'ROLE_TO'])
     @Transactional
     def create() {
