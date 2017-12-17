@@ -42,7 +42,7 @@ class AllTeamsEloRankings {
     }
 
     TreeMap<Integer, Team> getRanking(Instant at) {
-        def result = new TreeMap<Integer, Team>()
+        def result = new TreeMap<Integer, Team>(Collections.reverseOrder())
         allTeamsRankings.each { result.put(it.value.getEloAt(at), it.key) }
         return result
     }
