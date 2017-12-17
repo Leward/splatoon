@@ -40,7 +40,7 @@ class AllTeamsEloRankings {
     int getPopularity() {
         return allTeamsRankings
                 .collect { team, teamEloRanking -> teamEloRanking.eloRanksOverTime.size() }
-                .sum()
+                .sum() ?: 0
     }
 
     List<TeamEloRanking> getRanking() {
@@ -48,6 +48,7 @@ class AllTeamsEloRankings {
     }
 
     List<TeamEloRanking> getRanking(Instant at) {
+        // A SortedSet such as TreeSet could not be used as results with same score will only result in one item in the set
         def result = []
         allTeamsRankings.each {
             result.add(new TeamEloRanking(it.key, it.value.getEloAt(at)))
