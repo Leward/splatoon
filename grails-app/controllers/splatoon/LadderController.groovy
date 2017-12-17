@@ -23,8 +23,14 @@ class LadderController {
     }
 
     def elo() {
+        def allRankings = ladderService.calculateEloRankings()
+        def tournamentOrganizers = allRankings.listOrganizersSortedByPopularity()
+        def selectedOrganizer = tournamentOrganizers.find { it.id == params.long("id") }
+        def rankings = (selectedOrganizer) ? allRankings.getRankingsFor(selectedOrganizer) : allRankings.general
         render(view: 'elo', model: [
-                rankings: ladderService.calculateEloRankings()
+                rankings: rankings,
+                tournamentOrganizers: tournamentOrganizers,
+                selectedOrganizer: selectedOrganizer
         ])
     }
 

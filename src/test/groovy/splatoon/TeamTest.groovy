@@ -5,6 +5,15 @@ import spock.lang.Specification
 
 class TeamTest extends Specification implements DomainUnitTest<Team> {
 
+    def "two teams with different id should be different"() {
+        given:
+        def teamA = new Team(id: 1, name: "Team A")
+        def teamB = new Team(id: 2, name: "Team B")
+        expect:
+        teamA != teamB
+
+    }
+
     def "two new objects without id should be different"() {
         expect:
             a != b

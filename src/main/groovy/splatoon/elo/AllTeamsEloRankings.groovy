@@ -37,13 +37,22 @@ class AllTeamsEloRankings {
     }
 
 
-    TreeMap<Integer, Team> getRanking() {
+    int getPopularity() {
+        return allTeamsRankings
+                .collect { team, teamEloRanking -> teamEloRanking.eloRanksOverTime.size() }
+                .sum()
+    }
+
+    List<TeamEloRanking> getRanking() {
         return getRanking(Instant.now())
     }
 
-    TreeMap<Integer, Team> getRanking(Instant at) {
-        def result = new TreeMap<Integer, Team>(Collections.reverseOrder())
-        allTeamsRankings.each { result.put(it.value.getEloAt(at), it.key) }
+    List<TeamEloRanking> getRanking(Instant at) {
+        def result = []
+        allTeamsRankings.each {
+            result.add(new TeamEloRanking(it.key, it.value.getEloAt(at)))
+        }
+        result.sort(TeamEloRanking.COMPARATOR)
         return result
     }
 
