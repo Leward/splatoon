@@ -27,6 +27,7 @@ class PerTOAllTeamsEloRankings {
 
     List<TournamentOrganizer> listOrganizersSortedByPopularity() {
         return rankings.keySet()
+                .findAll { rankings[it].popularity > 0 }
                 .sort { rankings[it].popularity }
                 .reverse()
     }
