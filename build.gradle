@@ -57,8 +57,8 @@ dependencies {
     compile 'org.grails.plugins:grails-flyway:0.2'
     compile 'org.flywaydb:flyway-core:4.2.0' // force upgrade of flyway version
     profile "org.grails.profiles:web"
-    runtime "com.bertramlabs.plugins:asset-pipeline-grails:2.14.3"
-    runtime 'com.bertramlabs.plugins:sass-asset-pipeline:2.14.3'
+    runtime "com.bertramlabs.plugins:asset-pipeline-grails:2.14.7"
+    runtime 'com.bertramlabs.plugins:sass-asset-pipeline:2.14.7'
     runtime "com.h2database:h2"
     runtime "org.apache.tomcat:tomcat-jdbc"
     runtime 'mysql:mysql-connector-java:5.1.41'
