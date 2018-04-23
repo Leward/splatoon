@@ -44,7 +44,7 @@ class BootStrap {
         if (Environment.current == Environment.DEVELOPMENT) {
             log.debug("Development environment detected: boostrapping with some data.")
             // Create some tournament and events for the ESL organization
-            def esl = new TournamentOrganizer(name: "ESL France", website: "https://play.eslgaming.com/france/").save()
+            def esl = new TournamentOrganizer(name: "ESL France", website: "https://play.eslgaming.com/france/").save(failOnError: true)
             def tournament = new Tournament(
                     name: "Nintendo Europe 2018",
                     organizer: esl,
@@ -69,10 +69,10 @@ class BootStrap {
                         challongeUrl: "http://sogfr.challonge.com/fr/SplatofGods2"
                 ).save(flush: true)
             }
-            new TournamentOrganizer(name: "Splatoon FR", website: "http://splatoonfr.net").save();
+            new TournamentOrganizer(name: "Splatoon FR", website: "http://splatoonfr.net").save(failOnError: true);
 
             // SOG
-            def sog = new TournamentOrganizer(name: "SoG", website: "http://societyofgamers.fr/").save()
+            def sog = new TournamentOrganizer(name: "SoG", website: "http://societyofgamers.fr/").save(failOnError: true)
             def tournament2 = new Tournament(
                     name: "Splattour of Gods 2 Winer Bracket",
                     organizer: sog,
@@ -95,22 +95,31 @@ class BootStrap {
                     username: "Ayo",
                     password: 'changeit',
                     email: 'ayo@splatoon.fr',
-                    nintendoId: 'Ayoyo'
-            ).save()
+                    playerProfile: new PlayerProfile(
+                            nintendoId: 'Ayoyo',
+                            birthDate: LocalDate.of(1990, Month.AUGUST, 4),
+                            mainWeaponCategory: MainWeaponCategory.BLASTER,
+                            roles: [PlayerRole.FLANK, PlayerRole.SUPPORT],
+                            availability: "Les mecredi et samedi soir",
+                            alreadyInATeam: true,
+                            lookingForATeam: false,
+                            lookingForFunCompetition: true,
+                            lookingForProCompetition: false)
+            ).save(failOnError: true)
 
             def oli = new User(
                     username: "Oli",
                     password: 'changeit',
                     email: 'oli@splatoon.fr'
-            ).save()
+            ).save(failOnError: true)
 
             def admin = new User(
                     username: 'admin',
                     password: 'admin',
                     email: 'admin@splatoon.fr'
-            ).save()
+            ).save(failOnError: true)
 
-            new UserRole(user: admin, role: roleAdmin).save()
+            new UserRole(user: admin, role: roleAdmin).save(failOnError: true)
 
             def ad1 = RecruitingAd.builder()
                     .type(AdType.LOOKING_FOR_TEAM_AD)
@@ -287,9 +296,9 @@ class BootStrap {
                     date: Instant.now()
             ).save(failOnError: true)
 
-            def category1 = new ArticleCategory(name: 'Analyze de match').save()
-            def category2 = new ArticleCategory(name: 'Gears').save()
-            def category3 = new ArticleCategory(name: 'Interview').save()
+            def category1 = new ArticleCategory(name: 'Analyze de match').save(failOnError: true)
+            def category2 = new ArticleCategory(name: 'Gears').save(failOnError: true)
+            def category3 = new ArticleCategory(name: 'Interview').save(failOnError: true)
 
             def article1 = new Article(
                     title: "La finale du Go 4 Splatoon",

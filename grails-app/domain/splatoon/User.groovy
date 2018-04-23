@@ -4,6 +4,8 @@ import grails.plugin.springsecurity.SpringSecurityService
 import groovy.transform.EqualsAndHashCode
 import groovy.transform.ToString
 
+import java.time.LocalDate
+
 @EqualsAndHashCode(includes='username')
 class User {
 
@@ -12,11 +14,13 @@ class User {
 	String username
 	String password
 	String email
-	String nintendoId
+
 	boolean enabled = true
 	boolean accountExpired
 	boolean accountLocked
 	boolean passwordExpired
+
+	PlayerProfile playerProfile = new PlayerProfile(user: this)
 
 	static hasMany = [
 			tournamentOrganizers: TournamentOrganizer,
@@ -24,6 +28,9 @@ class User {
 			recruitingAds: RecruitingAd,
 			teams: Team
 	]
+
+	static hasOne = ['playerProfile': PlayerProfile]
+
 	static belongsTo = TournamentOrganizer
 
 	Set<Role> getAuthorities() {
@@ -62,7 +69,7 @@ class User {
 		password blank: false, password: true
 		username blank: false, unique: true
 		email blank: false, email: true, unique: true
-		nintendoId nullable: true, size: 0..100
+		playerProfile nullable: true
 	}
 
 	static mapping = {
@@ -93,4 +100,12 @@ class User {
 	boolean canManage(TournamentOrganizer tournamentOrganizer) {
 		return hasRole(Role.ROLE_ADMIN) || tournamentOrganizers.contains(tournamentOrganizer)
 	}
+
+//	void setNintendoId(String nintendoId) {
+//		playerProfile.nintendoId = nintendoId
+//	}
+//
+//	String getNintendoId() {
+//		return playerProfile.nintendoId
+//	}
 }

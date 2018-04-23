@@ -18,7 +18,6 @@
                 <f:field property="username"/>
                 <f:field property="email"/>
                 <f:field property="password"/>
-                <f:field property="nintendoId"/>
             </f:with>
         </fieldset>
         <fieldset class="buttons">

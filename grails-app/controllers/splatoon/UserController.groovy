@@ -4,6 +4,7 @@ import grails.plugin.springsecurity.SpringSecurityService
 import grails.plugin.springsecurity.authentication.encoding.BCryptPasswordEncoder
 import  grails.gorm.transactions.Transactional
 import org.springframework.security.access.annotation.Secured
+import org.springframework.validation.BindingResult
 
 class UserController {
 
@@ -48,18 +49,19 @@ class UserController {
 
     @Secured('IS_AUTHENTICATED_FULLY')
     @Transactional
-    def updateInformation(ProfileInformation information) {
+    def updateInformation() {
         def user = User.get((springSecurityService.currentUser as User).id)
-        if(request.isPost() && information.validate()) {
-            user.nintendoId = information.nintendoId
-            user.save(flush: true)
+        PlayerProfile playerProfile = user.playerProfile ?: new PlayerProfile(user: user)
+        playerProfile.properties = params
+        // Prevent indiscriminate binding of fields ID and USER
+        playerProfile.user = user
+        playerProfile.id = user.playerProfile?.id
+        if(request.isPost() && playerProfile.validate()) {
+            playerProfile.save(flush: true)
             flash.message = "Informations mises a jour avec succes"
             redirect(mapping: 'my_account')
         }
-        if(request.isGet()) {
-            information = new ProfileInformation(user)
-        }
-        render(view: 'update_information', model: [information: information ?: new ProfileInformation()])
+        render(view: 'update_information', model: [playerProfile: playerProfile])
     }
 
     private boolean isCurrentPasswordCorrect(NewPassword newPassword) {
