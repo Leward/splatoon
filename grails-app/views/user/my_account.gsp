@@ -31,7 +31,7 @@
         <dt>Age</dt>
         <dd>${me.playerProfile?.age ?: 'Inconnu'}</dd>
         <dt><g:message code="playerProfile.availability.label" /></dt>
-        <dd>${me.playerProfile.availability}</dd>
+        <dd>${me.playerProfile?.availability}</dd>
     </dl>
 
     <h3>Type de jeu</h3>
