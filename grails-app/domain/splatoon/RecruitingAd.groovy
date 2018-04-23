@@ -14,7 +14,14 @@ class RecruitingAd {
     String title
     String message
     String profileUrl
+
+    /**
+     * Either:
+     *  - The level of the player the team wants to recruit
+     *  - The level of the team the player wants to join
+     */
     Rank rank
+
     Instant createdAt
 
     static belongsTo = [author: User]
