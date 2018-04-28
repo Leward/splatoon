@@ -1,4 +1,4 @@
-<%@ page import="splatoon.TournamentOrganizer; splatoon.TournamentEvent" %>
+<%@ page import="splatoon.PlayerProfile; splatoon.TournamentOrganizer; splatoon.TournamentEvent" %>
 <!doctype html>
 <html>
 <head>
@@ -37,7 +37,7 @@
         </div>
 
         <div class="col-sm-4 col-xs-5 rank">
-            ${me.playerProfile.rank}
+            ${me.playerProfile?.rank ?: PlayerProfile.DEFAULT_RANK}
         </div>
     </div>
 

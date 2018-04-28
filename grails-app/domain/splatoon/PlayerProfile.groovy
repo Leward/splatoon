@@ -8,7 +8,7 @@ import java.time.ZoneId
 
 @EqualsAndHashCode
 class PlayerProfile {
-    Rank rank = Rank.C
+    Rank rank = DEFAULT_RANK
     String nintendoId
     LocalDate birthDate
     MainWeaponCategory mainWeaponCategory
@@ -38,6 +38,8 @@ class PlayerProfile {
         alreadyInATeam column: "already_in_a_team"
         rank nullable: false
     }
+
+    static final Rank DEFAULT_RANK = Rank.C
 
     Integer getAge() {
         if(birthDate == null) {
