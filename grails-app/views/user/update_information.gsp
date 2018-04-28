@@ -28,6 +28,7 @@
                <f:field property="nintendoId"/>
                <f:field property="birthDate"/>
                <f:field property="availability"/>
+               <f:field property="rank"/>
                <f:field property="mainWeaponCategory"/>
                <f:field property="roles"/>
                <f:field property="alreadyInATeam"/>

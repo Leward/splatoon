@@ -21,13 +21,18 @@ class SplatoonTagLib {
      *
      * @attr title title of the panel
      * @attr padded whether the body should have a lightly padding or not
+     * @attr color color of the title (red, blue)
+     * @attr circle whether to display a circle on the right of the header
      * @attr class supplementary classes to add (string)
      */
     def panel = { attrs, body ->
         out << """<div class="card ${attrs.class}">"""
         if (attrs.title != null && !attrs.title.isEmpty()) {
-            out << """<header>
-            <h3>${attrs.title}</h3>
+            out << """<header  class="${attrs.color}">
+            <h3>
+                ${attrs.title}
+                ${attrs.circle ? "<span class=\"circle\"></span>" : ""}
+            </h3>
             </header>"""
         }
         out << """

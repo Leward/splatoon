@@ -21,18 +21,27 @@
     </ul>
 </g:panel>
 
-<g:panel title="Mon profile joueur">
+<g:panel title="Mon profile joueur" color="blue" circle="true" class="player-profile">
     <h3>General</h3>
-    <dl>
-        <dt>Pseudo :</dt>
-        <dd>${me.username}</dd>
-        <dt>Identifiant Nintendo :</dt>
-        <dd>${me.playerProfile?.nintendoId ?: 'Inconnu'}</dd>
-        <dt>Age</dt>
-        <dd>${me.playerProfile?.age ?: 'Inconnu'}</dd>
-        <dt><g:message code="playerProfile.availability.label" /></dt>
-        <dd>${me.playerProfile?.availability}</dd>
-    </dl>
+
+    <div class="row">
+        <div class="col-sm-8 col-xs-7">
+            <dl>
+                <dt>${me.username}</dt>
+                <dd>${me.playerProfile?.age ?: '?'} ans</dd>
+                <dt>Identifiant Nintendo</dt>
+                <dd>${me.playerProfile?.nintendoId ?: 'Inconnu'}</dd>
+                <dt><g:message code="playerProfile.availability.label"/></dt>
+                <dd>${me.playerProfile?.availability ?: 'Non specifie'}</dd>
+            </dl>
+        </div>
+
+        <div class="col-sm-4 col-xs-5 rank">
+            ${me.playerProfile.rank}
+        </div>
+    </div>
+
+    <hr>
 
     <h3>Type de jeu</h3>
     <dl>
@@ -59,16 +68,42 @@
         </dd>
     </dl>
 
+    <hr>
+
     <h3>Équipe et compétition</h3>
     <dl>
-        <dt>Joue dans une equipe</dt>
-        <dd>${me.playerProfile?.alreadyInATeam ? 'Oui' : 'Non'}</dd>
-        <dt>Recherche une équipe</dt>
-        <dd>${me.playerProfile?.lookingForATeam ? 'Oui' : 'Non'}</dd>
-        <dt>Souhaite jouer des compétitions fun</dt>
-        <dd>${me.playerProfile?.lookingForFunCompetition ? 'Oui' : 'Non'}</dd>
-        <dt>Souhaite jouer des compétitions pro</dt>
-        <dd>${me.playerProfile?.lookingForProCompetition ? 'Oui' : 'Non'}</dd>
+        <dt>Équipe</dt>
+        <dd>
+            <g:if test="${me.playerProfile.alreadyInATeam}">
+                Joue dans une equipe
+                <g:if test="${me.playerProfile.lookingForATeam}">
+                    et recherche une nouvelle équipe
+                </g:if>
+            </g:if>
+            <g:else>
+                <g:if test="${me.playerProfile.lookingForATeam}">
+                    Recherche une équipe
+                </g:if>
+                <g:else>
+                    N'a pas d'équipe
+                </g:else>
+            </g:else>
+        </dd>
+        <dt>Compétitions</dt>
+        <dd>
+            <g:if test="${!me.playerProfile.lookingForProCompetition && !me.playerProfile.lookingForProCompetition}">
+                N'est pas interessé par la compétitions
+            </g:if>
+            <g:if test="${me.playerProfile.lookingForProCompetition && me.playerProfile.lookingForProCompetition}">
+                Interessé par les competitions Pro et Fun
+            </g:if>
+            <g:if test="${!me.playerProfile.lookingForProCompetition && me.playerProfile.lookingForProCompetition}">
+                Interessé par les competitions Fun uniquement
+            </g:if>
+            <g:if test="${me.playerProfile.lookingForProCompetition && !me.playerProfile.lookingForProCompetition}">
+                Interessé par les competitions Pro uniquement
+            </g:if>
+        </dd>
     </dl>
 </g:panel>
 

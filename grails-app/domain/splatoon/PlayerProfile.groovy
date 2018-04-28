@@ -8,6 +8,7 @@ import java.time.ZoneId
 
 @EqualsAndHashCode
 class PlayerProfile {
+    Rank rank = Rank.C
     String nintendoId
     LocalDate birthDate
     MainWeaponCategory mainWeaponCategory
@@ -35,6 +36,7 @@ class PlayerProfile {
     static mapping = {
         lookingForATeam column: "looking_for_a_team"
         alreadyInATeam column: "already_in_a_team"
+        rank nullable: false
     }
 
     Integer getAge() {

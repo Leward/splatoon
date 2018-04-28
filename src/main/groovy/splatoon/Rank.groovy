@@ -2,20 +2,24 @@ package splatoon
 
 enum Rank {
 
-    C_MINNUS(label: 'C-'),
-    C(label: 'C'),
-    C_PLUS(label: 'C+'),
-    B_MINUS(label: 'B-'),
-    B(label: 'B'),
-    B_PLUS(label: 'B+'),
-    A_MINUS(label: 'A-'),
-    A(label: 'A'),
-    A_PLUS(label: 'A+'),
-    S_MINUS(label: 'S-'),
-    S(label: 'S'),
-    S_PLUS(label: 'S+')
+    C_MINNUS('C-'),
+    C('C'),
+    C_PLUS('C+'),
+    B_MINUS('B-'),
+    B('B'),
+    B_PLUS('B+'),
+    A_MINUS('A-'),
+    A('A'),
+    A_PLUS('A+'),
+    S_MINUS('S-'),
+    S('S'),
+    S_PLUS('S+')
 
     String label
+
+    Rank(String label) {
+        this.label = label
+    }
 
     @Override
     String toString() {

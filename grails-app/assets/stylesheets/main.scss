@@ -176,6 +176,27 @@ body {
   }
 }
 
+.player-profile {
+  dl {
+    dt {
+      color: $color-header-blue;
+      font-weight: bold;
+    }
+    dd {
+      margin-bottom: 1rem;
+    }
+  }
+}
+
+.card {
+  .rank {
+    font-size: 74px;
+    font-weight: bold;
+    color: $color-highlight;
+    text-align: center;
+  }
+}
+
 .panel {
 
   & > .panel-body.padded {
@@ -573,12 +594,6 @@ body {
       text-transform: uppercase;
       color: $color-brick-red;
       font-size: $font-size-h4;
-    }
-    .rank {
-      font-size: 74px;
-      font-weight: bold;
-      color: $color-highlight;
-      text-align: center;
     }
     h4 {
       font-weight: bold;
