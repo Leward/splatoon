@@ -450,40 +450,40 @@ body {
       }
     }
   }
+}
 
-  > .recruitment {
-    h2 {
+.recruitment {
+  h2 {
+    color: #0287cf;
+  }
+  h3 {
+    color: $color-brick-red;
+    text-align: right;
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: $font-size-h4;
+    margin-bottom: 30px;
+  }
+  ul {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 30px;
+  }
+  .ad {
+    margin-bottom: 10px;
+    .avatar {
+      float: left;
+      padding-right: 5px;
+    }
+    .intro {
+      margin: 0;
+    }
+    h4 {
       color: #0287cf;
-    }
-    h3 {
-      color: $color-brick-red;
-      text-align: right;
-      text-transform: uppercase;
       font-weight: bold;
-      font-size: $font-size-h4;
-      margin-bottom: 30px;
     }
-    ul {
-      list-style: none;
-      padding: 0;
-      margin-bottom: 30px;
-    }
-    .ad {
-      margin-bottom: 10px;
-      .avatar {
-        float: left;
-        padding-right: 5px;
-      }
-      .intro {
-        margin: 0;
-      }
-      h4 {
-        color: #0287cf;
-        font-weight: bold;
-      }
-      .read-more {
-        text-align: right;
-      }
+    .read-more {
+      text-align: right;
     }
   }
 }

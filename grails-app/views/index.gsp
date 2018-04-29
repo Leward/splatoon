@@ -45,7 +45,8 @@
                                     ${liveEvent.get().tournament.name}
                                 </g:link>
                                 <div class="current-event">
-                                    <g:link mapping="tournament_event" id="${liveEvent.get().id}">event en cours</g:link>
+                                    <g:link mapping="tournament_event"
+                                            id="${liveEvent.get().id}">event en cours</g:link>
                                 </div>
                             </div>
                         </div>
@@ -122,7 +123,7 @@
                                 var="ad">
                             <li class="ad">
                                 <div class="avatar">
-                                    <g:img file="spash_avatar-44x45.png" alt="Avatar par defaut" />
+                                    <g:img file="spash_avatar-44x45.png" alt="Avatar par defaut"/>
                                 </div>
                                 <h4 class="title">${ad.title}</h4>
 
@@ -143,26 +144,52 @@
                 <div class="col-md-offset-2 col-md-5 col-sm-6">
                     <h3>Recherches d'equipes</h3>
                     <ul>
-                        <g:each in="${RecruitingAd.findAllByType(AdType.LOOKING_FOR_TEAM_AD, [sort: 'createdAt', order: 'desc', max: 6])}"
-                                var="ad">
+                        <g:each in="${usersLookingForATeam}" var="user">
                             <li class="ad">
                                 <div class="avatar">
-                                    <g:img file="spash_avatar-44x45.png" alt="Avatar par defaut" />
+                                    <g:img file="spash_avatar-44x45.png" alt="Avatar par defaut"/>
                                 </div>
-                                <h4 class="title">${ad.title}</h4>
+                                <h4 class="title">
+                                    %{-- Keep g:if at the end of the line so as not to create an undesired whitespace--}%
+                                    ${user.username}, rang ${user.playerProfile.rank}<g:if
+                                            test="${user.playerProfile.lookingForCompetition}">,
+                                            recherche une equipe ${user.playerProfile.competitionTypes.join(' et ')}
+                                    </g:if>
+                                </h4>
 
                                 <p class="intro">
-                                    ${raw(HtmlStringUtils.truncateHtml(excerptHtml(code: ad.message, strict: true).toString(), 50))}
+                                    ${raw(HtmlStringUtils.truncateHtml(excerptHtml(code: user.playerProfile.presentation, strict: true).toString(), 50))}
                                 </p>
 
                                 <div class="read-more">
-                                    <g:link mapping="recruitment_show_ad" id="${ad.id}">
-                                        en lire +
-                                    </g:link>
+                                <g:link mapping="profile" id="${user.id}" params="${[slug: user.slug]}">
+                                en lire +
+                                </g:link>
                                 </div>
                             </li>
                         </g:each>
                     </ul>
+                    %{--<ul>--}%
+                    %{--<g:each in="${RecruitingAd.findAllByType(AdType.LOOKING_FOR_TEAM_AD, [sort: 'createdAt', order: 'desc', max: 6])}"--}%
+                    %{--var="ad">--}%
+                    %{--<li class="ad">--}%
+                    %{--<div class="avatar">--}%
+                    %{--<g:img file="spash_avatar-44x45.png" alt="Avatar par defaut" />--}%
+                    %{--</div>--}%
+                    %{--<h4 class="title">${ad.title}</h4>--}%
+
+                    %{--<p class="intro">--}%
+                    %{--${raw(HtmlStringUtils.truncateHtml(excerptHtml(code: ad.message, strict: true).toString(), 50))}--}%
+                    %{--</p>--}%
+
+                    %{--<div class="read-more">--}%
+                    %{--<g:link mapping="recruitment_show_ad" id="${ad.id}">--}%
+                    %{--en lire +--}%
+                    %{--</g:link>--}%
+                    %{--</div>--}%
+                    %{--</li>--}%
+                    %{--</g:each>--}%
+                    %{--</ul>--}%
                 </div>
             </div>
         </main>

@@ -110,7 +110,16 @@ class BootStrap {
             def oli = new User(
                     username: "Oli",
                     password: 'changeit',
-                    email: 'oli@splatoon.fr'
+                    email: 'oli@splatoon.fr',
+                    playerProfile: new PlayerProfile(
+                            nintendoId: 'Olili',
+                            birthDate: LocalDate.of(1985, Month.SEPTEMBER, 10),
+                            mainWeaponCategory: MainWeaponCategory.BLASTER,
+                            alreadyInATeam: false,
+                            lookingForATeam: true,
+                            lookingForFunCompetition: true,
+                            lookingForProCompetition: true,
+                            presentation: '<p>Salut, cela <strong>2 ans</strong> que je joue a Splatoon 1 puis 2 pour le fun.</p>')
             ).save(failOnError: true)
 
             def admin = new User(

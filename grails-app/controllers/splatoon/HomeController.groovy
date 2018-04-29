@@ -10,9 +10,15 @@ class HomeController {
     TwitchService twitchService
 
     def index() {
+        def usersLookingForATeam = PlayerProfile.findAllByLookingForATeam(true, [
+                max: 6,
+                sort: 'updatedAt',
+                order: 'desc'
+        ]).collect { it.user }
         def viewModel = [
                 streams: twitchService.getTopLiveChannels(8),
-                liveEvent: TournamentEvent.getLiveEvent()
+                liveEvent: TournamentEvent.getLiveEvent(),
+                usersLookingForATeam: usersLookingForATeam
         ]
         render(view: '/index', model: viewModel)
     }

@@ -33,6 +33,10 @@
                 <dd>${me.playerProfile?.nintendoId ?: 'Inconnu'}</dd>
                 <dt><g:message code="playerProfile.availability.label"/></dt>
                 <dd>${me.playerProfile?.availability ?: 'Non specifie'}</dd>
+                <dt>Presentation</dt>
+                <dd>
+                    <g:html code="${me.playerProfile.presentation ?: ''}" />
+                </dd>
             </dl>
         </div>
 

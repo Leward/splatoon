@@ -2,6 +2,7 @@ package splatoon
 
 import groovy.transform.EqualsAndHashCode
 
+import java.time.Instant
 import java.time.LocalDate
 import java.time.Period
 import java.time.ZoneId
@@ -20,6 +21,14 @@ class PlayerProfile {
      * Description of when the player is usually available to play a game
      */
     String availability
+    /**
+     * Player presentation that is displayed in the user profile and when searching for people looking for teams.
+     */
+    String presentation
+
+    Instant createdAt = Instant.now()
+    Instant updatedAt = createdAt
+
     List<PlayerRole> roles = []
 
     static hasMany = [roles: PlayerRole]
@@ -31,6 +40,7 @@ class PlayerProfile {
         birthDate nullable: true
         mainWeaponCategory nullable: true
         availability nullable: true
+        presentation nullable: true
         user unique: true
     }
 
@@ -42,11 +52,35 @@ class PlayerProfile {
 
     static final Rank DEFAULT_RANK = Rank.C
 
+    def beforeInsert() {
+        createdAt = Instant.now()
+        updatedAt = createdAt
+    }
+
+    def beforeUpdate() {
+        updatedAt = Instant.now()
+    }
+
     Integer getAge() {
         if(birthDate == null) {
             return null
         }
         def today = LocalDate.now(ZoneId.of("Europe/Paris"))
         return Period.between(birthDate, today).getYears()
+    }
+
+    boolean isLookingForCompetition() {
+        return lookingForProCompetition || lookingForFunCompetition
+    }
+
+    Collection<String> getCompetitionTypes() {
+        def types = []
+        if(lookingForFunCompetition) {
+            types.add("Fun")
+        }
+        if(lookingForProCompetition) {
+            types.add("Pro")
+        }
+        return types
     }
 }

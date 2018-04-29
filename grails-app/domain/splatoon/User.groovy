@@ -112,4 +112,8 @@ class User {
 	PlayerProfile getPlayerProfile() {
 		return playerProfile ?: new PlayerProfile()
 	}
+
+	String getSlug() {
+		return username.trim().toLowerCase().replaceAll("[\\W]+", "-")
+	}
 }

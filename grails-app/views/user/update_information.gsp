@@ -24,18 +24,34 @@
 
     <g:form method="POST" mapping="update_information">
         <fieldset class="form">
-           <f:with bean="playerProfile">
-               <f:field property="nintendoId"/>
-               <f:field property="birthDate"/>
-               <f:field property="availability"/>
-               <f:field property="rank"/>
-               <f:field property="mainWeaponCategory"/>
-               <f:field property="roles"/>
-               <f:field property="alreadyInATeam"/>
-               <f:field property="lookingForATeam"/>
-               <f:field property="lookingForFunCompetition"/>
-               <f:field property="lookingForProCompetition"/>
-           </f:with>
+            <f:with bean="playerProfile">
+                <fieldset>
+                    <h3>General</h3>
+                    <f:field property="nintendoId"/>
+                    <f:field property="birthDate"/>
+                    <f:field property="availability"/>
+                    <f:field property="rank"/>
+                    <f:field property="presentation"/>
+                </fieldset>
+
+                <hr>
+
+                <fieldset>
+                    <h3>Type de jeu</h3>
+                    <f:field property="mainWeaponCategory"/>
+                    <f:field property="roles"/>
+                </fieldset>
+
+                <hr>
+
+                <fieldset>
+                <h3>Equipe et competition</h3>
+                <f:field property="alreadyInATeam"/>
+                <f:field property="lookingForATeam"/>
+                <f:field property="lookingForFunCompetition"/>
+                <f:field property="lookingForProCompetition"/>
+                </fieldset>
+            </f:with>
         </fieldset>
         <fieldset class="buttons">
             <g:submitButton name="create" class="save btn btn-primary full-width" value="Mettre a jour"/>
@@ -43,7 +59,6 @@
     </g:form>
 
 </g:panel>
-
 
 </body>
 </html>

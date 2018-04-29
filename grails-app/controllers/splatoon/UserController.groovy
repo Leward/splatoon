@@ -132,4 +132,11 @@ class UserController {
         redirect(action: 'index')
     }
 
+    def show(User user) {
+        if(params.slug != user.slug) {
+            redirect(mapping: 'profile', id: user.id, params: [slug: user.slug])
+        }
+        render(view: 'show', model: [user: user])
+    }
+
 }

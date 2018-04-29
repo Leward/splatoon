@@ -1,7 +1,7 @@
 package splatoon
 
 import grails.plugin.springsecurity.SpringSecurityService
-import  grails.gorm.transactions.Transactional
+import grails.gorm.transactions.Transactional
 import org.springframework.security.access.annotation.Secured
 
 import java.nio.file.AccessDeniedException
@@ -12,21 +12,30 @@ class RecruitmentController {
 
     def index() {
         def pageSize = 10
-        def searchTeamPage = params.searchTeamsPage ?: 1
-        def searchTeammatePagination = params.searchTeammatePage ?: 1
-        def searchTeamAds = RecruitingAd.findAllByType(AdType.LOOKING_FOR_TEAM_AD,
-                [offset: (searchTeamPage - 1) * pageSize, max: pageSize])
-        def searchTeammateAds = RecruitingAd.findAllByType(AdType.LOOKING_FOR_TEAMMATE_AD,
-                [offset: (searchTeammatePagination - 1) * pageSize, max: pageSize])
-        def viewModel = [searchTeamAds: searchTeamAds, searchTeammateAds: searchTeammateAds]
+        def pages = [
+                playerLookingForTeam: params.searchTeamPage ?: 1,
+                teamLookingForPlayer: params.searchTeammatePage ?: 1
+        ]
+        def queryConfig = [
+                playerLookingForTeam: [offset: (pages.playerLookingForTeam - 1) * pageSize, max: pageSize],
+                teamLookingForPlayer: [offset: (pages.teamLookingForPlayer - 1) * pageSize, max: pageSize]
+        ]
+
+        def searchTeammateAds = RecruitingAd.findAllByType(AdType.LOOKING_FOR_TEAMMATE_AD, queryConfig.teamLookingForPlayer)
+
+        def usersLookingForATeam = PlayerProfile.findAllByLookingForATeam(true, queryConfig.teamLookingForPlayer)
+                .collect { it.user }
+
+        def viewModel = [searchTeammateAds   : searchTeammateAds,
+                         usersLookingForATeam: usersLookingForATeam]
         render(view: "index", model: viewModel)
     }
 
     def show(RecruitingAd recruitingAd) {
         def viewModel = [
                 recruitingAd: recruitingAd,
-                adReply: new AdReply(),
-                replies: AdReply.findAllByAd(recruitingAd)
+                adReply     : new AdReply(),
+                replies     : AdReply.findAllByAd(recruitingAd)
         ]
         render(view: "show", model: viewModel)
     }
@@ -34,10 +43,10 @@ class RecruitmentController {
     @Secured('IS_AUTHENTICATED_FULLY')
     @Transactional
     def edit(RecruitingAd ad) {
-        if(!ad.canEdit()) {
+        if (!ad.canEdit()) {
             throw new AccessDeniedException("Vous ne pouvez pas modifier cette annonce");
         }
-        if(request.isPost()) {
+        if (request.isPost()) {
             ad.save()
             redirect(mapping: 'recruitment_show_ad', id: ad.id)
         }
@@ -47,10 +56,10 @@ class RecruitmentController {
     @Secured('IS_AUTHENTICATED_FULLY')
     @Transactional
     def delete(RecruitingAd ad) {
-        if(!ad.canDelete()) {
+        if (!ad.canDelete()) {
             throw new AccessDeniedException("Vous ne pouvez pas modifier cette annonce");
         }
-        if(request.isPost()) {
+        if (request.isPost()) {
             ad.delete()
             flash.message = "Annonce supprimée"
             redirect(mapping: 'recruitment')
@@ -69,7 +78,7 @@ class RecruitmentController {
                 redirect(mapping: 'recruitment_show_ad', id: ad.id)
             }
         }
-        render(view: "create_team_search_ad", model: [recruitingAd:ad])
+        render(view: "create_team_search_ad", model: [recruitingAd: ad])
     }
 
     @Secured('IS_AUTHENTICATED_FULLY')
@@ -84,13 +93,13 @@ class RecruitmentController {
                 redirect(mapping: 'recruitment_show_ad', id: ad.id)
             }
         }
-        render(view: "create_teammate_search_ad", model: [recruitingAd:ad])
+        render(view: "create_teammate_search_ad", model: [recruitingAd: ad])
     }
 
     @Secured('IS_AUTHENTICATED_FULLY')
     def replyToAd(AdReply adReply) {
         adReply.author = springSecurityService.currentUser as User
-        if(adReply.validate()) {
+        if (adReply.validate()) {
             adReply.save()
         }
     }
