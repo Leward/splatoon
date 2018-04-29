@@ -108,4 +108,8 @@ class User {
 //	String getNintendoId() {
 //		return playerProfile.nintendoId
 //	}
+
+	PlayerProfile getPlayerProfile() {
+		return playerProfile ?: new PlayerProfile()
+	}
 }

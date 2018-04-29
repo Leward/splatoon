@@ -20,6 +20,7 @@ class PlayerProfile {
      * Description of when the player is usually available to play a game
      */
     String availability
+    List<PlayerRole> roles = []
 
     static hasMany = [roles: PlayerRole]
 
