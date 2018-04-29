@@ -29,7 +29,7 @@ class PlayerProfile {
     Instant createdAt = Instant.now()
     Instant updatedAt = createdAt
 
-    List<PlayerRole> roles = []
+    SortedSet<PlayerRole> roles = new TreeSet<>()
 
     static hasMany = [roles: PlayerRole]
 
