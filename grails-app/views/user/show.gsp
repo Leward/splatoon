@@ -14,8 +14,6 @@
     <div class="row">
         <div class="col-sm-8 col-xs-7">
             <dl>
-                <dt>${user.username}</dt>
-                <dd>${user.playerProfile?.age ?: '?'} ans</dd>
                 <dt>Identifiant Nintendo</dt>
                 <dd>${user.playerProfile?.nintendoId ?: 'Inconnu'}</dd>
                 <dt><g:message code="playerProfile.availability.label"/></dt>
@@ -27,8 +25,20 @@
             </dl>
         </div>
 
-        <div class="col-sm-4 col-xs-5 rank">
-            ${user.playerProfile?.rank ?: PlayerProfile.DEFAULT_RANK}
+        <div class="col-sm-4 col-xs-5">
+            <g:if test="${user.avatar}">
+                <div class="avatar">
+                    <img src="${user.avatar}" alt="Avatar de ${user.username}">
+                </div>
+            </g:if>
+            <dl>
+                <dt>${user.username}</dt>
+                <dd>${user.playerProfile?.age ?: '?'} ans</dd>
+            </dl>
+            <div class="rank">
+                <strong>Rang</strong>
+                <span>${user.playerProfile?.rank ?: PlayerProfile.DEFAULT_RANK}</span>
+            </div>
         </div>
     </div>
 

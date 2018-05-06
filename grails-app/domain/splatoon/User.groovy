@@ -14,6 +14,7 @@ class User {
 	String username
 	String password
 	String email
+	String avatar
 
 	boolean enabled = true
 	boolean accountExpired
@@ -70,6 +71,7 @@ class User {
 		username blank: false, unique: true
 		email blank: false, email: true, unique: true
 		playerProfile nullable: true
+		avatar nullable: true
 	}
 
 	static mapping = {
@@ -115,5 +117,9 @@ class User {
 
 	String getSlug() {
 		return username.trim().toLowerCase().replaceAll("[\\W]+", "-")
+	}
+
+	String getAvatarName() {
+		return "avatar-${slug}"
 	}
 }

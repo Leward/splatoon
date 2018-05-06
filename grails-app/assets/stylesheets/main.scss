@@ -177,6 +177,12 @@ body {
 }
 
 .player-profile {
+  .avatar {
+    text-align: center;
+    img {
+      max-width: 80px;
+    }
+  }
   dl {
     dt {
       color: $color-header-blue;
@@ -186,14 +192,22 @@ body {
       margin-bottom: 1rem;
     }
   }
+  main > div.row > div:nth-child(2) {
+   text-align: center;
+  }
 }
 
 .card {
   .rank {
-    font-size: 74px;
+    font-size: 56px;
     font-weight: bold;
     color: $color-highlight;
     text-align: center;
+
+    strong {
+      display: block;
+      font-size: 0.5em;
+    }
   }
 }
 

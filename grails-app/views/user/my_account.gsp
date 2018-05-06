@@ -18,6 +18,7 @@
     <ul>
         <li><g:link mapping="change_password">Changer de mot de passe</g:link></li>
         <li><g:link mapping="update_information">Modifier mes informations</g:link></li>
+        <li><g:link mapping="avatar">Modifier mon avatar</g:link></li>
     </ul>
 </g:panel>
 
@@ -27,21 +28,31 @@
     <div class="row">
         <div class="col-sm-8 col-xs-7">
             <dl>
-                <dt>${me.username}</dt>
-                <dd>${me.playerProfile?.age ?: '?'} ans</dd>
                 <dt>Identifiant Nintendo</dt>
                 <dd>${me.playerProfile?.nintendoId ?: 'Inconnu'}</dd>
                 <dt><g:message code="playerProfile.availability.label"/></dt>
                 <dd>${me.playerProfile?.availability ?: 'Non specifie'}</dd>
                 <dt>Presentation</dt>
                 <dd>
-                    <g:html code="${me.playerProfile.presentation ?: ''}" />
+                    <g:html code="${me.playerProfile.presentation ?: ''}"/>
                 </dd>
             </dl>
         </div>
 
-        <div class="col-sm-4 col-xs-5 rank">
-            ${me.playerProfile?.rank ?: PlayerProfile.DEFAULT_RANK}
+        <div class="col-sm-4 col-xs-5">
+            <g:if test="${me.avatar}">
+                <div class="avatar">
+                    <img src="${me.avatar}" alt="Avatar de ${me.username}">
+                </div>
+            </g:if>
+            <dl>
+                <dt>${me.username}</dt>
+                <dd>${me.playerProfile?.age ?: '?'} ans</dd>
+            </dl>
+            <div class="rank">
+                <strong>Rang</strong>
+                <span>${me.playerProfile?.rank ?: PlayerProfile.DEFAULT_RANK}</span>
+            </div>
         </div>
     </div>
 

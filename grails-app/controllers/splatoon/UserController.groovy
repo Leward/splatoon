@@ -3,6 +3,7 @@ package splatoon
 import grails.plugin.springsecurity.SpringSecurityService
 import grails.plugin.springsecurity.authentication.encoding.BCryptPasswordEncoder
 import  grails.gorm.transactions.Transactional
+import net.coobird.thumbnailator.Thumbnails
 import org.springframework.security.access.annotation.Secured
 import org.springframework.validation.BindingResult
 
@@ -11,6 +12,7 @@ class UserController {
     SpringSecurityService springSecurityService
     BCryptPasswordEncoder passwordEncoder
     UserService userService
+    UploadService uploadService
 
     @Transactional
     def register() {
@@ -137,6 +139,36 @@ class UserController {
             redirect(mapping: 'profile', id: user.id, params: [slug: user.slug])
         }
         render(view: 'show', model: [user: user])
+    }
+
+    @Secured('IS_AUTHENTICATED_FULLY')
+    @Transactional
+    def change_avatar() {
+        def avatar = new Avatar()
+        bindData(avatar, request)
+        User me = springSecurityService.currentUser as User
+        if(request.isPost() && avatar.validate()) {
+            uploadAvatar(avatar, me)
+            me.save()
+            flash.message = "Avatar mis a jour !"
+            redirect(mapping: 'my_account')
+        }
+        render(view: 'avatar', model: [
+                me: me,
+                avatar: avatar
+        ])
+    }
+
+    private void uploadAvatar(Avatar avatar, User user) {
+        if(avatar.file != null && !avatar.file.empty) {
+            def fileName = "${user.avatarName}.${avatar.extension}"
+            def resizedImage = Thumbnails.of(avatar.file.inputStream)
+                    .size(200, 200)
+                    .keepAspectRatio(false)
+                    .asFiles([File.createTempFile('splatoon-', fileName)])[0]
+            def url = uploadService.upload(fileName, resizedImage)
+            user.avatar = url
+        }
     }
 
 }
