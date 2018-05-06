@@ -34,7 +34,12 @@
                 <g:each in="${usersLookingForATeam}" var="user">
                     <li class="ad">
                         <div class="avatar">
-                            <g:img file="spash_avatar-44x45.png" alt="Avatar par defaut"/>
+                            <g:if test="${user.avatar}">
+                                <g:img uri="${user.avatar}" alt="Avatar de ${user.username}"/>
+                            </g:if>
+                            <g:else>
+                                <g:img file="spash_avatar-44x45.png" alt="Avatar par defaut"/>
+                            </g:else>
                         </div>
                         <h4 class="title">
                             %{-- Keep g:if at the end of the line so as not to create an undesired whitespace--}%

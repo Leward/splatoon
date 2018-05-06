@@ -500,6 +500,11 @@ body {
       text-align: right;
     }
   }
+  .avatar {
+    img {
+      max-width: 45px;
+    }
+  }
 }
 
 .login-page {
