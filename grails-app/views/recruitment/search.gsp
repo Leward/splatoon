@@ -49,7 +49,11 @@
                         </g:else>
                     </div>
                 </td>
-                <td>${user.username}</td>
+                <td>
+                    <g:link mapping="profile" id="${user.id}" params="${[slug: user.slug]}">
+                        ${user.username}
+                    </g:link>
+                </td>
                 <td>${user.playerProfile.rank}</td>
                 <td>${user.playerProfile.age}</td>
                 <td>${user.playerProfile.lookingForFunCompetition ? 'X' : ''}</td>
