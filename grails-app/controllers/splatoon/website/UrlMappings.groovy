@@ -28,6 +28,7 @@ class UrlMappings {
         name "recruitment_reply_ad": "/recrutement/annonces/$id/repondre"(controller: 'adReply', action: 'create')
         name "recruitment_reply_ad_edit": "/recrutement/annonces/responses/$id/modifier"(controller: 'adReply', action: 'edit')
         name "recruitment_reply_ad_delete": "/recrutement/annonces/responses/$id/supprimer"(controller: 'adReply', action: 'delete')
+        name "recruitment_search_players": "/recrutement/recherche"(controller: 'recruitment', action: 'searchPlayers')
         name "news": "/news"(controller: 'news', action: 'list')
         name "news_show": "/news/$id"(controller: 'news', action: 'show')
         name "ladder": "/ladder"(controller: 'ladder', action: 'index')

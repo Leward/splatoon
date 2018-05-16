@@ -5,6 +5,10 @@ import grails.gorm.transactions.Transactional
 import org.springframework.security.access.annotation.Secured
 
 import java.nio.file.AccessDeniedException
+import java.time.Instant
+import java.time.LocalDate
+import java.time.ZoneId
+import java.time.temporal.TemporalUnit
 
 class RecruitmentController {
 
@@ -102,5 +106,12 @@ class RecruitmentController {
         if (adReply.validate()) {
             adReply.save()
         }
+    }
+
+    def searchPlayers(PlayerSearch playerSearch) {
+        def past = LocalDate.now(ZoneId.of("Europe/Paris")).minusYears(7)
+        def results = playerSearch.generateCriteria().list()
+        def users = results.collect { it.user }
+        render(view: "search", model: [search: playerSearch, users: users])
     }
 }

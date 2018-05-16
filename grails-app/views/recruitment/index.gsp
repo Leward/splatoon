@@ -23,7 +23,13 @@
             Je cherche une team: <g:link mapping="update_information">Indiquez-le dans votre profile joueur</g:link>
         </p>
 
-        <p><g:link mapping="recruitment_new_teammate_search">Je recrute pour une team</g:link></p>
+
+        <p>Je recrute pour une team: </p>
+        <ul>
+            <li><g:link mapping="recruitment_new_teammate_search">Je publie une annonce</g:link></li>
+            <li><g:link mapping="recruitment_search_players">Je cherche des joueurs pour mon equipe</g:link></li>
+        </ul>
+        <p></p>
     </main>
 </div>
 
