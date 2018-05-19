@@ -23,6 +23,7 @@ class PlayerSearch implements Validateable {
 
     DetachedCriteria<PlayerProfile> generateCriteria() {
         def query = PlayerProfile.where {
+            lookingForATeam == true &&
             birthDate <= LocalDate.now(ZoneId.of("Europe/Paris")).minusYears(minAge)
         }
         if(minRank != null) {
