@@ -110,7 +110,7 @@ class RecruitmentController {
 
     def searchPlayers(PlayerSearch playerSearch) {
         def past = LocalDate.now(ZoneId.of("Europe/Paris")).minusYears(7)
-        def results = playerSearch.generateCriteria().list()
+        def results = playerSearch.generateCriteria().list(sort: 'updatedAt', order: 'desc')
         def users = results.collect { it.user }
         render(view: "search", model: [search: playerSearch, users: users])
     }
