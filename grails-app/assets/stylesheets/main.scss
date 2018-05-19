@@ -505,6 +505,11 @@ body {
       max-width: 45px;
     }
   }
+  table {
+    .updated-at {
+      color: $color-light-grey;
+    }
+  }
 }
 
 .login-page {

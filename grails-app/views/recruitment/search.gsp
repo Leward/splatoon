@@ -25,10 +25,10 @@
     <table>
         <thead>
         <tr>
-            <th rowspan="2">Avatar</th>
             <th rowspan="2">Joueur</th>
             <th rowspan="2">Rang</th>
             <th rowspan="2">Age</th>
+            <th rowspan="2" class="updated-at">MaJ</th>
             <th colspan="2">Tournois</th>
         </tr>
         <tr>
@@ -41,21 +41,22 @@
             <tr>
                 <td>
                     <div class="avatar">
+                        <g:link mapping="profile" id="${user.id}" params="${[slug: user.slug]}">
                         <g:if test="${user.avatar}">
                             <g:img uri="${user.avatar}" alt="Avatar de ${user.username}"/>
                         </g:if>
                         <g:else>
                             <g:img file="spash_avatar-44x45.png" alt="Avatar par defaut"/>
                         </g:else>
-                    </div>
-                </td>
-                <td>
-                    <g:link mapping="profile" id="${user.id}" params="${[slug: user.slug]}">
                         ${user.username}
-                    </g:link>
+                        </g:link>
+                    </div>
                 </td>
                 <td>${user.playerProfile.rank}</td>
                 <td>${user.playerProfile.age}</td>
+                <td class="updated-at">
+                    <g:formatDate format="dd/MM/yyyy" date="${Date.from(user.playerProfile.updatedAt)}" />
+                </td>
                 <td>${user.playerProfile.lookingForFunCompetition ? 'X' : ''}</td>
                 <td>${user.playerProfile.lookingForProCompetition ? 'X' : ''}</td>
             </tr>

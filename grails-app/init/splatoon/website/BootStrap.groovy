@@ -95,6 +95,7 @@ class BootStrap {
                     username: "Ayo",
                     password: 'changeit',
                     email: 'ayo@splatoon.fr',
+                    avatar: 'https://s3-eu-central-1.amazonaws.com/splatoon/avatar--yayoux212.jpg',
                     playerProfile: new PlayerProfile(
                             nintendoId: 'Ayoyo',
                             birthDate: LocalDate.of(1990, Month.AUGUST, 4),
