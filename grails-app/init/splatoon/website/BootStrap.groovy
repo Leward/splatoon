@@ -123,6 +123,22 @@ class BootStrap {
                             presentation: '<p>Salut, cela <strong>2 ans</strong> que je joue a Splatoon 1 puis 2 pour le fun.</p>')
             ).save(failOnError: true)
 
+            def marina = new User(
+                    username: "Marina",
+                    password: 'changeit',
+                    email: 'marina@splatoon.fr',
+                    playerProfile: new PlayerProfile(
+                            nintendoId: 'mamarina',
+                            birthDate: LocalDate.of(1992, Month.AUGUST, 4),
+                            rank: Rank.B,
+                            mainWeaponCategory: MainWeaponCategory.ROLLER,
+                            alreadyInATeam: true,
+                            lookingForATeam: true,
+                            lookingForFunCompetition: true,
+                            lookingForProCompetition: true,
+                            presentation: '<p>Salut, c\'est moi, Marina !</p>')
+            ).save(failOnError: true)
+
             def admin = new User(
                     username: 'admin',
                     password: 'admin',
