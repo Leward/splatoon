@@ -15,7 +15,7 @@ class RecruitmentController {
     SpringSecurityService springSecurityService
 
     def index() {
-        def pageSize = 10
+        def pageSize = 5
         def pages = [
                 playerLookingForTeam: params.searchTeamPage ?: 1,
                 teamLookingForPlayer: params.searchTeammatePage ?: 1
