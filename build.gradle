@@ -63,6 +63,7 @@ dependencies {
     runtime "org.apache.tomcat:tomcat-jdbc"
     runtime 'mysql:mysql-connector-java:5.1.41'
     runtime 'com.newrelic.agent.java:newrelic-java:3.38.0'
+    runtime 'org.grails.plugins:grails-melody-plugin:1.72.0'
     compile "org.grails.plugins:newrelic:3.35.2"
     compile 'org.postgresql:postgresql:42.1.1'
     compile 'org.grails.plugins:mail:2.0.0.RC6'

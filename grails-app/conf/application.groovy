@@ -22,6 +22,11 @@ grails {
             fii {
                 rejectPublicInvocations = false
             }
+            controllerAnnotations {
+                staticRules = [
+                        [ pattern: '/monitoring', access: ['ROLE_ADMIN'] ]
+                ]
+            }
         }
     }
     mail {
