@@ -112,11 +112,23 @@ function configureTeamPerformancesChart() {
     });
 }
 
+function configureLinkToTwitchStream($) {
+    $('.streams .stream-switch a').on('click', function () {
+        var link = $(this).attr('href');
+        $('.twitch-stream').html('<iframe ' +
+            ' src="'+ link +'" ' +
+            ' frameborder="0" allowfullscreen="true" scrolling="no" ' +
+            ' "></iframe>');
+        return false;
+    });
+}
+
 $(document).ready(function () {
     configurejQueryPlugins(jQuery);
     configureCkeditor(jQuery);
     configureReadMore(jQuery);
     configureTeamPerformancesChart();
+    configureLinkToTwitchStream(jQuery);
 });
 
 // Configure polyfills

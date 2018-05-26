@@ -19,13 +19,7 @@
                         </div>
                     </g:if>
                     <g:if test="${streams.size() > 0}">
-                        <div class="twitch-stream">
-                            <iframe src="/twitch_placeholder"
-                                    id="twitch"
-                                    name="twitch"
-                                    frameborder="0"
-                                    allowfullscreen="true"
-                                    scrolling="no"></iframe>
+                        <div class="twitch-stream twitch-placeholder">
                         </div>
                     </g:if>
 

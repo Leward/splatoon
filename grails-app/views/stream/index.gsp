@@ -15,13 +15,7 @@
             </div>
         </g:if>
         <g:if test="${streams.size() > 0}">
-            <div class="twitch-stream">
-                <iframe src="/twitch_placeholder"
-                        id="twitch"
-                        name="twitch"
-                        frameborder="0"
-                        allowfullscreen="true"
-                        scrolling="no"></iframe>
+            <div class="twitch-stream twitch-placeholder">
             </div>
         </g:if>
     </main>
@@ -34,8 +28,7 @@
             <g:each in="${streams}" var="stream">
                 <li class="stream-switch col-xs-3" data-channel-name="${stream.channelName}">
                     <div class="channel-logo">
-                        <a href="https://player.twitch.tv/?autoplay=true&channel=${stream.channelName}"
-                           target="twitch">
+                        <a href="https://player.twitch.tv/?autoplay=true&channel=${stream.channelName}">
                             <g:if test="${stream.channelLogoUrl}">
                                 <img src="${stream.channelLogoUrl}" alt="${stream.channelName}"
                                      class="img-circle">
@@ -47,8 +40,7 @@
                     </div>
 
                     <div class="channel-name">
-                        <a href="https://player.twitch.tv/?autoplay=true&channel=${stream.channelName}"
-                           target="twitch">
+                        <a href="https://player.twitch.tv/?autoplay=true&channel=${stream.channelName}">
                             ${stream.channelName}
                         </a>
                     </div>
