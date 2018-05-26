@@ -74,6 +74,17 @@ dataSource {
 
 management.security.roles = 'ADMIN'
 
+splatoon {
+    // The GA analytics tag is hard coded, this only configures access to the Google Analytics API
+    analytics {
+        enabled = false
+        serviceAccount {
+            // id = '...@my-project.iam.gserviceaccount.com'
+            // jsonKey = '{}'
+        }
+    }
+}
+
 environments {
     production {
         // Environment variables injected by Heroku:

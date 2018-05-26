@@ -9,6 +9,9 @@ class HomeController {
     @Autowired
     TwitchService twitchService
 
+    @Autowired
+    AnalyticsService analyticsService
+
     def index() {
         def usersLookingForATeam = PlayerProfile.findAllByLookingForATeam(true, [
                 max: 6,
@@ -25,6 +28,9 @@ class HomeController {
 
     @Secured(['ROLE_ADMIN', 'ROLE_TO', 'ROLE_EDITOR'])
     def admin() {
-        render(view: '/admin')
+        render(view: '/admin', model: [
+                analyticsEnabled: analyticsService.isEnabled(),
+                accessToken: analyticsService.getAccessToken()
+        ])
     }
 }

@@ -78,6 +78,17 @@ To have the upload feature to work, sepcify the following environment variables:
 
 ## Others
 
+### Analytics
+
+The admin allows to view basic stats from Google Analytics. 
+In order for it to work, a [service account](https://ga-dev-tools.appspot.com/embed-api/server-side-authorization/) has to be configured. 
+
+Use the following environment variables ton configure it: 
+
+* `SPLATOON_ANALYTICS_ENABLED`
+* `SPLATOON_ANALYTICS_SERVICEACCOUNT_ID`
+* `SPLATOON_ANALYTICS_SERVICEACCOUNT_JSONKEY`
+
 ### Running with SSL over Cloudflare behind rancher loadbalancer
 
 When running with Rancher and SSL over Cloudflare, there may be issues on 
