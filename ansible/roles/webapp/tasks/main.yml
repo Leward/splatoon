@@ -48,3 +48,15 @@
     name: inkzone.service
     daemon_reload: yes
     enabled: yes
+- name: install nginx
+  apt:
+    name: nginx
+    state: present
+- name: configure nginx reverse proxy
+  template:
+    src: site-inkzone.conf.j2
+    dest: '/etc/nginx/sites-available/default'
+- name: reload nginx
+  systemd:
+    name: nginx
+    state: reloaded
