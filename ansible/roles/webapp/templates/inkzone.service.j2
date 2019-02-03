@@ -1,0 +1,15 @@
+[Unit]
+Description=Inkzone Web Application
+
+[Service]
+User={{ webapp.run_as }}
+WorkingDirectory=/home/inkzone
+ExecStart=/home/inkzone/inkzone
+SuccessExitStatus=143
+TimeoutStartSec=60
+TimeoutStopSec=10
+Restart=on-failure
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target

@@ -1,0 +1,15 @@
+---
+- name: Copy application
+  copy:
+    src: ../build/libs/splatoon-0.1.jar
+    dest: /home/inkzone
+    owner: inkzone
+- name: Copy configuration
+  template:
+    src: env_vars.j2
+    dest: /home/inkzone/env_vars
+    owner: inkzone
+    mode: 0400
+# Ansible limitation: cannot use become when sudo privileges are per command
+- name: restart application
+  command: sudo systemctl restart inkzone.service

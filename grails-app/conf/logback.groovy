@@ -41,5 +41,18 @@ if(env['GELF_OVH_TOKEN']) {
     configuredAppenders.add('GELF');
 }
 
+if(env['SPLATOON_LOG_FOLDER']) {
+    println "Log folder -> ${env['SPLATOON_LOG_FOLDER']}/inkzone.log"
+     appender('FILE', FileAppender) {
+         file = "${env['SPLATOON_LOG_FOLDER']}/inkzone.log"
+         append = true
+         encoder(PatternLayoutEncoder) {
+             charset = Charset.forName('UTF-8')
+             pattern = "%d{yyyy-MM-dd HH:mm:ss.SSS} %level %logger - %msg%n"
+         }
+     }
+    configuredAppenders.add('FILE')
+}
+
 println "Appenders: ${configuredAppenders}"
 root(INFO, configuredAppenders)

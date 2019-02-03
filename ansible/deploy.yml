@@ -1,0 +1,6 @@
+# Playbook for Ubuntu target (tested on Ubuntu 18.04)
+---
+- hosts: all
+  remote_user: inkzone
+  roles:
+  - deploy

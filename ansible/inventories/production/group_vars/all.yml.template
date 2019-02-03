@@ -1,0 +1,23 @@
+db:
+  user: inkzone
+  schema: inkzone
+  password: inkzone
+
+  webapp:
+    run_as: inkzone
+    installation_folder: "/home/inkzone"
+    env:
+        AWS_ACCESS_KEY_ID:
+        AWS_SECRET_KEY:
+        JDBC_DATABASE_URL: jdbc:postgresql://localhost:5432/${db.schema}
+        JDBC_DATABASE_USERNAME: ${db.user}
+        JDBC_DATABASE_PASSWORD: ${db.password}
+        SMTP_SERVER:
+        SMTP_PORT:
+        SMTP_LOGIN:
+        SMTP_PASSWORD:
+        SPLATOON_ANALYTICS_ENABLED: false
+        SPLATOON_ANALYTICS_SERVICEACCOUNT_ID:
+        SPLATOON_ANALYTICS_SERVICEACCOUNT_JSONKEY:
+        X-OVH-TOKEN:
+        SPLATOON_LOG_FOLDER: "/home/inkzone/logs"

@@ -1,0 +1,50 @@
+---
+- name: inkzone user
+  user:
+    name: inkzone
+    create_home: yes
+    shell: /bin/bash
+- name: inkzone sudoer
+  template:
+    src: inkzone-sudoer.j2
+    dest: '/etc/sudoers.d/inkzone-sudoer'
+    owner: root
+    group: root
+    mode: 0440
+    validate: 'bash -c "cat /etc/sudoers %s | visudo -cf-"'
+- name: add authorized ssh key for inkzone
+  authorized_key:
+    user: inkzone
+    state: present
+    key: '{{ item }}'
+  with_file:
+    - ssh/id_rsa.pub
+- name: Install dependencies
+  apt:
+    name: openjdk-8-jdk
+    state: present
+- name: Configuration file exists
+  file:
+    path: '/home/inkzone/env_vars'
+    state: touch
+    owner: inkzone
+    mode: 0400
+- name: Ensure configuration loads
+  lineinfile:
+    path: /home/inkzone/.bashrc
+    line: '. $HOME/env_vars'
+- name: copy systemd config script
+  template:
+    src: inkzone.service.j2
+    dest: "/etc/systemd/system/inkzone.service"
+- name: copy wrapper script
+  template:
+    src: inkzone.j2
+    dest: "/home/inkzone/inkzone"
+    owner: inkzone
+    mode: a+x
+- name: enable service
+  systemd:
+    name: inkzone.service
+    daemon_reload: yes
+    enabled: yes

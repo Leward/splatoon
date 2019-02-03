@@ -1,0 +1,24 @@
+- name: Install PostgreSQL
+  apt:
+    name: ['postgresql', 'postgresql-contrib', 'python-pip']
+    state: present
+
+- name: Install Python psycopg2 module
+  pip:
+    name: psycopg2-binary # needed for ansible postgres modules
+
+- name: Create inkzone DB
+  become: true
+  become_user: postgres
+  postgresql_db:
+    name: "{{db.schema}}"
+
+- name: Inkzone user
+  become: true
+  become_user: postgres
+  postgresql_user:
+    name: "{{db.user}}"
+    db: "{{db.schema}}"
+    password: "{{db.password}}"
+    encrypted: yes
+    priv: all

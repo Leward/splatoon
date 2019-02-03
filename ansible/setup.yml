@@ -1,0 +1,14 @@
+# Playbook for Ubuntu target (tested on Ubuntu 18.04)
+---
+- hosts: all
+  remote_user: root
+  gather_facts: False
+  roles:
+  - common
+
+- hosts: all
+  remote_user: root
+  roles:
+  - postgres
+  - webapp
+  - deploy
