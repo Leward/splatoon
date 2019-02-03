@@ -6,8 +6,8 @@ dist: trusty
 services:
   - docker
 before_install:
-  - openssl aes-256-cbc -K $encrypted_5880cf525281_key -iv $encrypted_5880cf525281_iv -in ansible/inventories/production/group_vars/all.yml.enc -out ansible/inventories/production/group_vars/all.yml -d
-  - openssl aes-256-cbc -K $encrypted_d1821435641c_key -iv $encrypted_d1821435641c_iv -in ansible/inventories/production/ssh/id_rsa.enc -out ansible/ssh/id_rsa -d
+  - openssl aes-256-cbc -K $encrypted_fd04893a5d6f_key -iv $encrypted_fd04893a5d6f_iv -in ansible/inventories/production/group_vars/all.yml.enc -out ansible/inventories/production/group_vars/all.yml -d
+  - openssl aes-256-cbc -K $encrypted_fd04893a5d6f_key -iv $encrypted_fd04893a5d6f_iv -in ansible/ssh/id_rsa.enc -out ansible/ssh/id_rsa -d
   - sudo apt-add-repository -y ppa:ansible/ansible
   - sudo apt update
   - sudo apt install ansible
