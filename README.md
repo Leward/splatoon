@@ -1,5 +1,4 @@
 [![Build Status](https://travis-ci.org/Leward/splatoon.svg?branch=master)](https://travis-ci.org/Leward/splatoon)
-[![Heroku](https://heroku-badge.herokuapp.com/?style=flat&app=splatoon-portal)](https://splatoon-portal.herokuapp.com/)
 
 ## Frontend dependencies
 
