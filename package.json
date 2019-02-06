@@ -5,8 +5,8 @@
   "dependencies": {
     "bootstrap-sass": "3.3.7",
     "bourbon-neat": "1.8.0",
-    "ckeditor": "4.7.2",
+    "ckeditor": "4.11.2",
     "flag-icon-css": "^2.8.0",
-    "timepicker": "1.11.11"
+    "timepicker": "1.11.14"
   }
 }
